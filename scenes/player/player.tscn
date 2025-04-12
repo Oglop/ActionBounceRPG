@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2pk2m3s2pywe"]
+
+[ext_resource type="Script" uid="uid://blgyf5auw7sxs" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://dp0l4xlkw0dn1" path="res://scripts/fsm/fsm.gd" id="3_0owmy"]
+[ext_resource type="Script" uid="uid://corj7gfdtkiwc" path="res://scripts/player/states/playerIdleState.gd" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://cqqi2ujrwkjg0" path="res://scripts/player/states/playerWalkState.gd" id="5_qek5x"]
+[ext_resource type="Script" uid="uid://dmu3tbvielyj6" path="res://scripts/player/states/playerJumpState.gd" id="6_5gtgg"]
+[ext_resource type="Script" uid="uid://b8jqe7hly7hqu" path="res://scripts/player/states/playerFallState.gd" id="7_h17s1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvxji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dovo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p47bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(10, 12)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_8afob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lvxji")
+animation = &"walk"
+frame_progress = 0.706922
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("3_0owmy")
+
+[node name="idle" type="Node" parent="FSM"]
+script = ExtResource("4_0owmy")
+
+[node name="walk" type="Node" parent="FSM"]
+script = ExtResource("5_qek5x")
+
+[node name="jump" type="Node" parent="FSM"]
+script = ExtResource("6_5gtgg")
+
+[node name="fall" type="Node" parent="FSM"]
+script = ExtResource("7_h17s1")
+
+[node name="CoyoteTimer" type="Timer" parent="FSM/fall"]
+wait_time = 0.1
+one_shot = true
+
+[node name="RightRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(2, 2)
+target_position = Vector2(10, 0)
+collision_mask = 4
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-2, 2)
+target_position = Vector2(-10, 0)
+collision_mask = 4
+
+[node name="DownRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(0, 4)
+collision_mask = 4
+
+[node name="CombatMarker2D" type="Marker2D" parent="."]
+position = Vector2(7, 2)

@@ -26,6 +26,8 @@ func physics_update(delta):
 
 
 func change_state(next_state):
+	if current_state_node != null && current_state_node.name.to_lower() == Statics.STATE_ENEMY_DIE:
+		return
 	if current_state:
 		current_state_node.exit()
 	previous_state = current_state

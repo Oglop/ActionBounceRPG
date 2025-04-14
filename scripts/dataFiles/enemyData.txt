@@ -1,0 +1,13 @@
+{
+	"jelly": {
+		"name": "Jelly",
+		"hp": 5,
+		"toughness": 1,
+		"xp": 2,
+		"attack": 3,
+		"armor": 1,
+		"crowns": 1,
+		"hurt-block":0.3,
+		"default-state": "walk"
+	}
+}

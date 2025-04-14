@@ -11,7 +11,6 @@ var f:functions = functions.new()
 var _startPosition:Vector2i
 var _downAttackBounce:float = 0
 var _bounceStrength:float = 0
-var _bounceWeak:float = 0
 var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _isDownBouncing:bool = false
@@ -106,7 +105,7 @@ func isJumpJustPressed() -> bool:
 	
 	
 func _handleCombat(collider:Node) -> bool:
-	_bounceStrength = 100
+	#_bounceStrength = 100
 	var critical:bool = f.chance(Data.critChance)
 	var enemyToughness:int
 	var enemyAttack:int
@@ -123,9 +122,13 @@ func _handleCombat(collider:Node) -> bool:
 		return false
 		
 	if collider.has_method("applyDamage"):
-		result = collider.applyDamage(5)	
+		collider.applyDamage(_getAttack())	
 	if collider.has_method("applyBounce"):
-		result = collider.applyBounce(_getEnemyBounce(enemyToughness, critical))
+		var enemyBounceDirection:int = 1
+		if collider.global_position.x > self.global_position.x:
+			enemyBounceDirection = -1
+		
+		collider.applyBounce(_getEnemyBounce(enemyToughness, critical), enemyBounceDirection)
 	
 	return true
 
@@ -138,11 +141,17 @@ func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:
 		
 	if diff <= Statics.BOUNCE_DIFF && diff  >= -Statics.BOUNCE_DIFF:
 		_bounceStrength = Statics.MEDIUM_BOUNCE
-		return Statics.MEDIUM_BOUNCE
+		return Statics.ENEMY_MEDIUM_BOUNCE
 		
 	if diff > Statics.BOUNCE_DIFF:
-		return Statics.BIG_BOUNCE
+		_bounceStrength = Statics.SMALL_BOUNCE
+		return Statics.ENEMY_BIG_BOUNCE
 		
-	return Statics.SMALL_BOUNCE
+	_bounceStrength = Statics.BIG_BOUNCE
+	return Statics.ENEMY_SMALL_BOUNCE
+	
+	
+func _getAttack() -> int:
+	return Data.lv + Data.strength
 	
 	

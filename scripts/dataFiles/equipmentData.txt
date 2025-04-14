@@ -1,0 +1,22 @@
+{
+	"short-sword": {
+		"type": "weapon",
+		"attack":1,
+		"animation":"short_sword",
+		"cost":60
+	},
+	"sandals": {
+		"type": "shoes",
+		"speed":1,
+		"jump":200,
+		"animation":"sandals",
+		"cost":10
+	},
+	"leather-shoes": {
+		"type": "shoes",
+		"speed":1,
+		"jump":200,
+		"animation":"leather_shoes",
+		"cost":80
+	}
+}

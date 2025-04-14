@@ -71,8 +71,11 @@ hit_from_inside = true
 position = Vector2(8, 8)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_vyyob")]
+script = null
 
 [node name="FlipTimer" type="Timer" parent="."]
+
+[node name="HurtTimer" type="Timer" parent="."]
 
 [node name="enemyFsm" type="Node" parent="."]
 script = ExtResource("4_hiun6")
@@ -93,3 +96,4 @@ script = ExtResource("8_cg34n")
 script = ExtResource("9_3q7ab")
 
 [connection signal="timeout" from="FlipTimer" to="." method="_on_flip_timer_timeout"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

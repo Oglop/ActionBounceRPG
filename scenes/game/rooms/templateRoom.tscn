@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://byc5wn2cjpc78"]
+[gd_scene load_steps=6 format=4 uid="uid://byc5wn2cjpc78"]
 
 [ext_resource type="PackedScene" uid="uid://d2pk2m3s2pywe" path="res://scenes/player/player.tscn" id="1_efytk"]
 [ext_resource type="PackedScene" uid="uid://bj5ob7o2sp2e4" path="res://scenes/map/backgrounds.tscn" id="2_1nnpe"]
 [ext_resource type="PackedScene" uid="uid://dmmi7hm6q2tad" path="res://scenes/handlers/partyHandler.tscn" id="2_bilvi"]
 [ext_resource type="PackedScene" uid="uid://n1rylmkek0y2" path="res://scenes/enemies/enemySmall.tscn" id="3_1nnpe"]
+[ext_resource type="PackedScene" uid="uid://dp7wovuhbqd4w" path="res://scenes/platforms/jumpThoughStairs1.tscn" id="5_bilvi"]
 
 [node name="TemplateRoom" type="Node2D"]
 
@@ -17,3 +18,6 @@ tile_map_data = PackedByteArray("AAD//wEAAAAIABEAAAAAAAEAAAAIABEAAAABAAEAAAAIABE
 
 [node name="EnemySmall" parent="." instance=ExtResource("3_1nnpe")]
 position = Vector2(80, 0)
+
+[node name="JumpThoughStairs2" parent="." instance=ExtResource("5_bilvi")]
+position = Vector2(384, -64)

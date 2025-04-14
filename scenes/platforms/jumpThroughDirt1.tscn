@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nga78w4hrt4"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_wv1x8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ciy2u"]
+size = Vector2(16, 8)
+
+[node name="JumpThroughDirt1" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_wv1x8")
+hframes = 40
+vframes = 40
+frame = 770
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 4)
+shape = SubResource("RectangleShape2D_ciy2u")
+one_way_collision = true

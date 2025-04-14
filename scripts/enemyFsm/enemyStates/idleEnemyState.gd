@@ -6,4 +6,5 @@ func enter() -> void:
 
 
 func physics_process(delta: float) -> void:
-	pass
+	object.direction = 0
+	move(delta, true)

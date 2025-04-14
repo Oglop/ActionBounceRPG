@@ -30,6 +30,6 @@ enum enemyType {
 }
 
 func enemyTypeToString(type:enemyType) -> String:
-	if type == enemyType.JELLY:
-		return "jelly"
-	return ""
+	match type:
+		enemyType.JELLY: return "jelly"
+		_: return ""

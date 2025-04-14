@@ -1,14 +1,117 @@
 extends Node
 
-var hpCurrent:int = 0
-var hpMax:int = 0
-var xp:int = 0
-var lv:int = 1
-var strength:int = 0
-var toughness:int = 0
-var critChance:int = 0
-var armor:int = 0
-var weapon:int = 0
+
+func _ready() -> void:
+	Events.connect("ADD_XP", _on_addXP)
+
+
+var levelData:Dictionary:
+	get:
+		if levelData == null || levelData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.LEVEL_DATA, FileAccess.READ)
+			levelData = JSON.parse_string(file.get_as_text())
+		return levelData
+		
+var enemyData:Dictionary:
+	get:
+		if enemyData == null || enemyData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.ENEMY_DATA, FileAccess.READ)
+			enemyData = JSON.parse_string(file.get_as_text())
+		return enemyData
+		
+var equipmentData:Dictionary:
+	get:
+		if equipmentData == null || equipmentData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.EQUIPMENT_DATA, FileAccess.READ)
+			equipmentData = JSON.parse_string(file.get_as_text())
+		return equipmentData
+
+var hpCurrent:int:
+	get:
+		if hpCurrent == null:
+			hpCurrent = 0
+		return hpCurrent
+	set(value):
+		hpCurrent = value
+		
+		
+var hpMax:int:
+	get:
+		if hpMax == null:
+			hpMax = 0
+		return hpMax
+	set(value):
+		hpMax = value
+		
+		
+var xp:int:
+	get:
+		if xp == null:
+			xp = 0
+		return xp
+	set(value):
+		xp = value
+		var next = getMaxXPAtLevel(lv)
+		if xp >= next || lv < Statics.LEVEL_MAX:
+			lv += 1
+			xp -= next
+		elif lv == Statics.LEVEL_MAX:
+			xp = 0
+			
+		
+		
+var lv:int:
+	get:
+		if lv == null:
+			lv = 1
+		return lv
+	set(value):
+		lv = value
+		
+		
+var strength:int:
+	get:
+		if strength == null:
+			strength = 0
+		return strength
+	set(value):
+		strength = value
+		
+		
+var toughness:int:
+	get:
+		if toughness == null:
+			toughness = 0
+		return toughness
+	set(value):
+		toughness = value
+	
+	
+var critChance:int:
+	get:
+		if critChance == null:
+			critChance = 0
+		return critChance
+	set(value):
+		critChance = value
+		
+		
+var armor:int :
+	get:
+		if armor == null:
+			armor = 0
+		return armor
+	set(value):
+		armor = value
+		
+		
+var _weapon:Weapon :
+	get:
+		if _weapon == null:
+			_weapon = Weapon.new()
+		return _weapon
+	set(value):
+		_weapon = value
 
 
 var playerDirections:Array:
@@ -19,6 +122,7 @@ var playerDirections:Array:
 		return playerDirections
 	set(value):
 		playerDirections = value
+			
 			
 var playerPositions:Array :
 	get:
@@ -32,3 +136,9 @@ var playerPositions:Array :
 		
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
 var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
+
+func _on_addXP(value:int) -> void:
+	xp += value
+	
+func getMaxXPAtLevel(level:int) -> int:
+	return levelData[str(lv)]["need"]

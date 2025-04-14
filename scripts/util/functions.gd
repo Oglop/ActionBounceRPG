@@ -20,11 +20,21 @@ func plusOneLimit(value: int, maximum: int) -> int:
 	if value + 1 > maximum:
 		return maximum
 	return value + 1
+	
+func plusLimit(value:int, add:int, maximum:int) -> int:
+	if value + add > maximum:
+		return maximum
+	return value + add
 
 func minusOneLimit(value: int, minimum: int) -> int:
 	if value - 1 < minimum:
 		return minimum
 	return value - 1
+	
+func minusLimit(value:int, minus:int, minimum:int) -> int:
+	if value - minus < minimum:
+		return minimum
+	return value - minus
 
 func chance(test: int) -> bool:
 	var value = rng.randi_range(0, 100)
@@ -32,7 +42,7 @@ func chance(test: int) -> bool:
 		return true
 	return false
 	
-func randomNumberInRange(from:int, to:int) -> int:
+func randomIntInRange(from:int, to:int) -> int:
 	return rng.randi_range(from, to)
 	
 func getRandomStringFromArray(arr:Array) -> String:

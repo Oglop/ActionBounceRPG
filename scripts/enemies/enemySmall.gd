@@ -6,67 +6,99 @@ extends CharacterBody2D
 @onready var groundCheck = $GroundRayCast2D
 @onready var bullerSpawner = $BulletSpawnerMarker2D
 @onready var flipTimer = $FlipTimer
+@onready var hurtTimer = $HurtTimer
 @onready var enemyFsm = $enemyFsm
+var enemyStats:enemyStatsBase = enemyStatsBase.new()
+var f:functions = functions.new()
+
 
 var _type:Enums.enemyType
-var _maxHp:int
-var _hp:int
-var _toughness:int
-var _attack:int
-var _armor:int
+var _maxHp:int = 0
+var _hp:int = 0
+var _toughness:int = 0
+var _attack:int = 0
+var _armor:int = 0
+var _xpGain:int = 0
+var _crownsGain:int = 0
+var _defaultState:String = ""
+var _hurtBlock:float = 0.2
+var _bounceStrength:float = 0
+var _bouncingLeft:bool = false
+var _bouncingRight:bool = false
 
 var direction:int = -1
 var flipBlocked:bool = false
+var hurtBlocked:bool = false
+
 
 func _ready() -> void:
 	enemyFsm.change_state(Statics.STATE_ENEMY_WALK)
+	var type = Enums.enemyType.JELLY
+	_maxHp = enemyStats.getMaxHp(type)
+	_hp = _maxHp
+	_toughness = enemyStats.getToughness(type)
+	_attack = enemyStats.getAttack(type)
+	_armor = enemyStats.getArmor(type)
+	_xpGain = enemyStats.getXpGain(type)
+	_crownsGain = enemyStats.getCrownsGain(type)
+	_hurtBlock = enemyStats.getHurtBlock(type)
+	
 	
 	
 func setProperties(type:Enums.enemyType, startingPosition:Vector2i) -> void:
+	self.global_position = startingPosition
 	_type = type
-	_maxHp = 10
-	_hp = 10
-	_toughness = 10
-	_attack = 12
-	_armor = 1
+	
+	_maxHp = enemyStats.getMaxHp(type)
+	_hp = _maxHp
+	_toughness = enemyStats.getToughness(type)
+	_attack = enemyStats.getAttack(type)
+	_armor = enemyStats.getArmor(type)
+	_xpGain = enemyStats.getXpGain(type)
+	
 	
 func getToughness() -> int:
-	return _toughness
+	return _toughness + f.randomIntInRange(0,2)
+	
 	
 func getAttack() -> int:
-	return _attack
+	return _attack + f.randomIntInRange(0,2)
+	
 	
 func getArmor() -> int:
 	return _armor
 	
-func applyDamage(value:int) -> int:
-	return 0
+	
+func applyDamage(value:int) -> void:
+	if !hurtBlocked:
+		
+		_hp = f.minusLimit(_hp, value, 0)
+		if _hp <= 0:
+			enemyFsm.change_state(Statics.STATE_ENEMY_DIE)
+			
 
-func applyBounce(value:int) -> void:
-	enemyFsm.change_state("bounce")
+func _blockHurt() -> void:
+	hurtBlocked = true
+	hurtTimer.start(0.8)
+	
+
+func applyBounce(value:int, direction:int) -> void:
+	if !hurtBlocked:
+		_blockHurt()
+		_bounceStrength = value
+		if direction < 0:
+			_bouncingRight = true
+		else:
+			_bouncingLeft = true
+		enemyFsm.change_state(Statics.STATE_ENEMY_BOUNCE)
 
 func _physics_process(delta: float) -> void:
 	enemyFsm.physics_update(delta)
-	#var speed:int = 50
-	#if !is_on_floor():
-	#	velocity.y += Statics.GRAVITY * delta
-	#	speed = 0
-	
-	#if direction == 1:
-	#	groundCheck.position = Vector2i(15,15)
-	#else:
-	#	groundCheck.position = Vector2i(1,15)
-	
-	# if !groundCheck.is_colliding() && !flipBlocked:
-	# 	sprite.flip_h = direction > 0
-	# 	direction *= -1
-	# 	flipBlocked = true
-	# 	flipTimer.start(0.2)
-		
-	#else:
-	#	velocity.x = direction * speed
-	#move_and_slide()
 
 
 func _on_flip_timer_timeout() -> void:
 	flipBlocked = false
+
+
+func _on_hurt_timer_timeout() -> void:
+	hurtBlocked = false

@@ -1,4 +1,4 @@
-class_name character
+class_name Character
 
 var _id:String
 var _name:String

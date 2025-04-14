@@ -2,6 +2,10 @@ extends Node
 
 const ROOM_TEMPLATE:String = "res://scenes/game/rooms/templateRoom.tscn"
 
+const LEVEL_DATA:String = "res://scripts/dataFiles/levelData.txt"
+const ENEMY_DATA:String = "res://scripts/dataFiles/enemyData.txt"
+const EQUIPMENT_DATA:String = "res://scripts/dataFiles/equipmentData.txt"
+const LEVEL_MAX:int = 3
 const TAIL_SIZE:int = 40
 
 const GRAVITY:int = 900
@@ -30,3 +34,13 @@ const CRITICAL_BOUNCE_BONUS:int = 10
 const SMALL_BOUNCE:int = 60
 const MEDIUM_BOUNCE:int = 100
 const BIG_BOUNCE:int = 140
+
+const ENEMY_SMALL_BOUNCE:int = 100
+const ENEMY_MEDIUM_BOUNCE:int = 200
+const ENEMY_BIG_BOUNCE:int = 300
+
+const SWORD_DAGGER:String = "dagger"
+const SWORD_SHORT_SWORD:String = "short-sword"
+
+const SHOES_SANDALS:String = "sandals"
+const SHOES_LEATHER_SHOES:String = "leather-shoes"

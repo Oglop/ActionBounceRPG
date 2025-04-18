@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1t1um4hs38o1"]
+
+[ext_resource type="Script" uid="uid://6th2dulc4gfc" path="res://scripts/player/healthBar.gd" id="1_7ndmj"]
+[ext_resource type="FontFile" uid="uid://c3crl80aptf24" path="res://media/fonts/Minecraftchmc-dBlX.ttf" id="3_8mdjo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24e0f"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ndmj"]
+bg_color = Color(0.968627, 0.345098, 0.141176, 1)
+
+[node name="HealthBar" type="ProgressBar"]
+offset_left = 18.0
+offset_right = 118.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_24e0f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ndmj")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+script = ExtResource("1_7ndmj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("3_8mdjo")
+text = "000"

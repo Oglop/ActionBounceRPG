@@ -48,10 +48,22 @@ func _updateTrail() -> void:
 	
 func _physics_process(delta: float) -> void:
 	fsm.physics_update(delta)
+	_setEnemyCheckerPositionAndDirection()
 	_checkforCollisions()
 	_processBounce(delta)
 	_resetBounce()
 	_updateTrail()
+	
+func _setEnemyCheckerPositionAndDirection() -> void:
+	#rightCheck.scale.x = direction
+	rightCheck.target_position = Vector2(12 * direction, 0)
+	
+	#leftCheck.target_position = Vector2((12 * direction) * - 1, 0)
+	# if direction == --1:
+	# 	leftCheck.rotation = deg_to_rad(90)
+	# elif direction == 1:
+	# 	leftCheck.rotation = deg_to_rad(0)
+	# leftCheck.rotation = deg_to_rad(180)
 
 func _checkforCollisions():
 	var collider:Object
@@ -59,9 +71,9 @@ func _checkforCollisions():
 		_bouncingLeft = true
 		collider = rightCheck.get_collider()
 		
-	elif leftCheck.is_colliding() == true:
-		_bouncingRight = true
-		collider = leftCheck.get_collider()
+	# elif leftCheck.is_colliding() == true:
+	# 	_bouncingRight = true
+	# 	collider = leftCheck.get_collider()
 		
 	if downcheck.is_colliding() == true && _downAttackBounce == 0:
 		_isDownBouncing = true

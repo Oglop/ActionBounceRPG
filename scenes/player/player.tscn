@@ -87,13 +87,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="RightRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(2, 2)
-target_position = Vector2(10, 0)
-collision_mask = 4
-
-[node name="LeftRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-2, 2)
-target_position = Vector2(-10, 0)
+position = Vector2(0, 2)
+target_position = Vector2(12, 0)
 collision_mask = 4
 
 [node name="DownRayCast2D" type="RayCast2D" parent="."]

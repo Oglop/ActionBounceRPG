@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var downcheck:RayCast2D = $DownRayCast2D
 @onready var combatMarker:Marker2D = $CombatMarker2D
 var f:functions = functions.new()
+var s:skills = skills.new()
+
 
 var _startPosition:Vector2i
 var _downAttackBounce:float = 0
@@ -25,6 +27,7 @@ var direction:int :
 
 func setStartPosition(startPosition:Vector2i) -> void:
 	_startPosition = startPosition
+
 
 
 func _ready() -> void:

@@ -55,15 +55,10 @@ func _physics_process(delta: float) -> void:
 	_updateTrail()
 	
 func _setEnemyCheckerPositionAndDirection() -> void:
-	#rightCheck.scale.x = direction
+	if direction == 0 || direction == null:
+		rightCheck.target_position = Vector2(12 * 1, 0)
+		return
 	rightCheck.target_position = Vector2(12 * direction, 0)
-	
-	#leftCheck.target_position = Vector2((12 * direction) * - 1, 0)
-	# if direction == --1:
-	# 	leftCheck.rotation = deg_to_rad(90)
-	# elif direction == 1:
-	# 	leftCheck.rotation = deg_to_rad(0)
-	# leftCheck.rotation = deg_to_rad(180)
 
 func _checkforCollisions():
 	var collider:Object
@@ -81,7 +76,7 @@ func _checkforCollisions():
 		
 	if collider != null:
 		if collider is Node && collider.is_in_group("enemy-small"):
-			_handleCombat(collider)
+			_handleCombat(collider, downcheck.get_collision_point())
 			
 func _processBounce(delta):
 	if !_bouncingLeft && !_bouncingRight:
@@ -116,7 +111,7 @@ func isJumpJustPressed() -> bool:
 	return Input.is_action_just_pressed("btn_jump")
 	
 	
-func _handleCombat(collider:Node) -> bool:
+func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 	#_bounceStrength = 100
 	var critical:bool = f.chance(Data.critChance)
 	var enemyToughness:int
@@ -141,7 +136,7 @@ func _handleCombat(collider:Node) -> bool:
 			enemyBounceDirection = -1
 		
 		collider.applyBounce(_getEnemyBounce(enemyToughness, critical), enemyBounceDirection)
-	
+	Events.FX_WEAK_HIT.emit(collisionPoint, direction)
 	return true
 
 

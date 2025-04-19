@@ -25,9 +25,26 @@ enum playerState {
 	GO_THROUGH_DOOR
 }
 
+enum spawnType {
+	FX_WEAK_HIT,
+	ENEMY_SMALL,
+	TAIL
+}
+
+
+
 enum enemyType {
 	JELLY
 }
+
+func tailTypeToString(type:tailType) -> String:
+	match type:
+		tailType.POOCH: return "pooch"
+		tailType.WIZARD: return "wizard"
+		tailType.THIEF: return "thief"
+		tailType.ELF: return "elf"
+		_: return ""
+	
 
 func enemyTypeToString(type:enemyType) -> String:
 	match type:

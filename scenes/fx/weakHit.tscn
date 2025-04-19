@@ -25,3 +25,5 @@ scale_amount_curve = SubResource("Curve_ddi73")
 color = Color(0.603922, 1, 1, 1)
 hue_variation_min = 0.32
 hue_variation_max = 1.0
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

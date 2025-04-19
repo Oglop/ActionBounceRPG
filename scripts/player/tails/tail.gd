@@ -38,15 +38,8 @@ func numberToTailPosition(number:int) -> int:
 	return 39
 	
 func _getAnimation(tailType:Enums.tailType) -> String:
-	var prefix:String = ""
-	
-	if tailType == Enums.tailType.POOCH:
-		prefix = "pooch"
-	elif tailType == Enums.tailType.WIZARD:
-		prefix = "wizard"
-		
+	var prefix:String = Enums.tailTypeToString(tailType)
 	var postfix = _stateToAnimationString()
-	
 	return prefix + "_" + postfix
 	
 func _stateToAnimationString() -> String:

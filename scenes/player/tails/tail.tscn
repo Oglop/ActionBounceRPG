@@ -1,7 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwodekd86e5il"]
+[gd_scene load_steps=30 format=3 uid="uid://bwodekd86e5il"]
 
 [ext_resource type="Script" uid="uid://k7m5a8gatllk" path="res://scripts/player/tails/tail.gd" id="1_tln2t"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_w12jk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jwne"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rko7e"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubyhr"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6wm3"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne8d2"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2bgm"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(64, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yar28"]
 atlas = ExtResource("2_w12jk")
@@ -31,6 +55,30 @@ region = Rect2(64, 144, 16, 16)
 atlas = ExtResource("2_w12jk")
 region = Rect2(48, 144, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu45"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(80, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swbfm"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(16, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enonf"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(32, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18cno"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(64, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmaep"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(16, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xytdq"]
+atlas = ExtResource("2_w12jk")
+region = Rect2(48, 160, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc67l"]
 atlas = ExtResource("2_w12jk")
 region = Rect2(80, 112, 16, 16)
@@ -57,6 +105,42 @@ region = Rect2(64, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5gvbu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jwne")
+}],
+"loop": true,
+"name": &"elf_air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rko7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubyhr")
+}],
+"loop": true,
+"name": &"elf_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6wm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne8d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6wm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2bgm")
+}],
+"loop": true,
+"name": &"elf_walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yar28")
@@ -91,6 +175,42 @@ animations = [{
 }],
 "loop": true,
 "name": &"pooch_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhu45")
+}],
+"loop": true,
+"name": &"thief_air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swbfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enonf")
+}],
+"loop": true,
+"name": &"thief_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18cno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmaep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xytdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmaep")
+}],
+"loop": true,
+"name": &"thief_walk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -138,7 +258,8 @@ script = ExtResource("1_tln2t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5gvbu")
-animation = &"wizard_idle"
+animation = &"elf_walk"
+frame_progress = 0.178316
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 2)

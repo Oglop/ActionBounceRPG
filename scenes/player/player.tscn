@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2pk2m3s2pywe"]
+[gd_scene load_steps=15 format=3 uid="uid://d2pk2m3s2pywe"]
 
 [ext_resource type="Script" uid="uid://blgyf5auw7sxs" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_dovo2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cqqi2ujrwkjg0" path="res://scripts/player/states/playerWalkState.gd" id="5_qek5x"]
 [ext_resource type="Script" uid="uid://dmu3tbvielyj6" path="res://scripts/player/states/playerJumpState.gd" id="6_5gtgg"]
 [ext_resource type="Script" uid="uid://b8jqe7hly7hqu" path="res://scripts/player/states/playerFallState.gd" id="7_h17s1"]
+[ext_resource type="PackedScene" uid="uid://ctc8uhgqb0bie" path="res://scenes/player/shield.tscn" id="8_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://ccjn01fu5qu2v" path="res://scenes/player/sword.tscn" id="9_h17s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("2_dovo2")
@@ -97,4 +99,11 @@ target_position = Vector2(0, 4)
 collision_mask = 4
 
 [node name="CombatMarker2D" type="Marker2D" parent="."]
-position = Vector2(7, 2)
+position = Vector2(8, 2)
+
+[node name="Shield" parent="." instance=ExtResource("8_5gtgg")]
+position = Vector2(0, 2)
+
+[node name="Sword" parent="." instance=ExtResource("9_h17s1")]
+position = Vector2(-6, -1)
+animation = &"short"

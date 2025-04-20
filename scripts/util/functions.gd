@@ -42,6 +42,16 @@ func chance(test: int) -> bool:
 		return true
 	return false
 	
+func boolToInt(value:bool) -> int:
+	if value:
+		return 1
+	return 0
+	
+func intToBool(value:int) -> bool:
+	if value > 0:
+		return true
+	return false
+	
 func randomIntInRange(from:int, to:int) -> int:
 	return rng.randi_range(from, to)
 	

@@ -7,7 +7,6 @@ extends Node2D
 var _number:int
 var _direction:int
 var _type:Enums.tailType
-var _previousPosition:Vector2
 
 
 func _ready() -> void:
@@ -20,8 +19,6 @@ func _physics_process(delta: float) -> void:
 	_direction = Data.playerDirections[i]
 	sprite.flip_h = _direction < 0
 	sprite.play(_getAnimation(_type))
-	_previousPosition = global_position
-	
 	
 	
 func setProperties(number:int, type:Enums.tailType) -> void:
@@ -45,7 +42,8 @@ func _getAnimation(tailType:Enums.tailType) -> String:
 func _stateToAnimationString() -> String:
 	if !isOnFloor():
 		return "air"
-	if _previousPosition.x == global_position.x:
+
+	if Data.playerPositions[numberToTailPosition(_number)].x == global_position.x:
 		return "idle"
 	return "walk"
 	

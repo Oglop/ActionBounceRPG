@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c457nkb7ayhq"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_6h6mu"]
+[ext_resource type="Script" uid="uid://b664bsw23n4ea" path="res://scripts/fx/playerAttack.gd" id="2_145kx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_145kx"]
+atlas = ExtResource("1_6h6mu")
+region = Rect2(288, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjara"]
+atlas = ExtResource("1_6h6mu")
+region = Rect2(320, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en01c"]
+atlas = ExtResource("1_6h6mu")
+region = Rect2(352, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8b41j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_145kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjara")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en01c")
+}],
+"loop": true,
+"name": &"short",
+"speed": 5.0
+}]
+
+[node name="PlayerAttack" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8b41j")
+animation = &"short"
+script = ExtResource("2_145kx")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

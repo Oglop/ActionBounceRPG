@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var rightCheck:RayCast2D = $RightRayCast2D
 @onready var downcheck:RayCast2D = $DownRayCast2D
 @onready var combatMarker:Marker2D = $CombatMarker2D
+@onready var shield:AnimatedSprite2D = $Shield
+@onready var sword:AnimatedSprite2D = $Sword
 var f:functions = functions.new()
 var s:skills = skills.new()
 
@@ -56,6 +58,19 @@ func _physics_process(delta: float) -> void:
 	_processBounce(delta)
 	_resetBounce()
 	_updateTrail()
+	_setSwordAndShieldPositionAndDirection()
+	
+	
+func _setSwordAndShieldPositionAndDirection() -> void:
+	if direction < 0:
+		sword.scale.x = -1
+		sword.position = Vector2(5, -1)
+		shield.scale.x = -1
+	else:
+		sword.scale.x = 1
+		sword.position = Vector2(-6, -1)
+		shield.scale.x = 1
+		
 	
 func _setEnemyCheckerPositionAndDirection() -> void:
 	if direction == 0 || direction == null:
@@ -65,21 +80,22 @@ func _setEnemyCheckerPositionAndDirection() -> void:
 
 func _checkforCollisions():
 	var collider:Object
+	var collisionPosition:Vector2
 	if rightCheck.is_colliding() == true:
+		collisionPosition = rightCheck.get_collision_point()
 		_bouncingLeft = true
 		collider = rightCheck.get_collider()
-		
-	# elif leftCheck.is_colliding() == true:
-	# 	_bouncingRight = true
-	# 	collider = leftCheck.get_collider()
 		
 	if downcheck.is_colliding() == true && _downAttackBounce == 0:
 		_isDownBouncing = true
 		_downAttackBounce = 300
 		
 	if collider != null:
+		if collisionPosition == null:
+			collisionPosition = self.global_position
 		if collider is Node && collider.is_in_group("enemy-small"):
-			_handleCombat(collider, downcheck.get_collision_point())
+			_handleCombat(collider, collisionPosition)
+			
 			
 func _processBounce(delta):
 	if !_bouncingLeft && !_bouncingRight:
@@ -106,6 +122,7 @@ func _resetBounce() -> void:
 		_bouncingLeft = false
 		_bouncingRight = false
 
+
 func getInputX() -> float:
 	return Input.get_axis("btn_left", "btn_right")
 	
@@ -115,7 +132,6 @@ func isJumpJustPressed() -> bool:
 	
 	
 func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
-	#_bounceStrength = 100
 	var critical:bool = f.chance(Data.critChance)
 	var enemyToughness:int
 	var enemyAttack:int
@@ -132,14 +148,15 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		return false
 		
 	if collider.has_method("applyDamage"):
-		collider.applyDamage(_getAttack())	
+		collider.applyDamage(_getAttack())
+		Events.FX_WEAK_HIT.emit(combatMarker.global_position, direction)
 	if collider.has_method("applyBounce"):
 		var enemyBounceDirection:int = 1
 		if collider.global_position.x > self.global_position.x:
 			enemyBounceDirection = -1
 		
 		collider.applyBounce(_getEnemyBounce(enemyToughness, critical), enemyBounceDirection)
-	Events.FX_WEAK_HIT.emit(collisionPoint, direction)
+	
 	return true
 
 

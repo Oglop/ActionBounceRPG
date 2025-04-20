@@ -96,22 +96,31 @@ var critChance:int:
 		critChance = value
 		
 		
-var armor:int :
+var armor:Enums.armors:
 	get:
 		if armor == null:
-			armor = 0
+			armor = Enums.armors.NONE
 		return armor
 	set(value):
 		armor = value
 		
 		
-var _weapon:Weapon :
+var weapon:Enums.weapons:
 	get:
-		if _weapon == null:
-			_weapon = Weapon.new()
-		return _weapon
+		if weapon == null:
+			weapon = Enums.weapons.NONE
+		return weapon
 	set(value):
-		_weapon = value
+		weapon = value
+		
+
+var shield:Enums.shields:
+	get:
+		if shield == null:
+			shield = Enums.shields.NONE
+		return shield
+	set(value):
+		shield = value
 
 
 var playerDirections:Array:

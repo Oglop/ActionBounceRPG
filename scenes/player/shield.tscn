@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctc8uhgqb0bie"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_q3hpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsl6d"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m61gp"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6x5r"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h12n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsl6d")
+}],
+"loop": true,
+"name": &"knight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m61gp")
+}],
+"loop": true,
+"name": &"magic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6x5r")
+}],
+"loop": true,
+"name": &"round",
+"speed": 5.0
+}]
+
+[node name="Shield" type="AnimatedSprite2D"]
+position = Vector2(-4, -1)
+sprite_frames = SubResource("SpriteFrames_3h12n")
+animation = &"round"

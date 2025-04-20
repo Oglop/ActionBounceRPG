@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Travlerworld"
 run/main_scene="uid://c8aw1jcif7l65"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="save_data"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

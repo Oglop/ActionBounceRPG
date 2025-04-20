@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccjn01fu5qu2v"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_nfjcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciu6k"]
+atlas = ExtResource("1_nfjcn")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy4gt"]
+atlas = ExtResource("1_nfjcn")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10bcj"]
+atlas = ExtResource("1_nfjcn")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ldvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciu6k")
+}],
+"loop": true,
+"name": &"knight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy4gt")
+}],
+"loop": true,
+"name": &"short",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10bcj")
+}],
+"loop": true,
+"name": &"slayer",
+"speed": 5.0
+}]
+
+[node name="Sword" type="AnimatedSprite2D"]
+position = Vector2(-1, -4)
+sprite_frames = SubResource("SpriteFrames_5ldvu")
+animation = &"slayer"

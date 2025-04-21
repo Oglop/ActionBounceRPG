@@ -28,7 +28,8 @@ enum playerState {
 enum spawnType {
 	FX_WEAK_HIT,
 	ENEMY_SMALL,
-	TAIL
+	TAIL,
+	DOOR,
 }
 
 

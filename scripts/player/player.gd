@@ -33,12 +33,16 @@ func setStartPosition(startPosition:Vector2i) -> void:
 
 
 func _ready() -> void:
+	Events.connect("PLAYER_MOVE_TO", _on_playerMoveTo)
 	fsm.change_state(Statics.STATE_IDLE)
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerPositions[n] = self.global_position
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerDirections[n] = direction
 	
+func _on_playerMoveTo(position:Vector2i) -> void:
+	global_position = position
+	_updateTrail()
 	
 
 func _updateTrail() -> void:

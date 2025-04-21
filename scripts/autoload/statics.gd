@@ -5,6 +5,7 @@ const ROOM_TEMPLATE:String = "res://scenes/game/rooms/templateRoom.tscn"
 const LEVEL_DATA:String = "res://scripts/dataFiles/levelData.txt"
 const ENEMY_DATA:String = "res://scripts/dataFiles/enemyData.txt"
 const EQUIPMENT_DATA:String = "res://scripts/dataFiles/equipmentData.txt"
+const ROOM_DATA:String = "res://scripts/dataFiles/roomData.txt"
 const LEVEL_MAX:int = 3
 const TAIL_SIZE:int = 40
 

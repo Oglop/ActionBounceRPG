@@ -8,3 +8,7 @@ signal FX_PLAYER_ATTACK
 
 signal DATA_LOAD_SLOT
 signal DATA_SAVE_SLOT
+
+signal ROOM_LOAD
+signal ROOM_CLEAR
+signal PLAYER_MOVE_TO

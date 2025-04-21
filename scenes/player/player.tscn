@@ -53,8 +53,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(10, 12)
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 10
+collision_mask = 10
 script = ExtResource("1_8afob")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -101,7 +102,7 @@ collision_mask = 4
 [node name="CombatMarker2D" type="Marker2D" parent="."]
 position = Vector2(8, 2)
 
-[node name="Shield" parent="." instance=ExtResource("8_5gtgg")]
+[node name="Shield" parent="." groups=["player"] instance=ExtResource("8_5gtgg")]
 position = Vector2(0, 2)
 
 [node name="Sword" parent="." instance=ExtResource("9_h17s1")]

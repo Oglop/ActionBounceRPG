@@ -254,6 +254,7 @@ animations = [{
 size = Vector2(9, 2)
 
 [node name="Tail" type="Node2D"]
+z_index = 9
 script = ExtResource("1_tln2t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -38,7 +38,8 @@ enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/script-id
 [global_group]
 
 enemy-small="Small enemies"
-enemy-medium="Medium size enemy"
+enemy="Medium size enemy"
+player="playerNode"
 
 [input]
 
@@ -72,6 +73,7 @@ btn_jump={
 2d_physics/layer_1="player"
 2d_physics/layer_2="ground"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="platforms"
 
 [rendering]
 

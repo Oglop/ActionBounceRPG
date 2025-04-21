@@ -12,6 +12,7 @@ var levelData:Dictionary:
 			levelData = JSON.parse_string(file.get_as_text())
 		return levelData
 		
+		
 var enemyData:Dictionary:
 	get:
 		if enemyData == null || enemyData.size() == 0:
@@ -19,12 +20,22 @@ var enemyData:Dictionary:
 			enemyData = JSON.parse_string(file.get_as_text())
 		return enemyData
 		
+		
 var equipmentData:Dictionary:
 	get:
 		if equipmentData == null || equipmentData.size() == 0:
 			var file:FileAccess = FileAccess.open(Statics.EQUIPMENT_DATA, FileAccess.READ)
 			equipmentData = JSON.parse_string(file.get_as_text())
 		return equipmentData
+		
+		
+var roomData:Dictionary:
+	get:
+		if roomData == null || roomData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.ROOM_DATA, FileAccess.READ)
+			roomData = JSON.parse_string(file.get_as_text())
+		return roomData
+		
 
 var hpCurrent:int:
 	get:

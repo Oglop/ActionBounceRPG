@@ -1,0 +1,7 @@
+{
+	"start-npc-1": {
+		"animation": "",
+		"type":"",
+		"quest-id":"",
+	} 
+}

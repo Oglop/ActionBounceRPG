@@ -11,8 +11,9 @@ extends CharacterBody2D
 var enemyStats:enemyStatsBase = enemyStatsBase.new()
 var f:functions = functions.new()
 
-
+var _id:String
 var _type:Enums.enemyType
+var _name:String
 var _maxHp:int = 0
 var _hp:int = 0
 var _toughness:int = 0
@@ -20,7 +21,6 @@ var _attack:int = 0
 var _armor:int = 0
 var _xpGain:int = 0
 var _crownsGain:int = 0
-var _defaultState:String = ""
 var _hurtBlock:float = 0.2
 var _bounceStrength:float = 0
 var _bouncingLeft:bool = false
@@ -32,30 +32,24 @@ var hurtBlocked:bool = false
 
 
 func _ready() -> void:
-	enemyFsm.change_state(Statics.STATE_ENEMY_WALK)
-	var type = Enums.enemyType.JELLY
-	_maxHp = enemyStats.getMaxHp(type)
+	pass
+	
+
+func setProperties(name:String) -> void:
+	var props = Data.enemyData[name]
+	_id = f.generateObjectId()
+	_type = Enums.stringToEnemyType(props["type"])
+	_name = props["name"]
+	_maxHp = props["hp"]
 	_hp = _maxHp
-	_toughness = enemyStats.getToughness(type)
-	_attack = enemyStats.getAttack(type)
-	_armor = enemyStats.getArmor(type)
-	_xpGain = enemyStats.getXpGain(type)
-	_crownsGain = enemyStats.getCrownsGain(type)
-	_hurtBlock = enemyStats.getHurtBlock(type)
-	
-	
-	
-func setProperties(type:Enums.enemyType, startingPosition:Vector2i) -> void:
-	self.global_position = startingPosition
-	_type = type
-	
-	_maxHp = enemyStats.getMaxHp(type)
-	_hp = _maxHp
-	_toughness = enemyStats.getToughness(type)
-	_attack = enemyStats.getAttack(type)
-	_armor = enemyStats.getArmor(type)
-	_xpGain = enemyStats.getXpGain(type)
-	
+	_toughness = props["toughness"]
+	_attack = props["attack"]
+	_armor = props["armor"]
+	_xpGain = props["xp"]
+	_crownsGain = props["crowns"]
+	_hurtBlock = props["hurt-block"]
+	enemyFsm.change_state(props["default-state"])
+
 	
 func getToughness() -> int:
 	return _toughness + f.randomIntInRange(0,2)

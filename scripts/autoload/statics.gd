@@ -6,6 +6,7 @@ const LEVEL_DATA:String = "res://scripts/dataFiles/levelData.txt"
 const ENEMY_DATA:String = "res://scripts/dataFiles/enemyData.txt"
 const EQUIPMENT_DATA:String = "res://scripts/dataFiles/equipmentData.txt"
 const ROOM_DATA:String = "res://scripts/dataFiles/roomData.txt"
+const NPC_DATA:String = "res://scripts/dataFiles/npcData.txt"
 const LEVEL_MAX:int = 3
 const TAIL_SIZE:int = 40
 
@@ -29,6 +30,9 @@ const STATE_ENEMY_AIR:String = "airenemystate"
 const STATE_ENEMY_DIE:String = "dieenemystate"
 const STATE_ENEMY_WALK:String = "walkenemystate"
 const STATE_ENEMY_BOUNCE:String = "bounceenemystate"
+
+const PLATFORM_PUSHABLE_BLOCK:String = "pushable-block"
+const PLATFORM_STAIRS:String = "stairs"
 
 const BOUNCE_DIFF:int = 5
 const CRITICAL_BOUNCE_BONUS:int = 10

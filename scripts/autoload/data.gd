@@ -36,6 +36,14 @@ var roomData:Dictionary:
 			roomData = JSON.parse_string(file.get_as_text())
 		return roomData
 		
+		
+var npcData:Dictionary:
+	get:
+		if npcData == null || npcData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.NPC_DATA, FileAccess.READ)
+			npcData = JSON.parse_string(file.get_as_text())
+		return npcData
+		
 
 var hpCurrent:int:
 	get:
@@ -70,7 +78,6 @@ var xp:int:
 			xp = 0
 			
 		
-		
 var lv:int:
 	get:
 		if lv == null:
@@ -78,6 +85,24 @@ var lv:int:
 		return lv
 	set(value):
 		lv = value
+		
+		
+var staminaCurrent:int:
+	get:
+		if staminaCurrent == null:
+			staminaCurrent = 1
+		return staminaCurrent
+	set(value):
+		staminaCurrent = value
+		
+		
+var staminaMax:int:
+	get:
+		if staminaMax == null:
+			staminaMax = 1
+		return staminaMax
+	set(value):
+		staminaMax = value
 		
 		
 var strength:int:

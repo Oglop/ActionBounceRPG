@@ -2,7 +2,7 @@ extends enemyBaseState
 
 
 func enter() -> void:
-	print_debug("enter bounce")
+	pass
 
 
 func physics_process(delta: float) -> void:

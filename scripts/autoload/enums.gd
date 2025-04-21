@@ -25,18 +25,49 @@ enum playerState {
 	GO_THROUGH_DOOR
 }
 
+
 enum spawnType {
+	NONE,
 	FX_WEAK_HIT,
 	ENEMY_SMALL,
 	TAIL,
 	DOOR,
+	NPC,
+	PUSHABLE_BLOCK,
+	STAIRS
 }
 
+
+enum npcType {
+	INFO,
+	MERCHANT,
+	INN_KEEPER,
+}
 
 
 enum enemyType {
-	JELLY
+	NONE,
+	JELLY,
+	SCORP,
+	SQUID,
 }
+
+
+func stringToEnemyType(type:String) -> enemyType:
+	match type:
+		"jelly": return enemyType.JELLY
+		"scorp": return enemyType.SCORP
+		"squid": return enemyType.SQUID
+		_ : return enemyType.NONE
+		
+		
+func enemyTypeToString(type:enemyType) -> String:
+	match type:
+		enemyType.JELLY: return "jelly"
+		enemyType.SCORP: return "scorp"
+		enemyType.SQUID: return "squid"
+		_: return ""
+		
 
 enum weapons {
 	NONE,
@@ -45,6 +76,7 @@ enum weapons {
 	SLAYER
 }
 
+
 enum shields {
 	NONE,
 	ROUND,
@@ -52,12 +84,36 @@ enum shields {
 	MAGIC
 }
 
+
 enum armors {
 	NONE,
 	LEATHER,
 	IRON,
 	LEGEND
 }
+
+
+enum messageType {
+	NONE,
+	INFO,
+	YES_NO
+}
+
+
+func stringToMessageType(type:String) -> messageType:
+	match type:
+		"none": return messageType.NONE
+		"info": return messageType.INFO
+		"yes-no": return messageType.YES_NO
+		_ : return messageType.NONE 
+
+
+func stringToNpcType(type:String) -> npcType:
+	match type:
+		"info": return npcType.INFO
+		"merchant": return npcType.MERCHANT
+		"innKeeper": return npcType.INN_KEEPER
+		_: return npcType.INFO
 
 
 func armorsToString(type:armors) -> String:
@@ -114,6 +170,7 @@ func tailTypeToString(type:tailType) -> String:
 		tailType.WIZARD: return "wizard"
 		tailType.THIEF: return "thief"
 		tailType.ELF: return "elf"
+		tailType.CLERIC: return "cleric"
 		_: return ""
 		
 		
@@ -123,10 +180,6 @@ func stringToTailType(type:String) -> tailType:
 		"wizard": return tailType.WIZARD
 		"thief": return tailType.THIEF
 		"elf": return tailType.ELF
+		"cleric": return tailType.CLERIC
 		_: return tailType.NONE
 	
-
-func enemyTypeToString(type:enemyType) -> String:
-	match type:
-		enemyType.JELLY: return "jelly"
-		_: return ""

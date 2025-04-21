@@ -1,12 +1,13 @@
 {
 	"start-npc-1": {
 		"animation": "villager_a",
+		"type":"info",
 		"messages": [
 			{
 				"text": "Hello",
-				"quest-id": "none",
-				"quest-requirment": "none",
-				"type": "info",
+				"quest-id":"none",
+				"quest-requirment":"none",
+				"type":"info",
 			}
 		]
 	} 

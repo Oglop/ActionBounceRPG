@@ -1,13 +1,38 @@
 {
 	"jelly": {
 		"name": "Jelly",
-		"hp": 5,
+		"type": "jelly",
+		"hp": 12,
 		"toughness": 1,
 		"xp": 2,
-		"attack": 3,
+		"attack": 4,
 		"armor": 1,
 		"crowns": 1,
 		"hurt-block":0.3,
-		"default-state": "walk"
+		"default-state": "walkenemystate"
+	},
+	"scorp": {
+		"name": "Scorpio",
+		"type": "scorp",
+		"hp": 14,
+		"toughness": 2,
+		"xp": 4,
+		"attack": 5,
+		"armor": 1,
+		"crowns": 4,
+		"hurt-block":0.3,
+		"default-state": "walkenemystate"
+	},
+	"squid": {
+		"name": "Squid",
+		"type": "squid",
+		"hp": 16,
+		"toughness": 1,
+		"xp": 2,
+		"attack": 4,
+		"armor": 1,
+		"crowns": 1,
+		"hurt-block":0.3,
+		"default-state": "walkenemystate"
 	}
 }

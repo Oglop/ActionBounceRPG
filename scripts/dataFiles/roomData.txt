@@ -17,18 +17,27 @@
 		"npcs": [
 			{
 				"id":"start-npc-1",
-				"start-x": 1,
-				"start-y": 1,
+				"start-x": 32,
+				"start-y": 0,
 			}
 		],
 		"platforms": [
-			
+			{
+				"name": "pushable-block",
+				"start-x": 208,
+				"start-y": 16,
+			},
+			{
+				"name": "stairs",
+				"start-x": 384,
+				"start-y": -64,
+			}
 		],
 		"enemies": [
 			{
-				"type":"jelly",
-				"start-x": 1,
-				"start-y": 1,
+				"name": "jelly",
+				"start-x": 0,
+				"start-y": 0,
 			}
 		]
 	},
@@ -46,7 +55,10 @@
 				"connects-y": -96,
 				"locked": false
 			},
-		]
+		],
+		"npcs": [],
+		"platforms": [],
+		"enemies": [],
 	}
 	
 }

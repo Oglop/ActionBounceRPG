@@ -161,9 +161,7 @@ shape = SubResource("RectangleShape2D_lrtym")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_p5uwq")
-animation = &"skel_walk"
-frame = 1
-frame_progress = 0.317318
+animation = &"scorp_idle"
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(13, 9)

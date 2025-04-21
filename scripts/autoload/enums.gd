@@ -34,7 +34,8 @@ enum spawnType {
 	DOOR,
 	NPC,
 	PUSHABLE_BLOCK,
-	STAIRS
+	STAIRS,
+	TREASURE,
 }
 
 

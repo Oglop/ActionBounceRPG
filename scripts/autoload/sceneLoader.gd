@@ -7,6 +7,7 @@ const room_door = preload("res://scenes/map/door.tscn")
 const room_npc = preload("res://scenes/map/npc.tscn")
 const room_pushableBlock = preload("res://scenes/platforms/pushableBlock.tscn")
 const room_stairs = preload("res://scenes/platforms/jumpThoughStairs1.tscn")
+const room_treasure = preload("res://scenes/map/treasure.tscn")
 
 func getScene(type:Enums.spawnType):
 	match type:
@@ -17,6 +18,7 @@ func getScene(type:Enums.spawnType):
 		Enums.spawnType.NPC: return room_npc.instantiate()
 		Enums.spawnType.PUSHABLE_BLOCK: return room_pushableBlock.instantiate()
 		Enums.spawnType.STAIRS: return room_stairs.instantiate()
+		Enums.spawnType.TREASURE: return room_treasure.instantiate()
 		_ : return enemy_enemySmall.instantiate()
 
 	

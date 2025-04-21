@@ -7,6 +7,7 @@ var currentRoomDoors:Array = []
 var currentRoomNPCs:Array = []
 var currentRoomEnemies:Array = []
 var currentRoomPlatforms:Array = []
+var currentRoomTreasures:Array = []
 var f:functions = functions.new()
 
 
@@ -79,14 +80,20 @@ func _on_roomLoadandMove(roomId:String) -> void:
 		#obj.setProperties(platform.name)
 		currentRoomPlatforms.append(obj)
 		
+	for treasure in currentRoom["treasures"]:
+		var obj = SceneLoader.getScene(Enums.spawnType.TREASURE)
+		add_child(obj)
+		obj.global_position = Vector2i(treasure["start-x"], treasure["start-y"])
+		currentRoomTreasures.append(obj)
+		
 		
 func _on_clearRoom(roomId:String) -> void:
-	for door:Node2D in currentRoomDoors:
-		door.queue_free()
+	for obj:Node2D in currentRoomDoors:
+		obj.queue_free()
 	currentRoomDoors = []
 	
-	for npc:Node2D in currentRoomNPCs:
-		npc.queue_free()
+	for obj:Node2D in currentRoomNPCs:
+		obj.queue_free()
 	currentRoomNPCs = []
 	
 	for obj:Node2D in currentRoomEnemies:
@@ -96,6 +103,10 @@ func _on_clearRoom(roomId:String) -> void:
 	for obj:Node2D in currentRoomPlatforms:
 		obj.queue_free()
 	currentRoomPlatforms = []
+	
+	for obj:Node2D in currentRoomTreasures:
+		obj.queue_free()
+	currentRoomTreasures = []
 	
 
 func platformNameToSpawnType(name:String) -> Enums.spawnType:

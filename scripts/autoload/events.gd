@@ -11,6 +11,10 @@ signal DATA_SAVE_SLOT
 
 signal ROOM_LOAD
 signal ROOM_CLEAR
+
 signal ENEMY_DESTROYED
+
 signal PLATFORM_DESTROYED
 signal PLAYER_MOVE_TO
+
+signal OPEN_TREASURE

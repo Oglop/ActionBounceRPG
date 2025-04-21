@@ -39,7 +39,15 @@
 				"start-x": 0,
 				"start-y": 0,
 			}
-		]
+		],
+		"bosses": [],
+		"treasures": [
+			{
+				"id": "start-thing",
+				"start-x": 384,
+				"start-y": 64,
+			}
+		],
 	},
 	"start-store": {
 		"id":"start-store",
@@ -59,6 +67,8 @@
 		"npcs": [],
 		"platforms": [],
 		"enemies": [],
+		"bosses": [],
+		"treasures": [],
 	}
 	
 }

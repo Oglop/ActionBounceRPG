@@ -1,7 +1,9 @@
 extends Node
 
+var f:functions
 
 func _ready() -> void:
+	f = functions.new()
 	Events.connect("ADD_XP", _on_addXP)
 
 
@@ -131,6 +133,14 @@ var critChance:int:
 	set(value):
 		critChance = value
 		
+var attack:int:
+	get:
+		var multiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
+		
+		var w:int  = equipmentData[Enums.weaponToString(weapon)].attack
+		var a:int = strength + lv + w
+
+		return int(a * multiplyer)
 		
 var armor:Enums.armors:
 	get:

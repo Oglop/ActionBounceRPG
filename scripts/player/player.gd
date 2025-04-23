@@ -87,7 +87,10 @@ func _checkforCollisions():
 	var collisionPosition:Vector2
 	if rightCheck.is_colliding() == true:
 		collisionPosition = rightCheck.get_collision_point()
-		_bouncingLeft = true
+		if collisionPosition.x > global_position.x:
+			_bouncingLeft = true
+		else:
+			_bouncingRight = true
 		collider = rightCheck.get_collider()
 		
 	if downcheck.is_colliding() == true && _downAttackBounce == 0:
@@ -121,11 +124,14 @@ func _resetBounce() -> void:
 		_bouncingLeft = false
 		_bouncingRight = false
 	
-	if _bouncingLeft && _bounceStrength > 0 || _bouncingRight && _bounceStrength < 0:
+	if _bouncingLeft && _bounceStrength > 0:
 		_bounceStrength = 0
 		_bouncingLeft = false
 		_bouncingRight = false
-
+	if _bouncingRight && _bounceStrength < 0:
+		_bounceStrength = 0
+		_bouncingLeft = false
+		_bouncingRight = false
 
 func getInputX() -> float:
 	return Input.get_axis("btn_left", "btn_right")
@@ -152,7 +158,7 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		return false
 		
 	if collider.has_method("applyDamage"):
-		collider.applyDamage(_getAttack())
+		collider.applyDamage(_getAttack(critical))
 		Events.FX_WEAK_HIT.emit(combatMarker.global_position, direction)
 	if collider.has_method("applyBounce"):
 		var enemyBounceDirection:int = 1
@@ -182,7 +188,11 @@ func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:
 	return Statics.ENEMY_SMALL_BOUNCE
 	
 	
-func _getAttack() -> int:
-	return Data.lv + Data.strength
+func _getAttack(critical:bool) -> int:
+	var attack = Data.attack
+	if critical:
+		attack += attack * Statics.PLAYER_CRITICAL_MULTIPLYER
+	return attack
+	
 	
 	

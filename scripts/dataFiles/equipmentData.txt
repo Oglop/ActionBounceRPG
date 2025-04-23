@@ -1,8 +1,20 @@
 {
-	"short-sword": {
+	"short": {
 		"type": "weapon",
-		"attack":1,
+		"attack":4,
 		"animation":"short_sword",
+		"cost":60
+	},
+	"knight": {
+		"type": "weapon",
+		"attack":8,
+		"animation":"knight",
+		"cost":60
+	},
+	"slayer": {
+		"type": "weapon",
+		"attack":16,
+		"animation":"slayer",
 		"cost":60
 	},
 	"sandals": {

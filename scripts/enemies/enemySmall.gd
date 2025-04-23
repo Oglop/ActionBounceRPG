@@ -67,6 +67,7 @@ func applyDamage(value:int) -> void:
 	if !hurtBlocked:
 		
 		_hp = f.minusLimit(_hp, value, 0)
+		print_debug("applyDamage _hp" + str(_hp) + " value: " + str(value))
 		if _hp <= 0:
 			enemyFsm.change_state(Statics.STATE_ENEMY_DIE)
 			

@@ -19,6 +19,7 @@ const PLAYER_SPEED_SLOW:int = 110
 const PLAYER_JUMP_STRENGTH_WEAK:int = 260
 const PLAYER_ACCELERATION:float = 900
 const PLAYER_AIR_MULTIPLYER:float = 0.7
+const PLAYER_CRITICAL_MULTIPLYER:float = 1.4
 
 const STATE_IDLE:String = "idle"
 const STATE_WALK:String = "walk"
@@ -36,9 +37,9 @@ const PLATFORM_STAIRS:String = "stairs"
 
 const BOUNCE_DIFF:int = 5
 const CRITICAL_BOUNCE_BONUS:int = 10
-const SMALL_BOUNCE:int = 60
-const MEDIUM_BOUNCE:int = 100
-const BIG_BOUNCE:int = 140
+const SMALL_BOUNCE:int = 80
+const MEDIUM_BOUNCE:int = 120
+const BIG_BOUNCE:int = 160
 
 const ENEMY_SMALL_BOUNCE:int = 100
 const ENEMY_MEDIUM_BOUNCE:int = 200

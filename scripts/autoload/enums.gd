@@ -1,6 +1,7 @@
 extends Node
 
 enum directions {
+	NONE,
 	RIGHT,
 	UP,
 	LEFT,
@@ -154,7 +155,7 @@ func weaponToString(type:weapons) -> String:
 		weapons.SHORT: return "short"
 		weapons.KNIGHT: return "knight"
 		weapons.SLAYER: return "slayer"
-		_: return ""
+		_: return "short"
 	
 	
 func stringToWeapon(type:String) -> weapons:

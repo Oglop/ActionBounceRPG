@@ -58,6 +58,9 @@ func randomIntInRange(from:int, to:int) -> int:
 func getRandomStringFromArray(arr:Array) -> String:
 	return arr[rng.randi_range(0, arr.size() - 1)]
 	
+func getRandomFloatInRange(from:float, to:float) -> float:
+	return rng.randf_range(from, to)
+	
 func generateObjectId() -> String:
 	var id:String = ""
 	const characters:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

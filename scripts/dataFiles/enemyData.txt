@@ -2,7 +2,7 @@
 	"jelly": {
 		"name": "Jelly",
 		"type": "jelly",
-		"hp": 12,
+		"hp": 18,
 		"toughness": 1,
 		"xp": 2,
 		"attack": 4,

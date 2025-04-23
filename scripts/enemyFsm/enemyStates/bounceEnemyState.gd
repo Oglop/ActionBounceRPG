@@ -20,13 +20,13 @@ func physics_process(delta: float) -> void:
 		object.velocity = Vector2(object._bounceStrength, object.global_position.y)
 		object.direction = 1
 		
-	var leftRight = "" 
+	var leftRight:Enums.directions = Enums.directions.NONE 
 	if object._bouncingLeft: 
-		leftRight = "left"
+		leftRight = Enums.directions.LEFT
 	elif object._bouncingRight:
-		leftRight = "right"
+		leftRight = Enums.directions.RIGHT
 		
-	print_debug("bounce " + leftRight + " with strength: " + str(object._bounceStrength))
+	#print_debug("bounce " + str(leftRight) + " with strength: " + str(object._bounceStrength))
 
 	move(delta, true)
 	

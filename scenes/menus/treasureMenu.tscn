@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cliyguknwxj2p"]
+
+[ext_resource type="Script" uid="uid://cntdoyhj1yy66" path="res://scripts/menus/treasureMenu.gd" id="1_isrlr"]
+
+[node name="TreasureMenu" type="Node2D"]
+script = ExtResource("1_isrlr")

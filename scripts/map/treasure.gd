@@ -36,6 +36,7 @@ func isOpen() -> bool:
 			
 
 func openTreasure(id:String) -> void:
-	match id:
-		"powerRingCollected": 
-			Data.powerRingCollected = true
+	if id == "powerRingCollected" && Data.powerRingCollected == false:
+		Data.powerRingCollected = true
+		Events.OPEN_TREASURE.emit(id)
+	

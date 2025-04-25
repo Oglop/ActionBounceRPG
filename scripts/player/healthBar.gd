@@ -4,11 +4,14 @@ extends ProgressBar
 
 func _ready() -> void:
 	pass
-	
 
 func _physics_process(delta: float) -> void:
+	size.x = Data.hpMax
+	
 	lblHealth.text = getFormatedText()
-	value = (Data.hpMax / 100) * Data.hpCurrent
+	max_value = Data.hpMax
+	min_value = 0
+	value = Data.hpCurrent
 	
 	
 func getFormatedText()-> String:

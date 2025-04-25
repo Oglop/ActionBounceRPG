@@ -17,7 +17,7 @@
 		"npcs": [
 			{
 				"id":"start-npc-1",
-				"start-x": 32,
+				"start-x": 96,
 				"start-y": 0,
 			}
 		],
@@ -44,8 +44,8 @@
 		"treasures": [
 			{
 				"id": "start-thing",
-				"start-x": 384,
-				"start-y": 64,
+				"start-x": 352,
+				"start-y": -96,
 			}
 		],
 	},

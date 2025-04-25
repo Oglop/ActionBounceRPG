@@ -8,7 +8,7 @@
 		"attack": 4,
 		"armor": 1,
 		"crowns": 1,
-		"hurt-block":0.3,
+		"hurt-block":0.1,
 		"default-state": "walkenemystate"
 	},
 	"scorp": {

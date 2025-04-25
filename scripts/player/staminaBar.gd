@@ -1,5 +1,11 @@
 extends ProgressBar
 
+func _ready() -> void:
+	Data.staminaMax = 20
+	Data.staminaCurrent = 16
 
 func _physics_process(delta: float) -> void:
-	value = (Data.staminaMax / 100) * Data.staminaCurrent
+	size.x = Data.staminaMax
+	min_value = 0
+	max_value = Data.staminaMax
+	value = Data.staminaCurrent

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://byc5wn2cjpc78"]
+[gd_scene load_steps=9 format=4 uid="uid://byc5wn2cjpc78"]
 
 [ext_resource type="PackedScene" uid="uid://d2pk2m3s2pywe" path="res://scenes/player/player.tscn" id="1_efytk"]
 [ext_resource type="PackedScene" uid="uid://3x33imat4n13" path="res://scenes/handlers/roomHandler.tscn" id="1_exvpf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmmi7hm6q2tad" path="res://scenes/handlers/partyHandler.tscn" id="2_bilvi"]
 [ext_resource type="PackedScene" uid="uid://b0maljh0ftwk6" path="res://scenes/player/staminaBar.tscn" id="5_ugjc1"]
 [ext_resource type="PackedScene" uid="uid://b1t1um4hs38o1" path="res://scenes/player/healthBar.tscn" id="6_iwndu"]
+[ext_resource type="PackedScene" uid="uid://cbwa1k5guduj4" path="res://scenes/menus/npcMenu.tscn" id="8_bo5ay"]
 
 [node name="TemplateRoom" type="Node2D"]
 
@@ -25,14 +26,18 @@ offset_right = -112.0
 offset_bottom = -75.0
 
 [node name="StaminaBar" parent="Player" instance=ExtResource("5_ugjc1")]
-offset_left = -159.0
+offset_left = -141.0
 offset_top = -73.0
-offset_right = -99.0
+offset_right = -81.0
 offset_bottom = -71.0
 
 [node name="SpawningHandler" parent="." instance=ExtResource("1_ugjc1")]
 
 [node name="RoomHandler" parent="." instance=ExtResource("1_exvpf")]
+
+[node name="NpcMenu" parent="." instance=ExtResource("8_bo5ay")]
+z_index = 16
+position = Vector2(0, -65)
 
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
 

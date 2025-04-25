@@ -11,6 +11,8 @@ signal DATA_SAVE_SLOT
 
 signal ROOM_LOAD
 signal ROOM_CLEAR
+signal ROOM_LOAD_NPC
+signal ROOM_UNLOAD_NPC
 
 signal ENEMY_DESTROYED
 

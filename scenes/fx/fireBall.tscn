@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://5guhtbp82jn3"]
+
+[ext_resource type="Script" uid="uid://xbjxo0if7ph2" path="res://scripts/fx/fireBall.gd" id="1_342f1"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_3g3pp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p13e"]
+atlas = ExtResource("2_3g3pp")
+region = Rect2(160, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35aq0"]
+atlas = ExtResource("2_3g3pp")
+region = Rect2(176, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gc30"]
+atlas = ExtResource("2_3g3pp")
+region = Rect2(192, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkgtd"]
+atlas = ExtResource("2_3g3pp")
+region = Rect2(208, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blsy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p13e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35aq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gc30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkgtd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="FireBall" type="Node2D"]
+script = ExtResource("1_342f1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_blsy2")
+autoplay = "default"
+frame_progress = 0.771282
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

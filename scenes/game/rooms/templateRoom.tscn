@@ -25,18 +25,16 @@ tile_map_data = PackedByteArray("AAD//wEAAAAIABEAAAAAAAEAAAAIABEAAAABAAEAAAAIABE
 position = Vector2(128, 8)
 
 [node name="NpcMenu" parent="Player" instance=ExtResource("8_bo5ay")]
-visible = false
 z_index = 16
 position = Vector2(-128, -75)
 
 [node name="TreasureMenu" parent="Player" instance=ExtResource("1_0jenv")]
 process_mode = 3
 z_index = 16
-position = Vector2(-128, -72)
+position = Vector2(-120, -71)
 
 [node name="AcceptMenu" parent="Player" instance=ExtResource("7_tysfp")]
-visible = false
-position = Vector2(-87, -54)
+position = Vector2(-88, -54)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_iwndu")]
 offset_left = -141.0

@@ -30,6 +30,9 @@ enum playerState {
 enum spawnType {
 	NONE,
 	FX_WEAK_HIT,
+	FX_FIRE_BALL,
+	FX_THIEF_KNIFE,
+	FX_ELF_ARROW,
 	ENEMY_SMALL,
 	TAIL,
 	DOOR,
@@ -38,6 +41,7 @@ enum spawnType {
 	STAIRS,
 	TREASURE,
 	SAVE_SPOT,
+	
 }
 
 

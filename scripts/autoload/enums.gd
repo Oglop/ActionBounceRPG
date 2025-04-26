@@ -37,6 +37,7 @@ enum spawnType {
 	PUSHABLE_BLOCK,
 	STAIRS,
 	TREASURE,
+	SAVE_SPOT,
 }
 
 

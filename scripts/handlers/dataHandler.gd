@@ -17,7 +17,7 @@ var f:functions
 
 
 func _ready() -> void:
-	f.functions.new()
+	f = functions.new()
 	Events.connect("DATA_LOAD_SLOT", _on_loadSlot)
 	Events.connect("DATA_SAVE_SLOT", _on_saveSlot)
 	
@@ -31,7 +31,7 @@ func _getSaveData() -> Dictionary:
 		data_tailNo1: Enums.tailTypeToString(Data.tailNo1Type),
 		data_tailNo2: Enums.tailTypeToString(Data.tailNo2Type),
 		data_armor: Enums.armorsToString(Data.armor),
-		data_weapon: Enums.weaponsToString(Data.weapon),
+		data_weapon: Enums.weaponToString(Data.weapon),
 		data_shield: Enums.shieldsToString(Data.shield),
 		data_thiefsGlovesCollected: f.boolToInt(Data.thiefsGlovesCollected) ,
 		data_powerRingCollected: f.boolToInt(Data.powerRingCollected),

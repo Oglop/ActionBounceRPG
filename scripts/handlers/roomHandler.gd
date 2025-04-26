@@ -77,13 +77,13 @@ func _on_roomLoadandMove(roomId:String) -> void:
 		var obj = SceneLoader.getScene(platformType)
 		add_child(obj)
 		obj.global_position = Vector2i(platform["start-x"], platform["start-y"])
-		#obj.setProperties(platform.name)
 		currentRoomPlatforms.append(obj)
 		
 	for treasure in currentRoom["treasures"]:
 		var obj = SceneLoader.getScene(Enums.spawnType.TREASURE)
 		add_child(obj)
 		obj.global_position = Vector2i(treasure["start-x"], treasure["start-y"])
+		obj.setProperties(treasure.id)
 		currentRoomTreasures.append(obj)
 		
 		
@@ -113,5 +113,6 @@ func platformNameToSpawnType(name:String) -> Enums.spawnType:
 	match name:
 		Statics.PLATFORM_PUSHABLE_BLOCK: return Enums.spawnType.PUSHABLE_BLOCK
 		Statics.PLATFORM_STAIRS: return Enums.spawnType.STAIRS
+		Statics.PLATFORM_SAVE_SPOT: return Enums.spawnType.SAVE_SPOT
 		_ : return Enums.spawnType.NONE
 		

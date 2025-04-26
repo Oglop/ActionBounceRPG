@@ -34,6 +34,7 @@ const STATE_ENEMY_BOUNCE:String = "bounceenemystate"
 
 const PLATFORM_PUSHABLE_BLOCK:String = "pushable-block"
 const PLATFORM_STAIRS:String = "stairs"
+const PLATFORM_SAVE_SPOT:String = "save-spot"
 
 const BOUNCE_DIFF:int = 5
 const CRITICAL_BOUNCE_BONUS:int = 10

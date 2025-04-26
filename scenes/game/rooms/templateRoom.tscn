@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://byc5wn2cjpc78"]
+[gd_scene load_steps=11 format=4 uid="uid://byc5wn2cjpc78"]
 
+[ext_resource type="PackedScene" uid="uid://c4cc3yndbv8tc" path="res://scenes/menus/treasureMenu.tscn" id="1_0jenv"]
 [ext_resource type="PackedScene" uid="uid://d2pk2m3s2pywe" path="res://scenes/player/player.tscn" id="1_efytk"]
 [ext_resource type="PackedScene" uid="uid://3x33imat4n13" path="res://scenes/handlers/roomHandler.tscn" id="1_exvpf"]
+[ext_resource type="PackedScene" uid="uid://rast4kgtv7sb" path="res://scenes/handlers/dataHandler.tscn" id="1_tysfp"]
 [ext_resource type="PackedScene" uid="uid://im0k28s8coyw" path="res://scenes/handlers/spawningHandler.tscn" id="1_ugjc1"]
 [ext_resource type="PackedScene" uid="uid://bj5ob7o2sp2e4" path="res://scenes/map/backgrounds.tscn" id="2_1nnpe"]
 [ext_resource type="PackedScene" uid="uid://dmmi7hm6q2tad" path="res://scenes/handlers/partyHandler.tscn" id="2_bilvi"]
@@ -11,6 +13,8 @@
 
 [node name="TemplateRoom" type="Node2D"]
 
+[node name="dataHandler" parent="." instance=ExtResource("1_tysfp")]
+
 [node name="PartyHandler" parent="." instance=ExtResource("2_bilvi")]
 
 [node name="backgrounds" parent="." instance=ExtResource("2_1nnpe")]
@@ -18,6 +22,17 @@ tile_map_data = PackedByteArray("AAD//wEAAAAIABEAAAAAAAEAAAAIABEAAAABAAEAAAAIABE
 
 [node name="Player" parent="." instance=ExtResource("1_efytk")]
 position = Vector2(128, 8)
+
+[node name="NpcMenu" parent="Player" instance=ExtResource("8_bo5ay")]
+visible = false
+z_index = 16
+position = Vector2(-128, -75)
+
+[node name="TreasureMenu" parent="Player" instance=ExtResource("1_0jenv")]
+process_mode = 3
+visible = false
+z_index = 16
+position = Vector2(-128, -72)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_iwndu")]
 offset_left = -141.0
@@ -34,10 +49,6 @@ offset_bottom = -71.0
 [node name="SpawningHandler" parent="." instance=ExtResource("1_ugjc1")]
 
 [node name="RoomHandler" parent="." instance=ExtResource("1_exvpf")]
-
-[node name="NpcMenu" parent="." instance=ExtResource("8_bo5ay")]
-z_index = 16
-position = Vector2(0, -65)
 
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
 

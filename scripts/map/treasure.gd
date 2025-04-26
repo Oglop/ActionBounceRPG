@@ -4,11 +4,6 @@ extends Node2D
 @onready var sprite = $AnimatedSprite2D
 var _open:bool
 var _id:String
-
-
-func _ready() -> void:
-	isOpen()
-	
 	
 func _physics_process(delta: float) -> void:
 	
@@ -26,17 +21,17 @@ func _physics_process(delta: float) -> void:
 
 func setProperties(id:String) -> void:
 	_id = id
-	
+	_open = isOpen()
 	
 func isOpen() -> bool:
 	if _id == "powerRing":
 		return Data.powerRingCollected
-		
 	return false
 			
 
 func openTreasure(id:String) -> void:
-	if id == "powerRingCollected" && Data.powerRingCollected == false:
+	if id == "powerRing" && Data.powerRingCollected == false:
 		Data.powerRingCollected = true
 		Events.OPEN_TREASURE.emit(id)
+		_open = isOpen()
 	

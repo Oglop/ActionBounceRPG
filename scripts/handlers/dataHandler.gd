@@ -1,6 +1,8 @@
 extends Node2D
 
 const path:String = "user://savegame_%s.save"
+const data_x:String = "x"
+const data_y:String = "y"
 const data_xp:String = "xp"
 const data_lv:String = "lv"
 const data_strength:String = "strength"
@@ -22,8 +24,10 @@ func _ready() -> void:
 	Events.connect("DATA_SAVE_SLOT", _on_saveSlot)
 	
 
-func _getSaveData() -> Dictionary:
+func _getSaveData(position:Vector2) -> Dictionary:
 	var data:Dictionary = {
+		data_x: position.x,
+		data_y: position.y,
 		data_xp : Data.xp,
 		data_lv: Data.lv,
 		data_strength: Data.strength,
@@ -40,26 +44,28 @@ func _getSaveData() -> Dictionary:
 
 
 func _setSaveData(data:Dictionary) -> void:
-	Data.xp = data.data_xp
-	Data.lv = data.data_lv
-	Data.strength = data.data_strength
-	Data.toughness = data.data_toughness
-	Data.tailNo1Type = Enums.stringToTailType(data.data_tailNo1)
-	Data.tailNo2Type = Enums.stringToTailType(data.data_tailNo2)
-	Data.armor = Enums.stringToArmors(data.data_armor)
-	Data.weapon = Enums.stringToWeapon(data.data_weapon)
-	Data.shield = Enums.stringToShields(data.data_shield)
-	Data.thiefsGlovesCollected = f.intToBool(data.data_thiefsGlovesCollected)
-	Data.powerRingCollected = f.intToBool(data.data_powerRingCollected)
+	Data.saveSpotY = data[data_y]
+	Data.saveSpotX = data[data_x]
+	Data.xp = data[data_xp]
+	Data.lv = data[data_lv]
+	Data.strength = data[data_strength]
+	Data.toughness = data[data_toughness]
+	Data.tailNo1Type = Enums.stringToTailType(data[data_tailNo1])
+	Data.tailNo2Type = Enums.stringToTailType(data[data_tailNo2])
+	Data.armor = Enums.stringToArmors(data[data_armor])
+	Data.weapon = Enums.stringToWeapon(data[data_weapon])
+	Data.shield = Enums.stringToShields(data[data_shield])
+	Data.thiefsGlovesCollected = f.intToBool(data[data_thiefsGlovesCollected])
+	Data.powerRingCollected = f.intToBool(data[data_powerRingCollected])
 
 
 func _getSlotPath(slot:int) -> String:
 	return path % str(slot)
 	
 
-func _on_saveSlot(slot:int = 1) -> void:
+func _on_saveSlot(slot:int, position:Vector2) -> void:
 	var fileAccess:FileAccess = FileAccess.open(_getSlotPath(slot), FileAccess.WRITE)
-	var data:String = JSON.stringify(_getSaveData())
+	var data:String = JSON.stringify(_getSaveData(position))
 	fileAccess.store_line(data)
 
 func _on_loadSlot(slot:int = 1) -> void:

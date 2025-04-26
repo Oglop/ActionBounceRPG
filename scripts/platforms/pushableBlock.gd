@@ -56,7 +56,6 @@ func _checkForPushingBlock() -> void:
 		#push right
 		if Input.is_action_pressed("btn_right"):
 			if isBeingPushed(leftCheck) && !isCollidingWithBodies(rightCheck):
-				print("push from right" + str(_beingPushedRight))
 				_beingPushedRight += 1
 				_beingPushedLeft = 0
 				if _beingPushedRight >= 100:
@@ -69,7 +68,6 @@ func _checkForPushingBlock() -> void:
 		#puch left
 		if Input.is_action_pressed("btn_left"):
 			if isBeingPushed(rightCheck) && !isCollidingWithBodies(leftCheck):
-				print("push from left" + str(_beingPushedLeft))
 				_beingPushedLeft += 1
 				_beingPushedRight = 0
 				if _beingPushedLeft >= 100:

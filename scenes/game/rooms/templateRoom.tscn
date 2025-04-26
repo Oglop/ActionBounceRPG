@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://byc5wn2cjpc78"]
+[gd_scene load_steps=12 format=4 uid="uid://byc5wn2cjpc78"]
 
 [ext_resource type="PackedScene" uid="uid://c4cc3yndbv8tc" path="res://scenes/menus/treasureMenu.tscn" id="1_0jenv"]
 [ext_resource type="PackedScene" uid="uid://d2pk2m3s2pywe" path="res://scenes/player/player.tscn" id="1_efytk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dmmi7hm6q2tad" path="res://scenes/handlers/partyHandler.tscn" id="2_bilvi"]
 [ext_resource type="PackedScene" uid="uid://b0maljh0ftwk6" path="res://scenes/player/staminaBar.tscn" id="5_ugjc1"]
 [ext_resource type="PackedScene" uid="uid://b1t1um4hs38o1" path="res://scenes/player/healthBar.tscn" id="6_iwndu"]
+[ext_resource type="PackedScene" uid="uid://cqv7idweyhf8j" path="res://scenes/menus/acceptMenu.tscn" id="7_tysfp"]
 [ext_resource type="PackedScene" uid="uid://cbwa1k5guduj4" path="res://scenes/menus/npcMenu.tscn" id="8_bo5ay"]
 
 [node name="TemplateRoom" type="Node2D"]
@@ -30,9 +31,12 @@ position = Vector2(-128, -75)
 
 [node name="TreasureMenu" parent="Player" instance=ExtResource("1_0jenv")]
 process_mode = 3
-visible = false
 z_index = 16
 position = Vector2(-128, -72)
+
+[node name="AcceptMenu" parent="Player" instance=ExtResource("7_tysfp")]
+visible = false
+position = Vector2(-87, -54)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_iwndu")]
 offset_left = -141.0
@@ -51,6 +55,7 @@ offset_bottom = -71.0
 [node name="RoomHandler" parent="." instance=ExtResource("1_exvpf")]
 
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
 motion_scale = Vector2(0.6, 0.6)

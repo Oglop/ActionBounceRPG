@@ -1,19 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbwa1k5guduj4"]
+[gd_scene load_steps=5 format=3 uid="uid://cbwa1k5guduj4"]
 
 [ext_resource type="Script" uid="uid://bsf3mhhe3pxtk" path="res://scripts/menus/npcMenu.gd" id="1_majng"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="2_iv157"]
 [ext_resource type="FontFile" uid="uid://c3crl80aptf24" path="res://media/fonts/Minecraftchmc-dBlX.ttf" id="2_j8v5h"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iv157"]
-bg_color = Color(0.00616123, 0.114752, 0.118742, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.796021, 0.806265, 0.76593, 1)
-
-[sub_resource type="Theme" id="Theme_i3aex"]
-Label/fonts/font = ExtResource("2_j8v5h")
-Panel/styles/panel = SubResource("StyleBoxFlat_iv157")
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8v5h"]
 font = ExtResource("2_j8v5h")
@@ -27,7 +16,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 240.0
 offset_bottom = 128.0
-theme = SubResource("Theme_i3aex")
+theme = ExtResource("2_iv157")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel"]
 layout_mode = 1

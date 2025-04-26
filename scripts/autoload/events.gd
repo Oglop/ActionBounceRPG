@@ -2,6 +2,7 @@ extends Node
 
 signal SPAWN_TAIL
 signal ADD_XP
+signal SHOW_ACCEPT_MENU
 
 signal FX_WEAK_HIT
 signal FX_PLAYER_ATTACK

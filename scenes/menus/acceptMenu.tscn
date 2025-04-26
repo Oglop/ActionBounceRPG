@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqv7idweyhf8j"]
+
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="1_0yr06"]
+[ext_resource type="Script" uid="uid://coltv5cl2lor0" path="res://scripts/menus/acceptMenu.gd" id="1_hrw82"]
+
+[node name="AcceptMenu" type="Node2D"]
+process_mode = 3
+z_index = 15
+script = ExtResource("1_hrw82")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 161.0
+offset_bottom = 62.0
+theme = ExtResource("1_0yr06")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 141.0
+offset_bottom = 42.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

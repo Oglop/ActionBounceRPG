@@ -15,4 +15,6 @@ func _initTail() -> void:
 
 
 func _ready() -> void:
+	Events.DATA_LOAD_SLOT.emit(Data.saveSlot)
+	Events.PLAYER_MOVE_TO.emit(Vector2i(Data.saveSpotX, Data.saveSpotY))
 	_initTail()

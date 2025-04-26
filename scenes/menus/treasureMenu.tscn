@@ -1,19 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4cc3yndbv8tc"]
+[gd_scene load_steps=6 format=3 uid="uid://c4cc3yndbv8tc"]
 
 [ext_resource type="Script" uid="uid://cntdoyhj1yy66" path="res://scripts/menus/treasureMenu.gd" id="1_isrlr"]
 [ext_resource type="FontFile" uid="uid://c3crl80aptf24" path="res://media/fonts/Minecraftchmc-dBlX.ttf" id="2_bbx0v"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="2_ebhl1"]
 [ext_resource type="PackedScene" uid="uid://y374qflvcm2s" path="res://scripts/menus/itemIcons.tscn" id="3_cxfu2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxfu2"]
-bg_color = Color(0.000242874, 0.0685166, 0.140005, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.670689, 0.67069, 0.670689, 1)
-
-[sub_resource type="Theme" id="Theme_ebhl1"]
-Panel/styles/panel = SubResource("StyleBoxFlat_cxfu2")
 
 [sub_resource type="LabelSettings" id="LabelSettings_qfx6x"]
 
@@ -25,7 +15,7 @@ offset_left = 32.0
 offset_top = 16.0
 offset_right = 208.0
 offset_bottom = 112.0
-theme = SubResource("Theme_ebhl1")
+theme = ExtResource("2_ebhl1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0

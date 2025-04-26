@@ -6,6 +6,24 @@ func _ready() -> void:
 	f = functions.new()
 	Events.connect("ADD_XP", _on_addXP)
 
+var saveSpotY:int:
+	get:
+		if saveSpotY == null:
+			saveSpotY = 0
+		return saveSpotY
+		
+		
+var saveSpotX:int:
+	get:
+		if saveSpotX == null:
+			saveSpotX = 0
+		return saveSpotX
+
+var saveSlot:int:
+	get:
+		if saveSlot == 0 || saveSlot == null:
+			saveSlot = 1
+		return saveSlot
 
 var levelData:Dictionary:
 	get:

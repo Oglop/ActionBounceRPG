@@ -14,6 +14,7 @@ signal ROOM_LOAD
 signal ROOM_CLEAR
 signal ROOM_LOAD_NPC
 signal ROOM_UNLOAD_NPC
+signal ROOM_SHOW_PAUSE_MENU
 
 signal ENEMY_DESTROYED
 

@@ -1,0 +1,371 @@
+[gd_scene load_steps=33 format=3 uid="uid://bibu1tdc160s5"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_7qrbg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d63ju"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is8hj"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(416, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra5or"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc12s"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy73v"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hb1t"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lrla"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(416, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkkan"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j2no"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmayw"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qrbg"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b6wl"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf5dw"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(128, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpi2u"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftnde"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1mjs"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ploek"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gg2"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmxfw"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn4es"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vohd1"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vomxm"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(416, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_favd7"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n1da"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qiuv"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(416, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtpdg"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehenw"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su7sc"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(384, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr6q6"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcmw6"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1gg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d63ju")
+}],
+"loop": true,
+"name": &"cleric_heal_rod",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is8hj")
+}],
+"loop": true,
+"name": &"cleric_holy_symbol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra5or")
+}],
+"loop": true,
+"name": &"cleric_infinity_key",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc12s")
+}],
+"loop": true,
+"name": &"cleric_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy73v")
+}],
+"loop": true,
+"name": &"elf_item1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hb1t")
+}],
+"loop": true,
+"name": &"elf_item2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lrla")
+}],
+"loop": true,
+"name": &"elf_item3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkkan")
+}],
+"loop": true,
+"name": &"elf_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j2no")
+}],
+"loop": true,
+"name": &"player_knight_armor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmayw")
+}],
+"loop": true,
+"name": &"player_knight_shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qrbg")
+}],
+"loop": true,
+"name": &"player_knight_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b6wl")
+}],
+"loop": true,
+"name": &"player_leather_armor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf5dw")
+}],
+"loop": true,
+"name": &"player_legendary_armor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpi2u")
+}],
+"loop": true,
+"name": &"player_magic_shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftnde")
+}],
+"loop": true,
+"name": &"player_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1mjs")
+}],
+"loop": true,
+"name": &"player_power_ring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ploek")
+}],
+"loop": true,
+"name": &"player_round_shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1gg2")
+}],
+"loop": true,
+"name": &"player_short_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmxfw")
+}],
+"loop": true,
+"name": &"player_slayer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn4es")
+}],
+"loop": true,
+"name": &"pooch_animal_icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vohd1")
+}],
+"loop": true,
+"name": &"pooch_digging_claws",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vomxm")
+}],
+"loop": true,
+"name": &"pooch_item3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_favd7")
+}],
+"loop": true,
+"name": &"pooch_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n1da")
+}],
+"loop": true,
+"name": &"thief_candle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qiuv")
+}],
+"loop": true,
+"name": &"thief_gloves",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtpdg")
+}],
+"loop": true,
+"name": &"thief_lockpicks",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehenw")
+}],
+"loop": true,
+"name": &"thief_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su7sc")
+}],
+"loop": true,
+"name": &"wizard_fireball_tome",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr6q6")
+}],
+"loop": true,
+"name": &"wizard_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcmw6")
+}],
+"loop": true,
+"name": &"wizard_spirit_stone",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_y1gg2")
+animation = &"player_power_ring"
+offset = Vector2(8, 8)

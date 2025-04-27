@@ -163,7 +163,7 @@ var attack:int:
 var armor:Enums.armors:
 	get:
 		if armor == null:
-			armor = Enums.armors.NONE
+			armor = Enums.armors.LEATHER
 		return armor
 	set(value):
 		armor = value
@@ -172,7 +172,7 @@ var armor:Enums.armors:
 var weapon:Enums.weapons:
 	get:
 		if weapon == null:
-			weapon = Enums.weapons.NONE
+			weapon = Enums.weapons.SHORT
 		return weapon
 	set(value):
 		weapon = value
@@ -181,7 +181,7 @@ var weapon:Enums.weapons:
 var shield:Enums.shields:
 	get:
 		if shield == null:
-			shield = Enums.shields.NONE
+			shield = Enums.shields.ROUND
 		return shield
 	set(value):
 		shield = value
@@ -210,14 +210,18 @@ var playerPositions:Array :
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
 var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
 var thiefsGlovesCollected:bool = false
+var lockPicksCollected:bool = false
 var powerRingCollected:bool = false
 var fireBallTomeCollected:bool = false
+var wizItem3:bool = false
 var candleCollected:bool = false
 var spiritStoneCollected:bool = false
 var infinitySymbolCollected:bool = false
-
+var animalIconCollected:bool = false
+var diggingClawsCollected:bool = false
 var fireBallTomeSelected:bool = false
-
+var healingRodCollected:bool = false
+var holySymbolCollected:bool = false
 
 func _on_addXP(value:int) -> void:
 	xp += value

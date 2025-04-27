@@ -17,7 +17,16 @@ const data_armor:String = "armor"
 const data_weapon:String = "weapon"
 const data_shield:String = "shield"
 const data_thiefsGlovesCollected:String = "thiefsGlovesCollected"
+const data_lockPicksCollected:String = "lockPicksCollected"
 const data_powerRingCollected:String = "powerRingCollected"
+const data_animalIconCollected:String = "animalIconCollected"
+const data_diggingClawsCollected:String = "diggingClawsCollected"
+const data_healingRodCollected:String = "healingRodCollected"
+const data_holySymbolCollected:String = "holySymbolCollected"
+
+var healingRodCollected:bool = false
+var holySymbolCollected:bool = false
+
 
 var f:functions
 
@@ -47,6 +56,11 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_candleCollected: f.boolToInt(Data.candleCollected),
 		data_spiritStoneCollected: f.boolToInt(Data.spiritStoneCollected),
 		data_infinitySymbolCollected: f.boolToInt(Data.infinitySymbolCollected),
+		data_animalIconCollected: f.boolToInt(Data.animalIconCollected),
+		data_diggingClawsCollected: f.boolToInt(Data.diggingClawsCollected),
+		data_lockPicksCollected: f.boolToInt(Data.lockPicksCollected),
+		data_healingRodCollected: f.boolToInt(Data.healingRodCollected),
+		data_holySymbolCollected: f.boolToInt(Data.holySymbolCollected)
 	}
 	return data
 
@@ -69,7 +83,11 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.candleCollected = f.intToBool(data[data_candleCollected])
 	Data.spiritStoneCollected = f.intToBool(data[data_spiritStoneCollected])
 	Data.infinitySymbolCollected = f.intToBool(data[data_infinitySymbolCollected])
-
+	Data.animalIconCollected = f.intToBool(data[data_animalIconCollected])
+	Data.diggingClawsCollected = f.intToBool(data[data_diggingClawsCollected])
+	Data.lockPicksCollected = f.intToBool(data[data_lockPicksCollected])
+	Data.healingRodCollected = f.intToBool(data[data_healingRodCollected])
+	Data.holySymbolCollected = f.intToBool(data[data_holySymbolCollected])
 
 func _getSlotPath(slot:int) -> String:
 	return path % str(slot)

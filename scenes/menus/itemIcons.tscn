@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://y374qflvcm2s"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_4imh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4imh0"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(112, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv123"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(0, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg5px"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(128, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfu3k"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otdto"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(64, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l8xh"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(16, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521ds"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v42lr"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0lxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4imh0")
+}],
+"loop": true,
+"name": &"animalIcon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv123")
+}],
+"loop": true,
+"name": &"candle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg5px")
+}],
+"loop": true,
+"name": &"diggingClaws",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfu3k")
+}],
+"loop": true,
+"name": &"knightSword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otdto")
+}],
+"loop": true,
+"name": &"lockPicks",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l8xh")
+}],
+"loop": true,
+"name": &"powerRing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521ds")
+}],
+"loop": true,
+"name": &"shortSword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v42lr")
+}],
+"loop": true,
+"name": &"slayer",
+"speed": 5.0
+}]
+
+[node name="ItemIcons" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_b0lxn")
+animation = &"slayer"

@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4fva2euijmc4"]
+
+[ext_resource type="Script" uid="uid://dgf0s0wefx8yr" path="res://scripts/menus/pauseMenu.gd" id="1_8dwkp"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="1_ojwjl"]
+[ext_resource type="PackedScene" uid="uid://bibu1tdc160s5" path="res://scenes/menus/menuIcons.tscn" id="3_dqprv"]
+
+[node name="PauseMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_8dwkp")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 208.0
+theme = ExtResource("1_ojwjl")
+
+[node name="player_short_sword" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(48, 16)
+
+[node name="player_knight_sword" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(66, 16)
+
+[node name="player_slayer_sword" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(84, 16)
+
+[node name="wizard_spirit_stone" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(240, 16)
+
+[node name="wizard_fire_ball" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(258, 16)
+
+[node name="wizard_item_three" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(276, 16)
+
+[node name="pooch_animalIcon" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(240, 34)
+
+[node name="pooch_digging_claws" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(258, 34)
+
+[node name="pooch_item3" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(276, 34)
+
+[node name="elf_item1" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(240, 52)
+
+[node name="elf_item2" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(258, 52)
+
+[node name="elf_item3" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(276, 52)
+
+[node name="thief_candle" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(240, 70)
+
+[node name="thief_lockpicks" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(258, 70)
+
+[node name="thief_gloves" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(276, 70)
+
+[node name="cleric_infinity_key" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(240, 88)
+
+[node name="cleric_heal_rod" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(258, 88)
+
+[node name="cleric_holy_symbol" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(276, 88)
+
+[node name="player_round_shield" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(48, 52)
+
+[node name="player_knight_shield" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(66, 52)
+
+[node name="player_magic_shield" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(84, 52)
+
+[node name="player_leather_armor" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(48, 34)
+
+[node name="player_knight_armor" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(66, 34)
+
+[node name="player_legendary_armor" parent="Panel" instance=ExtResource("3_dqprv")]
+position = Vector2(84, 34)
+
+[node name="lblLevel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 30.0
+text = "Level: 1"
+
+[node name="lblXP" type="Label" parent="Panel"]
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 46.0
+text = "XP: 13123123"
+
+[node name="lblNext" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 48.0
+offset_right = 152.0
+offset_bottom = 62.0
+text = "Next:111111111111"

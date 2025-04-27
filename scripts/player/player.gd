@@ -56,6 +56,9 @@ func _updateTrail() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("btn_pause"):
+		Events.ROOM_SHOW_PAUSE_MENU.emit()
+	
 	fsm.physics_update(delta)
 	_setEnemyCheckerPositionAndDirection()
 	_checkforCollisions()

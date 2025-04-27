@@ -253,22 +253,21 @@ func _textWithValue(text:String, value:int, plus:int = 0) -> String:
 	
 	
 func _updateWeaponIcons() -> void:
-	if Data.weapon == Enums.weapons.NONE:
+	if Data.weaponTier1Collected:
+		player_short_sword.play("player_short_sword")
+	else:
 		player_short_sword.play("player_not_collected")
-		player_knight_sword.play("player_not_collected")
-		player_slayer_sword.play("player_not_collected")
-	elif Data.weapon == Enums.weapons.SHORT:
-		player_short_sword.play("player_short_sword")
-		player_knight_sword.play("player_not_collected")
-		player_slayer_sword.play("player_not_collected")
-	elif Data.weapon == Enums.weapons.KNIGHT:
-		player_short_sword.play("player_short_sword")
+		
+	if Data.weaponTier2Collected:
 		player_knight_sword.play("player_knight_sword")
-		player_slayer_sword.play("player_not_collected")
-	elif Data.weapon == Enums.weapons.SLAYER:
-		player_short_sword.play("player_short_sword")
-		player_knight_sword.play("player_knight_sword")
+	else:
+		player_knight_sword.play("player_not_collected")
+		
+	if Data.weaponTier3Collected:
 		player_slayer_sword.play("player_slayer")
+	else:
+		player_slayer_sword.play("player_not_collected")
+
 		
 		
 func _updatePlayerItemIcons() -> void:
@@ -279,41 +278,38 @@ func _updatePlayerItemIcons() -> void:
 		
 		
 func _updateArmorIcons() -> void:
-	if Data.armor == Enums.armors.NONE:
+	if Data.armorTier1Collected:
+		player_leather_armor.play("player_leather_armor")
+	else: 
 		player_leather_armor.play("player_not_collected")
-		player_knight_armor.play("player_not_collected")
-		player_legendary_armor.play("player_not_collected")
-	elif Data.armor == Enums.armors.LEATHER:
-		player_leather_armor.play("player_leather_armor")
-		player_knight_armor.play("player_not_collected")
-		player_legendary_armor.play("player_not_collected")
-	elif Data.armor == Enums.armors.IRON:
-		player_leather_armor.play("player_leather_armor")
+		
+	if Data.armorTier2Collected:
 		player_knight_armor.play("player_knight_armor")
-		player_legendary_armor.play("player_not_collected")
-	elif Data.armor == Enums.armors.LEGEND:
-		player_leather_armor.play("player_leather_armor")
-		player_knight_armor.play("player_knight_armor")
+	else: 
+		player_knight_armor.play("player_not_collected")
+		
+	if Data.armorTier3Collected:
 		player_legendary_armor.play("player_legendary_armor")
+	else: 
+		player_legendary_armor.play("player_not_collected")
+	
 		
 	
 func _updateShieldIcons() -> void:
-	if Data.shield == Enums.shields.NONE:
+	if Data.shieldTier1Collected:
+		player_round_shield.play("player_round_shield")
+	else:
 		player_round_shield.play("player_not_collected")
-		player_knight_shield.play("player_not_collected")
-		player_magic_shield.play("player_not_collected")
-	elif Data.shield == Enums.shields.ROUND:
-		player_round_shield.play("player_round_shield")
-		player_knight_shield.play("player_not_collected")
-		player_magic_shield.play("player_not_collected")
-	elif Data.shield == Enums.shields.KNIGHT:
-		player_round_shield.play("player_round_shield")
+	
+	if Data.shieldTier2Collected:
 		player_knight_shield.play("player_knight_shield")
-		player_magic_shield.play("player_not_collected")
-	elif Data.shield == Enums.shields.MAGIC:	
-		player_round_shield.play("player_round_shield")
-		player_knight_shield.play("player_knight_shield")
+	else:
+		player_knight_shield.play("player_not_collected")
+		
+	if Data.shieldTier3Collected:
 		player_magic_shield.play("player_magic_shield")
+	else:
+		player_magic_shield.play("player_not_collected")
 		
 		
 func _updateWizardIcons() -> void:

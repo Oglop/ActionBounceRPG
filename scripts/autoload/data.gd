@@ -82,6 +82,14 @@ var hpMax:int:
 	set(value):
 		hpMax = value
 		
+var next:int:
+	get:
+		if next == null:
+			next = 0
+		return next
+	set (value):
+		next = value
+		
 		
 var xp:int:
 	get:
@@ -90,7 +98,7 @@ var xp:int:
 		return xp
 	set(value):
 		xp = value
-		var next = getMaxXPAtLevel(lv)
+		next = getMaxXPAtLevel(lv)
 		if xp >= next || lv < Statics.LEVEL_MAX:
 			lv += 1
 			xp -= next
@@ -160,9 +168,21 @@ var attack:int:
 
 		return int(a * multiplyer)
 		
+		
+var defence:int:
+	get:
+		return 1
+		#var multiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
+		
+		#var w:int  = equipmentData[Enums.weaponToString(weapon)].attack
+		#var a:int = strength + lv + w
+
+		#return int(a * multiplyer)
+		
+		
 var armor:Enums.armors:
 	get:
-		if armor == null:
+		if armor == null || armor == Enums.armors.NONE:
 			armor = Enums.armors.LEATHER
 		return armor
 	set(value):
@@ -171,7 +191,7 @@ var armor:Enums.armors:
 		
 var weapon:Enums.weapons:
 	get:
-		if weapon == null:
+		if weapon == null || weapon == Enums.weapons.NONE:
 			weapon = Enums.weapons.SHORT
 		return weapon
 	set(value):
@@ -180,7 +200,7 @@ var weapon:Enums.weapons:
 
 var shield:Enums.shields:
 	get:
-		if shield == null:
+		if shield == null || shield == Enums.shields.NONE:
 			shield = Enums.shields.ROUND
 		return shield
 	set(value):

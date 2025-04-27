@@ -1,49 +1,80 @@
 extends Node2D
 
-@onready var player_short_sword = $Panel/player_short_sword
-@onready var player_knight_sword = $Panel/player_knight_sword
-@onready var player_slayer_sword = $Panel/player_slayer_sword
+const txtLevel:String = "Level"
+const txtNext:String = "Next"
+const txtXP:String = "XP"
+const txtStrength:String = "Strength"
+const txtToughness:String = "Toughness"
+const txtDefence:String = "Defence"
+const txtAttack:String = "Attack"
 
-@onready var player_round_shield = $Panel/player_round_shield
-@onready var player_knight_shield = $Panel/player_knight_shield
-@onready var player_magic_shield = $Panel/player_magic_shield
+var col:int = 0
+var row:int = 0
 
-@onready var player_leather_armor = $Panel/player_leather_armor
-@onready var player_knight_armor = $Panel/player_knight_armor
-@onready var player_legendary_armor = $Panel/player_legendary_armor
 
-@onready var wizard_spirit_stone = $Panel/wizard_spirit_stone
-@onready var wizard_fireball_tome = $Panel/wizard_fire_ball
-@onready var wizard_item_three = $Panel/wizard_item_three
+@onready var pointer = $PanelMain/pointer
+@onready var selectedWeapon = $PanelMain/selectedWeapon
+@onready var selectedArmor = $PanelMain/selectedArmor
+@onready var selectedShield = $PanelMain/selectedShield
 
-@onready var pooch_animalIcon = $Panel/pooch_animalIcon
-@onready var pooch_diggingClaws = $Panel/pooch_digging_claws
-@onready var pooch_item_three = $Panel/pooch_item3
+@onready var player_short_sword = $PanelMain/player_short_sword
+@onready var player_knight_sword = $PanelMain/player_knight_sword
+@onready var player_slayer_sword = $PanelMain/player_slayer_sword
 
-@onready var elf_item1 = $Panel/elf_item1
-@onready var elf_item2 = $Panel/elf_item2
-@onready var elf_item3 = $Panel/elf_item3
+@onready var player_power_ring = $PanelMain/player_power_ring
 
-@onready var thief_candle = $Panel/thief_candle
-@onready var thief_picklocks = $Panel/thief_lockpicks
-@onready var thief_gloves = $Panel/thief_gloves
+@onready var player_round_shield = $PanelMain/player_round_shield
+@onready var player_knight_shield = $PanelMain/player_knight_shield
+@onready var player_magic_shield = $PanelMain/player_magic_shield
 
-@onready var cleric_infinityKey = $Panel/cleric_infinity_key
-@onready var cleric_healRod = $Panel/cleric_heal_rod
-@onready var cleric_holySymbol = $Panel/cleric_holy_symbol
+@onready var player_leather_armor = $PanelMain/player_leather_armor
+@onready var player_knight_armor = $PanelMain/player_knight_armor
+@onready var player_legendary_armor = $PanelMain/player_legendary_armor
+
+@onready var wizard_spirit_stone = $PanelMain/wizard_spirit_stone
+@onready var wizard_fireball_tome = $PanelMain/wizard_fire_ball
+@onready var wizard_item_three = $PanelMain/wizard_item_three
+
+@onready var pooch_animalIcon = $PanelMain/pooch_animalIcon
+@onready var pooch_diggingClaws = $PanelMain/pooch_digging_claws
+@onready var pooch_item_three = $PanelMain/pooch_item3
+
+@onready var elf_item1 = $PanelMain/elf_item1
+@onready var elf_item2 = $PanelMain/elf_item2
+@onready var elf_item3 = $PanelMain/elf_item3
+
+@onready var thief_candle = $PanelMain/thief_candle
+@onready var thief_picklocks = $PanelMain/thief_lockpicks
+@onready var thief_gloves = $PanelMain/thief_gloves
+
+@onready var cleric_infinityKey = $PanelMain/cleric_infinity_key
+@onready var cleric_healRod = $PanelMain/cleric_heal_rod
+@onready var cleric_holySymbol = $PanelMain/cleric_holy_symbol
+
+@onready var lblLv = $PanelMain/lblLevel
+@onready var lblXP = $PanelMain/lblXP
+@onready var lblNext = $PanelMain/lblNext
+@onready var lblStr = $PanelMain/lblStrength
+@onready var lblTgh = $PanelMain/lblToughness
+@onready var lblAtt = $PanelMain/lblAttack
+@onready var lblDef = $PanelMain/lblDefence
+@onready var lblDesc = $PanelDescription/lblDescription
 
 func _ready() -> void:
 	Events.connect("ROOM_SHOW_PAUSE_MENU", _on_showPauseMenu)
-	_updateIcons()
 	visible = false
 	
 func _on_showPauseMenu() -> void:
 	_updateIcons()
+	_updatePointerPosition()
+	_updateDescriptionLabel()
 	visible = true
 	get_tree().paused = true
 	
 
 func _physics_process(delta: float) -> void:
+	
+	_getPointerInput()
 	if Input.is_action_just_pressed("btn_jump"):
 		visible = false
 		get_tree().paused = false
@@ -57,7 +88,68 @@ func _updateIcons() -> void:
 	_updateElfItems()
 	_updatePoochItems()
 	_updateClericItems()
+	_updateLabels()
+	_updatePlayerItemIcons()
 	
+func _getPointerInput() -> void:
+	var updateInterface:bool = false
+	if Input.is_action_just_pressed("btn_up"):
+		if row > 0:
+			row -= 1
+		updateInterface = true
+	if Input.is_action_just_pressed("btn_down"):
+		if col >= 0 && col <= 2:
+			if row < 3:
+				row += 1
+		updateInterface = true
+	
+	if updateInterface:
+		_updatePointerPosition()
+		_updateDescriptionLabel()
+	
+	
+func _updateDescriptionLabel() -> void:
+	lblDesc.text = ""
+	if col == 0:
+		if row == 0:
+			lblDesc.text = "Short sword - power: 4"
+		elif row == 1:
+			lblDesc.text = "Leather armor - defence: 2"
+		elif row == 2:
+			lblDesc.text = "Round shield - block: weak"
+		elif row == 3:
+			lblDesc.text = "Power ring"
+	
+func _updatePointerPosition() -> void:
+	if col == 0:
+		if row == 0:
+			pointer.position = player_short_sword.position
+		elif row == 1:
+			pointer.position = player_leather_armor.position
+		elif row == 2:
+			pointer.position = player_round_shield.position
+		elif row == 3:
+			pointer.position = player_power_ring.position
+	
+	
+func _updateLabels() -> void:
+	lblDesc.text = ""
+	
+	lblAtt.text = _textWithValue(txtAttack, Data.attack)
+	lblDef.text = _textWithValue(txtDefence, Data.defence)
+	lblLv.text = _textWithValue(txtLevel, Data.xp)
+	lblNext.text = _textWithValue(txtNext, Data.next)
+	lblStr.text = _textWithValue(txtStrength, Data.strength)
+	lblTgh.text = _textWithValue(txtToughness, Data.toughness)
+	lblXP.text = _textWithValue(txtXP, Data.xp)
+	
+	
+func _textWithValue(text:String, value:int, plus:int = 0) -> String:
+	const labelFormat:String = "%s: %s %s"
+	var plusText:String = ""
+	if plus != 0:
+		plusText = "+%s" % [str(plus)]
+	return labelFormat % [text, str(value), plusText]
 	
 func _updateWeaponIcons() -> void:
 	if Data.weapon == Enums.weapons.NONE:
@@ -77,6 +169,11 @@ func _updateWeaponIcons() -> void:
 		player_knight_sword.play("player_knight_sword")
 		player_slayer_sword.play("player_slayer")
 		
+func _updatePlayerItemIcons() -> void:
+	if Data.powerRingCollected:
+		player_power_ring.play("player_power_ring")
+	else:
+		player_power_ring.play("player_not_collected")
 		
 func _updateArmorIcons() -> void:
 	if Data.armor == Enums.armors.NONE:

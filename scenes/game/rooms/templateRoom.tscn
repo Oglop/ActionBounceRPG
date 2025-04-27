@@ -38,7 +38,7 @@ position = Vector2(-120, -71)
 position = Vector2(-88, -54)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("8_i08f8")]
-position = Vector2(-170, -132)
+position = Vector2(-170, -128)
 
 [node name="HealthBar" parent="Player" instance=ExtResource("6_iwndu")]
 offset_left = -141.0
@@ -57,7 +57,6 @@ offset_bottom = -71.0
 [node name="RoomHandler" parent="." instance=ExtResource("1_exvpf")]
 
 [node name="Parallax2D" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
 motion_scale = Vector2(0.6, 0.6)

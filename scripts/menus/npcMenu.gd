@@ -36,8 +36,9 @@ func _setInfo(text:String) -> void:
 	infoLabel.text = text
 	
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("btn_jump"):
-		index += 1
-		_setInvisible()
-		_setNextText(index)
+	if infoPanel.visible:
+		if Input.is_action_just_pressed("btn_jump"):
+			index += 1
+			_setInvisible()
+			_setNextText(index)
 	

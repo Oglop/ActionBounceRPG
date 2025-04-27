@@ -238,6 +238,14 @@ position = Vector2(-32, 32)
 sprite_frames = SubResource("SpriteFrames_jmuew")
 offset = Vector2(8, 8)
 
+[node name="player_feather" parent="PanelMain" instance=ExtResource("3_dqprv")]
+z_index = 2
+position = Vector2(66, 80)
+
+[node name="player_potion" parent="PanelMain" instance=ExtResource("3_dqprv")]
+z_index = 2
+position = Vector2(84, 80)
+
 [node name="PanelDescription" type="Panel" parent="."]
 offset_left = 48.0
 offset_top = 60.0

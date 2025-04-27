@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bibu1tdc160s5"]
+[gd_scene load_steps=36 format=3 uid="uid://bibu1tdc160s5"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_7qrbg"]
 
@@ -34,6 +34,10 @@ region = Rect2(416, 240, 16, 16)
 atlas = ExtResource("1_7qrbg")
 region = Rect2(0, 128, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pry5d"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(416, 208, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2j2no"]
 atlas = ExtResource("1_7qrbg")
 region = Rect2(112, 64, 16, 16)
@@ -61,6 +65,14 @@ region = Rect2(128, 48, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftnde"]
 atlas = ExtResource("1_7qrbg")
 region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjnju"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(448, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af8gs"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(400, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1mjs"]
 atlas = ExtResource("1_7qrbg")
@@ -190,6 +202,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pry5d")
+}],
+"loop": true,
+"name": &"player_feather",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2j2no")
 }],
 "loop": true,
@@ -242,6 +262,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_not_collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjnju")
+}],
+"loop": true,
+"name": &"player_potion_empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af8gs")
+}],
+"loop": true,
+"name": &"player_potion_full",
 "speed": 5.0
 }, {
 "frames": [{
@@ -367,5 +403,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_y1gg2")
-animation = &"player_power_ring"
+animation = &"player_potion_full"
 offset = Vector2(8, 8)

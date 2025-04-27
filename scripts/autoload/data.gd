@@ -171,13 +171,10 @@ var attack:int:
 		
 var defence:int:
 	get:
-		return 1
-		#var multiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
-		
-		#var w:int  = equipmentData[Enums.weaponToString(weapon)].attack
-		#var a:int = strength + lv + w
-
-		#return int(a * multiplyer)
+		var multiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
+		var w:int  = equipmentData[Enums.armorsToString(armor)].defence
+		var d:int = toughness + lv + w
+		return int(d * multiplyer)
 		
 		
 var armor:Enums.armors:
@@ -225,6 +222,18 @@ var playerPositions:Array :
 		return playerPositions
 	set(value):
 		playerPositions = value
+		
+var strengthBonus:int:
+	get:
+		if tailNo1Type == Enums.tailType.POOCH || tailNo2Type == Enums.tailType.POOCH:
+			return 1
+		return 0
+		
+var toughnessBonus:int:
+	get:
+		if tailNo1Type == Enums.tailType.CLERIC || tailNo2Type == Enums.tailType.CLERIC:
+			return 1
+		return 0
 		
 		
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH

@@ -211,7 +211,12 @@ var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
 var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
 var thiefsGlovesCollected:bool = false
 var powerRingCollected:bool = false
-var startThingCollected:bool = false
+var fireBallTomeCollected:bool = false
+var candleCollected:bool = false
+var spiritStoneCollected:bool = false
+var infinitySymbolCollected:bool = false
+
+var fireBallTomeSelected:bool = false
 
 
 func _on_addXP(value:int) -> void:

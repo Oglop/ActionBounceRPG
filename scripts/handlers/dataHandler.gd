@@ -7,6 +7,10 @@ const data_xp:String = "xp"
 const data_lv:String = "lv"
 const data_strength:String = "strength"
 const data_toughness:String = "toughness"
+const data_fireBallTomeCollected:String = "fireBallTomeCollected"
+const data_candleCollected:String = "candleCollected"
+const data_spiritStoneCollected:String = "spiritStoneCollected"
+const data_infinitySymbolCollected:String = "infinitySymbolCollected"
 const data_tailNo1:String = "tailNo1"
 const data_tailNo2:String = "tailNo2"
 const data_armor:String = "armor"
@@ -39,6 +43,10 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_shield: Enums.shieldsToString(Data.shield),
 		data_thiefsGlovesCollected: f.boolToInt(Data.thiefsGlovesCollected) ,
 		data_powerRingCollected: f.boolToInt(Data.powerRingCollected),
+		data_fireBallTomeCollected: f.boolToInt(Data.fireBallTomeCollected),
+		data_candleCollected: f.boolToInt(Data.candleCollected),
+		data_spiritStoneCollected: f.boolToInt(Data.spiritStoneCollected),
+		data_infinitySymbolCollected: f.boolToInt(Data.infinitySymbolCollected),
 	}
 	return data
 
@@ -57,6 +65,10 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.shield = Enums.stringToShields(data[data_shield])
 	Data.thiefsGlovesCollected = f.intToBool(data[data_thiefsGlovesCollected])
 	Data.powerRingCollected = f.intToBool(data[data_powerRingCollected])
+	Data.fireBallTomeCollected = f.intToBool(data[data_fireBallTomeCollected])
+	Data.candleCollected = f.intToBool(data[data_candleCollected])
+	Data.spiritStoneCollected = f.intToBool(data[data_spiritStoneCollected])
+	Data.infinitySymbolCollected = f.intToBool(data[data_infinitySymbolCollected])
 
 
 func _getSlotPath(slot:int) -> String:

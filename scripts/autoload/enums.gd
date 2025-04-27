@@ -125,49 +125,49 @@ func stringToNpcType(type:String) -> npcType:
 
 func armorsToString(type:armors) -> String:
 	match type:
-		armors.LEATHER: return "leather"
-		armors.IRON: return "iron"
-		armors.LEGEND: return "legend"
+		armors.LEATHER: return "leather-armor"
+		armors.IRON: return "knight-armor"
+		armors.LEGEND: return "legendary-armor"
 		_: return ""
 	
 	
 func stringToArmors(type:String) -> armors:
 	match type:
-		"leather": return armors.LEATHER
-		"iron": return armors.IRON
-		"legend": return armors.LEGEND
+		"leather-armor": return armors.LEATHER
+		"knight-armor": return armors.IRON
+		"legendary-armor": return armors.LEGEND
 		_: return armors.NONE
 
 
 func shieldsToString(type:shields) -> String:
 	match type:
-		shields.ROUND: return "round"
-		shields.KNIGHT: return "knight"
-		shields.MAGIC: return "magic"
+		shields.ROUND: return "round-shield"
+		shields.KNIGHT: return "knight-shield"
+		shields.MAGIC: return "magic-shield"
 		_: return ""
 	
 	
 func stringToShields(type:String) -> shields:
 	match type:
-		"round": return shields.ROUND
-		"knight": return shields.KNIGHT
-		"magic": return shields.MAGIC
+		"round-shield": return shields.ROUND
+		"knight-shield": return shields.KNIGHT
+		"magic-shield": return shields.MAGIC
 		_: return shields.NONE
 
 
 func weaponToString(type:weapons) -> String:
 	match type:
-		weapons.SHORT: return "short"
-		weapons.KNIGHT: return "knight"
-		weapons.SLAYER: return "slayer"
-		_: return "short"
+		weapons.SHORT: return "short-sword"
+		weapons.KNIGHT: return "knight-sword"
+		weapons.SLAYER: return "slayer-sword"
+		_: return ""
 	
 	
 func stringToWeapon(type:String) -> weapons:
 	match type:
-		"short": return weapons.SHORT
-		"knight": return weapons.KNIGHT
-		"slayer": return weapons.SLAYER
+		"short-sword": return weapons.SHORT
+		"knight-sword": return weapons.KNIGHT
+		"slayer-sword": return weapons.SLAYER
 		_: return weapons.NONE
 
 

@@ -161,7 +161,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fy73v")
 }],
 "loop": true,
-"name": &"elf_item1",
+"name": &"elf_ancient_script",
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,7 +169,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6hb1t")
 }],
 "loop": true,
-"name": &"elf_item2",
+"name": &"elf_ice_crystal",
 "speed": 5.0
 }, {
 "frames": [{

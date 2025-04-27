@@ -242,6 +242,17 @@ var diggingClawsCollected:bool = false
 var fireBallTomeSelected:bool = false
 var healingRodCollected:bool = false
 var holySymbolCollected:bool = false
+var ancientScriptCollected:bool = false
+var iceCrystalCollected:bool = false
+var weaponTier1Collected:bool = true
+var weaponTier2Collected:bool = false
+var weaponTier3Collected:bool = false
+var armorTier1Collected:bool = true
+var armorTier2Collected:bool = false
+var armorTier3Collected:bool = false
+var shieldTier1Collected:bool = true
+var shieldTier2Collected:bool = false
+var shieldTier3Collected:bool = false
 
 func _on_addXP(value:int) -> void:
 	xp += value

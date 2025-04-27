@@ -39,8 +39,8 @@ var row:int = 0
 @onready var pooch_diggingClaws = $PanelMain/pooch_digging_claws
 @onready var pooch_item_three = $PanelMain/pooch_item3
 
-@onready var elf_item1 = $PanelMain/elf_item1
-@onready var elf_item2 = $PanelMain/elf_item2
+@onready var elf_item1 = $PanelMain/elf_ancient_script
+@onready var elf_item2 = $PanelMain/elf_ice_crystal
 @onready var elf_item3 = $PanelMain/elf_item3
 
 @onready var thief_candle = $PanelMain/thief_candle
@@ -101,6 +101,21 @@ func _getPointerInput() -> void:
 		if col >= 0 && col <= 2:
 			if row < 3:
 				row += 1
+		elif col >= 3 && col <= 5:
+			if row < 4:
+				row += 1
+		updateInterface = true
+		
+	if Input.is_action_just_pressed("btn_right"):
+		if col < 4:
+			col += 1
+		updateInterface = true
+		
+	if Input.is_action_just_pressed("btn_left"):
+		if col > 0:
+			col -= 1
+		#if col >= 0 && col <= 2 && row > 3:
+		#	row = 3 
 		updateInterface = true
 	
 	if updateInterface:
@@ -112,13 +127,51 @@ func _updateDescriptionLabel() -> void:
 	lblDesc.text = ""
 	if col == 0:
 		if row == 0:
-			lblDesc.text = "Short sword - power: 4"
+			lblDesc.text = "Short sword - power: " + str(int(Data.equipmentData["short-sword"].attack))
 		elif row == 1:
-			lblDesc.text = "Leather armor - defence: 2"
+			lblDesc.text = "Leather armor - defence: " + str(int(Data.equipmentData["leather-armor"].defence))
 		elif row == 2:
-			lblDesc.text = "Round shield - block: weak"
+			lblDesc.text = "Round shield - block: " + str(Data.equipmentData["round-shield"].block)
 		elif row == 3:
 			lblDesc.text = "Power ring"
+	elif col == 1:
+		if row == 0 && Data.weaponTier2Collected:
+			lblDesc.text = "Knight sword - power: " + str(int(Data.equipmentData["knight-sword"].attack))
+		elif row == 1 && Data.armorTier2Collected:
+			lblDesc.text = "Knight armor - defence: " + str(int(Data.equipmentData["knight-armor"].defence))
+		elif row == 2 && Data.shieldTier2Collected:
+			lblDesc.text = "Knight shield - block: " + str(Data.equipmentData["knight-shield"].block)
+	elif col == 2:
+		if row == 0 && Data.weaponTier3Collected:
+			lblDesc.text = "The slayer - power: " + str(int(Data.equipmentData["slayer-sword"].attack))
+		elif row == 1 && Data.armorTier3Collected:
+			lblDesc.text = "Legendary armor - defence: " + str(int(Data.equipmentData["legendary-armor"].defence))
+		elif row == 2 && Data.shieldTier3Collected:
+			lblDesc.text = "Magic shield - block: " + str(Data.equipmentData["magic-shield"].block)
+	elif col == 3:
+		if row == 0 && Data.spiritStoneCollected:
+			lblDesc.text = "Spirit stone"
+		elif row == 1 && Data.animalIconCollected:
+			lblDesc.text = "Animal icon"
+		elif row == 2 && Data.ancientScriptCollected:
+			lblDesc.text = "Ancient script"
+		elif row == 3 && Data.candleCollected:
+			lblDesc.text = "Candle"
+		elif row == 4 && Data.infinitySymbolCollected:
+			lblDesc.text = "Infinity symbol"
+	elif col == 4:
+		if row == 0 && Data.fireBallTomeCollected:
+			lblDesc.text = "Fire tome"
+		elif row == 1 && Data.diggingClawsCollected:
+			lblDesc.text = "digging claws"
+		elif row == 2 && Data.iceCrystalCollected:
+			lblDesc.text = "Ice crystal"
+		elif row == 3 && Data.lockPicksCollected:
+			lblDesc.text = "Lock picks"
+		elif row == 4 && Data.healingRodCollected:
+			lblDesc.text = "Healing rod"
+
+	
 	
 func _updatePointerPosition() -> void:
 	if col == 0:
@@ -130,6 +183,53 @@ func _updatePointerPosition() -> void:
 			pointer.position = player_round_shield.position
 		elif row == 3:
 			pointer.position = player_power_ring.position
+	if col == 1:
+		if row == 0:
+			pointer.position = player_knight_sword.position
+		elif row == 1:
+			pointer.position = player_knight_armor.position
+		elif row == 2:
+			pointer.position = player_knight_shield.position
+	if col == 2:
+		if row == 0:
+			pointer.position = player_slayer_sword.position
+		elif row == 1:
+			pointer.position = player_legendary_armor.position
+		elif row == 2:
+			pointer.position = player_magic_shield.position
+	if col == 3:
+		if row == 0:
+			pointer.position = wizard_spirit_stone.position
+		elif row == 1:
+			pointer.position = pooch_animalIcon.position
+		elif row == 2:
+			pointer.position = elf_item1.position
+		elif row == 3:
+			pointer.position = thief_candle.position
+		elif row == 4:
+			pointer.position = cleric_infinityKey.position
+	if col == 4:
+		if row == 0:
+			pointer.position = wizard_fireball_tome.position
+		elif row == 1:
+			pointer.position = pooch_diggingClaws.position
+		elif row == 2:
+			pointer.position = elf_item2.position
+		elif row == 3:
+			pointer.position = thief_picklocks.position
+		elif row == 4:
+			pointer.position = cleric_healRod.position
+	if col == 5:
+		if row == 0:
+			pointer.position = wizard_item_three.position
+		elif row == 1:
+			pointer.position = pooch_item_three.position
+		elif row == 2:
+			pointer.position = elf_item3.position
+		elif row == 3:
+			pointer.position = thief_gloves.position
+		elif row == 4:
+			pointer.position = cleric_holySymbol.position
 	
 	
 func _updateLabels() -> void:
@@ -151,6 +251,7 @@ func _textWithValue(text:String, value:int, plus:int = 0) -> String:
 		plusText = "+%s" % [str(plus)]
 	return labelFormat % [text, str(value), plusText]
 	
+	
 func _updateWeaponIcons() -> void:
 	if Data.weapon == Enums.weapons.NONE:
 		player_short_sword.play("player_not_collected")
@@ -169,11 +270,13 @@ func _updateWeaponIcons() -> void:
 		player_knight_sword.play("player_knight_sword")
 		player_slayer_sword.play("player_slayer")
 		
+		
 func _updatePlayerItemIcons() -> void:
 	if Data.powerRingCollected:
 		player_power_ring.play("player_power_ring")
 	else:
 		player_power_ring.play("player_not_collected")
+		
 		
 func _updateArmorIcons() -> void:
 	if Data.armor == Enums.armors.NONE:

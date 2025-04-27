@@ -23,10 +23,17 @@ const data_animalIconCollected:String = "animalIconCollected"
 const data_diggingClawsCollected:String = "diggingClawsCollected"
 const data_healingRodCollected:String = "healingRodCollected"
 const data_holySymbolCollected:String = "holySymbolCollected"
-
-var healingRodCollected:bool = false
-var holySymbolCollected:bool = false
-
+const data_ancientScriptCollected:String = "ancientScriptCollected"
+const data_iceCrystalCollected:String = "iceCrystalCollected"
+const data_weaponTier1Collected:String = "weaponTier1Collected"
+const data_weaponTier2Collected:String = "weaponTier2Collected"
+const data_weaponTier3Collected:String = "weaponTier3Collected"
+const data_armorTier1Collected:String = "armorTier1Collected"
+const data_armorTier2Collected:String = "armorTier2Collected"
+const data_armorTier3Collected:String = "armorTier3Collected"
+const data_shieldTier1Collected:String = "shieldTier1Collected"
+const data_shieldTier2Collected:String = "shieldTier2Collected"
+const data_shieldTier3Collected:String = "var shieldTier3Collected"
 
 var f:functions
 
@@ -60,7 +67,18 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_diggingClawsCollected: f.boolToInt(Data.diggingClawsCollected),
 		data_lockPicksCollected: f.boolToInt(Data.lockPicksCollected),
 		data_healingRodCollected: f.boolToInt(Data.healingRodCollected),
-		data_holySymbolCollected: f.boolToInt(Data.holySymbolCollected)
+		data_holySymbolCollected: f.boolToInt(Data.holySymbolCollected),
+		data_ancientScriptCollected: f.boolToInt(Data.data_ancientScriptCollected),
+		data_iceCrystalCollected: f.boolToInt(Data.data_iceCrystalCollected),
+		data_weaponTier1Collected: f.boolToInt(Data.data_weaponTier1Collected),
+		data_weaponTier2Collected: f.boolToInt(Data.data_weaponTier2Collected),
+		data_weaponTier3Collected: f.boolToInt(Data.data_weaponTier3Collected),
+		data_armorTier1Collected: f.boolToInt(Data.data_armorTier1Collected),
+		data_armorTier2Collected: f.boolToInt(Data.data_armorTier2Collected),
+		data_armorTier3Collected: f.boolToInt(Data.data_armorTier3Collected),
+		data_shieldTier1Collected: f.boolToInt(Data.data_shieldTier1Collected),
+		data_shieldTier2Collected: f.boolToInt(Data.data_shieldTier2Collected),
+		data_shieldTier3Collected: f.boolToInt(Data.data_shieldTier3Collected),
 	}
 	return data
 
@@ -88,6 +106,17 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.lockPicksCollected = f.intToBool(data[data_lockPicksCollected])
 	Data.healingRodCollected = f.intToBool(data[data_healingRodCollected])
 	Data.holySymbolCollected = f.intToBool(data[data_holySymbolCollected])
+	Data.ancientScriptCollected = f.intToBool(data[data_ancientScriptCollected])
+	Data.iceCrystalCollected = f.intToBool(data[data_iceCrystalCollected])
+	Data.weaponTier1Collected = f.intToBool(data[data_weaponTier1Collected])
+	Data.weaponTier2Collected = f.intToBool(data[data_weaponTier2Collected])
+	Data.weaponTier3Collected = f.intToBool(data[data_weaponTier3Collected])
+	Data.armorTier1Collected = f.intToBool(data[data_armorTier1Collected])
+	Data.armorTier2Collected = f.intToBool(data[data_armorTier2Collected])
+	Data.armorTier3Collected = f.intToBool(data[data_armorTier3Collected])
+	Data.shieldTier1Collected = f.intToBool(data[data_shieldTier1Collected])
+	Data.shieldTier2Collected = f.intToBool(data[data_shieldTier2Collected])
+	Data.shieldTier3Collected = f.intToBool(data[data_shieldTier3Collected])
 
 func _getSlotPath(slot:int) -> String:
 	return path % str(slot)

@@ -72,6 +72,7 @@ position = Vector2(240, 16)
 [node name="wizard_fire_ball" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(258, 16)
+animation = &"wizard_not_collected"
 
 [node name="wizard_item_three" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
@@ -84,18 +85,21 @@ position = Vector2(240, 34)
 [node name="pooch_digging_claws" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(258, 34)
+animation = &"pooch_digging_claws"
 
 [node name="pooch_item3" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(276, 34)
 
-[node name="elf_item1" parent="PanelMain" instance=ExtResource("3_dqprv")]
+[node name="elf_ancient_script" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(240, 52)
+animation = &"elf_ancient_script"
 
-[node name="elf_item2" parent="PanelMain" instance=ExtResource("3_dqprv")]
+[node name="elf_ice_crystal" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(258, 52)
+animation = &"elf_ice_crystal"
 
 [node name="elf_item3" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
@@ -108,6 +112,7 @@ position = Vector2(240, 70)
 [node name="thief_lockpicks" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(258, 70)
+animation = &"thief_lockpicks"
 
 [node name="thief_gloves" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
@@ -120,6 +125,7 @@ position = Vector2(240, 88)
 [node name="cleric_heal_rod" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(258, 88)
+animation = &"cleric_heal_rod"
 
 [node name="cleric_holy_symbol" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
@@ -214,7 +220,7 @@ z_index = 1
 position = Vector2(-32, -16)
 sprite_frames = SubResource("SpriteFrames_jw8jn")
 autoplay = "default"
-frame_progress = 0.719887
+frame_progress = 0.160594
 offset = Vector2(8, 8)
 
 [node name="selectedWeapon" type="AnimatedSprite2D" parent="PanelMain"]

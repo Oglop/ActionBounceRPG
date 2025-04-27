@@ -1,34 +1,48 @@
 {
-	"short": {
+	"short-sword": {
 		"type": "weapon",
 		"attack":4,
-		"animation":"short_sword",
-		"cost":60
+		"animation":"short_sword"
 	},
-	"knight": {
+	"knight-sword": {
 		"type": "weapon",
 		"attack":8,
-		"animation":"knight",
-		"cost":60
+		"animation":"knight"
 	},
-	"slayer": {
+	"slayer-sword": {
 		"type": "weapon",
 		"attack":16,
-		"animation":"slayer",
-		"cost":60
+		"animation":"slayer"
 	},
-	"sandals": {
-		"type": "shoes",
-		"speed":1,
-		"jump":200,
-		"animation":"sandals",
-		"cost":10
+	"round-shield": {
+		"type": "shield",
+		"block": "weak",
+		"animation":"round"
 	},
-	"leather-shoes": {
-		"type": "shoes",
-		"speed":1,
-		"jump":200,
-		"animation":"leather_shoes",
-		"cost":80
-	}
+	"knight-shield": {
+		"type": "shield",
+		"block": "medium",
+		"animation":"knight"
+	},
+	"magic-shield": {
+		"type": "shield",
+		"block": "strong",
+		"animation":"magic"
+	},
+	
+	"leather-armor": {
+		"type": "shield",
+		"defence":4,
+		"animation":"round"
+	},
+	"knight-armor": {
+		"type": "shield",
+		"defence":8,
+		"animation":"knight"
+	},
+	"legendary-armor": {
+		"type": "shield",
+		"defence":16,
+		"animation":"magic"
+	},
 }

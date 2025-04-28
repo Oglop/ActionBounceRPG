@@ -300,8 +300,8 @@ func _updatePointerPosition() -> void:
 func _updateLabels() -> void:
 	lblDesc.text = ""
 	
-	lblAtt.text = _textWithValue(txtAttack, Data.attack)
-	lblDef.text = _textWithValue(txtDefence, Data.defence)
+	lblAtt.text = _textWithValue(txtAttack, Data.attackRaw)
+	lblDef.text = _textWithValue(txtDefence, Data.defenceRaw)
 	lblLv.text = _textWithValue(txtLevel, Data.xp)
 	lblNext.text = _textWithValue(txtNext, Data.next)
 	lblStr.text = _textWithValue(txtStrength, Data.strength)

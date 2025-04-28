@@ -1,7 +1,92 @@
 {
+	"_": {
+		"name": "",
+	},
 	"power-ring": {
 		"name": "Power ring",
-		"description": "It is a power ring",
-		"collect": "Chest conained a power ring"
+	},
+	"thief-gloves": {
+		"name": "Thief gloves",
+	},
+	"lock-picks": {
+		"name": "Lock picks",
+	},
+	"fireball-tome": {
+		"name": "Fireball tome",
+	},
+	"candle": {
+		"name": "Candle",
+	},
+	"spirit-stone": {
+		"name": "Spirit stone",
+	},
+	"infinity-symbol": {
+		"name": "Infinity symbol",
+	},
+	"animal-icon": {
+		"name": "Animal icon",
+	},
+	"digging-claws": {
+		"name": "Digging claws",
+	},
+	"healing-rod": {
+		"name": "Healing rod",
+	},
+	"holy-symbol": {
+		"name": "Holy symbol",
+	},
+	"ancient-script": {
+		"name": "Ancient script",
+	},
+	"ice-crystal": {
+		"name": "Ice crystal",
+	},
+	"short-sword": {
+		"name": "Short sword",
+	},
+	"knight-sword": {
+		"name": "Knight sword",
+	},
+	"slayer-sword": {
+		"name": "The slayer",
+	},
+	"leather-armor": {
+		"name": "Leather armor",
+	},
+	"knight-armor": {
+		"name": "Knight armor",
+	},
+	"legendary-armor": {
+		"name": "Legendary armor",
+	},
+	"round-shield": {
+		"name": "Round shield",
+	},
+	"knight-shield": {
+		"name": "Knight shield",
+	},
+	"magic-shield": {
+		"name": "Magic shield",
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

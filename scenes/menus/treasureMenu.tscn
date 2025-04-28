@@ -42,3 +42,4 @@ offset_bottom = 34.0
 
 [node name="ItemIcons" parent="Panel/MarginContainer" instance=ExtResource("3_cxfu2")]
 position = Vector2(41, 38)
+animation = &"power-ring"

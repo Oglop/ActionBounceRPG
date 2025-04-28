@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://y374qflvcm2s"]
+[gd_scene load_steps=23 format=3 uid="uid://y374qflvcm2s"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_4imh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqw2w"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(64, 240, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4imh0"]
 atlas = ExtResource("1_4imh0")
@@ -14,17 +18,61 @@ region = Rect2(0, 240, 16, 16)
 atlas = ExtResource("1_4imh0")
 region = Rect2(128, 240, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnaqo"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(0, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl44n"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(96, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ib47"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(160, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei1yu"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(48, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0fm6"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ht2c"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(80, 48, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfu3k"]
 atlas = ExtResource("1_4imh0")
 region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f40r"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81jif"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otdto"]
 atlas = ExtResource("1_4imh0")
 region = Rect2(64, 224, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h1wp"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jel1y"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(48, 256, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l8xh"]
 atlas = ExtResource("1_4imh0")
 region = Rect2(16, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpfub"]
+atlas = ExtResource("1_4imh0")
+region = Rect2(64, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_521ds"]
 atlas = ExtResource("1_4imh0")
@@ -38,10 +86,18 @@ region = Rect2(48, 64, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cqw2w")
+}],
+"loop": true,
+"name": &"ancient-script",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4imh0")
 }],
 "loop": true,
-"name": &"animalIcon",
+"name": &"animal-icon",
 "speed": 5.0
 }, {
 "frames": [{
@@ -57,7 +113,50 @@ animations = [{
 "texture": SubResource("AtlasTexture_bg5px")
 }],
 "loop": true,
-"name": &"diggingClaws",
+"name": &"digging-claws",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnaqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl44n")
+}],
+"loop": true,
+"name": &"feather",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ib47")
+}],
+"loop": true,
+"name": &"holy-symbol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei1yu")
+}],
+"loop": true,
+"name": &"ice-crystal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0fm6")
+}],
+"loop": true,
+"name": &"knight-armor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ht2c")
+}],
+"loop": true,
+"name": &"knight-shield",
 "speed": 5.0
 }, {
 "frames": [{
@@ -65,7 +164,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_dfu3k")
 }],
 "loop": true,
-"name": &"knightSword",
+"name": &"knight-sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f40r")
+}],
+"loop": true,
+"name": &"leather-armor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81jif")
+}],
+"loop": true,
+"name": &"legendary-armor",
 "speed": 5.0
 }, {
 "frames": [{
@@ -73,7 +188,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_otdto")
 }],
 "loop": true,
-"name": &"lockPicks",
+"name": &"lock-picks",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h1wp")
+}],
+"loop": true,
+"name": &"magic-shield",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jel1y")
+}],
+"loop": true,
+"name": &"potion",
 "speed": 5.0
 }, {
 "frames": [{
@@ -81,7 +212,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_0l8xh")
 }],
 "loop": true,
-"name": &"powerRing",
+"name": &"power-ring",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpfub")
+}],
+"loop": true,
+"name": &"round-shield",
 "speed": 5.0
 }, {
 "frames": [{
@@ -89,7 +228,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_521ds")
 }],
 "loop": true,
-"name": &"shortSword",
+"name": &"short-sword",
 "speed": 5.0
 }, {
 "frames": [{
@@ -103,4 +242,4 @@ animations = [{
 
 [node name="ItemIcons" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_b0lxn")
-animation = &"slayer"
+animation = &"magic-shield"

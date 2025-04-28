@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	if visible && Input.is_action_just_pressed("btn_jump"):
 		get_tree().paused = false
 		visible = false
-		_setText("")
+		_setText("_")
 
 
 func _on_openChest(id:String) -> void:
@@ -22,7 +22,7 @@ func _on_openChest(id:String) -> void:
 
 
 func _setText(id:String) -> void:
-	lbl.text = Data.textData[id].collect
+	lbl.text = "Obtained\n" + Data.textData[id].name
 	
 func _setAnimation(id:String) -> void:
 	sprite.play(id)

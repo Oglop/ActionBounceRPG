@@ -24,7 +24,7 @@ func setProperties(id:String) -> void:
 	_open = isOpen()
 	
 func isOpen() -> bool:
-	if _id == "powerRing":
+	if _id == Statics.ID_POWER_RING:
 		return Data.powerRingCollected
 	return false
 			

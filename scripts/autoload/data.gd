@@ -176,6 +176,11 @@ var attack:int:
 
 		return int(a * multiplyer)
 		
+var attackRaw:int:
+		get:
+			var w:int  = equipmentData[Enums.weaponToString(weapon)].attack
+			var a:int = strength + lv + w
+			return int(a)
 		
 var defence:int:
 	get:
@@ -184,6 +189,11 @@ var defence:int:
 		var d:int = toughness + lv + w
 		return int(d * multiplyer)
 		
+var defenceRaw:int:
+	get:
+		var w:int  = equipmentData[Enums.armorsToString(armor)].defence
+		var d:int = toughness + lv + w
+		return int(d)
 		
 var armor:Enums.armors:
 	get:

@@ -48,7 +48,7 @@
 		"bosses": [],
 		"treasures": [
 			{
-				"id": "powerRing",
+				"id": "power-ring",
 				"start-x": 352,
 				"start-y": -96,
 			}

@@ -1,0 +1,7 @@
+{
+	"power-ring": {
+		"name": "Power ring",
+		"description": "It is a power ring",
+		"collect": "Chest conained a power ring"
+	}
+}

@@ -22,9 +22,7 @@ func _on_openChest(id:String) -> void:
 
 
 func _setText(id:String) -> void:
-	match id:
-		"powerRing": lbl.text = "You found a power ring"
-		_: lbl.text = ""
+	lbl.text = Data.textData[id].collect
 	
 func _setAnimation(id:String) -> void:
 	sprite.play(id)

@@ -65,6 +65,14 @@ var npcData:Dictionary:
 		return npcData
 		
 
+var textData:Dictionary:
+	get:
+		if textData == null || textData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.TEXT_DATA, FileAccess.READ)
+			textData = JSON.parse_string(file.get_as_text())
+		return textData
+		
+
 var hpCurrent:int:
 	get:
 		if hpCurrent == null:

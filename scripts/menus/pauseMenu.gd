@@ -340,6 +340,19 @@ func _updatePlayerItemIcons() -> void:
 	else:
 		player_power_ring.play("player_not_collected")
 		
+	if Data.potionCollected:
+		if Data.potion == Enums.potionType.EMPTY:
+			player_potion.play("player_potion_empty")
+		elif Data.potion == Enums.potionType.EMPTY:
+			player_potion.play("player_potion_full")
+	else:
+		player_potion.play("player_not_collected")
+		
+	if Data.featherCollected:
+		player_feather.play("player_feather")
+	else:
+		player_feather.play("player_not_collected")
+		
 		
 func _updateArmorIcons() -> void:
 	if Data.armorTier1Collected:

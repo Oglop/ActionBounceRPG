@@ -241,11 +241,13 @@ var playerPositions:Array :
 	set(value):
 		playerPositions = value
 		
+		
 var strengthBonus:int:
 	get:
 		if tailNo1Type == Enums.tailType.POOCH || tailNo2Type == Enums.tailType.POOCH:
 			return 1
 		return 0
+		
 		
 var toughnessBonus:int:
 	get:
@@ -254,8 +256,33 @@ var toughnessBonus:int:
 		return 0
 		
 		
+var potion:Enums.potionType:
+	get:
+		if potion == null:
+			potion = Enums.potionType.EMPTY
+		return potion
+	set(value):
+		potion = potion
+		
+		
+func potionTypeToString(value:Enums.potionType) -> String:
+	match value:
+		Enums.potionType.EMPTY: return "EMPTY"
+		Enums.potionType.FULL: return "FULL"
+		_: return "EMPTY"
+		
+		
+func stringToPotionType(value:String) -> Enums.potionType:
+	match value:
+		"EMPTY": return Enums.potionType.EMPTY
+		"FULL": return Enums.potionType.FULL
+		_: return Enums.potionType.NONE
+		
+		
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
 var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
+var potionCollected:bool = false
+var featherCollected:bool = false
 var thiefsGlovesCollected:bool = false
 var lockPicksCollected:bool = false
 var powerRingCollected:bool = false

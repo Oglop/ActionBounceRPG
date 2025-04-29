@@ -107,6 +107,13 @@ enum messageType {
 }
 
 
+enum potionType {
+	NONE,
+	EMPTY,
+	FULL,
+}
+
+
 func stringToMessageType(type:String) -> messageType:
 	match type:
 		"none": return messageType.NONE

@@ -241,6 +241,7 @@ offset = Vector2(8, 8)
 [node name="player_feather" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(66, 80)
+animation = &"player_feather"
 
 [node name="player_potion" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2

@@ -42,7 +42,8 @@ script = ExtResource("1_f6x2j")
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_7ixgd")
 animation = &"fire"
-frame_progress = 0.315566
+autoplay = "fire"
+frame_progress = 0.781948
 
 [node name="Area2D" type="Area2D" parent="."]
 

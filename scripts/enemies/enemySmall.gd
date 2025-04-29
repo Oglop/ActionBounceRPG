@@ -63,6 +63,13 @@ func getArmor() -> int:
 	return _armor
 	
 	
+func _setFrontCheckerPositionAndDirection() -> void:
+	if direction == 0 || direction == null:
+		frontCheck.target_position = Vector2(12 * 1, 0)
+		return
+	frontCheck.target_position = Vector2(12 * direction, 0)
+	
+	
 func applyDamage(value:int) -> void:
 	if !hurtBlocked:
 		
@@ -89,6 +96,7 @@ func applyBounce(value:int, direction:int) -> void:
 
 func _physics_process(delta: float) -> void:
 	enemyFsm.physics_update(delta)
+	_setFrontCheckerPositionAndDirection()
 
 
 func _on_flip_timer_timeout() -> void:

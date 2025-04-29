@@ -33,7 +33,7 @@ func move(delta:float, applyGravity:bool) -> void:
 		object.flipBlocked = true
 		object.flipTimer.start(0.2)
 	else:
-		object.velocity.x = object.direction * 50
+		object.velocity.x = object.direction * speed
 		
 	# accelerate(delta, direction)
 	if applyGravity: applyGravity(delta)

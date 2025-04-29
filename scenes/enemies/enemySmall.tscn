@@ -164,8 +164,8 @@ sprite_frames = SubResource("SpriteFrames_p5uwq")
 animation = &"scorp_idle"
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(13, 9)
-target_position = Vector2(9, 0)
+position = Vector2(8, 9)
+target_position = Vector2(11, 0)
 
 [node name="GroundRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(17, 14)

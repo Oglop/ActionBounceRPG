@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
 @onready var fsm = $FSM
-@onready var leftCheck:RayCast2D = $LeftRayCast2D
 @onready var rightCheck:RayCast2D = $RightRayCast2D
 @onready var downcheck:RayCast2D = $DownRayCast2D
 @onready var combatMarker:Marker2D = $CombatMarker2D

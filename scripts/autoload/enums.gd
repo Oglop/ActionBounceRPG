@@ -113,6 +113,21 @@ enum potionType {
 	FULL,
 }
 
+enum cameraType {
+	HORI,
+	VERT,
+	STILL,
+	FREE,
+}
+
+func stringToCameraType(value:String) -> cameraType:
+	match value:
+		"hori": return cameraType.HORI
+		"vert": return cameraType.VERT
+		"still": return cameraType.STILL
+		"free": return cameraType.FREE
+		_: return cameraType.FREE
+
 
 func stringToMessageType(type:String) -> messageType:
 	match type:

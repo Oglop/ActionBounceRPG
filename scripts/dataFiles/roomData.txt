@@ -3,6 +3,7 @@
 		"id":"start",
 		"x":1,
 		"y":1,
+		"camera":"free",
 		"doors": [
 			{
 				"id":"start-1",
@@ -58,6 +59,7 @@
 		"id":"start-store",
 		"x":1,
 		"y":1,
+		"camera":"still",
 		"doors": [
 			{
 				"id":"start-store-1",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://n1rylmkek0y2"]
+[gd_scene load_steps=31 format=3 uid="uid://n1rylmkek0y2"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_vr30i"]
 [ext_resource type="Script" uid="uid://46l1g7brdvmh" path="res://scripts/enemies/enemySmall.gd" id="1_vyyob"]
@@ -12,6 +12,34 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrtym"]
 size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1sg7"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(352, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmx7p"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(352, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vplvn"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(368, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu7cg"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(352, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewqm8"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(352, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoj3s"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(368, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otxbw"]
+atlas = ExtResource("1_vr30i")
+region = Rect2(384, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opu8p"]
 atlas = ExtResource("1_vr30i")
@@ -63,6 +91,50 @@ region = Rect2(352, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p5uwq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1sg7")
+}],
+"loop": true,
+"name": &"beetle_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmx7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vplvn")
+}],
+"loop": true,
+"name": &"beetle_walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu7cg")
+}],
+"loop": true,
+"name": &"dark_knight_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewqm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoj3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewqm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otxbw")
+}],
+"loop": true,
+"name": &"dark_knight_walk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_opu8p")
@@ -161,7 +233,8 @@ shape = SubResource("RectangleShape2D_lrtym")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_p5uwq")
-animation = &"scorp_idle"
+animation = &"dark_knight_walk"
+frame_progress = 0.479577
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, 9)

@@ -4,6 +4,7 @@
 		"x":1,
 		"y":1,
 		"camera":"free",
+		"background": "Background-0001",
 		"doors": [
 			{
 				"id":"start-1",
@@ -54,6 +55,16 @@
 				"start-y": -96,
 			}
 		],
+		"switches": [
+			{
+				"id": "start-switch",
+				"type": "wood",
+				"start-x": 192,
+				"start-y": 16,
+				"default": true,
+				"flippable":true
+			},
+		]
 	},
 	"start-store": {
 		"id":"start-store",

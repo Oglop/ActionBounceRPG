@@ -41,7 +41,7 @@ enum spawnType {
 	STAIRS,
 	TREASURE,
 	SAVE_SPOT,
-	
+	SWITCH,
 }
 
 
@@ -49,6 +49,11 @@ enum npcType {
 	INFO,
 	MERCHANT,
 	INN_KEEPER,
+}
+
+enum switchType {
+	WOOD,
+	STONE,
 }
 
 
@@ -119,6 +124,19 @@ enum cameraType {
 	STILL,
 	FREE,
 }
+
+func potionTypeToString(value:Enums.potionType) -> String:
+	match value:
+		potionType.EMPTY: return "EMPTY"
+		potionType.FULL: return "FULL"
+		_: return "EMPTY"
+		
+		
+func stringToPotionType(value:String) -> potionType:
+	match value:
+		"EMPTY": return potionType.EMPTY
+		"FULL": return potionType.FULL
+		_: return Enums.potionType.NONE
 
 func stringToCameraType(value:String) -> cameraType:
 	match value:

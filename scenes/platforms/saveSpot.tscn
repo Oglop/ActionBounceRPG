@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ycixktl7q08e"]
+[gd_scene load_steps=9 format=3 uid="uid://ycixktl7q08e"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_4bsv4"]
 [ext_resource type="Script" uid="uid://coqetpgewjql6" path="res://scripts/platforms/saveSpot.gd" id="1_f6x2j"]
@@ -15,6 +15,10 @@ region = Rect2(192, 224, 16, 16)
 atlas = ExtResource("1_4bsv4")
 region = Rect2(208, 224, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ixgd"]
+atlas = ExtResource("1_4bsv4")
+region = Rect2(224, 224, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ixgd"]
 animations = [{
 "frames": [{
@@ -26,10 +30,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pjfn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ixgd")
 }],
 "loop": true,
 "name": &"fire",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5stvn"]
@@ -43,7 +50,7 @@ position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_7ixgd")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.781948
+frame_progress = 0.328251
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -44,6 +44,8 @@ animations = [{
 
 [node name="PauseMenu" type="Node2D"]
 process_mode = 3
+z_index = 20
+position = Vector2(1, 0)
 script = ExtResource("1_8dwkp")
 
 [node name="PanelMain" type="Panel" parent="."]

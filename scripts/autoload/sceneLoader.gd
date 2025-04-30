@@ -11,6 +11,7 @@ const room_pushableBlock = preload("res://scenes/platforms/pushableBlock.tscn")
 const room_stairs = preload("res://scenes/platforms/jumpThoughStairs1.tscn")
 const room_treasure = preload("res://scenes/map/treasure.tscn")
 const room_saveSpot = preload("res://scenes/platforms/saveSpot.tscn")
+const room_switch_wood = preload("res://scenes/map/switch.tscn")
 
 func getScene(type:Enums.spawnType):
 	match type:
@@ -25,4 +26,6 @@ func getScene(type:Enums.spawnType):
 		Enums.spawnType.STAIRS: return room_stairs.instantiate()
 		Enums.spawnType.TREASURE: return room_treasure.instantiate()
 		Enums.spawnType.SAVE_SPOT: return room_saveSpot.instantiate()
+		Enums.spawnType.SWITCH: return room_switch_wood.instantiate()
+
 		_ : return enemy_enemySmall.instantiate()

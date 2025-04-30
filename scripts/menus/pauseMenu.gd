@@ -147,7 +147,7 @@ func _getPointerInput() -> void:
 		#	row = 3 
 			updateInterface = true
 			
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("btn_accept"):
 		if col == 0:
 			if row == 0 && Data.weaponTier1Collected:
 				Data.weapon = Enums.weapons.SHORT
@@ -176,8 +176,8 @@ func _getPointerInput() -> void:
 	if updateInterface:
 		_updateEquipedPointers() 
 		_updatePointerPosition()
-		_updateDescriptionLabel()
 		_updateLabels()
+		_updateDescriptionLabel()
 	
 	
 func _updateDescriptionLabel() -> void:

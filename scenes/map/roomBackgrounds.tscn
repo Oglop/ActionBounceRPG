@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://de5724pvjdgnn"]
+
+[ext_resource type="Script" uid="uid://bsut8npeki0hw" path="res://scripts/player/roomBackgrounds.gd" id="1_abpyh"]
+
+[node name="RoomBackgrounds" type="ParallaxBackground"]
+script = ExtResource("1_abpyh")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]

@@ -265,18 +265,16 @@ var potion:Enums.potionType:
 		potion = potion
 		
 		
-func potionTypeToString(value:Enums.potionType) -> String:
-	match value:
-		Enums.potionType.EMPTY: return "EMPTY"
-		Enums.potionType.FULL: return "FULL"
-		_: return "EMPTY"
+
 		
+var switches:Dictionary:
+	get:
+		if switches == null:
+			switches = {}
+		return switches
+	set(value):
+		switches = value
 		
-func stringToPotionType(value:String) -> Enums.potionType:
-	match value:
-		"EMPTY": return Enums.potionType.EMPTY
-		"FULL": return Enums.potionType.FULL
-		_: return Enums.potionType.NONE
 		
 		
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH

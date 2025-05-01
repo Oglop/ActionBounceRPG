@@ -97,7 +97,7 @@ target_position = Vector2(0, 4)
 collision_mask = 4
 
 [node name="CombatMarker2D" type="Marker2D" parent="."]
-position = Vector2(8, 2)
+position = Vector2(14, 2)
 
 [node name="Shield" parent="." groups=["player"] instance=ExtResource("8_5gtgg")]
 position = Vector2(0, 2)
@@ -105,3 +105,7 @@ position = Vector2(0, 2)
 [node name="Sword" parent="." instance=ExtResource("9_h17s1")]
 position = Vector2(-6, -1)
 animation = &"short"
+
+[node name="ComboTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ComboTimer" to="." method="_on_combo_timer_timeout"]

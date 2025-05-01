@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"one",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -55,14 +55,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"two",
-"speed": 7.0
+"speed": 8.0
 }]
 
 [node name="SwordAttack" type="Node2D"]
+z_index = 40
 script = ExtResource("1_4dbpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qlscr")
-animation = &"one"
+animation = &"two"
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

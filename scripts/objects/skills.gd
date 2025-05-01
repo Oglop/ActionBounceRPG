@@ -2,11 +2,11 @@ class_name skills
 
 var canPickLocks:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.THIEF || Data.tailNo2Type == Enums.tailType.THIEF) && Data.thiefsGlovesCollected
+		return _joinedBy(Enums.tailType.THIEF) && Data.thiefsGlovesCollected
 
 var canTalkToAnimals:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.POOCH || Data.tailNo2Type == Enums.tailType.POOCH)
+		return _joinedBy(Enums.tailType.POOCH) && Data.animalIconCollected
 		
 var canPushBlocks:bool:
 	get:
@@ -14,20 +14,24 @@ var canPushBlocks:bool:
 		
 var canFindPathInForest:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.ELF || Data.tailNo2Type == Enums.tailType.ELF)
+		return _joinedBy(Enums.tailType.ELF)
 		
 var canSeeSpiritDoors:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.WIZARD || Data.tailNo2Type == Enums.tailType.WIZARD) && Data.spiritStoneCollected
+		return _joinedBy(Enums.tailType.WIZARD) && Data.spiritStoneCollected
 		
 var canCastFireBalls:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.WIZARD || Data.tailNo2Type == Enums.tailType.WIZARD) && Data.fireBallTomeCollected
+		return _joinedBy(Enums.tailType.WIZARD) && Data.fireBallTomeCollected
 
 var canLightUpDarkness:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.THIEF || Data.tailNo2Type == Enums.tailType.THIEF) && Data.candleCollected
+		return _joinedBy(Enums.tailType.THIEF) && Data.candleCollected
 
 var canSolveInfinityPuzzle:bool:
 	get:
-		return (Data.tailNo1Type == Enums.tailType.CLERIC || Data.tailNo2Type == Enums.tailType.CLERIC) && Data.infinitySymbolCollected
+		return _joinedBy(Enums.tailType.CLERIC) && Data.infinitySymbolCollected
+		
+		
+func _joinedBy(type:Enums.tailType) -> bool:
+	return Data.tailNo1Type == type || Data.tailNo2Type == type

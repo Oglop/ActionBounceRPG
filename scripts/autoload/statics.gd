@@ -22,6 +22,12 @@ const PLAYER_ACCELERATION:float = 900
 const PLAYER_AIR_MULTIPLYER:float = 0.7
 const PLAYER_CRITICAL_MULTIPLYER:float = 1.4
 
+const CHARACTER_WIZARD_NAME:String = "Sevio"
+const CHARACTER_POOCH_NAME:String = "Pooch"
+const CHARACTER_ELF_NAME:String = "Fenro"
+const CHARACTER_THIEF_NAME:String = "Rona"
+const CHARACTER_CLERIC_NAME:String = "Esma"
+
 const STATE_IDLE:String = "idle"
 const STATE_WALK:String = "walk"
 const STATE_FALL:String = "fall"

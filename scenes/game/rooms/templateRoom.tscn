@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://byc5wn2cjpc78"]
+[gd_scene load_steps=17 format=4 uid="uid://byc5wn2cjpc78"]
 
 [ext_resource type="PackedScene" uid="uid://c4cc3yndbv8tc" path="res://scenes/menus/treasureMenu.tscn" id="1_0jenv"]
 [ext_resource type="PackedScene" uid="uid://d2pk2m3s2pywe" path="res://scenes/player/player.tscn" id="1_efytk"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cqv7idweyhf8j" path="res://scenes/menus/acceptMenu.tscn" id="7_tysfp"]
 [ext_resource type="PackedScene" uid="uid://cbwa1k5guduj4" path="res://scenes/menus/npcMenu.tscn" id="8_bo5ay"]
 [ext_resource type="PackedScene" uid="uid://b4fva2euijmc4" path="res://scenes/menus/pauseMenu.tscn" id="8_i08f8"]
+[ext_resource type="PackedScene" uid="uid://bs5l6mc37of54" path="res://scenes/menus/changePartyMenu.tscn" id="11_6507r"]
 [ext_resource type="PackedScene" uid="uid://cbd5godu82who" path="res://scenes/player/cameraMarker.tscn" id="13_eancq"]
 [ext_resource type="PackedScene" uid="uid://de5724pvjdgnn" path="res://scenes/map/roomBackgrounds.tscn" id="15_xdj7i"]
 
@@ -56,6 +57,11 @@ position = Vector2(-120, -75)
 [node name="AcceptMenu" parent="CameraMarker/GameCamera" instance=ExtResource("7_tysfp")]
 visible = false
 position = Vector2(-88, -58)
+
+[node name="ChangePartyMenu" parent="CameraMarker/GameCamera" instance=ExtResource("11_6507r")]
+visible = false
+z_index = 20
+position = Vector2(-128, -63)
 
 [node name="PauseMenu" parent="CameraMarker/GameCamera" instance=ExtResource("8_i08f8")]
 visible = false

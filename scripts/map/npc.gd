@@ -5,7 +5,7 @@ extends Node2D
 var _id:String
 var _type:Enums.npcType
 var _animation:String
-
+var npc:Dictionary
 
 func _ready() -> void:
 	pass
@@ -17,12 +17,18 @@ func _physics_process(delta: float) -> void:
 		for b:Node in area.get_overlapping_bodies():
 			if b.is_in_group("player"):
 				get_tree().paused = true
-				Events.ROOM_LOAD_NPC.emit(_id)
+				if npc.has("type"):
+					if npc.type == "change-party":
+						Events.ROOM_CHANGE_PARTY.emit()
+					elif npc.type == "info":
+						Events.ROOM_LOAD_NPC.emit(_id)
+				else:
+					Events.ROOM_LOAD_NPC.emit(_id)
 	
 	
 func setProperties(id:String) -> void:
 	_id = id
-	var npc = Data.npcData[id]
+	npc = Data.npcData[id]
 	_animation = npc.animation
 	#_type = Enums.stringToNpcType(npc.type)
 	

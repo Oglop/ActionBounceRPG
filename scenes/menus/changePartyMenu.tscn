@@ -1,0 +1,140 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs5l6mc37of54"]
+
+[ext_resource type="Script" uid="uid://d1qne8vbgr6cf" path="res://scripts/menus/changePartyMenu.gd" id="1_brkls"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="2_4w0lg"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="3_4xbmr"]
+[ext_resource type="PackedScene" uid="uid://cymqnjpvydhit" path="res://scenes/menus/selectedPartyMember.tscn" id="3_5fyci"]
+[ext_resource type="PackedScene" uid="uid://c0hmhatubfmg3" path="res://scenes/menus/tailIcons.tscn" id="5_4xbmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uocbe"]
+atlas = ExtResource("3_4xbmr")
+region = Rect2(0, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bx38"]
+atlas = ExtResource("3_4xbmr")
+region = Rect2(16, 256, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gu4s8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uocbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bx38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="ChangePartyMenu" type="Node2D"]
+script = ExtResource("1_brkls")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 256.0
+offset_bottom = 144.0
+theme = ExtResource("2_4w0lg")
+
+[node name="lblChangeParty" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0117188
+anchor_top = 0.0208333
+anchor_right = -0.0117188
+anchor_bottom = 0.0208333
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 77.0
+offset_bottom = 16.0
+text = "Change party"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblAbilities" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 6.0
+offset_right = 124.0
+offset_bottom = 20.0
+text = "Abilitys:"
+
+[node name="SelectedPartyMemberOne" parent="Panel" instance=ExtResource("3_5fyci")]
+position = Vector2(24, 30)
+
+[node name="SelectedPartyMemberTwo" parent="Panel" instance=ExtResource("3_5fyci")]
+position = Vector2(51, 30)
+animation = &"wizard_idle"
+
+[node name="pointer" type="AnimatedSprite2D" parent="Panel"]
+z_index = 1
+position = Vector2(-48, 0)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_gu4s8")
+autoplay = "default"
+offset = Vector2(8, 8)
+
+[node name="tailWizard" parent="Panel" instance=ExtResource("5_4xbmr")]
+process_mode = 3
+z_index = 1
+position = Vector2(24, 49)
+
+[node name="tailPooch" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(24, 67)
+
+[node name="tailelf" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(24, 87)
+
+[node name="tailCleric" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(24, 127)
+
+[node name="tailThief" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(24, 107)
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -8.0
+offset_right = 154.0
+offset_bottom = 8.0
+
+[node name="lblDesc" type="Label" parent="Panel/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 14.0
+text = "Pooch"
+
+[node name="tailOne" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(-32, 32)
+
+[node name="tailTwo" parent="Panel" instance=ExtResource("5_4xbmr")]
+z_index = 1
+position = Vector2(-32, 72)
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 128.0
+offset_top = 11.0
+offset_right = 249.0
+offset_bottom = 136.0
+theme = ExtResource("2_4w0lg")
+
+[node name="lblListAbilities" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 122.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 16
+text = "1
+2
+3
+4
+5
+6
+7
+"

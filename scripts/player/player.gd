@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var combatMarker:Marker2D = $CombatMarker2D
 @onready var shield:AnimatedSprite2D = $Shield
 @onready var sword:AnimatedSprite2D = $Sword
+@onready var comboTimer:Timer = $ComboTimer
 var f:functions = functions.new()
 var s:skills = skills.new()
 
@@ -17,6 +18,8 @@ var _bounceStrength:float = 0
 var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _isDownBouncing:bool = false
+
+var _attackNumber:int = 0
 
 var direction:int :
 	get: return direction
@@ -72,10 +75,12 @@ func _setSwordAndShieldPositionAndDirection() -> void:
 		sword.scale.x = -1
 		sword.position = Vector2(5, -1)
 		shield.scale.x = -1
+		combatMarker.position = Vector2(-14, 2)
 	else:
 		sword.scale.x = 1
 		sword.position = Vector2(-6, -1)
 		shield.scale.x = 1
+		combatMarker.position = Vector2(14, 2)
 		
 	
 func _setEnemyCheckerPositionAndDirection() -> void:
@@ -83,6 +88,7 @@ func _setEnemyCheckerPositionAndDirection() -> void:
 		rightCheck.target_position = Vector2(12 * 1, 0)
 		return
 	rightCheck.target_position = Vector2(12 * direction, 0)
+
 
 func _checkforCollisions():
 	var collider:Object
@@ -116,7 +122,6 @@ func _processBounce(delta):
 		_bounceStrength += 20
 	if _bouncingLeft:
 		velocity = Vector2(_bounceStrength * -1, global_position.y)
-		#velocity.x = move_toward(velocity.x, _bounceStrength * -1, delta)
 	if _bouncingRight:
 		velocity = Vector2(_bounceStrength, global_position.y)
 
@@ -161,7 +166,10 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		
 	if collider.has_method("applyDamage"):
 		collider.applyDamage(_getAttack(critical))
-		Events.FX_WEAK_HIT.emit(combatMarker.global_position, direction)
+		Events.FX_SWORD_ATTACK.emit(combatMarker.global_position, direction, _attackNumber)
+		comboTimer.start(0.3)
+		if _attackNumber == 0:
+			_attackNumber = 1
 	if collider.has_method("applyBounce"):
 		var enemyBounceDirection:int = 1
 		if collider.global_position.x > self.global_position.x:
@@ -198,3 +206,8 @@ func _getAttack(critical:bool) -> int:
 	
 	
 	
+
+
+func _on_combo_timer_timeout() -> void:
+	_attackNumber = 0
+	comboTimer.stop()

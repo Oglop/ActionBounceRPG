@@ -33,6 +33,8 @@ enum spawnType {
 	FX_FIRE_BALL,
 	FX_THIEF_KNIFE,
 	FX_ELF_ARROW,
+	FX_SWORD_ATTACK,
+	FX_GROUND_HIT_DUST,
 	ENEMY_SMALL,
 	TAIL,
 	DOOR,
@@ -42,6 +44,7 @@ enum spawnType {
 	TREASURE,
 	SAVE_SPOT,
 	SWITCH,
+	
 }
 
 

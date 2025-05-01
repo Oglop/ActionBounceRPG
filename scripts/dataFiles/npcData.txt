@@ -9,5 +9,18 @@
 				"type": "info",
 			}
 		]
+	},
+	"party-changer": {
+		"animation": "party_change",
+		"type": "change-party",
+		"messages": [
+			{
+				"text": "Would you like to change compainions?",
+				"quest-id": "none",
+				"quest-requirment": "none",
+				"type": "change-party",
+			}
+		]
 	} 
+	
 }

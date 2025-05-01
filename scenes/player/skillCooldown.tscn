@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://ms0ujgq8rkl6"]
+
+[ext_resource type="Script" uid="uid://cy8ti8ccjvepo" path="res://scripts/player/skillCooldown.gd" id="1_n6usk"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_5fi2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1etvd"]
+bg_color = Color(0.159899, 0.565885, 0.838591, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6usk"]
+atlas = ExtResource("2_5fi2m")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fi2m"]
+atlas = ExtResource("2_5fi2m")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1etvd"]
+atlas = ExtResource("2_5fi2m")
+region = Rect2(48, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axtkd"]
+atlas = ExtResource("2_5fi2m")
+region = Rect2(32, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0m2hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6usk")
+}],
+"loop": true,
+"name": &"arrow1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fi2m")
+}],
+"loop": true,
+"name": &"fireball1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1etvd")
+}],
+"loop": true,
+"name": &"heal1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axtkd")
+}],
+"loop": true,
+"name": &"thiefKnife1",
+"speed": 5.0
+}]
+
+[node name="SkillCooldown" type="Node2D"]
+script = ExtResource("1_n6usk")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1etvd")
+fill_mode = 3
+show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0m2hp")
+animation = &"arrow1"
+offset = Vector2(8, 8)

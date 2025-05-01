@@ -50,7 +50,7 @@ position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_7ixgd")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.328251
+frame_progress = 0.531328
 
 [node name="Area2D" type="Area2D" parent="."]
 

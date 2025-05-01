@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgp6tp2exh35v"]
+
+[ext_resource type="Script" uid="uid://dn3e6q17vawmb" path="res://scripts/fx/swordAttack.gd" id="1_4dbpx"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_dqmwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dbpx"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(288, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucv5"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(320, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnuy7"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(352, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtw4j"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(384, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yesdp"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(416, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu3jg"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(448, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlscr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dbpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnuy7")
+}],
+"loop": true,
+"name": &"one",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtw4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yesdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu3jg")
+}],
+"loop": true,
+"name": &"two",
+"speed": 7.0
+}]
+
+[node name="SwordAttack" type="Node2D"]
+script = ExtResource("1_4dbpx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qlscr")
+animation = &"one"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

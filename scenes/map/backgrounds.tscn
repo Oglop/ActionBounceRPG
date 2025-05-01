@@ -148,6 +148,16 @@ texture = ExtResource("1_gjsic")
 18:20/0/z_index = 20
 19:20/0 = 0
 19:20/0/z_index = 20
+12:22/0 = 0
+12:23/0 = 0
+13:23/0 = 0
+13:22/0 = 0
+14:22/0 = 0
+13:21/0 = 0
+14:21/0 = 0
+14:20/0 = 0
+15:20/0 = 0
+15:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_w33vf"]
 physics_layer_0/collision_layer = 2

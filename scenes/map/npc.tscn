@@ -48,7 +48,7 @@ script = ExtResource("1_1w4f1")
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
 animation = &"party_change"
-frame_progress = 0.583101
+frame_progress = 0.385114
 
 [node name="Area2D" type="Area2D" parent="."]
 

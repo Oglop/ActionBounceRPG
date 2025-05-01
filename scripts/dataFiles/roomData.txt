@@ -21,6 +21,11 @@
 				"id":"start-npc-1",
 				"start-x": 96,
 				"start-y": 0,
+			},
+			{
+				"id":"party-changer",
+				"start-x": 160,
+				"start-y": 0,
 			}
 		],
 		"platforms": [

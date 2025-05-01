@@ -1,6 +1,7 @@
 extends Node
 
 signal SPAWN_TAIL
+signal UPDATE_TAIL
 signal ADD_XP
 signal SHOW_ACCEPT_MENU
 

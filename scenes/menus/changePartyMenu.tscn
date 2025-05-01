@@ -29,6 +29,7 @@ animations = [{
 }]
 
 [node name="ChangePartyMenu" type="Node2D"]
+process_mode = 2
 script = ExtResource("1_brkls")
 
 [node name="Panel" type="Panel" parent="."]

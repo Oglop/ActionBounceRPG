@@ -10,7 +10,7 @@ var _type:Enums.tailType
 
 
 func _ready() -> void:
-	pass
+	Events.connect("UPDATE_TAIL", _on_updateTail)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -25,6 +25,12 @@ func setProperties(number:int, type:Enums.tailType) -> void:
 	_number = number
 	_type = type
 	_direction = 1
+	
+func _on_updateTail() -> void:
+	if _number == 1:
+		_type = Data.tailNo1Type
+	else:
+		_type = Data.tailNo2Type
 	
 
 func numberToTailPosition(number:int) -> int:

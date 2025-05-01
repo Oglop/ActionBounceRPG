@@ -25,7 +25,7 @@ var selectingMemberIndex:int = 0
 func _ready() -> void:
 	s = skills.new()
 	Events.connect("ROOM_CHANGE_PARTY", _on_roomChangePartyMemebers)
-	visible = false
+	#visible = false
 	_upateSlotOne()
 	_updateSlotTwo()
 	_updateAbilityList()
@@ -83,6 +83,12 @@ func _physics_process(delta: float) -> void:
 			selectingSlot = false
 			selectingMember = true
 			_updatePointersAndLabels()
+		elif selectingSlot && Input.is_action_just_pressed("btn_jump"):
+			selectingSlot = false
+			selectingMember = false
+			visible = false
+			Events.UPDATE_TAIL.emit()
+			get_tree().paused = false
 			
 	
 func _updatePointersAndLabels() -> void:
@@ -119,6 +125,7 @@ func _updatePointersAndLabels() -> void:
 			pointer.global_position.y = tailCleric.global_position.y - 8
 			lblDesc.text = Statics.CHARACTER_CLERIC_NAME
 		_updateAbilityList()
+		
 
 
 func _setTailIcons() -> void:

@@ -1,14 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://c0hmhatubfmg3"]
+[gd_scene load_steps=28 format=3 uid="uid://c0hmhatubfmg3"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_xg3ti"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg3ti"]
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1wqq"]
-atlas = ExtResource("1_xg3ti")
-region = Rect2(32, 176, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgol0"]
 atlas = ExtResource("1_xg3ti")
@@ -30,10 +26,6 @@ region = Rect2(80, 128, 16, 16)
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 128, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubyhr"]
-atlas = ExtResource("1_xg3ti")
-region = Rect2(32, 128, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6wm3"]
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 128, 16, 16)
@@ -53,10 +45,6 @@ region = Rect2(80, 144, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1ew8"]
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 144, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p2oyg"]
-atlas = ExtResource("1_xg3ti")
-region = Rect2(32, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wv0xc"]
 atlas = ExtResource("1_xg3ti")
@@ -82,10 +70,6 @@ region = Rect2(80, 160, 16, 16)
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 160, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_enonf"]
-atlas = ExtResource("1_xg3ti")
-region = Rect2(32, 160, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_18cno"]
 atlas = ExtResource("1_xg3ti")
 region = Rect2(64, 160, 16, 16)
@@ -106,10 +90,6 @@ region = Rect2(80, 112, 16, 16)
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wb551"]
-atlas = ExtResource("1_xg3ti")
-region = Rect2(32, 112, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w12jk"]
 atlas = ExtResource("1_xg3ti")
 region = Rect2(16, 112, 16, 16)
@@ -127,9 +107,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xg3ti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1wqq")
 }],
 "loop": true,
 "name": &"cleric_idle",
@@ -163,9 +140,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rko7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ubyhr")
 }],
 "loop": true,
 "name": &"elf_idle",
@@ -204,9 +178,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o1ew8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p2oyg")
 }],
 "loop": true,
 "name": &"pooch_idle",
@@ -240,9 +211,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swbfm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_enonf")
 }],
 "loop": true,
 "name": &"thief_idle",
@@ -276,9 +244,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iao45")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wb551")
 }],
 "loop": true,
 "name": &"wizard_idle",
@@ -304,5 +269,5 @@ animations = [{
 
 [node name="TailIcons" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_lxd77")
-animation = &"cleric_walk"
-frame_progress = 0.0354584
+animation = &"wizard_idle"
+frame_progress = 0.333822

@@ -27,6 +27,11 @@ func move(delta:float, applyGravity:bool) -> void:
 	else:
 		object.groundCheck.position = Vector2i(1,15)
 		
+	if object.frontCheck.is_colliding() && !object.flipBlocked:
+		object.sprite.flip_h = object.direction > 0
+		object.direction *= -1
+		object.flipBlocked = true
+		object.flipTimer.start(0.2)
 	if !object.groundCheck.is_colliding() && !object.flipBlocked:
 		object.sprite.flip_h = object.direction > 0
 		object.direction *= -1

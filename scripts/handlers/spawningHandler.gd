@@ -6,7 +6,13 @@ func _ready() -> void:
 	Events.connect("FX_FIRE_BALL", _on_fxFireBall)
 	Events.connect("FX_THIEF_KNIFE", _on_fxThiefKnife)
 	Events.connect("FX_SWORD_ATTACK", _on_swordAttack)
+	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
 	
+	
+func _on_hitGroundDust(position:Vector2) -> void:
+	var fx = SceneLoader.getScene(Enums.spawnType.FX_GROUND_HIT_DUST)
+	fx.global_position = position
+	self.add_child(fx)
 	
 func _on_fxWeakHit(position:Vector2, direction:int) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_WEAK_HIT)

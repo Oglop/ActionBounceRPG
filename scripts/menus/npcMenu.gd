@@ -20,6 +20,8 @@ func _on_loadNPC(id:String) -> void:
 	for msg in messages:
 		if msg.type == "info":
 			_setInfo(msg.text)
+		elif msg.type == "healer":
+			_setInfo(msg.text)
 			
 func _setNextText(index:int) -> void:
 	if messages.size() == 0 || index >= messages.size():

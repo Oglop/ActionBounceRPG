@@ -5,6 +5,7 @@ var f:functions
 func _ready() -> void:
 	f = functions.new()
 	Events.connect("ADD_XP", _on_addXP)
+	Events.connect("ADD_HP", _on_addHP)
 
 var saveSpotY:int:
 	get:
@@ -79,14 +80,15 @@ var hpCurrent:int:
 			hpCurrent = 0
 		return hpCurrent
 	set(value):
-		hpCurrent = value
+		if value > hpMax:
+			hpCurrent = hpMax
+		else:
+			hpCurrent = value
 		
 		
 var hpMax:int:
 	get:
-		if hpMax == null:
-			hpMax = 0
-		return hpMax
+		return levelData[str(lv)].maxHp
 	set(value):
 		hpMax = value
 		
@@ -97,6 +99,14 @@ var next:int:
 		return next
 	set (value):
 		next = value
+		
+var xpTotal:int:
+	get:
+		if xpTotal == null:
+			xpTotal = 0
+		return xpTotal
+	set(value):
+		xpTotal = value
 		
 		
 var xp:int:
@@ -114,7 +124,7 @@ var xp:int:
 			xp = 0
 			
 		
-var lv:int:
+var lv:int = 1:
 	get:
 		if lv == null:
 			lv = 1
@@ -129,41 +139,36 @@ var staminaCurrent:int:
 			staminaCurrent = 1
 		return staminaCurrent
 	set(value):
-		staminaCurrent = value
+		if value > staminaMax:
+			staminaCurrent = staminaMax
+		else:
+			staminaCurrent = value
 		
 		
 var staminaMax:int:
 	get:
-		if staminaMax == null:
-			staminaMax = 1
-		return staminaMax
+		return levelData[str(lv)].maxStamina
 	set(value):
 		staminaMax = value
 		
 		
 var strength:int:
 	get:
-		if strength == null:
-			strength = 0
-		return strength
+		return levelData[str(lv)].strength
 	set(value):
 		strength = value
 		
 		
 var toughness:int:
 	get:
-		if toughness == null:
-			toughness = 0
-		return toughness
+		return levelData[str(lv)].toughness
 	set(value):
 		toughness = value
 	
 	
 var critChance:int:
 	get:
-		if critChance == null:
-			critChance = 0
-		return critChance
+		return levelData[str(lv)].critChance
 	set(value):
 		critChance = value
 		
@@ -308,6 +313,14 @@ var shieldTier3Collected:bool = false
 
 func _on_addXP(value:int) -> void:
 	xp += value
+	xpTotal += value
+	
+func _on_addHP(value:int) -> void:
+	if hpCurrent + value > hpMax:
+		hpCurrent = hpMax
+	else:
+		hpCurrent += value
 	
 func getMaxXPAtLevel(level:int) -> int:
 	return levelData[str(lv)]["need"]
+	

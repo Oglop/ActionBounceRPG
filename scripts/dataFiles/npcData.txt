@@ -18,7 +18,19 @@
 				"text": "Would you like to change compainions?",
 				"quest-id": "none",
 				"quest-requirment": "none",
-				"type": "change-party",
+				"type": "info",
+			}
+		]
+	},
+	"healer": {
+		"animation": "healer",
+		"type": "healer",
+		"messages": [
+			{
+				"text": "You look hurt, let me help you.",
+				"quest-id": "none",
+				"quest-requirment": "none",
+				"type": "info",
 			}
 		]
 	} 

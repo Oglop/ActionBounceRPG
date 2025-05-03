@@ -3,11 +3,13 @@ extends Node
 signal SPAWN_TAIL
 signal UPDATE_TAIL
 signal ADD_XP
+signal ADD_HP
 signal SHOW_ACCEPT_MENU
 
 signal FX_WEAK_HIT
 signal FX_PLAYER_ATTACK
 signal FX_SWORD_ATTACK
+signal FX_HIT_GROUND_DUST
 
 signal PLAY_SOUND_EFFECT
 

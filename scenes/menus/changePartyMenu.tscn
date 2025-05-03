@@ -69,7 +69,6 @@ animation = &"wizard_idle"
 [node name="pointer" type="AnimatedSprite2D" parent="Panel"]
 z_index = 1
 position = Vector2(-48, 0)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_gu4s8")
 autoplay = "default"
 offset = Vector2(8, 8)

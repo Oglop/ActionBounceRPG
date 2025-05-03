@@ -22,6 +22,10 @@ func _physics_process(delta: float) -> void:
 						Events.ROOM_CHANGE_PARTY.emit()
 					elif npc.type == "info":
 						Events.ROOM_LOAD_NPC.emit(_id)
+					elif npc.type == "healer":
+						Events.ADD_HP.emit(999)
+						Events.ROOM_LOAD_NPC.emit(_id)
+					
 				else:
 					Events.ROOM_LOAD_NPC.emit(_id)
 	

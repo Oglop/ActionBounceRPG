@@ -64,6 +64,7 @@ animations = [{
 }]
 
 [node name="HitGroundDust" type="Node2D"]
+z_index = 31
 script = ExtResource("1_p4x8q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

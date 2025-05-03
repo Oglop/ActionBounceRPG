@@ -4,6 +4,7 @@ const path:String = "user://savegame_%s.save"
 const data_x:String = "x"
 const data_y:String = "y"
 const data_xp:String = "xp"
+const data_xpTotal:String = "xpTotal"
 const data_lv:String = "lv"
 const data_strength:String = "strength"
 const data_toughness:String = "toughness"
@@ -53,6 +54,7 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_x: position.x,
 		data_y: position.y,
 		data_xp : Data.xp,
+		data_xpTotal: Data.xpTotal,
 		data_lv: Data.lv,
 		data_strength: Data.strength,
 		data_toughness: Data.toughness,
@@ -96,6 +98,7 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.saveSpotY = data[data_y]
 	Data.saveSpotX = data[data_x]
 	Data.xp = data[data_xp]
+	Data.xpTotal = data[data_xp]
 	Data.lv = data[data_lv]
 	Data.strength = data[data_strength]
 	Data.toughness = data[data_toughness]

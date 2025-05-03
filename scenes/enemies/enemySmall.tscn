@@ -239,6 +239,7 @@ frame_progress = 0.479577
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
 target_position = Vector2(11, 0)
+collision_mask = 2
 
 [node name="GroundRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(17, 14)

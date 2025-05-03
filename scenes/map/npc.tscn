@@ -1,7 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ybbme0gsityr"]
+[gd_scene load_steps=14 format=3 uid="uid://ybbme0gsityr"]
 
 [ext_resource type="Script" uid="uid://bxqryui15xrd4" path="res://scripts/map/npc.gd" id="1_1w4f1"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_g3nlj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3wee"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(160, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipcj"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(176, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3yau"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(224, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwo13"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(240, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1w4f1"]
 atlas = ExtResource("2_g3nlj")
@@ -11,12 +27,42 @@ region = Rect2(128, 208, 16, 16)
 atlas = ExtResource("2_g3nlj")
 region = Rect2(144, 208, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxiwx"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(192, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p61n7"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(208, 208, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0rjh"]
 atlas = ExtResource("2_g3nlj")
 region = Rect2(112, 224, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3yau"]
 animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_k3wee")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_4ipcj")
+}],
+"loop": true,
+"name": &"guard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_y3yau")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_fwo13")
+}],
+"loop": true,
+"name": &"healer",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 10.0,
 "texture": SubResource("AtlasTexture_1w4f1")
@@ -26,6 +72,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"party_change",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_jxiwx")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_p61n7")
+}],
+"loop": true,
+"name": &"prince",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,8 +104,7 @@ script = ExtResource("1_1w4f1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
-animation = &"party_change"
-frame_progress = 0.385114
+animation = &"prince"
 
 [node name="Area2D" type="Area2D" parent="."]
 

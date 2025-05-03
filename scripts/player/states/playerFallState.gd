@@ -13,6 +13,7 @@ func physics_process(delta: float) -> void:
 	if !coyoteTimer.is_stopped() && object.isJumpJustPressed():
 		change_state(Statics.STATE_JUMP)
 	elif object.is_on_floor():
+		Events.FX_HIT_GROUND_DUST.emit(object.global_position)
 		if object.getInputX() == 0:
 			change_state(Statics.STATE_IDLE)
 		else:

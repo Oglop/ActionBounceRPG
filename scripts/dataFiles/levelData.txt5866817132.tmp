@@ -1,6 +1,6 @@
 {
 	"1": {
-		"total": 44,
+		"total": 0,
 		"need": 44,
 		"maxHp": 24,
 		"maxStamina": 10,
@@ -9,7 +9,7 @@
 		"critChance": 4
 	},
 	"2": {
-		"total": 170,
+		"total": 44,
 		"need": 126,
 		"maxHp": 26,
 		"maxStamina": 12,
@@ -18,7 +18,7 @@
 		"critChance": 4
 	},
 	"3": {
-		"total": 413,
+		"total": 369,
 		"need": 243,
 		"maxHp": 29,
 		"maxStamina": 14,

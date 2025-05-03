@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2nq45fgma4dc"]
+
+[ext_resource type="Script" uid="uid://butn51780wrmu" path="res://scripts/room/startRoom.gd" id="1_h182s"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="2_pnsmv"]
+[ext_resource type="PackedScene" uid="uid://c0hmhatubfmg3" path="res://scenes/menus/tailIcons.tscn" id="3_ur4yn"]
+
+[node name="StartRoom" type="Node2D"]
+script = ExtResource("1_h182s")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -16.0
+offset_right = 336.0
+offset_bottom = 192.0
+theme = ExtResource("2_pnsmv")
+
+[node name="SelectPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 112.0
+theme = ExtResource("2_pnsmv")
+
+[node name="Label" type="Label" parent="Panel/SelectPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
+text = "Continue
+New game
+Quit"
+
+[node name="ColorRect" type="ColorRect" parent="Panel/SelectPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 62.0
+offset_bottom = 22.0
+color = Color(0.27451, 0.529412, 1, 1)
+
+[node name="SlotPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 160.0
+theme = ExtResource("2_pnsmv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 96)
+zoom = Vector2(2, 2)
+
+[node name="TailIcons" parent="." instance=ExtResource("3_ur4yn")]
+position = Vector2(240, -16)

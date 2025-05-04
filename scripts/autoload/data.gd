@@ -15,6 +15,13 @@ var saveSpotY:int:
 			saveSpotY = 0
 		return saveSpotY
 		
+var currentRoomId:String:
+	get:
+		if currentRoomId == null || currentRoomId == "":
+			currentRoomId = saveSpotRoomId
+		return currentRoomId
+	set(value):
+		currentRoomId = value
 		
 var saveSpotRoomId:String:
 	get:

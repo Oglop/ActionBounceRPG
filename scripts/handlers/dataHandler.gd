@@ -52,6 +52,7 @@ func _ready() -> void:
 	
 
 func _getSaveData(position:Vector2) -> Dictionary:
+	Data.saveSpotRoomId = Data.currentRoomId
 	var data:Dictionary = {
 		data_x: position.x,
 		data_y: position.y,
@@ -101,7 +102,6 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.saveSpotY = data[data_y]
 	Data.saveSpotX = data[data_x]
 	Data.saveSpotRoomId = data[data_saveSpotRoomId]
-	Data.lastSavedRoom
 	Data.xp = data[data_xp]
 	Data.xpTotal = data[data_xp]
 	Data.lv = data[data_lv]

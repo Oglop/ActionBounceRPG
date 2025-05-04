@@ -1,7 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgp6tp2exh35v"]
+[gd_scene load_steps=13 format=3 uid="uid://bgp6tp2exh35v"]
 
 [ext_resource type="Script" uid="uid://dn3e6q17vawmb" path="res://scripts/fx/swordAttack.gd" id="1_4dbpx"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_dqmwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlscr"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(416, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mspsm"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(448, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gusg"]
+atlas = ExtResource("1_dqmwh")
+region = Rect2(480, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dbpx"]
 atlas = ExtResource("1_dqmwh")
@@ -29,6 +41,20 @@ region = Rect2(448, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlscr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlscr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mspsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gusg")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4dbpx")
@@ -64,7 +90,8 @@ script = ExtResource("1_4dbpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qlscr")
-animation = &"two"
+animation = &"attack"
+frame_progress = 0.1099
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -56,6 +56,7 @@ func _on_roomLoadandMove(roomId:String) -> void:
 	if currentRoom.size() > 0:
 		_on_clearRoom(currentRoom.id)
 	currentRoom = Data.roomData[roomId]
+	Data.currentRoomId = roomId
 	
 	if currentRoom.has("doors"):
 		for door in currentRoom["doors"]:

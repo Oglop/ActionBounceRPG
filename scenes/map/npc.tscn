@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ybbme0gsityr"]
+[gd_scene load_steps=18 format=3 uid="uid://ybbme0gsityr"]
 
 [ext_resource type="Script" uid="uid://bxqryui15xrd4" path="res://scripts/map/npc.gd" id="1_1w4f1"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_g3nlj"]
@@ -18,6 +18,14 @@ region = Rect2(224, 208, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwo13"]
 atlas = ExtResource("2_g3nlj")
 region = Rect2(240, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fsi"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(176, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyudo"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(192, 240, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1w4f1"]
 atlas = ExtResource("2_g3nlj")
@@ -72,6 +80,17 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 13.0,
+"texture": SubResource("AtlasTexture_o8fsi")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_hyudo")
+}],
+"loop": true,
+"name": &"king",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 10.0,
 "texture": SubResource("AtlasTexture_1w4f1")
 }, {
@@ -90,7 +109,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_l4igi")
 }],
 "loop": true,
-"name": &"potionMerchant",
+"name": &"potion",
 "speed": 5.0
 }, {
 "frames": [{
@@ -123,7 +142,7 @@ script = ExtResource("1_1w4f1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
-animation = &"potionMerchant"
+animation = &"guard"
 
 [node name="Area2D" type="Area2D" parent="."]
 

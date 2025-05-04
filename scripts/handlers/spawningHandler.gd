@@ -9,6 +9,11 @@ func _ready() -> void:
 	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
 	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
 	
+func _on_swordSlash(position:Vector2, direction:int) -> void:
+	var fx = SceneLoader.getScene(Enums.spawnType.FX_SWORD_SLASH)
+	fx.global_position = position
+	self.add_child(fx)
+	fx.setProperties(direction)
 	
 func _on_hitGroundDust(position:Vector2) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_GROUND_HIT_DUST)

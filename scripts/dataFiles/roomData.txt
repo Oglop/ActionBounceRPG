@@ -176,6 +176,17 @@
 				"connects-y": 416,
 				"locked": false
 			},
+
+			{
+				"id":"home-village-to-home-village-castle",
+				"x":-48,
+				"y":224,
+				"connects":"home-village-castle",
+				"connects-x": 80,
+				"connects-y": 432,
+				"locked": false
+			},
+
 			{
 				"id":"home-village-to-green-fields",
 				"x":192,
@@ -189,25 +200,21 @@
 		"npcs": [],
 		"platforms": [
 			{
-				"name": "stairs",
-				"start-x": -766,
-				"start-y": -32,
+				"name": "save-spot",
+				"start-x": 32,
+				"start-y": 224,
 			}
 		],
 		"enemies": [],
 		"bosses": [],
 		"treasures": [],
 	},
-
-
-
-
 	"home-village-inn": {
 		"id":"home-village-inn",
 		"x":1,
 		"y":1,
 		"min-x": -848,
-		"min-y": -28,
+		"max-y": 400,
 		"max-x": -784,
 		"camera":"still",
 		"doors": [
@@ -233,13 +240,12 @@
 		"bosses": [],
 		"treasures": [],
 	},
-
 	"home-village-store": {
 		"id":"home-village-store",
 		"x":1,
 		"y":1,
 		"min-x": -848,
-		"min-y": -28,
+		"max-y": 400,
 		"max-x": -784,
 		"camera":"still",
 		"doors": [
@@ -250,6 +256,38 @@
 				"connects":"home-village",
 				"connects-x": -144,
 				"connects-y": 240,
+				"locked": false
+			}
+		],
+		"npcs": [
+			{
+				"id":"healer",
+				"start-x": -192,
+				"start-y": 416,
+			}
+		],
+		"platforms": [],
+		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+	},
+
+	"home-village-castle": {
+		"id":"home-village-castle",
+		"x":1,
+		"y":1,
+		"min-x": 192,
+		"max-y": 400,
+		"max-x": 380,
+		"camera":"hori",
+		"doors": [
+			{
+				"id":"home-village-castle-to-home-village",
+				"x":80,
+				"y":432,
+				"connects":"home-village",
+				"connects-x": -48,
+				"connects-y": 224,
 				"locked": false
 			}
 		],

@@ -75,11 +75,10 @@
 			},
 		]
 	},
-	
 	"start": {
 		"id":"start",
-		"x":-896,
-		"y":256,
+		"x":-900,
+		"y":260,
 		"camera":"still",
 		"background": "Background-0001",
 		"doors": [
@@ -125,7 +124,7 @@
 				"y":-64,
 				"connects":"home-village",
 				"connects-x": -624,
-				"connects-y": -64,
+				"connects-y": 224,
 				"locked": false
 			},
 		],
@@ -142,7 +141,7 @@
 		"treasures": [],
 	},
 	"home-village": {
-		"id":"home-outside",
+		"id":"home-village",
 		"x":1,
 		"y":1,
 		"min-x": -480,
@@ -151,21 +150,39 @@
 		"camera":"hori",
 		"doors": [
 			{
-				"id":"home-village-1",
+				"id":"home-village-to-home-outside",
 				"x":-624,
 				"y":224,
-				"connects":"start",
+				"connects":"home-outside",
 				"connects-x": -688,
 				"connects-y": -64,
 				"locked": false
 			},
 			{
-				"id":"home-village-2",
-				"x":-688,
-				"y":-64,
+				"id":"home-village-to-home-village-inn",
+				"x":-480,
+				"y":240,
+				"connects":"home-village-inn",
+				"connects-x": -480,
+				"connects-y": 416,
+				"locked": false
+			},
+			{
+				"id":"home-village-to-home-village-store",
+				"x":-144,
+				"y":240,
+				"connects":"home-village-store",
+				"connects-x": -144,
+				"connects-y": 416,
+				"locked": false
+			},
+			{
+				"id":"home-village-to-green-fields",
+				"x":192,
+				"y":224,
 				"connects":"village",
-				"connects-x": -688,
-				"connects-y": -64,
+				"connects-x": -1,
+				"connects-y": -1,
 				"locked": false
 			},
 		],
@@ -180,6 +197,73 @@
 		"enemies": [],
 		"bosses": [],
 		"treasures": [],
-	}
+	},
+
+
+
+
+	"home-village-inn": {
+		"id":"home-village-inn",
+		"x":1,
+		"y":1,
+		"min-x": -848,
+		"min-y": -28,
+		"max-x": -784,
+		"camera":"still",
+		"doors": [
+			{
+				"id":"home-village-inn-to-home-village",
+				"x":-480,
+				"y":416,
+				"connects":"home-village",
+				"connects-x": -480,
+				"connects-y": 240,
+				"locked": false
+			}
+		],
+		"npcs": [
+			{
+				"id":"party-changer",
+				"start-x": -512,
+				"start-y": 416,
+			}
+		],
+		"platforms": [],
+		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+	},
+
+	"home-village-store": {
+		"id":"home-village-store",
+		"x":1,
+		"y":1,
+		"min-x": -848,
+		"min-y": -28,
+		"max-x": -784,
+		"camera":"still",
+		"doors": [
+			{
+				"id":"home-village-store-to-home-village",
+				"x":-144,
+				"y":416,
+				"connects":"home-village",
+				"connects-x": -144,
+				"connects-y": 240,
+				"locked": false
+			}
+		],
+		"npcs": [
+			{
+				"id":"healer",
+				"start-x": -192,
+				"start-y": 416,
+			}
+		],
+		"platforms": [],
+		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+	},
 	
 }

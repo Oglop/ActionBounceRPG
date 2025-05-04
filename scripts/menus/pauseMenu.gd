@@ -198,7 +198,7 @@ func _updateDescriptionLabel() -> void:
 			lblDesc.text = "Knight armor - defence: " + str(int(Data.equipmentData["knight-armor"].defence))
 		elif row == 2 && Data.shieldTier2Collected:
 			lblDesc.text = "Knight shield - block: " + str(Data.equipmentData["knight-shield"].block)
-		elif row == 3:
+		elif row == 3 && Data.featherCollected:
 			lblDesc.text = "Feater"
 			
 	elif col == 2:
@@ -208,7 +208,7 @@ func _updateDescriptionLabel() -> void:
 			lblDesc.text = "Legendary armor - defence: " + str(int(Data.equipmentData["legendary-armor"].defence))
 		elif row == 2 && Data.shieldTier3Collected:
 			lblDesc.text = "Magic shield - block: " + str(Data.equipmentData["magic-shield"].block)
-		elif row == 3:
+		elif row == 3 && Data.potionCollected:
 			lblDesc.text = "Potion"
 	elif col == 3:
 		if row == 0 && Data.spiritStoneCollected:
@@ -303,10 +303,10 @@ func _updateLabels() -> void:
 	lblAtt.text = _textWithValue(txtAttack, Data.attackRaw)
 	lblDef.text = _textWithValue(txtDefence, Data.defenceRaw)
 	lblLv.text = _textWithValue(txtLevel, Data.lv)
+	lblXP.text = _textWithValue(txtXP, Data.xpTotal)
 	lblNext.text = _textWithValue(txtNext, Data.next)
 	lblStr.text = _textWithValue(txtStrength, Data.strength)
 	lblTgh.text = _textWithValue(txtToughness, Data.toughness)
-	lblXP.text = _textWithValue(txtXP, Data.xpTotal)
 	
 	
 func _textWithValue(text:String, value:int, plus:int = 0) -> String:

@@ -44,27 +44,22 @@ offset_right = -81.0
 offset_bottom = -73.0
 
 [node name="NpcMenu" parent="CameraMarker/GameCamera" instance=ExtResource("8_bo5ay")]
-visible = false
 z_index = 16
 position = Vector2(-128, -79)
 
 [node name="TreasureMenu" parent="CameraMarker/GameCamera" instance=ExtResource("1_0jenv")]
 process_mode = 3
-visible = false
 z_index = 16
 position = Vector2(-120, -75)
 
 [node name="AcceptMenu" parent="CameraMarker/GameCamera" instance=ExtResource("7_tysfp")]
-visible = false
 position = Vector2(-88, -58)
 
 [node name="ChangePartyMenu" parent="CameraMarker/GameCamera" instance=ExtResource("11_6507r")]
-visible = false
 z_index = 20
 position = Vector2(-128, -63)
 
 [node name="PauseMenu" parent="CameraMarker/GameCamera" instance=ExtResource("8_i08f8")]
-visible = false
 position = Vector2(-170, -132)
 
 [node name="Player" parent="." instance=ExtResource("1_efytk")]

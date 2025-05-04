@@ -20,6 +20,7 @@ var _toughness:int = 0
 var _attack:int = 0
 var _armor:int = 0
 var _xpGain:int = 0
+var _canShoot:String = "none"
 var _crownsGain:int = 0
 var _hurtBlock:float = 0.2
 var _bounceStrength:float = 0
@@ -49,6 +50,8 @@ func setProperties(name:String) -> void:
 	_crownsGain = props["crowns"]
 	_hurtBlock = props["hurt-block"]
 	enemyFsm.change_state(props["default-state"])
+	if props.has("canShoot"):
+		_canShoot = props["canShoot"]
 
 	
 func getToughness() -> int:
@@ -93,6 +96,7 @@ func applyBounce(value:int, direction:int) -> void:
 		else:
 			_bouncingLeft = true
 		enemyFsm.change_state(Statics.STATE_ENEMY_BOUNCE)
+
 
 func _physics_process(delta: float) -> void:
 	enemyFsm.physics_update(delta)

@@ -34,6 +34,5 @@ func setProperties(id:String) -> void:
 	_id = id
 	npc = Data.npcData[id]
 	_animation = npc.animation
-	#_type = Enums.stringToNpcType(npc.type)
 	
 	

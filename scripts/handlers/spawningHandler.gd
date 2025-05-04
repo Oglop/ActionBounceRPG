@@ -7,6 +7,7 @@ func _ready() -> void:
 	Events.connect("FX_THIEF_KNIFE", _on_fxThiefKnife)
 	Events.connect("FX_SWORD_ATTACK", _on_swordAttack)
 	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
+	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
 	
 	
 func _on_hitGroundDust(position:Vector2) -> void:
@@ -20,6 +21,11 @@ func _on_fxWeakHit(position:Vector2, direction:int) -> void:
 	self.add_child(fx)
 	#if direction < 1:
 	#	fx.scale = -1	
+func _on_enemyShoot(position:Vector2, direction:int, type:String) -> void:
+	var bullet = SceneLoader.getScene(Enums.spawnType.ENEMY_BULLET)
+	bullet.global_position = position
+	self.add_child(bullet)
+	bullet.setProperties(type, direction)
 
 
 func _on_fxFireBall(position:Vector2, direction:int) -> void:

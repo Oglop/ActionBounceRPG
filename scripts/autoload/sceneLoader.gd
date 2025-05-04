@@ -1,6 +1,7 @@
 extends Node
 
 const enemy_enemySmall = preload("res://scenes/enemies/enemySmall.tscn")
+const enemy_enemyBullet = preload("res://scenes/enemies/enemyBullet.tscn")
 const player_tail = preload("res://scenes/player/tails/tail.tscn")
 const fx_weakHit = preload("res://scenes/fx/weakHit.tscn")
 const fx_fireball = preload("res://scenes/fx/fireBall.tscn")
@@ -19,6 +20,7 @@ func getScene(type:Enums.spawnType):
 	match type:
 		Enums.spawnType.DOOR: return room_door.instantiate()
 		Enums.spawnType.ENEMY_SMALL: return enemy_enemySmall.instantiate()
+		Enums.spawnType.ENEMY_BULLET: return 
 		Enums.spawnType.FX_WEAK_HIT: return fx_weakHit.instantiate()
 		Enums.spawnType.FX_FIRE_BALL: return fx_fireball.instantiate()
 		Enums.spawnType.FX_THIEF_KNIFE: return fx_thiefKnife.instantiate()

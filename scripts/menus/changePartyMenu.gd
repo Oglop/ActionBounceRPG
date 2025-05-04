@@ -23,6 +23,7 @@ var selectingMemberIndex:int = 0
 
 
 func _ready() -> void:
+	visible = false
 	s = skills.new()
 	Events.connect("ROOM_CHANGE_PARTY", _on_roomChangePartyMemebers)
 	#visible = false

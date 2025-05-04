@@ -94,8 +94,8 @@ var hpMax:int:
 		
 var next:int:
 	get:
-		if next == null:
-			next = 0
+		if next == null || next == 0:
+			next = getMaxXPAtLevel(lv)
 		return next
 	set (value):
 		next = value

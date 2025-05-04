@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/gut/plugin.cfg", "res://addons/script-id
 enemy-small="Small enemies"
 enemy="Medium size enemy"
 player="playerNode"
+enemy-bullet=""
 
 [input]
 

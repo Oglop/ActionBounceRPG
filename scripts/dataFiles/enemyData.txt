@@ -1,4 +1,18 @@
 {
+	"bullets": {
+		"weak":  {
+			"duration": 1.0,
+			"speed": 400
+		},
+		"medium": {
+			"duration": 1.0,
+			"speed": 400
+		},
+		"strong": {
+			"duration": 1.0,
+			"speed": 400
+		}
+	},
 	"jelly": {
 		"name": "Jelly",
 		"type": "jelly",
@@ -9,7 +23,8 @@
 		"armor": 1,
 		"crowns": 1,
 		"hurt-block":0.1,
-		"default-state": "walkenemystate"
+		"default-state": "walkenemystate",
+		"canShoot": "weak"
 	},
 	"scorp": {
 		"name": "Scorpio",

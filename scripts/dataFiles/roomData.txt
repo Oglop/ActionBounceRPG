@@ -3,6 +3,10 @@
 		"id":"template",
 		"x":1,
 		"y":1,
+		"min-x": 0,
+		"min-y": 0,
+		"max-x": 0,
+		"max-y": 0,
 		"camera":"free",
 		"background": "Background-0001",
 		"doors": [
@@ -74,79 +78,105 @@
 	
 	"start": {
 		"id":"start",
-		"x":1,
-		"y":1,
-		"camera":"free",
+		"x":-896,
+		"y":256,
+		"camera":"still",
 		"background": "Background-0001",
 		"doors": [
 			{
-				"id":"start-1",
-				"x":496,
-				"y":-96,
-				"connects":"start-store",
-				"connects-x": 336,
-				"connects-y": 480,
-				"locked": false
-			},
-		],
-		"npcs": [
-			{
-				"id":"start-npc-1",
-				"start-x": 96,
-				"start-y": 0,
-			},
-			{
-				"id":"party-changer",
-				"start-x": 160,
-				"start-y": 0,
-			},
-			{
-				"id":"healer",
-				"start-x": 176,
-				"start-y": 0,
-			}
-		],
-		"platforms": [
-			{
-				"name": "stairs",
-				"start-x": 384,
-				"start-y": -64,
-			},
-			{
-				"name": "save-spot",
-				"start-x": 128,
-				"start-y": 0,
-			}
-		],
-		"enemies": [
-			{
-				"name": "jelly",
-				"start-x": 0,
-				"start-y": 0,
-			}
-		],
-		"bosses": [],
-		"treasures": [],
-		"switches": []
-	},
-	"start-store": {
-		"id":"start-store",
-		"x":1,
-		"y":1,
-		"camera":"still",
-		"doors": [
-			{
-				"id":"start-store-1",
-				"x":336,
-				"y":480,
-				"connects":"start",
-				"connects-x": 496,
-				"connects-y": -96,
+				"id":"home-outside",
+				"x":-896,
+				"y":256,
+				"connects":"home-outside",
+				"connects-x": -912,
+				"connects-y": -16,
 				"locked": false
 			},
 		],
 		"npcs": [],
 		"platforms": [],
+		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+		"switches": []
+
+	},
+	"home-outside": {
+		"id":"home-outside",
+		"x":1,
+		"y":1,
+		"min-x": -848,
+		"min-y": -28,
+		"max-x": -784,
+		"camera":"free",
+		"doors": [
+			{
+				"id":"home-outside-1",
+				"x":-912,
+				"y":-16,
+				"connects":"start",
+				"connects-x": -896,
+				"connects-y": 256,
+				"locked": false
+			},
+			{
+				"id":"home-outside-2",
+				"x":-688,
+				"y":-64,
+				"connects":"home-village",
+				"connects-x": -624,
+				"connects-y": -64,
+				"locked": false
+			},
+		],
+		"npcs": [],
+		"platforms": [
+			{
+				"name": "stairs",
+				"start-x": -766,
+				"start-y": -32,
+			}
+		],
+		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+	},
+	"home-village": {
+		"id":"home-outside",
+		"x":1,
+		"y":1,
+		"min-x": -480,
+		"max-x": 80,
+		"min-y": 224,
+		"camera":"hori",
+		"doors": [
+			{
+				"id":"home-village-1",
+				"x":-624,
+				"y":224,
+				"connects":"start",
+				"connects-x": -688,
+				"connects-y": -64,
+				"locked": false
+			},
+			{
+				"id":"home-village-2",
+				"x":-688,
+				"y":-64,
+				"connects":"village",
+				"connects-x": -688,
+				"connects-y": -64,
+				"locked": false
+			},
+		],
+		"npcs": [],
+		"platforms": [
+			{
+				"name": "stairs",
+				"start-x": -766,
+				"start-y": -32,
+			}
+		],
 		"enemies": [],
 		"bosses": [],
 		"treasures": [],

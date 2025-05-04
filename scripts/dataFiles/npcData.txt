@@ -33,6 +33,18 @@
 				"type": "info",
 			}
 		]
-	} 
+	},
+	"potion": {
+		"animation": "potion",
+		"type": "potion",
+		"messages": [
+			{
+				"text": "If you bring me an empty bottle I can fill it with a healing potion.",
+				"quest-id": "none",
+				"quest-requirment": "none",
+				"type": "info",
+			}
+		]
+	}
 	
 }

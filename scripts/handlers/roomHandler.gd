@@ -20,7 +20,9 @@ func _ready() -> void:
 	Events.connect("ENEMY_DESTROYED", _on_enemyDestroyed)
 	Events.connect("PLATFORM_DESTROYED", _on_platformDestroyed)
 	Events.connect("ROOM_SWITCH_FLIPPED", _on_switchFlipped)
-	_on_roomLoadandMove("start")
+	#_on_roomLoadandMove(Data.saveSpotRoomId)
+	Events.ROOM_LOAD.emit(Data.saveSpotRoomId)
+	Events.PLAYER_MOVE_TO.emit(Vector2i(Data.saveSpotX, Data.saveSpotY))
 
 func _on_switchFlipped(id:String, onOff:bool) -> void:
 	Data.switches[id] = onOff

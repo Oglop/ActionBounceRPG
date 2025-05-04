@@ -3,6 +3,7 @@ extends Node2D
 const path:String = "user://savegame_%s.save"
 const data_x:String = "x"
 const data_y:String = "y"
+const data_saveSpotRoomId:String = "saveSpotRoomId"
 const data_xp:String = "xp"
 const data_xpTotal:String = "xpTotal"
 const data_lv:String = "lv"
@@ -47,12 +48,14 @@ func _ready() -> void:
 	f = functions.new()
 	Events.connect("DATA_LOAD_SLOT", _on_loadSlot)
 	Events.connect("DATA_SAVE_SLOT", _on_saveSlot)
+	Events.connect("GAME_NEW_GAME", _on_newGame)
 	
 
 func _getSaveData(position:Vector2) -> Dictionary:
 	var data:Dictionary = {
 		data_x: position.x,
 		data_y: position.y,
+		data_saveSpotRoomId: Data.saveSpotRoomId,
 		data_xp : Data.xp,
 		data_xpTotal: Data.xpTotal,
 		data_lv: Data.lv,
@@ -97,6 +100,8 @@ func _getSaveData(position:Vector2) -> Dictionary:
 func _setSaveData(data:Dictionary) -> void:
 	Data.saveSpotY = data[data_y]
 	Data.saveSpotX = data[data_x]
+	Data.saveSpotRoomId = data[data_saveSpotRoomId]
+	Data.lastSavedRoom
 	Data.xp = data[data_xp]
 	Data.xpTotal = data[data_xp]
 	Data.lv = data[data_lv]
@@ -146,6 +151,7 @@ func _on_saveSlot(slot:int, position:Vector2) -> void:
 
 func _on_loadSlot(slot:int = 1) -> void:
 	if !FileAccess.file_exists(_getSlotPath(slot)):
+		_on_newGame(1)
 		return
 		
 	var fileAccess:FileAccess = FileAccess.open(_getSlotPath(slot), FileAccess.READ)
@@ -156,6 +162,61 @@ func _on_loadSlot(slot:int = 1) -> void:
 		if e == OK:
 			_setSaveData(json.get_data())
 		
+func _on_newGame(slot:int) -> void:
+	const startLevel:String = "1"
+	Data.saveSpotRoomId = "start"
+	Data.saveSpotX = Data.roomData["start"].x
+	Data.saveSpotY = Data.roomData["start"].y
+	Data.hpMax = Data.levelData[startLevel].maxHp
+	Data.hpCurrent = Data.hpMax
+	Data.staminaMax = Data.levelData[startLevel].maxStamina
+	Data.staminaCurrent = Data.staminaMax
+	Data.lv = 1
+	Data.next = Data.levelData[startLevel].need
+	#Data.xp = 0
+	#Data.xpTotal = 0
+	Data.strength = Data.levelData[startLevel].strength
+	Data.toughness = Data.levelData[startLevel].toughness
+	Data.critChance = Data.levelData[startLevel].critChance
+	
+	Data.armor = Enums.armors.LEATHER
+	Data.armorTier1Collected = true
+	Data.armorTier2Collected = false
+	Data.armorTier3Collected = false
+	
+	Data.shield = Enums.shields.ROUND
+	Data.shieldTier1Collected = true
+	Data.shieldTier2Collected = false
+	Data.shieldTier3Collected = false
+	
+	Data.weapon = Enums.weapons.SHORT
+	Data.weaponTier1Collected = true
+	Data.weaponTier2Collected = false
+	Data.weaponTier3Collected = false
+	
+	Data.tailNo1Type = Enums.tailType.NONE
+	Data.tailNo2Type = Enums.tailType.NONE
+	
+	Data.potionCollected = false
+	Data.featherCollected = false
+	Data.thiefsGlovesCollected = false
+	Data.lockPicksCollected = false
+	Data.powerRingCollected = false
+	Data.fireBallTomeCollected = false
+	Data.wizItem3 = false
+	Data.candleCollected = false
+	Data.spiritStoneCollected = false
+	Data.infinitySymbolCollected = false
+	Data.animalIconCollected = false
+	Data.diggingClawsCollected = false
+	Data.fireBallTomeSelected = false
+	Data.healingRodCollected = false
+	Data.holySymbolCollected = false
+	Data.ancientScriptCollected = false
+	Data.iceCrystalCollected = false
+	
+	
+
 		
 		
 	

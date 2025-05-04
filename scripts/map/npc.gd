@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 					elif npc.type == "healer":
 						Events.ADD_HP.emit(999)
 						Events.ROOM_LOAD_NPC.emit(_id)
+					elif npc.type == "potion":
+						if Data.potionCollected:
+							Events.PLAYER_REFILL_POTION.emit()
+						Events.ROOM_LOAD_NPC.emit(_id)
 					
 				else:
 					Events.ROOM_LOAD_NPC.emit(_id)

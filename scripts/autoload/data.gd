@@ -1,11 +1,13 @@
 extends Node
 
 var f:functions
+var newGame:bool = false
 
 func _ready() -> void:
 	f = functions.new()
 	Events.connect("ADD_XP", _on_addXP)
 	Events.connect("ADD_HP", _on_addHP)
+	Events.connect("PLAYER_REFILL_POTION", _on_refillPotion)
 
 var saveSpotY:int:
 	get:
@@ -13,6 +15,14 @@ var saveSpotY:int:
 			saveSpotY = 0
 		return saveSpotY
 		
+		
+var saveSpotRoomId:String:
+	get:
+		if saveSpotRoomId == null || saveSpotRoomId == "":
+			saveSpotRoomId = "start"
+		return saveSpotRoomId
+	set(value):
+		saveSpotRoomId = value
 		
 var saveSpotX:int:
 	get:
@@ -320,6 +330,9 @@ func _on_addHP(value:int) -> void:
 		hpCurrent = hpMax
 	else:
 		hpCurrent += value
+		
+func _on_refillPotion() -> void:
+	Data.potion = Enums.potionType.FULL
 	
 func getMaxXPAtLevel(level:int) -> int:
 	return levelData[str(lv)]["need"]

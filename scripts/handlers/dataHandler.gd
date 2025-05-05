@@ -9,6 +9,8 @@ const data_xpTotal:String = "xpTotal"
 const data_lv:String = "lv"
 const data_strength:String = "strength"
 const data_toughness:String = "toughness"
+const data_hp:String = "health"
+const data_st:String = "stamina"
 const data_fireBallTomeCollected:String = "fireBallTomeCollected"
 const data_candleCollected:String = "candleCollected"
 const data_spiritStoneCollected:String = "spiritStoneCollected"
@@ -58,6 +60,8 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_y: position.y,
 		data_saveSpotRoomId: Data.saveSpotRoomId,
 		data_xp : Data.xp,
+		data_hp: Data.hpCurrent,
+		data_st: Data.staminaCurrent,
 		data_xpTotal: Data.xpTotal,
 		data_lv: Data.lv,
 		data_strength: Data.strength,
@@ -105,6 +109,8 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.xp = data[data_xp]
 	Data.xpTotal = data[data_xp]
 	Data.lv = data[data_lv]
+	Data.hpCurrent = data[data_hp]
+	Data.staminaCurrent = data[data_st]
 	Data.strength = data[data_strength]
 	Data.toughness = data[data_toughness]
 	Data.tailNo1Type = Enums.stringToTailType(data[data_tailNo1])

@@ -30,6 +30,11 @@
 				"id":"party-changer",
 				"start-x": 160,
 				"start-y": 0,
+			},
+			{
+				"id":"potion",
+				"start-x": 160,
+				"start-y": 0,
 			}
 		],
 		"platforms": [
@@ -263,6 +268,11 @@
 			{
 				"id":"healer",
 				"start-x": -192,
+				"start-y": 416,
+			},
+			{
+				"id":"potion",
+				"start-x": -96,
 				"start-y": 416,
 			}
 		],

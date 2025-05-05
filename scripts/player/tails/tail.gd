@@ -11,6 +11,7 @@ var _type:Enums.tailType
 
 func _ready() -> void:
 	Events.connect("UPDATE_TAIL", _on_updateTail)
+	Events.connect("REMOVE_TAIL", _on_removeTail)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -31,6 +32,10 @@ func _on_updateTail() -> void:
 		_type = Data.tailNo1Type
 	else:
 		_type = Data.tailNo2Type
+	
+func _on_removeTail(slot:int) -> void:
+	if _number == slot:
+		queue_free()
 	
 
 func numberToTailPosition(number:int) -> int:

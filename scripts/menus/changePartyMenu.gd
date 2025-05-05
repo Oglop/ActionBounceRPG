@@ -129,6 +129,7 @@ func _updatePointersAndLabels() -> void:
 		
 
 
+
 func _setTailIcons() -> void:
 	tailCleric.play("cleric_idle")
 	tailElf.play("elf_idle")
@@ -214,11 +215,13 @@ func _setSelectedCompanion() -> void:
 			
 
 func _updateSelectedSlot(slot:int, type:Enums.tailType) -> void:
+
 	if slot == 0:
 		if Data.tailNo1Type == type:
 			return
 		if Data.tailNo2Type == type:
 			Data.tailNo1Type = type
+			Events.SPAWN_TAIL.emit(0)
 			Data.tailNo2Type = Enums.tailType.NONE
 			return
 		Data.tailNo1Type = type
@@ -231,5 +234,6 @@ func _updateSelectedSlot(slot:int, type:Enums.tailType) -> void:
 			return
 		Data.tailNo2Type = type
 		
+	Events.SYNC_TAIL.emit()
 		
 	

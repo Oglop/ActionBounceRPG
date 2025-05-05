@@ -2,6 +2,9 @@ extends Node
 
 signal SPAWN_TAIL
 signal UPDATE_TAIL
+signal INIT_TAIL
+signal REMOVE_TAIL
+signal SYNC_TAIL
 signal ADD_XP
 signal ADD_HP
 signal SHOW_ACCEPT_MENU

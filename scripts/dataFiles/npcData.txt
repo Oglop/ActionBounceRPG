@@ -39,7 +39,7 @@
 		"type": "potion",
 		"messages": [
 			{
-				"text": "If you bring me an empty bottle I can fill it with a healing potion.",
+				"text": "If you bring me an empty bottle \nand I will fill it with \na healing potion.",
 				"quest-id": "none",
 				"quest-requirment": "none",
 				"type": "info",

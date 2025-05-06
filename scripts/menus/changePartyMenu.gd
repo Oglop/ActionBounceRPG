@@ -11,7 +11,7 @@ extends Node2D
 @onready var tailPooch = $Panel/tailPooch
 @onready var tailElf = $Panel/tailelf
 @onready var tailThief = $Panel/tailThief
-@onready var tailCleric = $Panel/tailThief
+@onready var tailCleric = $Panel/tailCleric
 @onready var tailSlotOne = $Panel/tailOne
 @onready var tailSlotTwo = $Panel/tailTwo
 

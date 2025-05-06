@@ -269,5 +269,4 @@ animations = [{
 
 [node name="TailIcons" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_lxd77")
-animation = &"wizard_idle"
-frame_progress = 0.333822
+animation = &"cleric_idle"

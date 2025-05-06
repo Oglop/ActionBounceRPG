@@ -298,6 +298,47 @@ var switches:Dictionary:
 		switches = value
 		
 		
+func fireballDamage() -> int:
+	var lvBonus = 1
+	if lv > 3 && lv <= 6:
+		lvBonus = 2
+	elif lv > 6 && lv <= 9:
+		lvBonus = 3
+	elif lv > 9 && lv <= 12:
+		lvBonus = 4
+	elif lv > 12 && lv <= 15:
+		lvBonus = 5
+	else:
+		lvBonus = 6
+		
+	return int(lvBonus + (lv * 0.5))
+		
+		
+func thiefknifeDamage() -> int:
+	var bonus:int = 0
+	var maxPossibleHits:int = 1 + (lv * 0.5)
+	var hits:int = f.randomInt(1, maxPossibleHits)
+	for i in hits:
+		var critical:bool = f.chance(Data.critChance)
+		bonus += f.randomInt(0,2)
+		while critical:
+			bonus += f.randomInt(0,2)
+			critical = f.chance(Data.critChance)
+	return bonus
+	
+func elfArrowDamage() -> int:
+	var bonus:int = 0
+	var critical:bool = f.chance(Data.critChance)
+	#var hits:int = f.randomInt(1, maxPossibleHits)
+	var multiplyer:float = f.getRandomFloatInRange(1.0, 2.0)
+	if critical:
+		multiplyer = f.getRandomFloatInRange(2.0, 4.0)
+	bonus += lv * multiplyer
+	
+	return bonus
+	
+	
+	
 		
 var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
 var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
@@ -307,13 +348,13 @@ var thiefsGlovesCollected:bool = false
 var lockPicksCollected:bool = false
 var powerRingCollected:bool = false
 var fireBallTomeCollected:bool = false
+var fireBallTomeSelected:bool = false
 var wizItem3:bool = false
 var candleCollected:bool = false
 var spiritStoneCollected:bool = false
 var infinitySymbolCollected:bool = false
 var animalIconCollected:bool = false
 var diggingClawsCollected:bool = false
-var fireBallTomeSelected:bool = false
 var healingRodCollected:bool = false
 var holySymbolCollected:bool = false
 var ancientScriptCollected:bool = false

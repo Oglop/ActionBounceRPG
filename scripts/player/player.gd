@@ -178,6 +178,26 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		collider.applyBounce(_getEnemyBounce(enemyToughness, critical), enemyBounceDirection)
 	
 	return true
+	
+	
+func _tailTypeToGlobalPosition(type:Enums.tailType) -> Vector2:
+	if Data.tailNo1Type == type:
+		return Data.playerPositions[Statics.TAIL_INDEX_1]
+	else:
+		return Data.playerPositions[Statics.TAIL_INDEX_2]
+
+func tailDamageBonus() -> int:
+	var bonus:int = 0
+	if s.canCastFireBalls:
+		bonus += Data.fireballDamage()
+		Events.FX_FIRE_BALL.emit(_tailTypeToGlobalPosition(Enums.tailType.WIZARD), direction)
+	if s.canThrowThiefKnife:
+		bonus += Data.thiefknifeDamage()
+		Events.FX_THIEF_KNIFE.emit(_tailTypeToGlobalPosition(Enums.tailType.THIEF), direction) 
+	if s.canShootArrow:
+		bonus += 0
+		Events.FX_ELF_ARROW.emit(_tailTypeToGlobalPosition(Enums.tailType.ELF), direction) 
+	return bonus
 
 
 func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:

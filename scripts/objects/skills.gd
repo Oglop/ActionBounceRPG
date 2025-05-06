@@ -23,6 +23,14 @@ var canSeeSpiritDoors:bool:
 var canCastFireBalls:bool:
 	get:
 		return _joinedBy(Enums.tailType.WIZARD) && Data.fireBallTomeCollected
+		
+var canThrowThiefKnife:bool:
+	get: 
+		return _joinedBy(Enums.tailType.THIEF)
+		
+var canShootArrow:bool:
+	get:
+		return _joinedBy(Enums.tailType.ELF)
 
 var canLightUpDarkness:bool:
 	get:

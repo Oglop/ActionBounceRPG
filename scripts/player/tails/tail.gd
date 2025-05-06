@@ -39,10 +39,10 @@ func _on_removeTail(slot:int) -> void:
 	
 
 func numberToTailPosition(number:int) -> int:
-	if number == 1:
-		return 8
-	if number == 2:
-		return 16
+	if number == Statics.TAIL_POSITON_1:
+		return Statics.TAIL_INDEX_1
+	if number == Statics.TAIL_POSITON_2:
+		return Statics.TAIL_INDEX_2
 	return 39
 	
 func _getAnimation(tailType:Enums.tailType) -> String:

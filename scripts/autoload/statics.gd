@@ -10,6 +10,10 @@ const NPC_DATA:String = "res://scripts/dataFiles/npcData.txt"
 const TEXT_DATA:String = "res://scripts/dataFiles/textData.txt"
 const LEVEL_MAX:int = 3
 const TAIL_SIZE:int = 40
+const TAIL_POSITON_1:int = 1
+const TAIL_INDEX_1:int = 1
+const TAIL_POSITON_2:int = 2
+const TAIL_INDEX_2:int = 1
 
 const GRAVITY:int = 900
 const JUMP_GRAVITY:float = 900.0

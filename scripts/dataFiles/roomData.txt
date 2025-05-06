@@ -1,5 +1,5 @@
 {
-	"template": {
+	"debug": {
 		"id":"template",
 		"x":1,
 		"y":1,

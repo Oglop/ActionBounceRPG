@@ -29,13 +29,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 14.0
 }]
 
 [node name="SwordSlash" type="Node2D"]
 script = ExtResource("1_7xofu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_xisx4")
 autoplay = "default"
 frame = 2

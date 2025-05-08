@@ -151,7 +151,7 @@
 		"y":1,
 		"min-x": -480,
 		"max-x": 80,
-		"min-y": 224,
+		"max-y": 212,
 		"camera":"hori",
 		"doors": [
 			{
@@ -191,14 +191,13 @@
 				"connects-y": 432,
 				"locked": false
 			},
-
 			{
-				"id":"home-village-to-green-fields",
+				"id":"home-village-to-fields-west",
 				"x":192,
 				"y":224,
-				"connects":"village",
-				"connects-x": -1,
-				"connects-y": -1,
+				"connects":"fields-west",
+				"connects-x": 288,
+				"connects-y": 224,
 				"locked": false
 			},
 		],
@@ -281,7 +280,6 @@
 		"bosses": [],
 		"treasures": [],
 	},
-
 	"home-village-castle": {
 		"id":"home-village-castle",
 		"x":1,
@@ -310,6 +308,50 @@
 		],
 		"platforms": [],
 		"enemies": [],
+		"bosses": [],
+		"treasures": [],
+	},
+	"fields-west": {
+		"id":"fields-west",
+		"x":1,
+		"y":1,
+		"min-x": 416,
+		"max-x": 1312,
+		"max-y": 212,
+		"camera":"hori",
+		"doors": [
+	
+
+			{
+				"id":"fields-west-to-home-village",
+				"x":288,
+				"y":224,
+				"connects":"home-village",
+				"connects-x": 192,
+				"connects-y": 224,
+				"locked": false
+			},
+		],
+		"npcs": [],
+		"platforms": [
+			{
+				"name": "save-spot",
+				"start-x": 32,
+				"start-y": 224,
+			}
+		],
+		"enemies": [
+			{
+				"name": "jelly",
+				"start-x": 448,
+				"start-y": 224,
+			},
+			{
+				"name": "jelly",
+				"start-x": 608,
+				"start-y": 256,
+			}
+		],
 		"bosses": [],
 		"treasures": [],
 	},

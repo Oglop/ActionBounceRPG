@@ -20,6 +20,7 @@ var _bouncingRight:bool = false
 var _isDownBouncing:bool = false
 
 var _attackNumber:int = 0
+var _jumpBlocked:bool = false
 
 var direction:int :
 	get: return direction
@@ -36,6 +37,7 @@ func setStartPosition(startPosition:Vector2i) -> void:
 
 func _ready() -> void:
 	Events.connect("PLAYER_MOVE_TO", _on_playerMoveTo)
+	Events.connect("PLAYER_JUMP_BLOCK", _on_jumpBlock)
 	fsm.change_state(Statics.STATE_IDLE)
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerPositions[n] = self.global_position
@@ -145,7 +147,9 @@ func getInputX() -> float:
 	
 	
 func isJumpJustPressed() -> bool:
-	return Input.is_action_just_pressed("btn_jump")
+	if !_jumpBlocked:
+		return Input.is_action_just_pressed("btn_jump")
+	return false
 	
 	
 func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
@@ -225,7 +229,12 @@ func _getAttack(critical:bool) -> int:
 	return attack
 	
 	
-	
+func _on_jumpBlock() -> void:
+	print("_on_jumpBlock enter")
+	_jumpBlocked = true
+	await get_tree().create_timer(0.3).timeout
+	_jumpBlocked = false
+	print("_on_jumpBlock exit")
 
 
 func _on_combo_timer_timeout() -> void:

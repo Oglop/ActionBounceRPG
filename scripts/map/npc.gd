@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("btn_up"):
 		for b:Node in area.get_overlapping_bodies():
 			if b.is_in_group("player"):
+				Events.PLAYER_JUMP_BLOCK.emit()
 				get_tree().paused = true
 				if npc.has("type"):
 					if npc.type == "change-party":

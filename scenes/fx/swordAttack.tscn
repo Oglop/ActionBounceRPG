@@ -53,7 +53,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 8.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -89,9 +89,11 @@ z_index = 40
 script = ExtResource("1_4dbpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 0)
 sprite_frames = SubResource("SpriteFrames_qlscr")
 animation = &"attack"
-frame_progress = 0.1099
+autoplay = "attack"
+frame_progress = 0.198791
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

@@ -27,6 +27,7 @@ func _setNextText(index:int) -> void:
 	if messages.size() == 0 || index >= messages.size():
 		_setInvisible()
 		messages = []
+		Events.PLAYER_JUMP_BLOCK.emit()
 		get_tree().paused = false
 		return 
 	if messages[index].type == "info":

@@ -7,6 +7,7 @@ func _ready() -> void:
 	Events.connect("FX_THIEF_KNIFE", _on_fxThiefKnife)
 	Events.connect("FX_ELF_ARROW", _on_fxElfArrow)
 	Events.connect("FX_SWORD_ATTACK", _on_swordAttack)
+	Events.connect("FX_SWORD_SLASH", _on_swordSlash)
 	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
 	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
 	

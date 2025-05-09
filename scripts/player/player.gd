@@ -230,11 +230,9 @@ func _getAttack(critical:bool) -> int:
 	
 	
 func _on_jumpBlock() -> void:
-	print("_on_jumpBlock enter")
 	_jumpBlocked = true
 	await get_tree().create_timer(0.3).timeout
 	_jumpBlocked = false
-	print("_on_jumpBlock exit")
 
 
 func _on_combo_timer_timeout() -> void:

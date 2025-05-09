@@ -304,7 +304,7 @@ func _updateLabels() -> void:
 	lblAtt.text = _textWithValue(txtAttack, Data.attackRaw)
 	lblDef.text = _textWithValue(txtDefence, Data.defenceRaw)
 	lblLv.text = _textWithValue(txtLevel, Data.lv)
-	lblXP.text = _textWithValue(txtXP, Data.xpTotal)
+	lblXP.text = _textWithValue(txtXP, Data.xp)
 	lblNext.text = _textWithValue(txtNext, Data.next)
 	lblStr.text = _textWithValue(txtStrength, Data.strength)
 	lblTgh.text = _textWithValue(txtToughness, Data.toughness)

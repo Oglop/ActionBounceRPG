@@ -1,6 +1,5 @@
 {
 	"1": {
-		"total": 44,
 		"need": 44,
 		"maxHp": 24,
 		"maxStamina": 10,
@@ -9,8 +8,7 @@
 		"critChance": 4
 	},
 	"2": {
-		"total": 170,
-		"need": 126,
+		"need": 170,
 		"maxHp": 26,
 		"maxStamina": 12,
 		"strength": 5,
@@ -18,8 +16,7 @@
 		"critChance": 4
 	},
 	"3": {
-		"total": 413,
-		"need": 243,
+		"need": 413,
 		"maxHp": 29,
 		"maxStamina": 14,
 		"strength": 5,
@@ -27,8 +24,7 @@
 		"critChance": 4
 	},
 	"4": {
-		"total": 369,
-		"need": 394,
+		"need": 807,
 		"maxHp": 32,
 		"maxStamina": 16,
 		"strength": 6,
@@ -36,8 +32,7 @@
 		"critChance": 4
 	},
 	"5": {
-		"total": 369,
-		"need": 578,
+		"need": 1358,
 		"maxHp": 32,
 		"maxStamina": 18,
 		"strength": 6,

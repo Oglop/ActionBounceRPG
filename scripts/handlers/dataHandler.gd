@@ -6,6 +6,7 @@ const data_y:String = "y"
 const data_saveSpotRoomId:String = "saveSpotRoomId"
 const data_xp:String = "xp"
 const data_xpTotal:String = "xpTotal"
+const data_next:String = "xpNext"
 const data_lv:String = "lv"
 const data_strength:String = "strength"
 const data_toughness:String = "toughness"
@@ -59,10 +60,11 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_x: position.x,
 		data_y: position.y,
 		data_saveSpotRoomId: Data.saveSpotRoomId,
+		data_next: Data.next,
 		data_xp : Data.xp,
 		data_hp: Data.hpCurrent,
 		data_st: Data.staminaCurrent,
-		data_xpTotal: Data.xpTotal,
+		# data_xpTotal: Data.xpTotal,
 		data_lv: Data.lv,
 		data_strength: Data.strength,
 		data_toughness: Data.toughness,
@@ -106,9 +108,9 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.saveSpotY = data[data_y]
 	Data.saveSpotX = data[data_x]
 	Data.saveSpotRoomId = data[data_saveSpotRoomId]
-	Data.xp = data[data_xp]
-	Data.xpTotal = data[data_xp]
 	Data.lv = data[data_lv]
+	Data.xp = data[data_xp]
+	#Data.xpTotal = data[data_xp]
 	Data.hpCurrent = data[data_hp]
 	Data.staminaCurrent = data[data_st]
 	Data.strength = data[data_strength]
@@ -179,8 +181,7 @@ func _on_newGame(slot:int) -> void:
 	Data.staminaCurrent = Data.staminaMax
 	Data.lv = 1
 	Data.next = Data.levelData[startLevel].need
-	#Data.xp = 0
-	#Data.xpTotal = 0
+	Data.xp = 0
 	Data.strength = Data.levelData[startLevel].strength
 	Data.toughness = Data.levelData[startLevel].toughness
 	Data.critChance = Data.levelData[startLevel].critChance

@@ -89,6 +89,7 @@ func _physics_process(delta: float) -> void:
 			selectingMember = false
 			visible = false
 			Events.UPDATE_TAIL.emit()
+			Events.PLAYER_JUMP_BLOCK.emit()
 			get_tree().paused = false
 			
 	

@@ -13,10 +13,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if !blockedForInput:
+	if !blockedForInput && visible:
 		if Input.is_action_just_pressed("btn_jump"):
 			visible = false
 			blockedForInput = true
+			Events.PLAYER_JUMP_BLOCK.emit()
 			get_tree().paused = false
 
 func _on_showAcceptMenu(text:String) -> void:

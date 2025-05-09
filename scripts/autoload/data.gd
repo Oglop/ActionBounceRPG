@@ -117,28 +117,17 @@ var next:int:
 	set (value):
 		next = value
 		
-var xpTotal:int:
-	get:
-		if xpTotal == null:
-			xpTotal = 0
-		return xpTotal
-	set(value):
-		xpTotal = value
-		
-		
 var xp:int:
 	get:
 		if xp == null:
 			xp = 0
 		return xp
 	set(value):
-		xp = value
 		next = getMaxXPAtLevel(lv)
-		if xp >= next || lv < Statics.LEVEL_MAX:
+		xp = value
+		if xp >= next && lv < Statics.LEVEL_MAX:
 			lv += 1
-			xp -= next
-		elif lv == Statics.LEVEL_MAX:
-			xp = 0
+			next = getMaxXPAtLevel(lv)
 			
 		
 var lv:int = 1:
@@ -371,7 +360,6 @@ var shieldTier3Collected:bool = false
 
 func _on_addXP(value:int) -> void:
 	xp += value
-	xpTotal += value
 	
 func _on_addHP(value:int) -> void:
 	if hpCurrent + value > hpMax:

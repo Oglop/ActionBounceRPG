@@ -9,6 +9,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if visible && Input.is_action_just_pressed("btn_jump"):
+		Events.PLAYER_JUMP_BLOCK.emit()
 		get_tree().paused = false
 		visible = false
 		_setText("_")

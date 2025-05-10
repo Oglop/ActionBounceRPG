@@ -6,9 +6,24 @@ var _id:String
 var _type:Enums.npcType
 var _animation:String
 var npc:Dictionary
+var f:functions
+var _questStep:int = -1
+var _questNext:int = -1
 
 func _ready() -> void:
-	pass
+	f = functions.new()
+	if _flippable():
+		if f.chance(50):
+			scale.x = -1
+		
+	
+func _flippable() -> bool:
+	match _type:
+		"villager_a": return true
+		"villager_b": return true
+		"villager_c": return true
+		"villager_d": return true
+		_: return false
 	
 	
 func _physics_process(delta: float) -> void:
@@ -31,6 +46,10 @@ func _physics_process(delta: float) -> void:
 						if Data.potionCollected:
 							Events.PLAYER_REFILL_POTION.emit()
 						Events.ROOM_LOAD_NPC.emit(_id)
+					elif npc.type == "quest":
+						Events.ROOM_LOAD_NPC_QUEST.emit(_id, _questStep)
+						Data.quests[_id] = _questNext
+						
 					
 				else:
 					Events.ROOM_LOAD_NPC.emit(_id)
@@ -41,4 +60,7 @@ func setProperties(id:String) -> void:
 	npc = Data.npcData[id]
 	_animation = npc.animation
 	
+func setPropertiesQuest(questStep:int, questNext:int) -> void:
+	_questStep = questStep
+	_questNext = questNext
 	

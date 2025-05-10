@@ -173,7 +173,7 @@ func armorsToString(type:armors) -> String:
 		armors.LEATHER: return "leather-armor"
 		armors.IRON: return "knight-armor"
 		armors.LEGEND: return "legendary-armor"
-		_: return ""
+		_: return "none-armor"
 	
 	
 func stringToArmors(type:String) -> armors:
@@ -189,7 +189,7 @@ func shieldsToString(type:shields) -> String:
 		shields.ROUND: return "round-shield"
 		shields.KNIGHT: return "knight-shield"
 		shields.MAGIC: return "magic-shield"
-		_: return ""
+		_: return "none-shield"
 	
 	
 func stringToShields(type:String) -> shields:
@@ -205,7 +205,7 @@ func weaponToString(type:weapons) -> String:
 		weapons.SHORT: return "short-sword"
 		weapons.KNIGHT: return "knight-sword"
 		weapons.SLAYER: return "slayer-sword"
-		_: return ""
+		_: return "none-sword"
 	
 	
 func stringToWeapon(type:String) -> weapons:

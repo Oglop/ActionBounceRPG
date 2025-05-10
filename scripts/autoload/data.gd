@@ -93,6 +93,13 @@ var textData:Dictionary:
 			textData = JSON.parse_string(file.get_as_text())
 		return textData
 		
+var questData:Dictionary:
+	get:
+		if questData == null || questData.size() == 0:
+			var file:FileAccess = FileAccess.open(Statics.QUEST_DATA, FileAccess.READ)
+			questData = JSON.parse_string(file.get_as_text())
+		return questData
+		
 
 var hpCurrent:int:
 	get:
@@ -215,8 +222,8 @@ var defenceRaw:int:
 		
 var armor:Enums.armors:
 	get:
-		if armor == null || armor == Enums.armors.NONE:
-			armor = Enums.armors.LEATHER
+		if armor == null:
+			armor = Enums.armors.NONE
 		return armor
 	set(value):
 		armor = value
@@ -224,8 +231,8 @@ var armor:Enums.armors:
 		
 var weapon:Enums.weapons:
 	get:
-		if weapon == null || weapon == Enums.weapons.NONE:
-			weapon = Enums.weapons.SHORT
+		if weapon == null:
+			weapon = Enums.weapons.NONE
 		return weapon
 	set(value):
 		weapon = value
@@ -233,8 +240,8 @@ var weapon:Enums.weapons:
 
 var shield:Enums.shields:
 	get:
-		if shield == null || shield == Enums.shields.NONE:
-			shield = Enums.shields.ROUND
+		if shield == null:
+			shield = Enums.shields.NONE
 		return shield
 	set(value):
 		shield = value
@@ -292,6 +299,14 @@ var switches:Dictionary:
 		return switches
 	set(value):
 		switches = value
+		
+var quests:Dictionary:
+	get:
+		if quests == null:
+			quests = {}
+		return quests
+	set(value):
+		quests = value
 		
 		
 func fireballDamage() -> int:
@@ -355,13 +370,13 @@ var healingRodCollected:bool = false
 var holySymbolCollected:bool = false
 var ancientScriptCollected:bool = false
 var iceCrystalCollected:bool = false
-var weaponTier1Collected:bool = true
+var weaponTier1Collected:bool = false
 var weaponTier2Collected:bool = false
 var weaponTier3Collected:bool = false
-var armorTier1Collected:bool = true
+var armorTier1Collected:bool = false
 var armorTier2Collected:bool = false
 var armorTier3Collected:bool = false
-var shieldTier1Collected:bool = true
+var shieldTier1Collected:bool = false
 var shieldTier2Collected:bool = false
 var shieldTier3Collected:bool = false
 
@@ -391,3 +406,12 @@ func _on_addStamina(value:int) -> void:
 	
 func _on_subStamina(value:int) -> void:
 	Data.staminaCurrent -= value
+	
+func addItemFromString(item:String) -> void:
+	if item == Statics.ID_SHORT_SWORD:
+		weaponTier1Collected = true
+	elif item == Statics.ID_ROUND_SHIELD:
+		shieldTier1Collected = true
+	elif item == Statics.ID_LEATHER_ARMOR:
+		armorTier1Collected = true
+	

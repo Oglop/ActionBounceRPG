@@ -1,0 +1,47 @@
+{
+    "prince": {
+        "0": {
+            "messages": [
+                {
+                    "text": "Speak to my father to receive aid \non your quest.",
+                    "type": "info"
+			    }
+            ]
+        }
+    },
+    "king": {
+        "0": {
+            "messages": [
+                {
+                    "text": "Please take these weapons to aid you.",
+                    "type": "info"
+			    },
+                {
+                    "text": "You received a short sword.",
+                    "type": "info"
+			    },
+                {
+                    "text": "You received a leather armor.",
+                    "type": "info"
+			    },
+                {
+                    "text": "You received a round shield.",
+                    "type": "info"
+			    }
+            ],
+            "items": [
+                "short-sword",
+                "round-shield",
+                "leather-armor",
+            ]
+        },
+        "1": {
+            "messages": [
+                {
+                    "text": "Good luck on your quest.",
+                    "type": "info"
+			    }
+            ]
+        }
+    }
+}

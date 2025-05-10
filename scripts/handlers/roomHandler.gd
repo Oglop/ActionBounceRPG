@@ -68,11 +68,18 @@ func _on_roomLoadandMove(roomId:String) -> void:
 		
 	if currentRoom.has("npcs"):
 		for npc in currentRoom["npcs"]:
-			var obj = SceneLoader.getScene(Enums.spawnType.NPC)
-			add_child(obj)
-			obj.global_position = Vector2i(npc["start-x"], npc["start-y"])
-			obj.setProperties(npc.id)
-			currentRoomNPCs.append(obj)
+			var addNpc:bool = true
+			if npc.has("condition"):
+				addNpc = solveConditionRule(npc.condition)
+			if addNpc:
+				var obj = SceneLoader.getScene(Enums.spawnType.NPC)
+				add_child(obj)
+				obj.global_position = Vector2i(npc["start-x"], npc["start-y"])
+				obj.setProperties(npc.id)
+				if npc.has("questStep"):
+					obj.setPropertiesQuest(npc.questStep, npc.questNext)
+					
+				currentRoomNPCs.append(obj)
 		
 	if currentRoom.has("enemies"):
 		for enemy in currentRoom["enemies"]:
@@ -132,6 +139,28 @@ func _on_clearRoom(roomId:String) -> void:
 		obj.queue_free()
 	currentRoomSwitches = []
 	
+	
+func solveConditionRule(condition:String) -> bool:
+	var arr:Array = condition.split(";")
+	var questline:String = arr[0]
+	var operator:String = arr[1]
+	var progress:int = int(arr[2])
+	
+	if !Data.quests.has(questline):
+		Data.quests[questline] = 0
+	
+	if Data.quests.has(questline):
+		if operator == "=":
+			if progress == Data.quests[questline]:
+				return true
+		elif operator == "-":
+			if progress >= Data.quests[questline]:
+				return true
+		elif operator == "+":
+			if progress <= Data.quests[questline]:
+				return true
+	
+	return false
 
 func platformNameToSpawnType(name:String) -> Enums.spawnType:
 	match name:

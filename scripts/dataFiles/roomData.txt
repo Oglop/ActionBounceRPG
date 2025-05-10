@@ -301,9 +301,22 @@
 		],
 		"npcs": [
 			{
-				"id":"healer",
-				"start-x": -192,
+				"id":"king",
+				"condition": "king;-;2",
+				"questStep": 0,
+				"questNext": 1,
+				"start-x": 464,
 				"start-y": 416,
+				"quest": "king-1"
+			},
+			{
+				"id":"prince",
+				"condition": "prince;=;0",
+				"questStep": 0,
+				"questNext": 1,
+				"start-x": 208,
+				"start-y": 432,
+				"quest": "prince-0"
 			}
 		],
 		"platforms": [],

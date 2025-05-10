@@ -83,6 +83,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("btn_jump"):
 			visible = false
 			Events.PLAYER_JUMP_BLOCK.emit()
+			Events.PLAYERS_UPDATE_EQUIPMENT.emit()
 			get_tree().paused = false
 	
 	

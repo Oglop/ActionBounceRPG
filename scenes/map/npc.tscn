@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ybbme0gsityr"]
+[gd_scene load_steps=25 format=3 uid="uid://ybbme0gsityr"]
 
 [ext_resource type="Script" uid="uid://bxqryui15xrd4" path="res://scripts/map/npc.gd" id="1_1w4f1"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_g3nlj"]
@@ -53,7 +53,35 @@ region = Rect2(208, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0rjh"]
 atlas = ExtResource("2_g3nlj")
-region = Rect2(112, 224, 16, 16)
+region = Rect2(176, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2bdp"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(192, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt6ug"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(208, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcjos"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(224, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk7pq"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(240, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acl6n"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(256, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1trl"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(272, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asxcq"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(160, 256, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3yau"]
 animations = [{
@@ -124,11 +152,47 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 15.0,
 "texture": SubResource("AtlasTexture_c0rjh")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_t2bdp")
 }],
 "loop": true,
 "name": &"villager_a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 13.0,
+"texture": SubResource("AtlasTexture_nt6ug")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_gcjos")
+}],
+"loop": true,
+"name": &"villager_b",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_vk7pq")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_acl6n")
+}],
+"loop": true,
+"name": &"villager_c",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 13.0,
+"texture": SubResource("AtlasTexture_j1trl")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_asxcq")
+}],
+"loop": true,
+"name": &"villager_d",
 "speed": 5.0
 }]
 
@@ -142,7 +206,7 @@ script = ExtResource("1_1w4f1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
-animation = &"guard"
+animation = &"villager_b"
 
 [node name="Area2D" type="Area2D" parent="."]
 

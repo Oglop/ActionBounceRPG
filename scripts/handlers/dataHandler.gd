@@ -186,18 +186,18 @@ func _on_newGame(slot:int) -> void:
 	Data.toughness = Data.levelData[startLevel].toughness
 	Data.critChance = Data.levelData[startLevel].critChance
 	
-	Data.armor = Enums.armors.LEATHER
-	Data.armorTier1Collected = true
+	Data.armor = Enums.armors.NONE
+	Data.armorTier1Collected = false
 	Data.armorTier2Collected = false
 	Data.armorTier3Collected = false
 	
-	Data.shield = Enums.shields.ROUND
-	Data.shieldTier1Collected = true
+	Data.shield = Enums.shields.NONE
+	Data.shieldTier1Collected = false
 	Data.shieldTier2Collected = false
 	Data.shieldTier3Collected = false
 	
-	Data.weapon = Enums.weapons.SHORT
-	Data.weaponTier1Collected = true
+	Data.weapon = Enums.weapons.NONE
+	Data.weaponTier1Collected = false
 	Data.weaponTier2Collected = false
 	Data.weaponTier3Collected = false
 	

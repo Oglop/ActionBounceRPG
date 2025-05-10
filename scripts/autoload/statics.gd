@@ -8,6 +8,7 @@ const EQUIPMENT_DATA:String = "res://scripts/dataFiles/equipmentData.txt"
 const ROOM_DATA:String = "res://scripts/dataFiles/roomData.txt"
 const NPC_DATA:String = "res://scripts/dataFiles/npcData.txt"
 const TEXT_DATA:String = "res://scripts/dataFiles/textData.txt"
+const QUEST_DATA:String = "res://scripts/dataFiles/questData.txt"
 const LEVEL_MAX:int = 3
 const TAIL_SIZE:int = 40
 const TAIL_POSITON_1:int = 1

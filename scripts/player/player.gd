@@ -38,16 +38,24 @@ func setStartPosition(startPosition:Vector2i) -> void:
 func _ready() -> void:
 	Events.connect("PLAYER_MOVE_TO", _on_playerMoveTo)
 	Events.connect("PLAYER_JUMP_BLOCK", _on_jumpBlock)
+	Events.connect("PLAYERS_UPDATE_EQUIPMENT", _on_playerUpdateEquipment)
 	fsm.change_state(Statics.STATE_IDLE)
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerPositions[n] = self.global_position
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerDirections[n] = direction
+	_setSwordAnimation()
+	_setShieldAnimation()
 	
 func _on_playerMoveTo(position:Vector2i) -> void:
 	global_position = position
 	_updateTrail()
 	
+
+func _on_playerUpdateEquipment() -> void:	
+	_setSwordAnimation()
+	_setShieldAnimation()
+
 
 func _updateTrail() -> void:
 	for n in range(Statics.TAIL_SIZE - 1, 0, -1):
@@ -71,6 +79,33 @@ func _physics_process(delta: float) -> void:
 	_updateTrail()
 	_setSwordAndShieldPositionAndDirection()
 	
+	
+func _setSwordAnimation() -> void:
+	if !Data.weapon == Enums.weapons.NONE:
+		if !sword.visible:
+			sword.visible = true
+		if Data.weapon == Enums.weapons.SHORT:
+			sword.play("short")
+		if Data.weapon == Enums.weapons.KNIGHT:
+			sword.play("knight")
+		if Data.weapon == Enums.weapons.SLAYER:
+			sword.play("slayer")
+	else:
+		sword.visible = false
+
+	
+func _setShieldAnimation() -> void:
+	if !Data.shield == Enums.shields.NONE:
+		if !shield.visible:
+			shield.visible = true
+		if Data.shield == Enums.shields.ROUND:
+			shield.play("round")
+		if Data.shield == Enums.shields.KNIGHT:
+			shield.play("knight")
+		if Data.shield == Enums.shields.MAGIC:
+			shield.play("magic")
+	else:
+		shield.visible = false
 	
 func _setSwordAndShieldPositionAndDirection() -> void:
 	if direction < 0:

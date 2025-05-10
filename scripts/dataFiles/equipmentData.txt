@@ -1,4 +1,9 @@
 {
+	"none-sword": {
+		"type": "weapon",
+		"attack":0,
+		"animation":"short_sword"
+	},
 	"short-sword": {
 		"type": "weapon",
 		"attack":4,
@@ -13,6 +18,11 @@
 		"type": "weapon",
 		"attack":16,
 		"animation":"slayer"
+	},
+	"none-shield": {
+		"type": "shield",
+		"block": "none",
+		"animation":"round"
 	},
 	"round-shield": {
 		"type": "shield",
@@ -29,7 +39,11 @@
 		"block": "strong",
 		"animation":"magic"
 	},
-	
+	"none-armor": {
+		"type": "shield",
+		"defence":0,
+		"animation":"round"
+	},
 	"leather-armor": {
 		"type": "shield",
 		"defence":4,

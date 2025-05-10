@@ -45,6 +45,26 @@
 				"type": "info",
 			}
 		]
+	},
+	"king": {
+		"animation": "king",
+		"type": "quest",
+		"messages": [
+			{
+				"text": "Good luck on your quest.",
+				"type": "info",
+			}
+		]
+	},
+	"prince": {
+		"animation": "prince",
+		"type": "quest",
+		"messages": [
+			{
+				"text": "I am prince Haldor.",
+				"type": "info",
+			}
+		]
 	}
 	
 }

@@ -43,6 +43,7 @@ const data_potionCollected:String = "potionCollected"
 const data_potion:String = "potion"
 const data_featherCollected:String = "featherCollected"
 const data_switches:String = "switches"
+const data_quests:String = "quests"
 
 var f:functions
 
@@ -98,8 +99,8 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_potionCollected: f.boolToInt(Data.potionCollected),
 		data_potion: Enums.potionTypeToString(Data.potion),
 		data_featherCollected: f.boolToInt(Data.featherCollected),
-		data_switches: Data.switches
-		
+		data_switches: Data.switches,
+		data_quests: Data.quests,
 	}
 	return data
 
@@ -146,6 +147,7 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.featherCollected = f.intToBool(data[data_featherCollected])
 	Data.potion = Enums.stringToPotionType(data[data_potion])
 	Data.switches = data[data_switches]
+	Data.quests = data[data_quests]
 	
 
 func _getSlotPath(slot:int) -> String:

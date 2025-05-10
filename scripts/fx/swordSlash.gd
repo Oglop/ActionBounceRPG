@@ -13,4 +13,4 @@ func setProperties(direction:int) -> void:
 	if _direction < 0:
 		scale.x = -1
 		
-	rotate(f.randomInt(-10, 10))
+	rotate(f.getRandomFloatInRange(-1.0, 1.0))

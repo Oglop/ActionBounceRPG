@@ -8,6 +8,9 @@ func _ready() -> void:
 	Events.connect("ADD_XP", _on_addXP)
 	Events.connect("ADD_HP", _on_addHP)
 	Events.connect("PLAYER_REFILL_POTION", _on_refillPotion)
+	Events.connect("RECEIVE_DAMAGE", _on_receiveDamage)
+	Events.connect("ADD_STAMINA", _on_addStamina)
+	Events.connect("SUB_STAMINA", _on_subStamina)
 
 var saveSpotY:int:
 	get:
@@ -99,6 +102,8 @@ var hpCurrent:int:
 	set(value):
 		if value > hpMax:
 			hpCurrent = hpMax
+		elif value < 0:
+			hpCurrent = 0
 		else:
 			hpCurrent = value
 		
@@ -142,11 +147,13 @@ var lv:int = 1:
 var staminaCurrent:int:
 	get:
 		if staminaCurrent == null:
-			staminaCurrent = 1
+			staminaCurrent = 0
 		return staminaCurrent
 	set(value):
 		if value > staminaMax:
 			staminaCurrent = staminaMax
+		elif value < 0:
+			staminaCurrent = 0
 		else:
 			staminaCurrent = value
 		
@@ -329,8 +336,8 @@ func elfArrowDamage() -> int:
 	
 	
 		
-var tailNo1Type:Enums.tailType = Enums.tailType.POOCH
-var tailNo2Type:Enums.tailType = Enums.tailType.WIZARD
+var tailNo1Type:Enums.tailType = Enums.tailType.NONE
+var tailNo2Type:Enums.tailType = Enums.tailType.NONE
 var potionCollected:bool = false
 var featherCollected:bool = false
 var thiefsGlovesCollected:bool = false
@@ -367,9 +374,20 @@ func _on_addHP(value:int) -> void:
 	else:
 		hpCurrent += value
 		
+func _on_receiveDamage(dmg:int) -> void:
+	if hpCurrent - dmg >= 0:
+		hpCurrent -= dmg
+	else:
+		hpCurrent = 0
+		
 func _on_refillPotion() -> void:
 	Data.potion = Enums.potionType.FULL
 	
 func getMaxXPAtLevel(level:int) -> int:
 	return levelData[str(lv)]["need"]
 	
+func _on_addStamina(value:int) -> void:
+	Data.staminaCurrent += value
+	
+func _on_subStamina(value:int) -> void:
+	Data.staminaCurrent -= value

@@ -24,6 +24,7 @@ var canCastFireBalls:bool:
 	get:
 		return _joinedBy(Enums.tailType.WIZARD) && Data.fireBallTomeCollected
 		
+		
 var canThrowThiefKnife:bool:
 	get: 
 		return _joinedBy(Enums.tailType.THIEF)

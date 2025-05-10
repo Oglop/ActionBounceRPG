@@ -174,6 +174,11 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		comboTimer.start(0.3)
 		if _attackNumber == 0:
 			_attackNumber = 1
+	var enemtDamageMultiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
+	var damage = int(enemyAttack * enemtDamageMultiplyer) - Data.defence
+	if damage > 0:
+		Events.RECEIVE_DAMAGE.emit(damage)
+	
 	if collider.has_method("applyBounce"):
 		var enemyBounceDirection:int = 1
 		if collider.global_position.x > self.global_position.x:
@@ -193,14 +198,20 @@ func _tailTypeToGlobalPosition(type:Enums.tailType) -> Vector2:
 func tailDamageBonus() -> int:
 	var bonus:int = 0
 	if s.canCastFireBalls:
-		bonus += Data.fireballDamage()
-		Events.FX_FIRE_BALL.emit(_tailTypeToGlobalPosition(Enums.tailType.WIZARD), direction)
+		if Data.staminaCurrent >= Statics.SKILL_FIRBALL_COST:
+			Events.SUB_STAMINA.emit(Statics.SKILL_FIRBALL_COST)
+			bonus += Data.fireballDamage()
+			Events.FX_FIRE_BALL.emit(_tailTypeToGlobalPosition(Enums.tailType.WIZARD), direction)
 	if s.canThrowThiefKnife:
-		bonus += Data.thiefknifeDamage()
-		Events.FX_THIEF_KNIFE.emit(_tailTypeToGlobalPosition(Enums.tailType.THIEF), direction) 
+		if Data.staminaCurrent >= Statics.SKILL_THIEF_KNIFE_COST:
+			Events.SUB_STAMINA.emit(Statics.SKILL_THIEF_KNIFE_COST)
+			bonus += Data.thiefknifeDamage()
+			Events.FX_THIEF_KNIFE.emit(_tailTypeToGlobalPosition(Enums.tailType.THIEF), direction) 
 	if s.canShootArrow:
-		bonus += 0
-		Events.FX_ELF_ARROW.emit(_tailTypeToGlobalPosition(Enums.tailType.ELF), direction) 
+		if Data.staminaCurrent >= Statics.SKILL_ELF_ARROW_COST:
+			Events.SUB_STAMINA.emit(Statics.SKILL_ELF_ARROW_COST)
+			bonus += Data.elfArrowDamage()
+			Events.FX_ELF_ARROW.emit(_tailTypeToGlobalPosition(Enums.tailType.ELF), direction) 
 	return bonus
 
 
@@ -223,7 +234,7 @@ func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:
 	
 	
 func _getAttack(critical:bool) -> int:
-	var attack = Data.attack
+	var attack = Data.attack + tailDamageBonus()
 	if critical:
 		attack += attack * Statics.PLAYER_CRITICAL_MULTIPLYER
 	return attack

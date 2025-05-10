@@ -63,6 +63,11 @@ const SWORD_SHORT_SWORD:String = "short-sword"
 const SHOES_SANDALS:String = "sandals"
 const SHOES_LEATHER_SHOES:String = "leather-shoes"
 
+const SKILL_FIRBALL_COST:int = 4
+const SKILL_THIEF_KNIFE_COST:int = 1
+const SKILL_ELF_ARROW_COST:int = 2
+const SKILL_CLERIC_HEAL_COST:int = 3
+
 const ID_POWER_RING:String = "power-ring"
 const ID_THIEF_GLOVES:String = "thief-gloves"
 const ID_LOCK_PICKS:String = "lock-picks"

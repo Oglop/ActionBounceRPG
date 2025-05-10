@@ -7,6 +7,8 @@ signal REMOVE_TAIL
 signal SYNC_TAIL
 signal ADD_XP
 signal ADD_HP
+signal ADD_STAMINA
+signal SUB_STAMINA
 signal SHOW_ACCEPT_MENU
 
 signal FX_WEAK_HIT
@@ -37,6 +39,7 @@ signal ENEMY_DESTROYED
 signal ENEMY_SHOOT
 
 signal PLATFORM_DESTROYED
+signal RECEIVE_DAMAGE
 signal PLAYER_MOVE_TO
 signal PLAYER_REFILL_POTION
 signal PLAYER_JUMP_BLOCK

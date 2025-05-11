@@ -83,7 +83,7 @@ enum enemyStates {
 func stringToEnemyState(value:String) -> enemyStates:
 	match value:
 		"idle": return enemyStates.IDLE
-		"walking": return enemyStates.WALKING
+		"walk": return enemyStates.WALKING
 		"air": return enemyStates.AIR
 		"die": return enemyStates.DIE
 		"shoot": return enemyStates.SHOOT

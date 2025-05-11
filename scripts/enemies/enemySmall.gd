@@ -55,7 +55,6 @@ func setProperties(name:String) -> void:
 	_crownsGain = props["crowns"]
 	_hurtBlock = props["hurt-block"]
 	_enemyState = Enums.stringToEnemyState(props["default-state"])
-	#enemyFsm.change_state(props["default-state"])
 	if props.has("canShoot") && props.has("shootCooldown"):
 		_canShoot = props["canShoot"]
 		_shootCooldown = props["shootCooldown"]
@@ -89,7 +88,6 @@ func applyDamage(value:int) -> void:
 		print_debug("applyDamage _hp" + str(_hp) + " value: " + str(value))
 		if _hp <= 0:
 			_enemyState = Enums.enemyStates.DIE
-			#enemyFsm.change_state(Statics.STATE_ENEMY_DIE)
 			
 
 func _blockHurt() -> void:
@@ -105,7 +103,6 @@ func applyBounce(value:int, direction:int) -> void:
 			_bouncingRight = true
 		else:
 			_bouncingLeft = true
-		#enemyFsm.change_state(Statics.STATE_ENEMY_BOUNCE)
 
 
 func _physics_process(delta: float) -> void:
@@ -114,12 +111,14 @@ func _physics_process(delta: float) -> void:
 	if _enemyState == Enums.enemyStates.IDLE:
 		_doIdleState()
 	elif _enemyState == Enums.enemyStates.WALKING:
-		_doWalkingState()
+		_doWalkingState(delta)
 	elif _enemyState == Enums.enemyStates.SHOOT:
 		_doShootState()
 	elif _enemyState == Enums.enemyStates.DIE:
 		_doDieState()
 	
+	_applyGravity(delta)
+	self.move_and_slide()
 	
 func _doAirState() -> void:
 	sprite.play(getAnimation("idle"))
@@ -133,8 +132,26 @@ func _doIdleState() -> void:
 		self._enemyState == Enums.enemyStates.SHOOT
 	
 	
-func _doWalkingState() -> void:
+func _doWalkingState(delta: float) -> void:
 	sprite.play(getAnimation("walk"))
+	if direction == 1:
+		groundCheck.position = Vector2i(15,15)
+	else:
+		groundCheck.position = Vector2i(1,15)
+		
+	if frontCheck.is_colliding() && !flipBlocked:
+		sprite.flip_h = direction > 0
+		direction *= -1
+		flipBlocked = true
+		flipTimer.start(0.2)
+	if !groundCheck.is_colliding() && !flipBlocked:
+		sprite.flip_h = direction > 0
+		direction *= -1
+		flipBlocked = true
+		flipTimer.start(0.2)
+	else:
+		velocity.x = direction * _speed
+	_move(delta, _speed)
 
 
 func _doShootState() -> void:
@@ -154,14 +171,21 @@ func _flip() -> void:
 func _flipTo(right:bool) -> void:
 	pass
 	
+
+func _move(delta:float, speed:int) -> void:
+	#self.velocity.x += direction * speed * delta
+	_accelerate(delta)
+	#self.move_and_slide()
+	
 	
 func _applyGravity(delta) -> void:
-	var g = Statics.FALL_GRAVITY
-	velocity.y = move_toward(velocity.y, Statics.TERMINAL_GRAVITY, g * delta)
+	if !self.is_on_floor():
+		var g = Statics.FALL_GRAVITY
+		velocity.y = move_toward(velocity.y, Statics.TERMINAL_GRAVITY, g * delta)
 
-func _accelerate(delta:float, direction:int):
-	var m:float = Statics.PLAYER_AIR_MULTIPLYER if not is_on_floor() else 1.0
-	velocity.x = move_toward(velocity.x, Statics.PLAYER_SPEED_SLOW * direction, Statics.PLAYER_ACCELERATION * m * delta)
+func _accelerate(delta:float):
+
+	velocity.x = move_toward(velocity.x, _speed * direction, Statics.PLAYER_ACCELERATION * delta)
 	
 
 func getAnimation(animation:String) -> String:

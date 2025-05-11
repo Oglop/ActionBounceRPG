@@ -18,13 +18,13 @@
 		"type": "jelly",
 		"hp": 18,
 		"toughness": 2,
-		"speed": 80,
+		"speed": 30,
 		"xp": 4,
 		"attack": 7,
 		"armor": 3,
 		"crowns": 1,
 		"hurt-block":0.1,
-		"default-state": "walking"
+		"default-state": "walk"
 	},
 	"spitter": {
 		"name": "spitter",
@@ -52,7 +52,7 @@
 		"armor": 4,
 		"crowns": 4,
 		"hurt-block":0.2,
-		"default-state": "walking"
+		"default-state": "walk"
 	},
 	"squid": {
 		"name": "Squid",
@@ -65,6 +65,6 @@
 		"armor": 1,
 		"crowns": 1,
 		"hurt-block":0.3,
-		"default-state": "walking"
+		"default-state": "walk"
 	}
 }

@@ -57,6 +57,7 @@ enum npcType {
 	INN_KEEPER,
 }
 
+
 enum switchType {
 	WOOD,
 	STONE,
@@ -69,6 +70,24 @@ enum enemyType {
 	SCORP,
 	SQUID,
 }
+
+
+enum enemyStates {
+	IDLE,
+	WALKING,
+	AIR,
+	DIE,
+	SHOOT
+}
+
+func stringToEnemyState(value:String) -> enemyStates:
+	match value:
+		"idle": return enemyStates.IDLE
+		"walking": return enemyStates.WALKING
+		"air": return enemyStates.AIR
+		"die": return enemyStates.DIE
+		"shoot": return enemyStates.SHOOT
+		_: return enemyStates.IDLE
 
 
 func stringToEnemyType(type:String) -> enemyType:

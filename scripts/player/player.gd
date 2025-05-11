@@ -50,6 +50,7 @@ func _ready() -> void:
 func _on_playerMoveTo(position:Vector2i) -> void:
 	global_position = position
 	_updateTrail()
+	Events.PLAYER_MAKE_NOICE.emit(global_position)
 	
 
 func _on_playerUpdateEquipment() -> void:	
@@ -161,6 +162,7 @@ func _processBounce(delta):
 		velocity = Vector2(_bounceStrength * -1, global_position.y)
 	if _bouncingRight:
 		velocity = Vector2(_bounceStrength, global_position.y)
+	Events.PLAYER_MAKE_NOICE.emit(global_position)
 
 
 func _resetBounce() -> void:

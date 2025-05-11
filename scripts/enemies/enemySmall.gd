@@ -7,8 +7,8 @@ extends CharacterBody2D
 @onready var bullerSpawner = $BulletSpawnerMarker2D
 @onready var flipTimer = $FlipTimer
 @onready var hurtTimer = $HurtTimer
-@onready var enemyFsm = $enemyFsm
-var enemyStats:enemyStatsBase = enemyStatsBase.new()
+#@onready var enemyFsm = $enemyFsm
+
 var f:functions = functions.new()
 
 var _id:String
@@ -21,11 +21,14 @@ var _attack:int = 0
 var _armor:int = 0
 var _xpGain:int = 0
 var _canShoot:String = "none"
+var _speed:float = 0.0
+var _shootCooldown:float = 9999999.0
 var _crownsGain:int = 0
 var _hurtBlock:float = 0.2
 var _bounceStrength:float = 0
 var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
+var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
 
 var direction:int = -1
 var flipBlocked:bool = false
@@ -33,7 +36,8 @@ var hurtBlocked:bool = false
 
 
 func _ready() -> void:
-	pass
+	Events.connect("PLAYER_MAKE_NOICE", _on_playerMakeNoice)
+	#enemyFsm.owner = self
 	
 
 func setProperties(name:String) -> void:
@@ -43,15 +47,19 @@ func setProperties(name:String) -> void:
 	_name = props["name"]
 	_maxHp = props["hp"]
 	_hp = _maxHp
+	_speed = props["speed"]
 	_toughness = props["toughness"]
 	_attack = props["attack"]
 	_armor = props["armor"]
 	_xpGain = props["xp"]
 	_crownsGain = props["crowns"]
 	_hurtBlock = props["hurt-block"]
-	enemyFsm.change_state(props["default-state"])
-	if props.has("canShoot"):
+	_enemyState = Enums.stringToEnemyState(props["default-state"])
+	#enemyFsm.change_state(props["default-state"])
+	if props.has("canShoot") && props.has("shootCooldown"):
 		_canShoot = props["canShoot"]
+		_shootCooldown = props["shootCooldown"]
+	sprite.play(getAnimation(props["default-state"])) 
 
 	
 func getToughness() -> int:
@@ -79,7 +87,8 @@ func applyDamage(value:int) -> void:
 		_hp = f.minusLimit(_hp, value, 0)
 		print_debug("applyDamage _hp" + str(_hp) + " value: " + str(value))
 		if _hp <= 0:
-			enemyFsm.change_state(Statics.STATE_ENEMY_DIE)
+			_enemyState = Enums.enemyStates.DIE
+			#enemyFsm.change_state(Statics.STATE_ENEMY_DIE)
 			
 
 func _blockHurt() -> void:
@@ -95,12 +104,60 @@ func applyBounce(value:int, direction:int) -> void:
 			_bouncingRight = true
 		else:
 			_bouncingLeft = true
-		enemyFsm.change_state(Statics.STATE_ENEMY_BOUNCE)
+		#enemyFsm.change_state(Statics.STATE_ENEMY_BOUNCE)
 
 
 func _physics_process(delta: float) -> void:
-	enemyFsm.physics_update(delta)
+	#enemyFsm.physics_update(delta)
 	_setFrontCheckerPositionAndDirection()
+	if _enemyState == Enums.enemyStates.IDLE:
+		_doIdleState()
+	elif _enemyState == Enums.enemyStates.WALKING:
+		_doWalkingState()
+	elif _enemyState == Enums.enemyStates.SHOOT:
+		_doShootState()
+	
+	
+func _doAirState() -> void:
+	sprite.play(getAnimation("idle"))
+	
+	
+func _doIdleState() -> void:
+	sprite.play(getAnimation("idle"))
+	if _canShoot != null && _canShoot != "none":
+		var wait = f.getRandomFloatInRange(0.8, 1.2)
+		await get_tree().create_timer(_shootCooldown * wait)
+		self._enemyState == Enums.enemyStates.SHOOT
+	
+func _doWalkingState() -> void:
+	sprite.play(getAnimation("walk"))
+
+func _doShootState() -> void:
+	Events.ENEMY_SHOOT.emit(global_position, direction, _canShoot)
+	sprite.play(getAnimation("shoot"))
+	await get_tree().create_timer(0.8).timeout
+	self._enemyState == Enums.enemyStates.IDLE
+
+
+func _flip() -> void:
+	pass
+	
+func _flipTo(right:bool) -> void:
+	pass
+
+
+func getAnimation(animation:String) -> String:
+	var prefix:String = Enums.enemyTypeToString(_type)
+	return prefix + "_" + animation
+	
+
+func _on_playerMakeNoice(playerPosition:Vector2) -> void:
+	if playerPosition.x > global_position.x:
+		direction = 1
+		scale.x = 1
+	else:
+		direction = -1
+		scale.x = -1
 
 
 func _on_flip_timer_timeout() -> void:

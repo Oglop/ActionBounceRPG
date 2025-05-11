@@ -266,7 +266,6 @@ shape = SubResource("RectangleShape2D_lrtym")
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_p5uwq")
 animation = &"spitter_idle"
-frame_progress = 0.53091
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, 9)
@@ -283,7 +282,6 @@ hit_from_inside = true
 position = Vector2(8, 8)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_vyyob")]
-script = null
 
 [node name="FlipTimer" type="Timer" parent="."]
 

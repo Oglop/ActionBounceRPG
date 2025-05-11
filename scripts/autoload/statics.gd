@@ -43,6 +43,7 @@ const STATE_ENEMY_AIR:String = "airenemystate"
 const STATE_ENEMY_DIE:String = "dieenemystate"
 const STATE_ENEMY_WALK:String = "walkenemystate"
 const STATE_ENEMY_BOUNCE:String = "bounceenemystate"
+const STATE_ENEMY_SHOOT:String = "shootenemystate"
 
 const PLATFORM_PUSHABLE_BLOCK:String = "pushable-block"
 const PLATFORM_STAIRS:String = "stairs"

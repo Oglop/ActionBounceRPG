@@ -162,6 +162,7 @@ z_index = 2
 position = Vector2(48, 80)
 
 [node name="PanelLevel" type="Panel" parent="PanelMain"]
+layout_mode = 0
 offset_left = 111.0
 offset_top = 16.0
 offset_right = 231.0
@@ -216,6 +217,7 @@ offset_bottom = 24.0
 text = "Toughness: 11"
 
 [node name="lblMagic" type="Label" parent="PanelMain/PanelStats"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 21.0
 offset_right = 63.0

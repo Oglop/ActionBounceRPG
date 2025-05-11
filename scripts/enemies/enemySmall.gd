@@ -73,6 +73,7 @@ func getAttack() -> int:
 func getArmor() -> int:
 	return _armor
 	
+
 	
 func _setFrontCheckerPositionAndDirection() -> void:
 	if direction == 0 || direction == null:
@@ -116,6 +117,8 @@ func _physics_process(delta: float) -> void:
 		_doWalkingState()
 	elif _enemyState == Enums.enemyStates.SHOOT:
 		_doShootState()
+	elif _enemyState == Enums.enemyStates.DIE:
+		_doDieState()
 	
 	
 func _doAirState() -> void:
@@ -129,8 +132,10 @@ func _doIdleState() -> void:
 		await get_tree().create_timer(_shootCooldown * wait)
 		self._enemyState == Enums.enemyStates.SHOOT
 	
+	
 func _doWalkingState() -> void:
 	sprite.play(getAnimation("walk"))
+
 
 func _doShootState() -> void:
 	Events.ENEMY_SHOOT.emit(global_position, direction, _canShoot)
@@ -139,12 +144,25 @@ func _doShootState() -> void:
 	self._enemyState == Enums.enemyStates.IDLE
 
 
+func _doDieState() -> void:
+	Events.ADD_XP.emit(_xpGain)
+	Events.ENEMY_DESTROYED.emit(_id)
+
 func _flip() -> void:
 	pass
 	
 func _flipTo(right:bool) -> void:
 	pass
+	
+	
+func _applyGravity(delta) -> void:
+	var g = Statics.FALL_GRAVITY
+	velocity.y = move_toward(velocity.y, Statics.TERMINAL_GRAVITY, g * delta)
 
+func _accelerate(delta:float, direction:int):
+	var m:float = Statics.PLAYER_AIR_MULTIPLYER if not is_on_floor() else 1.0
+	velocity.x = move_toward(velocity.x, Statics.PLAYER_SPEED_SLOW * direction, Statics.PLAYER_ACCELERATION * m * delta)
+	
 
 func getAnimation(animation:String) -> String:
 	var prefix:String = Enums.enemyTypeToString(_type)

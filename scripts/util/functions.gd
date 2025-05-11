@@ -42,6 +42,10 @@ func chance(test: int) -> bool:
 		return true
 	return false
 	
+func choose(array:Array):
+	array.shuffle()
+	return array.front()
+	
 func boolToInt(value:bool) -> int:
 	if value:
 		return 1

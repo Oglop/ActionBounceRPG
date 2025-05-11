@@ -24,7 +24,7 @@
 		"armor": 3,
 		"crowns": 1,
 		"hurt-block":0.1,
-		"default-state": "walkenemystate"
+		"default-state": "walking"
 	},
 	"spitter": {
 		"name": "spitter",
@@ -37,7 +37,7 @@
 		"armor": 3,
 		"crowns": 1,
 		"hurt-block":0.2,
-		"default-state": "idleenemystate",
+		"default-state": "idle",
 		"canShoot": "weak",
 		"shootCooldown": 2.0
 	},
@@ -52,7 +52,7 @@
 		"armor": 4,
 		"crowns": 4,
 		"hurt-block":0.2,
-		"default-state": "walkenemystate"
+		"default-state": "walking"
 	},
 	"squid": {
 		"name": "Squid",
@@ -65,6 +65,6 @@
 		"armor": 1,
 		"crowns": 1,
 		"hurt-block":0.3,
-		"default-state": "walkenemystate"
+		"default-state": "walking"
 	}
 }

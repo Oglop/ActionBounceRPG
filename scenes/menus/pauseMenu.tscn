@@ -161,60 +161,88 @@ position = Vector2(84, 34)
 z_index = 2
 position = Vector2(48, 80)
 
-[node name="lblLevel" type="Label" parent="PanelMain"]
-layout_mode = 0
-offset_left = 112.0
+[node name="PanelLevel" type="Panel" parent="PanelMain"]
+offset_left = 111.0
 offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 30.0
+offset_right = 231.0
+offset_bottom = 50.0
+theme = ExtResource("1_ojwjl")
+
+[node name="lblLevel" type="Label" parent="PanelMain/PanelLevel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 99.0
+offset_bottom = 13.0
 text = "Level: 1"
 
-[node name="lblXP" type="Label" parent="PanelMain"]
+[node name="lblXP" type="Label" parent="PanelMain/PanelLevel"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 32.0
-offset_right = 208.0
-offset_bottom = 46.0
+offset_left = 3.0
+offset_top = 9.0
+offset_right = 99.0
+offset_bottom = 23.0
 text = "XP: 13123123"
 
-[node name="lblNext" type="Label" parent="PanelMain"]
+[node name="lblNext" type="Label" parent="PanelMain/PanelLevel"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 48.0
-offset_right = 152.0
-offset_bottom = 62.0
-text = "Next: 111111111111"
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 74.0
+offset_bottom = 33.0
+text = "Next: 1111111"
 
-[node name="lblStrength" type="Label" parent="PanelMain"]
+[node name="PanelStats" type="Panel" parent="PanelMain"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 64.0
-offset_right = 163.0
-offset_bottom = 78.0
+offset_left = 111.0
+offset_top = 54.0
+offset_right = 231.0
+offset_bottom = 92.0
+theme = ExtResource("1_ojwjl")
+
+[node name="lblStrength" type="Label" parent="PanelMain/PanelStats"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 66.0
+offset_bottom = 14.0
 text = "Strength: 11"
 
-[node name="lblToughness" type="Label" parent="PanelMain"]
+[node name="lblToughness" type="Label" parent="PanelMain/PanelStats"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 80.0
-offset_right = 185.0
-offset_bottom = 94.0
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 76.0
+offset_bottom = 24.0
 text = "Toughness: 11"
 
-[node name="lblDefence" type="Label" parent="PanelMain"]
+[node name="lblMagic" type="Label" parent="PanelMain/PanelStats"]
+offset_left = 3.0
+offset_top = 21.0
+offset_right = 63.0
+offset_bottom = 35.0
+text = "Magic: 11"
+
+[node name="PanelCal" type="Panel" parent="PanelMain"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 112.0
-offset_right = 171.0
-offset_bottom = 126.0
+offset_left = 111.0
+offset_top = 96.0
+offset_right = 231.0
+offset_bottom = 124.0
+theme = ExtResource("1_ojwjl")
+
+[node name="lblDefence" type="Label" parent="PanelMain/PanelCal"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 63.0
+offset_bottom = 26.0
 text = "Defense: 11"
 
-[node name="lblAttack" type="Label" parent="PanelMain"]
+[node name="lblAttack" type="Label" parent="PanelMain/PanelCal"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 96.0
-offset_right = 163.0
-offset_bottom = 110.0
+offset_left = 3.0
+offset_right = 54.0
+offset_bottom = 14.0
 text = "Attack: 11"
 
 [node name="pointer" type="AnimatedSprite2D" parent="PanelMain"]

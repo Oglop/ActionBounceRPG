@@ -17,10 +17,12 @@ const room_stairs = preload("res://scenes/platforms/jumpThoughStairs1.tscn")
 const room_treasure = preload("res://scenes/map/treasure.tscn")
 const room_saveSpot = preload("res://scenes/platforms/saveSpot.tscn")
 const room_switch_wood = preload("res://scenes/map/switch.tscn")
+const room_transition = preload("res://scenes/map/roomTransition.tscn")
 
 func getScene(type:Enums.spawnType):
 	match type:
 		Enums.spawnType.DOOR: return room_door.instantiate()
+		Enums.spawnType.ROOM_TRANSÌTION: return room_transition.instantiate()
 		Enums.spawnType.ENEMY_SMALL: return enemy_enemySmall.instantiate()
 		Enums.spawnType.ENEMY_BULLET: return 
 		Enums.spawnType.FX_WEAK_HIT: return fx_weakHit.instantiate()

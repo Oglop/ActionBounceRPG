@@ -40,6 +40,7 @@ enum spawnType {
 	ENEMY_SMALL,
 	TAIL,
 	DOOR,
+	ROOM_TRANSÌTION,
 	NPC,
 	PUSHABLE_BLOCK,
 	STAIRS,

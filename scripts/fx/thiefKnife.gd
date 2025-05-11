@@ -4,7 +4,7 @@ extends Node2D
 @onready var timer = $Timer
 
 var _direction:int = 0
-var _speed:float = 500
+var _speed:float = 400
 	
 func setProperties(direction:int) -> void:
 	_direction = direction
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	global_position += Vector2(1,0) * _speed * delta * _direction
 	
 func _getDuration() -> float:
-	return 0.3
+	return 0.2
 
 
 func _on_timer_timeout() -> void:

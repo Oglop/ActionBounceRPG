@@ -5,7 +5,7 @@ var f:functions = functions.new()
 @onready var timer = $Timer
 
 func _ready() -> void:
-	pass
+	sprite.modulate.a = 0.6
 	
 func setProperties(dir:int, combo:int) -> void:
 	var noSlash:int = f.randomInt(2,3)

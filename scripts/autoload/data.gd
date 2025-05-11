@@ -184,6 +184,13 @@ var toughness:int:
 		return levelData[str(lv)].toughness
 	set(value):
 		toughness = value
+		
+
+var magic:int:
+	get:
+		return levelData[str(lv)].magic
+	set(value):
+		magic = value
 	
 	
 var critChance:int:

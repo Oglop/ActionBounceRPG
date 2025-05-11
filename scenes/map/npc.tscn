@@ -86,7 +86,7 @@ region = Rect2(160, 256, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3yau"]
 animations = [{
 "frames": [{
-"duration": 10.0,
+"duration": 16.0,
 "texture": SubResource("AtlasTexture_k3wee")
 }, {
 "duration": 0.1,
@@ -206,7 +206,7 @@ script = ExtResource("1_1w4f1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
-animation = &"villager_b"
+animation = &"villager_c"
 
 [node name="Area2D" type="Area2D" parent="."]
 

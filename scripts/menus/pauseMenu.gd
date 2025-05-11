@@ -7,6 +7,7 @@ const txtStrength:String = "Strength"
 const txtToughness:String = "Toughness"
 const txtDefence:String = "Defence"
 const txtAttack:String = "Attack"
+const txtMagic:String = "Magic"
 
 var col:int = 0
 var row:int = 0
@@ -53,13 +54,14 @@ var row:int = 0
 @onready var player_feather = $PanelMain/player_feather
 @onready var player_potion = $PanelMain/player_potion
 
-@onready var lblLv = $PanelMain/lblLevel
-@onready var lblXP = $PanelMain/lblXP
-@onready var lblNext = $PanelMain/lblNext
-@onready var lblStr = $PanelMain/lblStrength
-@onready var lblTgh = $PanelMain/lblToughness
-@onready var lblAtt = $PanelMain/lblAttack
-@onready var lblDef = $PanelMain/lblDefence
+@onready var lblLv = $PanelMain/PanelLevel/lblLevel
+@onready var lblXP = $PanelMain/PanelLevel/lblXP
+@onready var lblNext = $PanelMain/PanelLevel/lblNext
+@onready var lblStr = $PanelMain/PanelStats/lblStrength
+@onready var lblTgh = $PanelMain/PanelStats/lblToughness
+@onready var lblMagic = $PanelMain/PanelStats/lblMagic
+@onready var lblAtt = $PanelMain/PanelCal/lblAttack
+@onready var lblDef = $PanelMain/PanelCal/lblDefence
 @onready var lblDesc = $PanelDescription/lblDescription
 
 func _ready() -> void:
@@ -185,11 +187,11 @@ func _getPointerInput() -> void:
 func _updateDescriptionLabel() -> void:
 	lblDesc.text = ""
 	if col == 0:
-		if row == 0:
+		if row == 0 && Data.weaponTier1Collected:
 			lblDesc.text = "Short sword - power: " + str(int(Data.equipmentData["short-sword"].attack))
-		elif row == 1:
+		elif row == 1 && Data.armorTier1Collected:
 			lblDesc.text = "Leather armor - defence: " + str(int(Data.equipmentData["leather-armor"].defence))
-		elif row == 2:
+		elif row == 2 && Data.shieldTier3Collected:
 			lblDesc.text = "Round shield - block: " + str(Data.equipmentData["round-shield"].block)
 		elif row == 3 && Data.powerRingCollected:
 			lblDesc.text = "Power ring"
@@ -309,6 +311,7 @@ func _updateLabels() -> void:
 	lblNext.text = _textWithValue(txtNext, Data.next)
 	lblStr.text = _textWithValue(txtStrength, Data.strength)
 	lblTgh.text = _textWithValue(txtToughness, Data.toughness)
+	lblMagic.text = _textWithValue(txtMagic, Data.magic)
 	
 	
 func _textWithValue(text:String, value:int, plus:int = 0) -> String:

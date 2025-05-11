@@ -201,7 +201,18 @@
 				"locked": false
 			},
 		],
-		"npcs": [],
+		"npcs": [
+			{
+				"id":"guard-home-village",
+				"start-x": 176,
+				"start-y": 224,
+			},
+			{
+				"id":"villager-b-home-village",
+				"start-x": -208,
+				"start-y": 240,
+			}
+		],
 		"platforms": [
 			{
 				"name": "save-spot",
@@ -317,6 +328,11 @@
 				"start-x": 208,
 				"start-y": 432,
 				"quest": "prince-0"
+			},
+			{
+				"id":"guard-home-village-castle",
+				"start-x": 144,
+				"start-y": 432
 			}
 		],
 		"platforms": [],
@@ -346,11 +362,69 @@
 			},
 		],
 		"npcs": [],
-		"platforms": [
+		"platforms": [],
+		"transitions": [
 			{
-				"name": "save-spot",
-				"start-x": 32,
+				"id":"fields-west-to-fields-east",
+				"x":1456,
+				"y":160,
+				"connects":"fields-east",
+				"connects-x": 1520,
+				"connects-y": 240,
+				"horizontalCheck": false
+			}
+		],
+		"enemies": [
+			{
+				"name": "jelly",
+				"start-x": 448,
 				"start-y": 224,
+			},
+			{
+				"name": "jelly",
+				"start-x": 608,
+				"start-y": 256,
+			},
+			{
+				"name": "jelly",
+				"start-x": 672,
+				"start-y": 256,
+			}
+			,
+			{
+				"name": "jelly",
+				"start-x": 960,
+				"start-y": 240,
+			}
+		],
+		],
+		"bosses": [],
+		"treasures": [],
+	},
+	"fields-east": {
+		"id":"fields-west",
+		"x":1,
+		"y":1,
+		"min-x": 1648,
+		"max-x": 2512,
+		"max-y": 212,
+		"camera":"hori",
+		"doors": [
+	
+
+			
+		],
+		"npcs": [],
+		"platforms": [],
+		"transitions": [
+			{
+				"id":"fields-east-to-fields-west",
+				"x":1488,
+				"y":160,
+				"connects":"fields-west",
+				"connects-x": 1440,
+				"connects-y": 240,
+				"horizontalCheck": false
 			}
 		],
 		"enemies": [
@@ -364,7 +438,6 @@
 				"start-x": 608,
 				"start-y": 256,
 			}
-		],
 		"bosses": [],
 		"treasures": [],
 	},

@@ -9,6 +9,7 @@ var currentRoomEnemies:Array = []
 var currentRoomPlatforms:Array = []
 var currentRoomTreasures:Array = []
 var currentRoomSwitches:Array = []
+var currentRoomTransitions:Array = []
 var f:functions = functions.new()
 
 
@@ -80,6 +81,14 @@ func _on_roomLoadandMove(roomId:String) -> void:
 					obj.setPropertiesQuest(npc.questStep, npc.questNext)
 					
 				currentRoomNPCs.append(obj)
+	
+	if currentRoom.has("transitions"):
+		for roomTrans in currentRoom["transitions"]:
+			var obj = SceneLoader.getScene(Enums.spawnType.ROOM_TRANSÌTION)
+			add_child(obj)
+			obj.global_position = Vector2(roomTrans.x, roomTrans.y)
+			obj.setProperties(roomTrans.id, roomTrans.horizontalCheck, roomTrans.connects, Vector2i(roomTrans["connects-x"] + 8, roomTrans["connects-y"] + 8))
+			currentRoomTransitions.append(obj)
 		
 	if currentRoom.has("enemies"):
 		for enemy in currentRoom["enemies"]:
@@ -138,6 +147,10 @@ func _on_clearRoom(roomId:String) -> void:
 	for obj:Node2D in currentRoomSwitches:
 		obj.queue_free()
 	currentRoomSwitches = []
+	
+	for obj:Node2D in currentRoomTransitions:
+		obj.queue_free()
+	currentRoomTransitions = []
 	
 	
 func solveConditionRule(condition:String) -> bool:

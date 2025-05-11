@@ -65,6 +65,45 @@
 				"type": "info",
 			}
 		]
+	},
+	"guard-home-village-castle": {
+		"animation": "guard",
+		"messages": [
+			{
+				"text": "The kind is awaiting you.",
+				"type": "info",
+			}
+		]
+	},
+	"guard-home-village": {
+		"animation": "guard",
+		"messages": [
+			{
+				"text": "Be carful out there.",
+				"type": "info",
+			}
+		]
+	},
+	"guard-home-village": {
+		"animation": "guard",
+		"messages": [
+			{
+				"text": "Be carful out there.",
+				"type": "info",
+			}
+		]
+	},
+	"villager-b-home-village": {
+		"animation": "villager_b",
+		"messages": [
+			{
+				"text": "Latelty the prince has been sneaking \nout during the night.",
+				"type": "info",
+			}
+		]
 	}
+
+
+	
 	
 }

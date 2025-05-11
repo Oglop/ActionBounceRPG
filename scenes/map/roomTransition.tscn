@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://jgn6kpe1e52o"]
+
+[ext_resource type="Script" uid="uid://diqqc7ow4mnur" path="res://scripts/map/roomTransition.gd" id="1_vnj20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onn8g"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp4sx"]
+size = Vector2(128, 16)
+
+[node name="RoomTransition" type="Area2D"]
+script = ExtResource("1_vnj20")
+
+[node name="VertCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 64)
+shape = SubResource("RectangleShape2D_onn8g")
+
+[node name="HoriCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 8)
+shape = SubResource("RectangleShape2D_tp4sx")

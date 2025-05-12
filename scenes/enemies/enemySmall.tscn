@@ -261,7 +261,7 @@ sprite_frames = SubResource("SpriteFrames_p5uwq")
 animation = &"spitter_idle"
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
-position = Vector2(1, 8)
+position = Vector2(0, 8)
 target_position = Vector2(11, 0)
 collision_mask = 2
 

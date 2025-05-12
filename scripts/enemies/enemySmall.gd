@@ -30,14 +30,14 @@ var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
 
-var direction:int = -1
+var direction:int = 0
 var flipBlocked:bool = false
 var hurtBlocked:bool = false
 
 
 func _ready() -> void:
 	Events.connect("PLAYER_MAKE_NOICE", _on_playerMakeNoice)
-	#enemyFsm.owner = self
+	direction = f.choose([1, -1])
 	
 
 func setProperties(name:String) -> void:
@@ -106,7 +106,8 @@ func applyBounce(value:int, direction:int) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	#enemyFsm.physics_update(delta)
+	scale.x = direction
+		
 	_setFrontCheckerPositionAndDirection()
 	if _enemyState == Enums.enemyStates.IDLE:
 		_doIdleState()
@@ -116,7 +117,7 @@ func _physics_process(delta: float) -> void:
 		_doShootState()
 	elif _enemyState == Enums.enemyStates.DIE:
 		_doDieState()
-	
+	# _bouncing()
 	_applyGravity(delta)
 	self.move_and_slide()
 	
@@ -135,24 +136,34 @@ func _doIdleState() -> void:
 func _doWalkingState(delta: float) -> void:
 	sprite.play(getAnimation("walk"))
 	if direction == 1:
-		groundCheck.position = Vector2i(15,15)
+		groundCheck.position = Vector2i(8,15)
 	else:
-		groundCheck.position = Vector2i(1,15)
+		groundCheck.position = Vector2i(-8,15)
 		
 	if frontCheck.is_colliding() && !flipBlocked:
-		sprite.flip_h = direction > 0
-		direction *= -1
+		_flip()
 		flipBlocked = true
 		flipTimer.start(0.2)
 	if !groundCheck.is_colliding() && !flipBlocked:
-		sprite.flip_h = direction > 0
-		direction *= -1
+		_flip()
 		flipBlocked = true
 		flipTimer.start(0.2)
 	else:
 		velocity.x = direction * _speed
+		
 	_move(delta, _speed)
 
+func _bouncing() -> void:
+	if _bounceStrength > 0:
+		_bounceStrength -= 20
+	elif  _bounceStrength < 0:
+		_bounceStrength += 20
+	if _bouncingLeft:
+		direction = -1
+	if _bouncingRight:
+		direction = 1
+		
+	velocity.x = direction * _bounceStrength
 
 func _doShootState() -> void:
 	Events.ENEMY_SHOOT.emit(global_position, direction, _canShoot)
@@ -166,15 +177,22 @@ func _doDieState() -> void:
 	Events.ENEMY_DESTROYED.emit(_id)
 
 func _flip() -> void:
-	pass
+	direction *= -1
+	scale.x = direction
 	
-func _flipTo(right:bool) -> void:
-	pass
+func _flipTo(playerPosition:Vector2) -> void:
+	if playerPosition.x >= global_position.x && direction == -1:
+		direction = 1
+
+	elif playerPosition.x <= global_position.x && direction == 1:
+		direction = -1
+
 	
 
 func _move(delta:float, speed:int) -> void:
 	#self.velocity.x += direction * speed * delta
 	_accelerate(delta)
+	#_bouncing()
 	#self.move_and_slide()
 	
 	
@@ -184,7 +202,6 @@ func _applyGravity(delta) -> void:
 		velocity.y = move_toward(velocity.y, Statics.TERMINAL_GRAVITY, g * delta)
 
 func _accelerate(delta:float):
-
 	velocity.x = move_toward(velocity.x, _speed * direction, Statics.PLAYER_ACCELERATION * delta)
 	
 
@@ -194,12 +211,8 @@ func getAnimation(animation:String) -> String:
 	
 
 func _on_playerMakeNoice(playerPosition:Vector2) -> void:
-	if playerPosition.x > global_position.x:
-		direction = 1
-		scale.x = 1
-	else:
-		direction = -1
-		scale.x = -1
+	if _enemyState == Enums.enemyStates.IDLE:
+		_flipTo(playerPosition)
 
 
 func _on_flip_timer_timeout() -> void:

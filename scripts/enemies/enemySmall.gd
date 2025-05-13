@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @onready var sprite = $AnimatedSprite2D
 @onready var collisionShape = $CollisionShape2D
 @onready var frontCheck = $FrontRayCast2D
@@ -33,6 +34,11 @@ var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
 var direction:int = 0
 var flipBlocked:bool = false
 var hurtBlocked:bool = false
+
+var knockback_duration: float = 0.2
+var impactPosition:Vector2
+var isKnockBack: bool = false
+var knockBackTimer: float = 0.0
 
 
 func _ready() -> void:
@@ -95,28 +101,32 @@ func _blockHurt() -> void:
 	hurtTimer.start(0.8)
 	
 
-func applyBounce(value:int, direction:int) -> void:
+func applyBounce(value:int, playerPosition:Vector2) -> void:
 	if !hurtBlocked:
 		_blockHurt()
+		impactPosition = playerPosition
 		_bounceStrength = value
-		if direction < 0:
-			_bouncingRight = true
-		else:
-			_bouncingLeft = true
+		_knockback(playerPosition, _bounceStrength)
 
 
 func _physics_process(delta: float) -> void:
-	scale.x = direction
-		
 	_setFrontCheckerPositionAndDirection()
-	if _enemyState == Enums.enemyStates.IDLE:
-		_doIdleState()
-	elif _enemyState == Enums.enemyStates.WALKING:
-		_doWalkingState(delta)
-	elif _enemyState == Enums.enemyStates.SHOOT:
-		_doShootState()
-	elif _enemyState == Enums.enemyStates.DIE:
-		_doDieState()
+	scale.x = direction
+	
+	if isKnockBack:
+		knockBackTimer -= delta
+		if knockBackTimer <= 0.0:
+			isKnockBack = false
+			velocity = Vector2.ZERO
+	else:
+		if _enemyState == Enums.enemyStates.IDLE:
+			_doIdleState()
+		elif _enemyState == Enums.enemyStates.WALKING:
+			_doWalkingState(delta)
+		elif _enemyState == Enums.enemyStates.SHOOT:
+			_doShootState()
+		elif _enemyState == Enums.enemyStates.DIE:
+			_doDieState()
 	# _bouncing()
 	_applyGravity(delta)
 	self.move_and_slide()
@@ -153,18 +163,14 @@ func _doWalkingState(delta: float) -> void:
 		
 	_move(delta, _speed)
 
-func _bouncing() -> void:
-	if _bounceStrength > 0:
-		_bounceStrength -= 20
-	elif  _bounceStrength < 0:
-		_bounceStrength += 20
-	if _bouncingLeft:
-		direction = -1
-	if _bouncingRight:
-		direction = 1
-		
-	velocity.x = direction * _bounceStrength
-
+func _knockback(impactPosition:Vector2, bounceStrength:float) -> void:
+	var dir:Vector2 = (global_position - impactPosition).normalized()
+	var bounce = dir * bounceStrength
+	velocity = Vector2(bounce.x, 0.0)
+	isKnockBack = true
+	knockBackTimer = knockback_duration
+	
+	
 func _doShootState() -> void:
 	Events.ENEMY_SHOOT.emit(global_position, direction, _canShoot)
 	sprite.play(getAnimation("shoot"))
@@ -190,11 +196,16 @@ func _flipTo(playerPosition:Vector2) -> void:
 	
 
 func _move(delta:float, speed:int) -> void:
-	#self.velocity.x += direction * speed * delta
-	_accelerate(delta)
-	#_bouncing()
+
+	if _isBouncing():
+		_knockback(impactPosition, _bounceStrength)
+	else:
+		_accelerate(delta)
+
 	#self.move_and_slide()
 	
+func _isBouncing() -> bool:
+	return _bouncingLeft || _bouncingRight
 	
 func _applyGravity(delta) -> void:
 	if !self.is_on_floor():

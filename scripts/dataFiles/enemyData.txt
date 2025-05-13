@@ -30,7 +30,7 @@
 		"name": "spitter",
 		"type": "spitter",
 		"hp": 12,
-		"toughness": 3,
+		"toughness": 20,
 		"speed": 0,
 		"xp": 5,
 		"attack": 4,

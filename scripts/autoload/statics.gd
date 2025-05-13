@@ -70,6 +70,9 @@ const SKILL_THIEF_KNIFE_COST:int = 1
 const SKILL_ELF_ARROW_COST:int = 2
 const SKILL_CLERIC_HEAL_COST:int = 3
 
+const SFX_PLAYER_BOUNCE:String = "player-bounce"
+const SFX_PLAYER_JUMP:String = "player-jump"
+
 const ID_POWER_RING:String = "power-ring"
 const ID_THIEF_GLOVES:String = "thief-gloves"
 const ID_LOCK_PICKS:String = "lock-picks"

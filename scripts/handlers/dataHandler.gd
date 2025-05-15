@@ -1,5 +1,9 @@
 extends Node2D
 
+const START_ROOM_NAME:String = "start"
+const DEBUG_ROOM_NAME:String = "debug"
+const DEBUG_MODE:bool = true
+
 const path:String = "user://savegame_%s.save"
 const data_x:String = "x"
 const data_y:String = "y"
@@ -160,7 +164,7 @@ func _on_saveSlot(slot:int, position:Vector2) -> void:
 	fileAccess.store_line(data)
 
 func _on_loadSlot(slot:int = 1) -> void:
-	if !FileAccess.file_exists(_getSlotPath(slot)):
+	if !FileAccess.file_exists(_getSlotPath(slot)) || DEBUG_MODE:
 		_on_newGame(1)
 		return
 		
@@ -174,9 +178,16 @@ func _on_loadSlot(slot:int = 1) -> void:
 		
 func _on_newGame(slot:int) -> void:
 	const startLevel:String = "1"
-	Data.saveSpotRoomId = "start"
-	Data.saveSpotX = Data.roomData["start"].x
-	Data.saveSpotY = Data.roomData["start"].y
+	if DEBUG_MODE:
+		Data.saveSpotRoomId = DEBUG_ROOM_NAME
+		Data.saveSpotX = Data.roomData[DEBUG_ROOM_NAME].x
+		Data.saveSpotY = Data.roomData[DEBUG_ROOM_NAME].y
+	else:
+		Data.saveSpotRoomId = START_ROOM_NAME
+		Data.saveSpotX = Data.roomData[START_ROOM_NAME].x
+		Data.saveSpotY = Data.roomData[START_ROOM_NAME].y
+		
+	
 	Data.hpMax = Data.levelData[startLevel].maxHp
 	Data.hpCurrent = Data.hpMax
 	Data.staminaMax = Data.levelData[startLevel].maxStamina

@@ -2,6 +2,7 @@ extends ParallaxBackground
 
 @onready var sprite:Sprite2D = $ParallaxLayer/Sprite2D
 var background_0001:Texture2D = preload("res://media/images/Background-0001.png")
+var background_0002:Texture2D = preload("res://media/images/Background-0002.png")
 var _currentBackground:String = ""
 
 
@@ -21,5 +22,6 @@ func _on_roomLoad(id:String) -> void:
 
 func _updateTexture() -> Texture2D:
 	match _currentBackground:
-		"background_0001": return background_0001
+		Statics.ROOM_BACKGROUND_SKY: return background_0001
+		Statics.ROOM_BACKGROUND_BLACK: return background_0002
 		_: return background_0001

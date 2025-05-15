@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var hurtTimer = $HurtTimer
 #@onready var enemyFsm = $enemyFsm
 
+const DEBUG:bool = true
+
 var f:functions = functions.new()
 
 var _id:String
@@ -78,14 +80,19 @@ func getAttack() -> int:
 func getArmor() -> int:
 	return _armor
 	
-
 	
 func _setFrontCheckerPositionAndDirection() -> void:
-	if direction == 0 || direction == null:
-		frontCheck.target_position = Vector2(12 * 1, 0)
-		return
-	frontCheck.target_position = Vector2(12 * direction, 0)
-	
+	if direction == 1:
+		frontCheck.target_position = Vector2(12, 0)
+	else:
+		frontCheck.target_position = Vector2(-12, 0)
+		
+
+func _setGroundcheckPosition() -> void:
+	if direction == 1:
+		groundCheck.position = Vector2i(8,15)
+	else:
+		groundCheck.position = Vector2i(-8,15)
 	
 func applyDamage(value:int) -> void:
 	if !hurtBlocked:
@@ -110,8 +117,13 @@ func applyBounce(value:int, playerPosition:Vector2) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if DEBUG && Input.is_action_just_pressed("btn_debug"):
+		print_debug("DIRECTION: " + str(direction))
+		print_debug("GROUND_CHECK.X: " + str(groundCheck.position.x) + ", Y:" + str(groundCheck.position.y))
+		print_debug("FRONT_CHECK.X: " + str(frontCheck.position.x) + ", Y:" + str(frontCheck.position.y))
 	_setFrontCheckerPositionAndDirection()
-	scale.x = direction
+	_setGroundcheckPosition()
+	#scale.x = direction
 	
 	if isKnockBack:
 		knockBackTimer -= delta
@@ -130,6 +142,7 @@ func _physics_process(delta: float) -> void:
 	# _bouncing()
 	_applyGravity(delta)
 	self.move_and_slide()
+	sprite.flip_h = direction < 0
 	
 func _doAirState() -> void:
 	sprite.play(getAnimation("idle"))
@@ -145,19 +158,12 @@ func _doIdleState() -> void:
 	
 func _doWalkingState(delta: float) -> void:
 	sprite.play(getAnimation("walk"))
-	if direction == 1:
-		groundCheck.position = Vector2i(8,15)
-	else:
-		groundCheck.position = Vector2i(-8,15)
+	_setGroundcheckPosition()
 		
 	if frontCheck.is_colliding() && !flipBlocked:
 		_flip()
-		flipBlocked = true
-		flipTimer.start(0.2)
 	if !groundCheck.is_colliding() && !flipBlocked:
 		_flip()
-		flipBlocked = true
-		flipTimer.start(0.2)
 	else:
 		velocity.x = direction * _speed
 		
@@ -181,10 +187,13 @@ func _doShootState() -> void:
 func _doDieState() -> void:
 	Events.ADD_XP.emit(_xpGain)
 	Events.ENEMY_DESTROYED.emit(_id)
+	Events.FX_EXPLOSION_SMALL.emit(global_position)
 
 func _flip() -> void:
 	direction *= -1
-	scale.x = direction
+	flipBlocked = true
+	flipTimer.start(0.2)
+	#scale.x = direction
 	
 func _flipTo(playerPosition:Vector2) -> void:
 	if playerPosition.x >= global_position.x && direction == -1:
@@ -192,7 +201,9 @@ func _flipTo(playerPosition:Vector2) -> void:
 
 	elif playerPosition.x <= global_position.x && direction == 1:
 		direction = -1
-
+		
+	flipBlocked = true
+	flipTimer.start(0.2)
 	
 
 func _move(delta:float, speed:int) -> void:

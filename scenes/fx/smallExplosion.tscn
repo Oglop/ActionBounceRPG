@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3ximdye54x3v"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_wpnet"]
+[ext_resource type="Script" uid="uid://d2quxxiyrw4wf" path="res://scripts/fx/smallExplosion.gd" id="2_ruqou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruqou"]
+atlas = ExtResource("1_wpnet")
+region = Rect2(480, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt8l4"]
+atlas = ExtResource("1_wpnet")
+region = Rect2(496, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqb80"]
+atlas = ExtResource("1_wpnet")
+region = Rect2(512, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ikg6"]
+atlas = ExtResource("1_wpnet")
+region = Rect2(464, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03oxw"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_ruqou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt8l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqb80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ikg6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="SmallExplosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_03oxw")
+autoplay = "default"
+frame = 2
+frame_progress = 0.114964
+script = ExtResource("2_ruqou")

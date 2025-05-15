@@ -49,6 +49,9 @@ const PLATFORM_PUSHABLE_BLOCK:String = "pushable-block"
 const PLATFORM_STAIRS:String = "stairs"
 const PLATFORM_SAVE_SPOT:String = "save-spot"
 
+const ROOM_BACKGROUND_BLACK:String = "background_0002"
+const ROOM_BACKGROUND_SKY:String = "background_0001"
+
 const BOUNCE_DIFF:int = 5
 const CRITICAL_BOUNCE_BONUS:int = 10
 const SMALL_BOUNCE:int = 80

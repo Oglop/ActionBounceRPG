@@ -10,7 +10,13 @@ func _ready() -> void:
 	Events.connect("FX_SWORD_SLASH", _on_swordSlash)
 	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
 	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
+	Events.connect("FX_EXPLOSION_SMALL", _on_explosionSmall)
 	
+func _on_explosionSmall(position:Vector2) -> void:
+	var fx = SceneLoader.getScene(Enums.spawnType.FX_EXPLOSION_SMALL)
+	fx.global_position = position
+	self.add_child(fx)
+
 	
 func _on_swordSlash(position:Vector2, direction:int) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_SWORD_SLASH)

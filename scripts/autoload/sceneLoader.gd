@@ -18,6 +18,7 @@ const room_treasure = preload("res://scenes/map/treasure.tscn")
 const room_saveSpot = preload("res://scenes/platforms/saveSpot.tscn")
 const room_switch_wood = preload("res://scenes/map/switch.tscn")
 const room_transition = preload("res://scenes/map/roomTransition.tscn")
+const fx_explosion_small = preload("res://scenes/fx/smallExplosion.tscn")
 
 func getScene(type:Enums.spawnType):
 	match type:
@@ -32,6 +33,7 @@ func getScene(type:Enums.spawnType):
 		Enums.spawnType.FX_SWORD_SLASH: return fx_swordSlash.instantiate()
 		Enums.spawnType.FX_GROUND_HIT_DUST: return fx_hitGroundDust.instantiate()
 		Enums.spawnType.FX_ELF_ARROW: return fx_elfArrow.instantiate()
+		Enums.spawnType.FX_EXPLOSION_SMALL: return fx_explosion_small.instantiate()
 		Enums.spawnType.PUSHABLE_BLOCK: return room_pushableBlock.instantiate()
 		Enums.spawnType.NPC: return room_npc.instantiate()
 		Enums.spawnType.SAVE_SPOT: return room_saveSpot.instantiate()

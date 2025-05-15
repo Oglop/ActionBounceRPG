@@ -82,7 +82,7 @@ func _on_showPauseMenu() -> void:
 func _physics_process(delta: float) -> void:
 	if visible:
 		_getPointerInput()
-		if Input.is_action_just_pressed("btn_jump"):
+		if Input.is_action_just_pressed("btn_jump") || Input.is_action_just_pressed("btn_pause"):
 			visible = false
 			Events.PLAYER_JUMP_BLOCK.emit()
 			Events.PLAYERS_UPDATE_EQUIPMENT.emit()

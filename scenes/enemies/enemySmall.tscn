@@ -224,7 +224,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"spitter_shoot",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -258,7 +258,7 @@ shape = SubResource("RectangleShape2D_lrtym")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_p5uwq")
-animation = &"spitter_idle"
+animation = &"spitter_shoot"
 
 [node name="FrontRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 8)

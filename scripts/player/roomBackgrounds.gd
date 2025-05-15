@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 func _on_roomLoad(id:String) -> void:
 	if _currentBackground == "":
-		sprite.texture = background_0001
+		sprite.texture = background_0002
 		
 	if Data.roomData[id].has("background"):
 		if _currentBackground != Data.roomData[id].background:

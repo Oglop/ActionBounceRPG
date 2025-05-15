@@ -151,6 +151,12 @@ func _checkforCollisions():
 			
 			
 func _processBounce(delta):
+	# var dir:Vector2 = (global_position - impactPosition).normalized()
+	# var bounce = dir * bounceStrength
+	# velocity = Vector2(bounce.x, 0.0)
+	# isKnockBack = true
+	# knockBackTimer = knockback_duration
+	
 	if !_bouncingLeft && !_bouncingRight:
 		return
 	

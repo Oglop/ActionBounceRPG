@@ -1,8 +1,8 @@
 {
 	"bullets": {
 		"weak":  {
-			"duration": 1.0,
-			"speed": 400
+			"duration": 2.0,
+			"speed": 100
 		},
 		"medium": {
 			"duration": 1.0,

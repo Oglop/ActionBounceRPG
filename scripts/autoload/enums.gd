@@ -70,6 +70,7 @@ enum enemyType {
 	JELLY,
 	SCORP,
 	SQUID,
+	SPITTER,
 }
 
 
@@ -96,6 +97,7 @@ func stringToEnemyType(type:String) -> enemyType:
 		"jelly": return enemyType.JELLY
 		"scorp": return enemyType.SCORP
 		"squid": return enemyType.SQUID
+		"spitter": return enemyType.SPITTER
 		_ : return enemyType.NONE
 		
 		
@@ -104,6 +106,7 @@ func enemyTypeToString(type:enemyType) -> String:
 		enemyType.JELLY: return "jelly"
 		enemyType.SCORP: return "scorp"
 		enemyType.SQUID: return "squid"
+		enemyType.SPITTER: return "spitter"
 		_: return ""
 		
 

@@ -26,12 +26,14 @@ var _xpGain:int = 0
 var _canShoot:String = "none"
 var _speed:float = 0.0
 var _shootCooldown:float = 9999999.0
+var _shootBlock:float = 0
 var _crownsGain:int = 0
 var _hurtBlock:float = 0.2
 var _bounceStrength:float = 0
 var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
+var _lastKnownPlayerPosition:Vector2
 
 var direction:int = 0
 var flipBlocked:bool = false
@@ -132,28 +134,44 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 	else:
 		if _enemyState == Enums.enemyStates.IDLE:
-			_doIdleState()
+			_doIdleState(delta)
 		elif _enemyState == Enums.enemyStates.WALKING:
 			_doWalkingState(delta)
 		elif _enemyState == Enums.enemyStates.SHOOT:
-			_doShootState()
+			_doShootState(delta)
 		elif _enemyState == Enums.enemyStates.DIE:
 			_doDieState()
 	# _bouncing()
 	_applyGravity(delta)
 	self.move_and_slide()
 	sprite.flip_h = direction < 0
+	_shootBlock -= delta * 1
+	
 	
 func _doAirState() -> void:
 	sprite.play(getAnimation("idle"))
 	
 	
-func _doIdleState() -> void:
-	sprite.play(getAnimation("idle"))
-	if _canShoot != null && _canShoot != "none":
-		var wait = f.getRandomFloatInRange(0.8, 1.2)
-		await get_tree().create_timer(_shootCooldown * wait)
-		self._enemyState == Enums.enemyStates.SHOOT
+func _doIdleState(delta:float) -> void:
+	if isShootBlocked(delta):
+		_flipToPlayer()
+		sprite.play(getAnimation("idle"))
+	
+	if !isShootBlocked(delta) && _canShoot != null && _canShoot != "none":
+		_enemyState = Enums.enemyStates.SHOOT
+	
+func _doShootState(delta:float) -> void:
+	if !isShootBlocked(delta):
+		sprite.play(getAnimation("shoot"))
+		Events.ENEMY_SHOOT.emit(bullerSpawner.global_position, direction, _canShoot)
+		_shootBlock = _shootCooldown * f.getRandomFloatInRange(0.8, 1.2)
+		await get_tree().create_timer(0.4).timeout
+		self._enemyState = Enums.enemyStates.IDLE
+		
+func isShootBlocked(delta:float) -> bool:
+	if _shootBlock > 0.0:
+		return true
+	return false
 	
 	
 func _doWalkingState(delta: float) -> void:
@@ -176,14 +194,6 @@ func _knockback(impactPosition:Vector2, bounceStrength:float) -> void:
 	isKnockBack = true
 	knockBackTimer = knockback_duration
 	
-	
-func _doShootState() -> void:
-	Events.ENEMY_SHOOT.emit(global_position, direction, _canShoot)
-	sprite.play(getAnimation("shoot"))
-	await get_tree().create_timer(0.8).timeout
-	self._enemyState == Enums.enemyStates.IDLE
-
-
 func _doDieState() -> void:
 	Events.ADD_XP.emit(_xpGain)
 	Events.ENEMY_DESTROYED.emit(_id)
@@ -195,11 +205,13 @@ func _flip() -> void:
 	flipTimer.start(0.2)
 	#scale.x = direction
 	
-func _flipTo(playerPosition:Vector2) -> void:
-	if playerPosition.x >= global_position.x && direction == -1:
+func _flipToPlayer() -> void:
+	if _lastKnownPlayerPosition == null:
+		return
+	if _lastKnownPlayerPosition.x >= global_position.x && direction == -1:
 		direction = 1
 
-	elif playerPosition.x <= global_position.x && direction == 1:
+	elif _lastKnownPlayerPosition.x <= global_position.x && direction == 1:
 		direction = -1
 		
 	flipBlocked = true
@@ -212,8 +224,7 @@ func _move(delta:float, speed:int) -> void:
 		_knockback(impactPosition, _bounceStrength)
 	else:
 		_accelerate(delta)
-
-	#self.move_and_slide()
+		
 	
 func _isBouncing() -> bool:
 	return _bouncingLeft || _bouncingRight
@@ -233,8 +244,9 @@ func getAnimation(animation:String) -> String:
 	
 
 func _on_playerMakeNoice(playerPosition:Vector2) -> void:
+	_lastKnownPlayerPosition = playerPosition
 	if _enemyState == Enums.enemyStates.IDLE:
-		_flipTo(playerPosition)
+		_flipToPlayer()
 
 
 func _on_flip_timer_timeout() -> void:

@@ -25,7 +25,7 @@ func getScene(type:Enums.spawnType):
 		Enums.spawnType.DOOR: return room_door.instantiate()
 		Enums.spawnType.ROOM_TRANSÌTION: return room_transition.instantiate()
 		Enums.spawnType.ENEMY_SMALL: return enemy_enemySmall.instantiate()
-		Enums.spawnType.ENEMY_BULLET: return 
+		Enums.spawnType.ENEMY_BULLET: return enemy_enemyBullet.instantiate()
 		Enums.spawnType.FX_WEAK_HIT: return fx_weakHit.instantiate()
 		Enums.spawnType.FX_FIRE_BALL: return fx_fireball.instantiate()
 		Enums.spawnType.FX_THIEF_KNIFE: return fx_thiefKnife.instantiate()

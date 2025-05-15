@@ -5,7 +5,7 @@
 		"y": -656,
 
 		"camera": "free",
-		"background": "Background-0002",
+		"background": "background-0002",
 		"doors": [
 			
 		],
@@ -21,7 +21,7 @@
 		],
 		"enemies": [
 			{
-				"name": "jelly",
+				"name": "spitter",
 				"start-x": -1072,
 				"start-y": -688
 			}
@@ -50,7 +50,7 @@
 		"x": -900,
 		"y": 260,
 		"camera": "still",
-		"background": "Background-0001",
+		"background": "background-0001",
 		"doors": [
 			{
 				"id": "home-outside",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2pk2m3s2pywe"]
+[gd_scene load_steps=16 format=3 uid="uid://d2pk2m3s2pywe"]
 
 [ext_resource type="Script" uid="uid://blgyf5auw7sxs" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_dovo2"]
@@ -52,6 +52,10 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(10, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5gtgg"]
+radius = 4.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
@@ -107,5 +111,11 @@ position = Vector2(-6, -1)
 animation = &"short"
 
 [node name="ComboTimer" type="Timer" parent="."]
+
+[node name="HurtBoxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_5gtgg")
 
 [connection signal="timeout" from="ComboTimer" to="." method="_on_combo_timer_timeout"]

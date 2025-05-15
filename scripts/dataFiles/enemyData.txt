@@ -5,12 +5,12 @@
 			"speed": 100
 		},
 		"medium": {
-			"duration": 1.0,
-			"speed": 400
+			"duration": 2.5,
+			"speed": 120
 		},
 		"strong": {
-			"duration": 1.0,
-			"speed": 400
+			"duration": 3.0,
+			"speed": 140
 		}
 	},
 	"jelly": {
@@ -34,6 +34,7 @@
 		"speed": 0,
 		"xp": 5,
 		"attack": 4,
+		"rangedAttack": 16,
 		"armor": 3,
 		"crowns": 1,
 		"hurt-block":0.2,

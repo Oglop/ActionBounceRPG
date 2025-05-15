@@ -35,11 +35,11 @@ func _on_fxWeakHit(position:Vector2, direction:int) -> void:
 	self.add_child(fx)
 	#if direction < 1:
 	#	fx.scale = -1	
-func _on_enemyShoot(position:Vector2, direction:int, type:String) -> void:
+func _on_enemyShoot(position:Vector2, direction:int, type:String, attack:int) -> void:
 	var bullet = SceneLoader.getScene(Enums.spawnType.ENEMY_BULLET)
 	bullet.global_position = position
 	self.add_child(bullet)
-	bullet.setProperties(type, direction)
+	bullet.setProperties(type, direction, attack)
 
 
 func _on_fxFireBall(position:Vector2, direction:int) -> void:

@@ -34,6 +34,7 @@ var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
 var _lastKnownPlayerPosition:Vector2
+var _rangedAttack:int = 0
 
 var direction:int = 0
 var flipBlocked:bool = false
@@ -68,6 +69,7 @@ func setProperties(name:String) -> void:
 	if props.has("canShoot") && props.has("shootCooldown"):
 		_canShoot = props["canShoot"]
 		_shootCooldown = props["shootCooldown"]
+		_rangedAttack = props["rangedAttack"]
 	sprite.play(getAnimation(props["default-state"])) 
 
 	
@@ -163,7 +165,7 @@ func _doIdleState(delta:float) -> void:
 func _doShootState(delta:float) -> void:
 	if !isShootBlocked(delta):
 		sprite.play(getAnimation("shoot"))
-		Events.ENEMY_SHOOT.emit(bullerSpawner.global_position, direction, _canShoot)
+		Events.ENEMY_SHOOT.emit(bullerSpawner.global_position, direction, _canShoot, _rangedAttack)
 		_shootBlock = _shootCooldown * f.getRandomFloatInRange(0.8, 1.2)
 		await get_tree().create_timer(0.4).timeout
 		self._enemyState = Enums.enemyStates.IDLE

@@ -397,8 +397,9 @@ func _on_addHP(value:int) -> void:
 		hpCurrent += value
 		
 func _on_receiveDamage(dmg:int) -> void:
-	if hpCurrent - dmg >= 0:
-		hpCurrent -= dmg
+	var appliedDmg:int = f.minusLimit(dmg, Data.defence, 0)
+	if hpCurrent - appliedDmg >= 0:
+		hpCurrent -= appliedDmg
 	else:
 		hpCurrent = 0
 		

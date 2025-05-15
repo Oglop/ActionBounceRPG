@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var shield:AnimatedSprite2D = $Shield
 @onready var sword:AnimatedSprite2D = $Sword
 @onready var comboTimer:Timer = $ComboTimer
+@onready var hurtBox:Area2D = $HurtBoxArea2D
 var f:functions = functions.new()
 var s:skills = skills.new()
 
@@ -149,6 +150,33 @@ func _checkforCollisions():
 		if collider is Node && collider.is_in_group("enemy-small"):
 			_handleCombat(collider, collisionPosition)
 			
+	var bodies = hurtBox.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group("enemy-bullet"):
+			_handleEnemyBulletCollision(body)
+			
+			
+func _handleEnemyBulletCollision(bullet:CharacterBody2D) -> void:
+	if bullet.has_method("getProperties"):
+		var receiveDamage:bool = true
+		if canBlockBullet(bullet._type):
+			if bullet._direction != direction:
+				receiveDamage = false
+				Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_BLOCK_BULLET)
+			if (direction == 1 && global_position.x < bullet.global_position.x) || (direction == -1 && global_position.x > bullet.global_position.x):
+				receiveDamage = false
+				Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_BLOCK_BULLET)
+		if receiveDamage:
+			Events.RECEIVE_DAMAGE.emit(bullet._attack)
+		bullet.queue_free()
+			
+			
+func canBlockBullet(type:String) -> bool:
+	match type:
+		"weak": return s.canBlockWeakBullets
+		"medium": return s.canBlockMediumBullets
+		"strong": return s.canBlockStrongBullets
+	return false
 			
 func _processBounce(delta):
 	# var dir:Vector2 = (global_position - impactPosition).normalized()
@@ -165,9 +193,9 @@ func _processBounce(delta):
 	elif  _bounceStrength < 0:
 		_bounceStrength += 20
 	if _bouncingLeft:
-		velocity = Vector2(_bounceStrength * -1, global_position.y)
+		velocity = Vector2(_bounceStrength * -1, 0.0)
 	if _bouncingRight:
-		velocity = Vector2(_bounceStrength, global_position.y)
+		velocity = Vector2(_bounceStrength, 0.0)
 	Events.PLAYER_MAKE_NOICE.emit(global_position)
 
 
@@ -195,6 +223,10 @@ func isJumpJustPressed() -> bool:
 	return false
 	
 	
+func _checkEnemyBulletCollision() -> void:
+	var bodies = self.get
+	
+	
 func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 	var critical:bool = f.chance(Data.critChance)
 	var enemyToughness:int
@@ -219,7 +251,7 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		if _attackNumber == 0:
 			_attackNumber = 1
 	var enemtDamageMultiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
-	var damage = int(enemyAttack * enemtDamageMultiplyer) - Data.defence
+	var damage = int(enemyAttack * enemtDamageMultiplyer)
 	if damage > 0:
 		Events.RECEIVE_DAMAGE.emit(damage)
 	

@@ -41,6 +41,18 @@ var canSolveInfinityPuzzle:bool:
 	get:
 		return _joinedBy(Enums.tailType.CLERIC) && Data.infinitySymbolCollected
 		
+var canBlockWeakBullets:bool:
+	get:
+		return Data.shield == Enums.shields.ROUND || Data.shield == Enums.shields.KNIGHT || Data.shield == Enums.shields.MAGIC
+		
+var canBlockMediumBullets:bool:
+	get:
+		return Data.shield == Enums.shields.KNIGHT || Data.shield == Enums.shields.MAGIC
+		
+var canBlockStrongBullets:bool:
+	get:
+		return Data.shield == Enums.shields.MAGIC
 		
 func _joinedBy(type:Enums.tailType) -> bool:
 	return Data.tailNo1Type == type || Data.tailNo2Type == type
+	

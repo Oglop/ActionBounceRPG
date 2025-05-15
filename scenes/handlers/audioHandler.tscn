@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8bpnd8q450ju"]
+[gd_scene load_steps=5 format=3 uid="uid://c8bpnd8q450ju"]
 
 [ext_resource type="Script" uid="uid://db3r4xyff8t8t" path="res://scripts/handlers/audioHandler.gd" id="1_1kxnk"]
 [ext_resource type="AudioStream" uid="uid://cc2apjgsrhw88" path="res://media/audio/player_jump.wav" id="2_t17cj"]
 [ext_resource type="AudioStream" uid="uid://davuser7ono05" path="res://media/audio/player_bounce.wav" id="3_sveij"]
+[ext_resource type="AudioStream" uid="uid://cf63wbugxsa2b" path="res://media/audio/playerBlockBullet.wav" id="4_sveij"]
 
 [node name="AudioHandler" type="Node2D"]
 script = ExtResource("1_1kxnk")
@@ -14,3 +15,6 @@ stream = ExtResource("2_t17cj")
 
 [node name="player_bounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_sveij")
+
+[node name="block_bullet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sveij")

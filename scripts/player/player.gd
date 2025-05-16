@@ -19,7 +19,7 @@ var _bounceStrength:float = 0
 var _bouncingLeft:bool = false
 var _bouncingRight:bool = false
 var _isDownBouncing:bool = false
-
+var _staminaRegenerationInterval:float = 0.4
 var _attackNumber:int = 0
 var _jumpBlocked:bool = false
 
@@ -81,6 +81,11 @@ func _physics_process(delta: float) -> void:
 	_updateTrail()
 	_setSwordAndShieldPositionAndDirection()
 	
+	if comboTimer.is_stopped():
+		if Data.staminaCurrent < Data.staminaMax:
+			Events.ADD_STAMINA.emit(1)
+			comboTimer.start(_staminaRegenerationInterval)
+		
 	
 func _setSwordAnimation() -> void:
 	if !Data.weapon == Enums.weapons.NONE:
@@ -323,5 +328,5 @@ func _on_jumpBlock() -> void:
 
 
 func _on_combo_timer_timeout() -> void:
-	_attackNumber = 0
 	comboTimer.stop()
+	

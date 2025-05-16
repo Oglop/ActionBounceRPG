@@ -2,7 +2,7 @@ extends Node2D
 
 const START_ROOM_NAME:String = "start"
 const DEBUG_ROOM_NAME:String = "debug"
-var DEBUG_MODE:bool = true
+var DEBUG_MODE:bool = false
 
 const path:String = "user://savegame_%s.save"
 const data_x:String = "x"

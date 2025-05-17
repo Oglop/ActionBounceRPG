@@ -19,9 +19,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm66c"]
-size = Vector2(14, 14)
+size = Vector2(18, 18)
 
 [node name="WinesDisapear" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_u0qhb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -51,6 +51,7 @@
 		"y": 260,
 		"camera": "still",
 		"background": "background-0002",
+		"area": "fields",
 		"doors": [
 			{
 				"id": "home-outside",
@@ -72,6 +73,7 @@
 		"max-x": -784,
 		"camera": "free",
 		"background": "background-0001",
+		"area": "fields",
 		"doors": [
 			{
 				"id": "home-outside-1",
@@ -440,12 +442,13 @@
 		"y": 1,
 		"min-x": 2848,
 		"max-x": 3408,
-		"max-y": 212,
+		"min-y": 216,
+		"max-y": 216,
 		"camera": "hori",
 		"doors": [],
 		"npcs": [],
-		"platforms": [],
 		"background": "background-0002",
+		"area": "forest-lower",
 		"transitions": [
 			{
 				"id": "forest-west-to-fields-east",
@@ -464,19 +467,38 @@
 				"connects-x": 3600,
 				"connects-y": 240,
 				"horizontalCheck": false
+			},
+			{
+				"id": "forest-west-to-tree-base",
+				"x": 3268,
+				"y": 128,
+				"connects": "tree-base",
+				"connects-x": 3312,
+				"connects-y": 78,
+				"horizontalCheck": true
 			}
 		],
-		
 		"platforms": [
 			{
-				"name": "wines-disappear",
-				"start-x": 3552,
-				"start-y": 240
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3312,
+				"start-y": 208
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3312,
+				"start-y": 176
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3312,
+				"start-y": 144
 			}
 		]
 	},
-
-
 	"which-outside": {
 		"id": "which-outside",
 		"x": 1,
@@ -487,6 +509,7 @@
 		"max-y": 212,
 		"camera": "vert",
 		"background": "background-0003",
+		"area": "forest-lower",
 		"doors": [
 			{
 				"id": "which-outside-to-whichhut",
@@ -521,15 +544,14 @@
 			}
 		]
 	},
-
 	"whichhut": {
 		"id": "whichhut",
 		"x": 1,
 		"y": 1,
 		"min-x": 3744,
 		"max-x": 3744,
-		"min-y": 80,
-		"max-y": 212,
+		"min-y": -112,
+		"max-y": -112,
 		"camera": "still",
 		"background": "background-0002",
 		"doors": [
@@ -546,8 +568,8 @@
 		"npcs": [
 			{
 				"id": "esmeralda",
-				"start-x": 144,
-				"start-y": 432
+				"start-x": -96,
+				"start-y": 3760
 			}
 		],
 		"treasures": [
@@ -557,5 +579,40 @@
 				"start-y": -96
 			}
 		]
+	},
+	"tree-base": {
+		"id": "tree-base",
+		"x": 1,
+		"y": 1,
+		"min-x": 3408,
+		"max-x": 3408,
+		"min-y": -96,
+		"max-y": 16,
+		"camera": "vert",
+		"background": "background-0003",
+		"doors": [],
+		"npcs": [],
+		"platforms": [
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3312,
+				"start-y": 96
+			}
+		],
+		"background": "background-0003",
+		"area": "forest-lower",
+		"transitions": [
+			{
+				"id": "tree-base-to-forest-west",
+				"x": 3264,
+				"y": 102,
+				"connects": "forest-west",
+				"connects-x": 3280,
+				"connects-y": 144,
+				"horizontalCheck": true
+			}
+		]
+		
 	}
 }

@@ -177,10 +177,11 @@ func _handleEnemyBulletCollision(bullet:CharacterBody2D) -> void:
 			
 			
 func canBlockBullet(type:String) -> bool:
-	match type:
-		"weak": return s.canBlockWeakBullets
-		"medium": return s.canBlockMediumBullets
-		"strong": return s.canBlockStrongBullets
+	if is_on_floor():
+		match type:
+			"weak": return s.canBlockWeakBullets
+			"medium": return s.canBlockMediumBullets
+			"strong": return s.canBlockStrongBullets
 	return false
 			
 func _processBounce(delta):

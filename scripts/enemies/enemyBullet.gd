@@ -26,6 +26,11 @@ func setProperties(type:String, direction:int, attack:int) -> void:
 	await get_tree().create_timer(_lifeTime).timeout
 	queue_free()
 	
+	
+func setAnimation(type:String) -> void:
+	sprite.play(type)
+	
+	
 func getProperties() -> Dictionary:
 	var props:Dictionary
 	props["direction"] = _direction
@@ -33,8 +38,10 @@ func getProperties() -> Dictionary:
 	props["attack"] = _attack
 	return props
 	
+	
 func getType() -> String:
 	return _type
+	
 	
 func getDirection() -> int:
 	return _direction

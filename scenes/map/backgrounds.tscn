@@ -306,6 +306,9 @@ texture = ExtResource("1_gjsic")
 21:24/0 = 0
 21:24/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 22:23/0 = 0
+30:17/0 = 0
+31:17/0 = 0
+32:17/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_w33vf"]
 physics_layer_0/collision_layer = 2

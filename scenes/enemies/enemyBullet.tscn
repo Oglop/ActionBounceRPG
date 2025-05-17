@@ -1,7 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3us01cj7imec"]
+[gd_scene load_steps=9 format=3 uid="uid://d3us01cj7imec"]
 
 [ext_resource type="Script" uid="uid://dtg780qf0qara" path="res://scripts/enemies/enemyBullet.gd" id="1_n8dmv"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_2o0vb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8dmv"]
+atlas = ExtResource("2_2o0vb")
+region = Rect2(112, 104, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o0vb"]
+atlas = ExtResource("2_2o0vb")
+region = Rect2(120, 104, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt6jp"]
 atlas = ExtResource("2_2o0vb")
@@ -15,13 +23,29 @@ region = Rect2(120, 96, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n8dmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o0vb")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"strong",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vt6jp")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q8v1q")
 }],
 "loop": true,
-"name": &"default",
+"name": &"weak",
 "speed": 6.0
 }]
 
@@ -33,8 +57,10 @@ script = ExtResource("1_n8dmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_42pj2")
-autoplay = "default"
-frame_progress = 0.39047
+animation = &"weak"
+autoplay = "weak"
+frame = 1
+frame_progress = 0.641668
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_eljoy")

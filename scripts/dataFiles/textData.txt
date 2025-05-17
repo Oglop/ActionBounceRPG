@@ -67,6 +67,9 @@
 	},
 	"magic-shield": {
 		"name": "Magic shield",
+	},
+	"potion": {
+		"name": "Potion",
 	}
 	
 	

@@ -53,6 +53,10 @@ var canBlockStrongBullets:bool:
 	get:
 		return Data.shield == Enums.shields.MAGIC
 		
+var canTrackPath:bool:
+	get:
+		return _joinedBy(Enums.tailType.ELF)
+		
 func _joinedBy(type:Enums.tailType) -> bool:
 	return Data.tailNo1Type == type || Data.tailNo2Type == type
 	

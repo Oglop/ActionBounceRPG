@@ -48,9 +48,12 @@ const STATE_ENEMY_SHOOT:String = "shootenemystate"
 const PLATFORM_PUSHABLE_BLOCK:String = "pushable-block"
 const PLATFORM_STAIRS:String = "stairs"
 const PLATFORM_SAVE_SPOT:String = "save-spot"
+const PLATFORM_WINES_DISAPPEAR:String = "wines-disappear"
+const PLATFORM_APPEAR:String = "wines-sappear"
 
-const ROOM_BACKGROUND_BLACK:String = "background-0002"
 const ROOM_BACKGROUND_SKY:String = "background-0001"
+const ROOM_BACKGROUND_BLACK:String = "background-0002"
+const ROOM_BACKGROUND_GOLDEN_FOREST:String = "background-0003"
 
 const BOUNCE_DIFF:int = 5
 const CRITICAL_BOUNCE_BONUS:int = 10
@@ -99,3 +102,4 @@ const ID_LEGENDARY_ARMOR:String = "legendary-armor"
 const ID_ROUND_SHIELD:String = "round-shield"
 const ID_KNIGHT_SHIELD:String = "knight-shield"
 const ID_MAGIC_SHIELD:String = "magic-shield"
+const ID_POTION:String = "potion"

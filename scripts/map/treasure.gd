@@ -24,12 +24,19 @@ func setProperties(id:String) -> void:
 	_open = isOpen()
 	
 func isOpen() -> bool:
-	if _id == Statics.ID_POWER_RING:
-		return Data.powerRingCollected
+	match _id:
+		Statics.ID_POWER_RING: return Data.powerRingCollected
+		Statics.ID_POTION: return Data.potionCollected
+
 	return false
 			
 
 func openTreasure(id:String) -> void:
+	if id == Statics.ID_POTION && Data.potionCollected == false:
+		Data.potionCollected = true
+		Data.potion = Enums.potionType.FULL
+		Events.OPEN_TREASURE.emit(id)
+		_open = isOpen()
 	if id == Statics.ID_POWER_RING && Data.powerRingCollected == false:
 		Data.powerRingCollected = true
 		Events.OPEN_TREASURE.emit(id)

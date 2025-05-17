@@ -61,7 +61,7 @@
 		"type": "quest",
 		"messages": [
 			{
-				"text": "I am prince Haldor.",
+				"text": "I must help her.",
 				"type": "info",
 			}
 		]
@@ -98,6 +98,15 @@
 		"messages": [
 			{
 				"text": "Latelty the prince has been sneaking \nout during the night.",
+				"type": "info",
+			}
+		]
+	},
+	"esmeralda": {
+		"animation": "which",
+		"messages": [
+			{
+				"text": "Please take what's in the chest\nto aid you on your quest.",
 				"type": "info",
 			}
 		]

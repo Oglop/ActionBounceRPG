@@ -50,7 +50,7 @@
 		"x": -900,
 		"y": 260,
 		"camera": "still",
-		"background": "background-0001",
+		"background": "background-0002",
 		"doors": [
 			{
 				"id": "home-outside",
@@ -71,6 +71,7 @@
 		"min-y": -28,
 		"max-x": -784,
 		"camera": "free",
+		"background": "background-0001",
 		"doors": [
 			{
 				"id": "home-outside-1",
@@ -108,6 +109,7 @@
 		"max-x": 80,
 		"max-y": 212,
 		"camera": "hori",
+		"background": "background-0001",
 		"doors": [
 			{
 				"id": "home-village-to-home-outside",
@@ -183,6 +185,7 @@
 		"max-y": 400,
 		"max-x": -784,
 		"camera": "still",
+		"background": "background-0002",
 		"doors": [
 			{
 				"id": "home-village-inn-to-home-village",
@@ -210,6 +213,7 @@
 		"max-y": 400,
 		"max-x": -784,
 		"camera": "still",
+		"background": "background-0002",
 		"doors": [
 			{
 				"id": "home-village-store-to-home-village",
@@ -242,6 +246,7 @@
 		"max-y": 400,
 		"max-x": 380,
 		"camera": "hori",
+		"background": "background-0002",
 		"doors": [
 			{
 				"id": "home-village-castle-to-home-village",
@@ -287,6 +292,7 @@
 		"max-x": 1312,
 		"max-y": 212,
 		"camera": "hori",
+		"background": "background-0001",
 		"doors": [
 			{
 				"id": "fields-west-to-home-village",
@@ -333,19 +339,35 @@
 			},
 			{
 				"name": "spitter",
-				"start-x": 800,
+				"start-x": 1104,
 				"start-y": 224
+			},
+			{
+				"name": "jelly",
+				"start-x": 992,
+				"start-y": 240
+			},
+			{
+				"name": "jelly",
+				"start-x": 1184,
+				"start-y": 224
+			},
+			{
+				"name": "jelly",
+				"start-x": 1268,
+				"start-y": 240
 			}
 		]
 	},
 	"fields-east": {
-		"id": "fields-west",
+		"id": "fields-east",
 		"x": 1,
 		"y": 1,
 		"min-x": 1648,
 		"max-x": 2512,
 		"max-y": 212,
 		"camera": "hori",
+		"background": "background-0001",
 		"doors": [],
 		"npcs": [],
 		"platforms": [],
@@ -358,18 +380,181 @@
 				"connects-x": 1440,
 				"connects-y": 240,
 				"horizontalCheck": false
+			},
+			{
+				"id": "fields-east-to-forest-west",
+				"x": 2656,
+				"y": 160,
+				"connects": "forest-west",
+				"connects-x": 2704,
+				"connects-y": 224,
+				"horizontalCheck": false
 			}
 		],
 		"enemies": [
 			{
 				"name": "jelly",
-				"start-x": 448,
+				"start-x": 1728,
+				"start-y": 256
+			},
+			{
+				"name": "jelly",
+				"start-x": 1936,
+				"start-y": 224
+			},
+			{
+				"name": "spitter",
+				"start-x": 1856,
+				"start-y": 256
+			},
+			{
+				"name": "spitter",
+				"start-x": 2000,
 				"start-y": 224
 			},
 			{
 				"name": "jelly",
-				"start-x": 608,
-				"start-y": 256
+				"start-x": 2192,
+				"start-y": 240
+			},
+			{
+				"name": "jelly",
+				"start-x": 2288,
+				"start-y": 240
+			},
+			{
+				"name": "jelly",
+				"start-x": 2192,
+				"start-y": 240
+			},
+			{
+				"name": "spitter",
+				"start-x": 2336,
+				"start-y": 240
+			}
+		]
+	},
+	"forest-west": {
+		"id": "forest-west",
+		"x": 1,
+		"y": 1,
+		"min-x": 2848,
+		"max-x": 3408,
+		"max-y": 212,
+		"camera": "hori",
+		"doors": [],
+		"npcs": [],
+		"platforms": [],
+		"background": "background-0002",
+		"transitions": [
+			{
+				"id": "forest-west-to-fields-east",
+				"x": 2688,
+				"y": 160,
+				"connects": "fields-east",
+				"connects-x": 2640,
+				"connects-y": 224,
+				"horizontalCheck": false
+			},
+			{
+				"id": "forest-west-to-which-outside",
+				"x": 3552,
+				"y": 160,
+				"connects": "which-outside",
+				"connects-x": 3600,
+				"connects-y": 240,
+				"horizontalCheck": false
+			}
+		],
+		
+		"platforms": [
+			{
+				"name": "wines-disappear",
+				"start-x": 3552,
+				"start-y": 240
+			}
+		]
+	},
+
+
+	"which-outside": {
+		"id": "which-outside",
+		"x": 1,
+		"y": 1,
+		"min-x": 3744,
+		"max-x": 3744,
+		"min-y": 80,
+		"max-y": 212,
+		"camera": "vert",
+		"background": "background-0003",
+		"doors": [
+			{
+				"id": "which-outside-to-whichhut",
+				"x": 3808,
+				"y": 160,
+				"connects": "whichhut",
+				"connects-x": 3728,
+				"connects-y": -96,
+				"locked": false
+			}
+		],
+		"npcs": [
+			{
+				"id": "prince",
+				"condition": "prince;=;1",
+				"questStep": 1,
+				"questNext": 2,
+				"start-x": 3760,
+				"start-y": 160,
+				"quest": "prince-1"
+			}
+		],
+		"transitions": [
+			{
+				"id": "which-outside-forest-west",
+				"x": 3584,
+				"y": 160,
+				"connects": "forest-west",
+				"connects-x": 3536,
+				"connects-y": 240,
+				"horizontalCheck": false
+			}
+		]
+	},
+
+	"whichhut": {
+		"id": "whichhut",
+		"x": 1,
+		"y": 1,
+		"min-x": 3744,
+		"max-x": 3744,
+		"min-y": 80,
+		"max-y": 212,
+		"camera": "still",
+		"background": "background-0002",
+		"doors": [
+			{
+				"id": "whichhut-to-which-outside",
+				"x": 3728,
+				"y": -96,
+				"connects": "which-outside",
+				"connects-x": 3808,
+				"connects-y": 160,
+				"locked": false
+			}
+		],
+		"npcs": [
+			{
+				"id": "esmeralda",
+				"start-x": 144,
+				"start-y": 432
+			}
+		],
+		"treasures": [
+			{
+				"id": "potion",
+				"start-x": 3680,
+				"start-y": -96
 			}
 		]
 	}

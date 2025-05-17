@@ -8,3 +8,4 @@ func _ready() -> void:
 	
 func setProperties(type:String) -> void:
 	sprite.play(type)
+	

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b31lrsoctdlu3"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_81c3s"]
+[ext_resource type="Script" uid="uid://b8xs3g5lua2bw" path="res://scripts/platforms/winesAppear.gd" id="1_nedp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nedp4"]
+atlas = ExtResource("1_81c3s")
+region = Rect2(592, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsvny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nedp4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88kwy"]
+size = Vector2(16, 16)
+
+[node name="WinesAppera" type="StaticBody2D"]
+script = ExtResource("1_nedp4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jsvny")
+offset = Vector2(8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_88kwy")

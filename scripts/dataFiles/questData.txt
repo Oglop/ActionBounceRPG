@@ -7,6 +7,14 @@
                     "type": "info"
 			    }
             ]
+        },
+        "1": {
+            "messages": [
+                {
+                    "text": "Esmeralda is being threatened a the\nnecomancer from beyond the forest.",
+                    "type": "info"
+			    }
+            ]
         }
     },
     "king": {

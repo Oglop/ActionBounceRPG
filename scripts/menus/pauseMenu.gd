@@ -191,8 +191,8 @@ func _updateDescriptionLabel() -> void:
 			lblDesc.text = "Short sword - power: " + str(int(Data.equipmentData["short-sword"].attack))
 		elif row == 1 && Data.armorTier1Collected:
 			lblDesc.text = "Leather armor - defence: " + str(int(Data.equipmentData["leather-armor"].defence))
-		elif row == 2 && Data.shieldTier3Collected:
-			lblDesc.text = "Round shield - block: " + str(Data.equipmentData["round-shield"].block)
+		elif row == 2 && Data.shieldTier1Collected:
+			lblDesc.text = "Round shield - block: " + Data.equipmentData["round-shield"].block
 		elif row == 3 && Data.powerRingCollected:
 			lblDesc.text = "Power ring"
 	elif col == 1:
@@ -348,7 +348,7 @@ func _updatePlayerItemIcons() -> void:
 	if Data.potionCollected:
 		if Data.potion == Enums.potionType.EMPTY:
 			player_potion.play("player_potion_empty")
-		elif Data.potion == Enums.potionType.EMPTY:
+		elif Data.potion == Enums.potionType.FULL:
 			player_potion.play("player_potion_full")
 	else:
 		player_potion.play("player_not_collected")

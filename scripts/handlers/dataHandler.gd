@@ -48,6 +48,7 @@ const data_potion:String = "potion"
 const data_featherCollected:String = "featherCollected"
 const data_switches:String = "switches"
 const data_quests:String = "quests"
+const data_areasExplored:String = "areasExplored"
 
 var f:functions
 
@@ -69,7 +70,6 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_xp : Data.xp,
 		data_hp: Data.hpCurrent,
 		data_st: Data.staminaCurrent,
-		# data_xpTotal: Data.xpTotal,
 		data_lv: Data.lv,
 		data_strength: Data.strength,
 		data_toughness: Data.toughness,
@@ -105,6 +105,7 @@ func _getSaveData(position:Vector2) -> Dictionary:
 		data_featherCollected: f.boolToInt(Data.featherCollected),
 		data_switches: Data.switches,
 		data_quests: Data.quests,
+		data_areasExplored: Data.areasExplored,
 	}
 	return data
 
@@ -115,7 +116,6 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.saveSpotRoomId = data[data_saveSpotRoomId]
 	Data.lv = data[data_lv]
 	Data.xp = data[data_xp]
-	#Data.xpTotal = data[data_xp]
 	Data.hpCurrent = data[data_hp]
 	Data.staminaCurrent = data[data_st]
 	Data.strength = data[data_strength]
@@ -152,6 +152,7 @@ func _setSaveData(data:Dictionary) -> void:
 	Data.potion = Enums.stringToPotionType(data[data_potion])
 	Data.switches = data[data_switches]
 	Data.quests = data[data_quests]
+	Data.areasExplored = data[data_areasExplored]
 	
 
 func _getSlotPath(slot:int) -> String:

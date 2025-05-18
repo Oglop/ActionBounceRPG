@@ -40,7 +40,7 @@ script = ExtResource("1_3jjp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cbhrs")
-animation = &"branch"
+animation = &"stairs_wood"
 offset = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

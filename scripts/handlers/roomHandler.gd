@@ -57,6 +57,9 @@ func _on_roomLoadandMove(roomId:String) -> void:
 	if currentRoom.size() > 0:
 		_on_clearRoom(currentRoom.id)
 	currentRoom = Data.roomData[roomId]
+	if currentRoom.has("area"):
+		Events.EXPLORE_AREA.emit(currentRoom.area)
+	
 	Data.currentRoomId = roomId
 	
 	if currentRoom.has("doors"):
@@ -184,5 +187,8 @@ func platformNameToSpawnType(name:String) -> Enums.spawnType:
 		Statics.PLATFORM_SAVE_SPOT: return Enums.spawnType.SAVE_SPOT
 		Statics.PLATFORM_WINES_DISAPPEAR: return Enums.spawnType.WINES_DISAPPEAR
 		Statics.PLATFORM_APPEAR: return Enums.spawnType.WINES_APPEAR
+		Statics.PLATFORM_BREAKING_FLOOR: return Enums.spawnType.BREAKING_FLOOR
+		Statics.PLATFORM_SPIKES: return Enums.spawnType.SPIKES
+		
 		_ : return Enums.spawnType.NONE
 		

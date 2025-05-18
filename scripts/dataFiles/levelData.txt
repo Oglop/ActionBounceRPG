@@ -3,45 +3,45 @@
 		"need": 44,
 		"maxHp": 24,
 		"maxStamina": 10,
-		"strength": 3,
-		"toughness": 2,
-		"magic": 2,
+		"strength": 4,
+		"toughness": 3,
+		"magic": 3,
 		"critChance": 4
 	},
 	"2": {
 		"need": 170,
 		"maxHp": 26,
 		"maxStamina": 12,
-		"strength": 4,
-		"toughness": 3,
-		"magic": 3,
+		"strength": 5,
+		"toughness": 4,
+		"magic": 4,
 		"critChance": 4
 	},
 	"3": {
 		"need": 413,
 		"maxHp": 29,
 		"maxStamina": 14,
-		"strength": 5,
-		"toughness": 4,
-		"magic": 4,
+		"strength": 7,
+		"toughness": 5,
+		"magic": 5,
 		"critChance": 4
 	},
 	"4": {
 		"need": 807,
 		"maxHp": 32,
 		"maxStamina": 16,
-		"strength": 6,
-		"toughness": 5,
-		"magic": 4,
+		"strength": 8,
+		"toughness": 6,
+		"magic": 6,
 		"critChance": 4
 	},
 	"5": {
 		"need": 1358,
 		"maxHp": 32,
 		"maxStamina": 18,
-		"strength": 7,
-		"toughness": 5,
-		"magic": 5,
-		"critChance": 4
+		"strength": 10,
+		"toughness": 7,
+		"magic": 7,
+		"critChance": 5
 	}
 }

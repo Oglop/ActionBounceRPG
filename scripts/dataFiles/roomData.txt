@@ -17,6 +17,12 @@
 				"name": "pushable-block",
 				"start-x": 208,
 				"start-y": 16
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": -1312,
+				"start-y": -672
 			}
 		],
 		"enemies": [
@@ -568,8 +574,8 @@
 		"npcs": [
 			{
 				"id": "esmeralda",
-				"start-x": -96,
-				"start-y": 3760
+				"start-x": 3760,
+				"start-y": -96
 			}
 		],
 		"treasures": [
@@ -598,6 +604,24 @@
 				"type": "branch",
 				"start-x": 3312,
 				"start-y": 96
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3520,
+				"start-y": -16
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3520,
+				"start-y": -48
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3360,
+				"start-y": -96
 			}
 		],
 		"background": "background-0003",

@@ -98,7 +98,7 @@ collision_mask = 4
 [node name="DownRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 6)
 target_position = Vector2(0, 4)
-collision_mask = 4
+collision_mask = 0
 
 [node name="CombatMarker2D" type="Marker2D" parent="."]
 position = Vector2(14, 2)

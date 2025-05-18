@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnshunikxd1ex"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_pn7fx"]
+[ext_resource type="Script" uid="uid://xiho6u6pihi7" path="res://scripts/fx/floorBreaking.gd" id="2_06gxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06gxs"]
+atlas = ExtResource("1_pn7fx")
+region = Rect2(144, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gu2x"]
+atlas = ExtResource("1_pn7fx")
+region = Rect2(160, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2cik"]
+atlas = ExtResource("1_pn7fx")
+region = Rect2(176, 352, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxgrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06gxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gu2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2cik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="FloorBreaking" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qxgrj")
+autoplay = "default"
+frame = 2
+frame_progress = 0.458223
+script = ExtResource("2_06gxs")

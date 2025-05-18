@@ -11,6 +11,14 @@ func _ready() -> void:
 	Events.connect("FX_HIT_GROUND_DUST", _on_hitGroundDust)
 	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
 	Events.connect("FX_EXPLOSION_SMALL", _on_explosionSmall)
+	Events.connect("FX_BLOCK_BREAKING", _on_blockBreaking)
+	
+
+func _on_blockBreaking(position:Vector2) -> void:
+	var fx = SceneLoader.getScene(Enums.spawnType.FX_BLOCK_BREAKING)
+	fx.global_position = position
+	self.add_child(fx) 
+	
 	
 func _on_explosionSmall(position:Vector2) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_EXPLOSION_SMALL)
@@ -24,17 +32,19 @@ func _on_swordSlash(position:Vector2, direction:int) -> void:
 	self.add_child(fx)
 	fx.setProperties(direction)
 	
+	
 func _on_hitGroundDust(position:Vector2) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_GROUND_HIT_DUST)
 	fx.global_position = position
 	self.add_child(fx)
 	
+	
 func _on_fxWeakHit(position:Vector2, direction:int) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_WEAK_HIT)
 	fx.global_position = position
 	self.add_child(fx)
-	#if direction < 1:
-	#	fx.scale = -1	
+
+
 func _on_enemyShoot(position:Vector2, direction:int, type:String, attack:int) -> void:
 	var bullet = SceneLoader.getScene(Enums.spawnType.ENEMY_BULLET)
 	bullet.global_position = position
@@ -55,11 +65,13 @@ func _on_fxElfArrow(position:Vector2, direction:int) -> void:
 	self.add_child(fx) 
 	fx.setProperties(direction)
 	
+	
 func _on_fxThiefKnife(position:Vector2, direction:int) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_THIEF_KNIFE)
 	fx.global_position = position
 	self.add_child(fx) 
 	fx.setProperties(direction)
+	
 	
 func _on_swordAttack(position:Vector2, direction:int, combo:int) -> void:
 	var fx = SceneLoader.getScene(Enums.spawnType.FX_SWORD_ATTACK)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbrydn5mget5j"]
+
+[ext_resource type="Script" uid="uid://brcyck4h1obls" path="res://scripts/platforms/breakingFloor.gd" id="1_4nqa3"]
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_u3hkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnwnh"]
+atlas = ExtResource("2_u3hkk")
+region = Rect2(608, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aw6wu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnwnh")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et5is"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nqa3"]
+size = Vector2(14, 2)
+
+[node name="BreakingFloor" type="StaticBody2D" groups=["breaking-floor"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_4nqa3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aw6wu")
+animation = &"wood"
+offset = Vector2(8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["breaking-floor"]]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_et5is")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4nqa3")

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-@onready var sprite = $AnimatedSprite2D
-@onready var collisionShape = $CollisionShape2D
-@onready var frontCheck = $FrontRayCast2D
-@onready var groundCheck = $GroundRayCast2D
-@onready var bullerSpawner = $BulletSpawnerMarker2D
-@onready var flipTimer = $FlipTimer
-@onready var hurtTimer = $HurtTimer
+@onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
+@onready var collisionShape:CollisionShape2D = $CollisionShape2D
+@onready var frontCheck:RayCast2D = $FrontRayCast2D
+@onready var groundCheck:RayCast2D = $GroundRayCast2D
+@onready var bullerSpawner:Marker2D = $BulletSpawnerMarker2D
+@onready var flipTimer:Timer = $FlipTimer
+@onready var hurtTimer:Timer = $HurtTimer
 #@onready var enemyFsm = $enemyFsm
 
 const DEBUG:bool = true
@@ -186,7 +186,7 @@ func _doWalkingState(delta: float) -> void:
 		_flip()
 	else:
 		velocity.x = direction * _speed
-		
+	_checkFrontCheckPlayerInteraction()
 	_move(delta, _speed)
 
 func _knockback(impactPosition:Vector2, bounceStrength:float) -> void:
@@ -226,6 +226,18 @@ func _move(delta:float, speed:int) -> void:
 		_knockback(impactPosition, _bounceStrength)
 	else:
 		_accelerate(delta)
+		
+		
+func _checkFrontCheckPlayerInteraction() -> void:
+	if frontCheck.is_colliding() == true:
+		var collisionPosition:Vector2 = frontCheck.get_collision_point()
+		var collider = frontCheck.get_collider()
+		if collider is Node2D && collider.is_in_group("player"):
+			if collider.has_method("applyNonCombatDamage"):
+				collider.applyNonCombatDamage(_attack, global_position)
+				
+		
+
 		
 	
 func _isBouncing() -> bool:

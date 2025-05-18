@@ -40,6 +40,7 @@ func _ready() -> void:
 	Events.connect("PLAYER_MOVE_TO", _on_playerMoveTo)
 	Events.connect("PLAYER_JUMP_BLOCK", _on_jumpBlock)
 	Events.connect("PLAYERS_UPDATE_EQUIPMENT", _on_playerUpdateEquipment)
+	Events.connect("PLAYER_STEPPED_ON_SPIKES", _on_steppedOnSpikes)
 	fsm.change_state(Statics.STATE_IDLE)
 	for n in range(Statics.TAIL_SIZE - 1, -1,-1):
 		Data.playerPositions[n] = self.global_position
@@ -58,6 +59,8 @@ func _on_playerUpdateEquipment() -> void:
 	_setSwordAnimation()
 	_setShieldAnimation()
 
+func _on_steppedOnSpikes(position:Vector2) -> void:
+	applyNonCombatDamage(10, position, true)
 
 func _updateTrail() -> void:
 	for n in range(Statics.TAIL_SIZE - 1, 0, -1):
@@ -133,21 +136,34 @@ func _setEnemyCheckerPositionAndDirection() -> void:
 		return
 	rightCheck.target_position = Vector2(12 * direction, 0)
 
+func applyNonCombatDamage(dmg:int, impactPoint:Vector2, isFloorDamage:bool = false) -> void:
+	Events.RECEIVE_DAMAGE.emit(dmg)
+	
+
+func _applyPlayerBounce(collisionPosition:Vector2) -> void:
+	if collisionPosition.x > global_position.x:
+		_bouncingLeft = true
+	else:
+		_bouncingRight = true
+	
+
 
 func _checkforCollisions():
 	var collider:Object
 	var collisionPosition:Vector2
 	if rightCheck.is_colliding() == true:
 		collisionPosition = rightCheck.get_collision_point()
-		if collisionPosition.x > global_position.x:
-			_bouncingLeft = true
-		else:
-			_bouncingRight = true
+		_applyPlayerBounce(collisionPosition)
+		#if collisionPosition.x > global_position.x:
+		#	_bouncingLeft = true
+		#else:
+		#	_bouncingRight = true
 		collider = rightCheck.get_collider()
 		
-	if downcheck.is_colliding() == true && _downAttackBounce == 0:
-		_isDownBouncing = true
-		_downAttackBounce = 300
+	#if downcheck.is_colliding():# && _downAttackBounce == 0:
+	#	_checkBreakingFloor()
+		#_isDownBouncing = true
+		#_downAttackBounce = 300
 		
 	if collider != null:
 		if collisionPosition == null:
@@ -172,8 +188,13 @@ func _handleEnemyBulletCollision(bullet:CharacterBody2D) -> void:
 				receiveDamage = false
 				Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_BLOCK_BULLET)
 		if receiveDamage:
-			Events.RECEIVE_DAMAGE.emit(bullet._attack)
+			applyNonCombatDamage(bullet._attack, bullet.global_position)
 		bullet.queue_free()
+			
+#func _checkBreakingFloor() -> void:
+#	var collider:Node2D = downcheck.get_collider()
+#	if collider.is_in_group("breaking-floor") && collider.has_method("breakFloor"):
+#		collider.breakFloor()
 			
 			
 func canBlockBullet(type:String) -> bool:
@@ -295,6 +316,8 @@ func tailDamageBonus() -> int:
 			bonus += Data.elfArrowDamage()
 			Events.FX_ELF_ARROW.emit(_tailTypeToGlobalPosition(Enums.tailType.ELF), direction) 
 	return bonus
+
+
 
 
 func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:

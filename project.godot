@@ -42,6 +42,7 @@ enemy-small="Small enemies"
 enemy="Medium size enemy"
 player="playerNode"
 enemy-bullet=""
+breaking-floor=""
 
 [input]
 

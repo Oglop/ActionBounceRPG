@@ -70,16 +70,7 @@
 		"animation": "guard",
 		"messages": [
 			{
-				"text": "The kind is awaiting you.",
-				"type": "info",
-			}
-		]
-	},
-	"guard-home-village": {
-		"animation": "guard",
-		"messages": [
-			{
-				"text": "Be carful out there.",
+				"text": "The king is awaiting you.",
 				"type": "info",
 			}
 		]

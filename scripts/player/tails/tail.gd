@@ -53,8 +53,8 @@ func _getAnimation(tailType:Enums.tailType) -> String:
 func _stateToAnimationString() -> String:
 	if !isOnFloor():
 		return "air"
-
-	if Data.playerPositions[numberToTailPosition(_number)].x == global_position.x:
+	if Data.playerPositions[numberToTailPosition(_number)].x == Data.playerPositions[numberToTailPosition(_number) + 1].x:
+	#if Data.playerPositions[numberToTailPosition(_number)].x == global_position.x:
 		return "idle"
 	return "walk"
 	

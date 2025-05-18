@@ -11,6 +11,7 @@ func _ready() -> void:
 	Events.connect("RECEIVE_DAMAGE", _on_receiveDamage)
 	Events.connect("ADD_STAMINA", _on_addStamina)
 	Events.connect("SUB_STAMINA", _on_subStamina)
+	Events.connect("EXPLORE_AREA", _on_exploreArea)
 
 var saveSpotY:int:
 	get:
@@ -307,6 +308,16 @@ var switches:Dictionary:
 	set(value):
 		switches = value
 		
+		
+var areasExplored:Dictionary:
+	get:
+		if areasExplored == null:
+			areasExplored = {}
+		return areasExplored
+	set(value):
+		areasExplored = value
+		
+		
 var quests:Dictionary:
 	get:
 		if quests == null:
@@ -329,7 +340,9 @@ func fireballDamage() -> int:
 	else:
 		lvBonus = 6
 		
-	return int(lvBonus + (lv * 0.5))
+	var dmg:int = int(lvBonus + (lv * 0.5))
+	print_debug("fireballDamage: " + str(dmg))
+	return dmg
 		
 		
 func thiefknifeDamage() -> int:
@@ -342,6 +355,7 @@ func thiefknifeDamage() -> int:
 		while critical:
 			bonus += f.randomInt(0,2)
 			critical = f.chance(Data.critChance)
+	print_debug("thiefknifeDamage: " + str(bonus))
 	return bonus
 	
 func elfArrowDamage() -> int:
@@ -352,7 +366,7 @@ func elfArrowDamage() -> int:
 	if critical:
 		multiplyer = f.getRandomFloatInRange(2.0, 4.0)
 	bonus += lv * multiplyer
-	
+	print_debug("elfArrowDamage: " + str(bonus))
 	return bonus
 	
 	
@@ -422,4 +436,8 @@ func addItemFromString(item:String) -> void:
 		shieldTier1Collected = true
 	elif item == Statics.ID_LEATHER_ARMOR:
 		armorTier1Collected = true
+		
+func _on_exploreArea(area:String) -> void:
+	if !areasExplored.has(area):
+		areasExplored[area] = true
 	

@@ -298,8 +298,6 @@ var potion:Enums.potionType:
 		potion = potion
 		
 		
-
-		
 var switches:Dictionary:
 	get:
 		if switches == null:
@@ -325,6 +323,9 @@ var quests:Dictionary:
 		return quests
 	set(value):
 		quests = value
+		
+		
+		
 		
 		
 func fireballDamage() -> int:
@@ -404,11 +405,13 @@ var shieldTier3Collected:bool = false
 func _on_addXP(value:int) -> void:
 	xp += value
 	
+	
 func _on_addHP(value:int) -> void:
 	if hpCurrent + value > hpMax:
 		hpCurrent = hpMax
 	else:
 		hpCurrent += value
+		
 		
 func _on_receiveDamage(dmg:int) -> void:
 	var appliedDmg:int = f.minusLimit(dmg, Data.defence, 0)
@@ -417,17 +420,22 @@ func _on_receiveDamage(dmg:int) -> void:
 	else:
 		hpCurrent = 0
 		
+		
 func _on_refillPotion() -> void:
 	Data.potion = Enums.potionType.FULL
+	
 	
 func getMaxXPAtLevel(level:int) -> int:
 	return levelData[str(lv)]["need"]
 	
+	
 func _on_addStamina(value:int) -> void:
 	Data.staminaCurrent += value
 	
+	
 func _on_subStamina(value:int) -> void:
 	Data.staminaCurrent -= value
+	
 	
 func addItemFromString(item:String) -> void:
 	if item == Statics.ID_SHORT_SWORD:

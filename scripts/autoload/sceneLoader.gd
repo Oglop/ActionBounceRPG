@@ -24,11 +24,13 @@ const room_switch_wood = preload("res://scenes/map/switch.tscn")
 const room_transition = preload("res://scenes/map/roomTransition.tscn")
 const room_breaking_floor = preload("res://scenes/platforms/breakingFloor.tscn")
 const room_spikes = preload("res://scenes/platforms/spikes.tscn")
+const room_elevator = preload("res://scenes/platforms/elevator.tscn")
 
 func getScene(type:Enums.spawnType):
 	match type:
 		Enums.spawnType.BREAKING_FLOOR: return room_breaking_floor.instantiate()
 		Enums.spawnType.DOOR: return room_door.instantiate()
+		Enums.spawnType.ELEVATOR: return room_elevator.instantiate()
 		Enums.spawnType.ENEMY_SMALL: return enemy_enemySmall.instantiate()
 		Enums.spawnType.ENEMY_BULLET: return enemy_enemyBullet.instantiate()
 		Enums.spawnType.FX_BLOCK_BREAKING: return fx_floor_breaking.instantiate()

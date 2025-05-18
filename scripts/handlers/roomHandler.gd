@@ -67,7 +67,7 @@ func _on_roomLoadandMove(roomId:String) -> void:
 			var d = SceneLoader.getScene(Enums.spawnType.DOOR)
 			add_child(d)
 			d.global_position = Vector2(door.x, door.y)
-			d.setProperties(door.id, door.connects, door.locked, Vector2i(door["connects-x"] + 8, door["connects-y"] + 8))
+			d.setProperties(door.id, door.connects, door.locked, Vector2i(door["connects-x"] + 8, door["connects-y"] + 8), door.type)
 			currentRoomDoors.append(d)
 		
 	if currentRoom.has("npcs"):
@@ -108,7 +108,13 @@ func _on_roomLoadandMove(roomId:String) -> void:
 			add_child(obj)
 			obj.global_position = Vector2i(platform["start-x"], platform["start-y"])
 			if obj.has_method("setProperties") && platform.has("type"):
-				obj.setProperties(platform.type)
+				if platformType == Enums.spawnType.ELEVATOR:
+					var condition:String = ""
+					if platform.has("isActiveCondition"):
+						condition = platform.isActiveCondition
+					obj.setProperties(platform.type, platform["max-y"], platform["min-y"], condition)
+				else: #type:String, maxY:int, minY:int, isActiveCondition:String = ""
+					obj.setProperties(platform.type)
 			currentRoomPlatforms.append(obj)
 		
 	if currentRoom.has("treasures"):
@@ -189,6 +195,6 @@ func platformNameToSpawnType(name:String) -> Enums.spawnType:
 		Statics.PLATFORM_APPEAR: return Enums.spawnType.WINES_APPEAR
 		Statics.PLATFORM_BREAKING_FLOOR: return Enums.spawnType.BREAKING_FLOOR
 		Statics.PLATFORM_SPIKES: return Enums.spawnType.SPIKES
-		
+		Statics.PLATFORM_ELEVATOR: return Enums.spawnType.ELEVATOR
 		_ : return Enums.spawnType.NONE
 		

@@ -53,6 +53,7 @@ enum spawnType {
 	SAVE_SPOT,
 	SWITCH,
 	SPIKES,
+	ELEVATOR,
 }
 
 

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var check = $Area2D
-@onready var sprite = $AnimatedSprite2D
+@onready var check:Area2D = $Area2D
+@onready var sprite:AnimatedSprite2D = $AnimatedSprite2D
 
 var _id:String
 var _locked:bool
@@ -19,8 +19,10 @@ func _physics_process(delta: float) -> void:
 				Events.PLAYER_MOVE_TO.emit(_connectsPosition)
 			
 	
-func setProperties(id:String, connects:String, locked:bool, connectsPostion: Vector2i) -> void:
+func setProperties(id:String, connects:String, locked:bool, connectsPostion: Vector2i, type:String) -> void:
 	_id = id
 	_locked = locked
 	_connects = connects
 	_connectsPosition = connectsPostion
+	sprite.play(type)
+	

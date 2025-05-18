@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc5hak01timh5"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_iwasa"]
+[ext_resource type="Script" uid="uid://d1ue7bgew0lrf" path="res://scripts/platforms/elevator.gd" id="1_suani"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suani"]
+atlas = ExtResource("1_iwasa")
+region = Rect2(608, 192, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qn70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suani")
+}],
+"loop": true,
+"name": &"wood",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sovm3"]
+size = Vector2(32, 10)
+
+[node name="Elevator" type="StaticBody2D"]
+collision_layer = 10
+collision_mask = 0
+script = ExtResource("1_suani")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2qn70")
+animation = &"wood"
+offset = Vector2(16, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_sovm3")

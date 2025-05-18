@@ -52,6 +52,7 @@ const PLATFORM_WINES_DISAPPEAR:String = "wines-disappear"
 const PLATFORM_APPEAR:String = "wines-sappear"
 const PLATFORM_BREAKING_FLOOR:String = "breaking-floor"
 const PLATFORM_SPIKES:String = "spikes"
+const PLATFORM_ELEVATOR:String = "elevator"
 
 const ROOM_BACKGROUND_SKY:String = "background-0001"
 const ROOM_BACKGROUND_BLACK:String = "background-0002"

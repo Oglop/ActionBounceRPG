@@ -23,6 +23,15 @@
 				"type": "wood",
 				"start-x": -1312,
 				"start-y": -672
+			},
+			{
+				"name": "elevator",
+				"type": "wood",
+				"start-x": -1200,
+				"start-y": -672,
+				"min-y": -752,
+				"max-y": -656,
+				"isActiveCondition":""
 			}
 		],
 		"enemies": [
@@ -61,6 +70,7 @@
 		"doors": [
 			{
 				"id": "home-outside",
+				"type": "wood_round",
 				"x": -896,
 				"y": 256,
 				"connects": "home-outside",
@@ -83,6 +93,7 @@
 		"doors": [
 			{
 				"id": "home-outside-1",
+				"type": "wood_round",
 				"x": -912,
 				"y": -16,
 				"connects": "start",
@@ -92,6 +103,7 @@
 			},
 			{
 				"id": "home-outside-2",
+				"type": "wood_square",
 				"x": -688,
 				"y": -64,
 				"connects": "home-village",
@@ -121,6 +133,7 @@
 		"doors": [
 			{
 				"id": "home-village-to-home-outside",
+				"type": "wood_square",
 				"x": -624,
 				"y": 224,
 				"connects": "home-outside",
@@ -130,6 +143,7 @@
 			},
 			{
 				"id": "home-village-to-home-village-inn",
+				"type": "wood_red",
 				"x": -480,
 				"y": 240,
 				"connects": "home-village-inn",
@@ -139,6 +153,7 @@
 			},
 			{
 				"id": "home-village-to-home-village-store",
+				"type": "wood_square",
 				"x": -144,
 				"y": 240,
 				"connects": "home-village-store",
@@ -148,6 +163,7 @@
 			},
 			{
 				"id": "home-village-to-home-village-castle",
+				"type": "wood_square",
 				"x": -48,
 				"y": 224,
 				"connects": "home-village-castle",
@@ -157,6 +173,7 @@
 			},
 			{
 				"id": "home-village-to-fields-west",
+				"type": "wood_square",
 				"x": 192,
 				"y": 224,
 				"connects": "fields-west",
@@ -197,6 +214,7 @@
 		"doors": [
 			{
 				"id": "home-village-inn-to-home-village",
+				"type": "wood_red",
 				"x": -480,
 				"y": 416,
 				"connects": "home-village",
@@ -215,6 +233,7 @@
 	},
 	"home-village-store": {
 		"id": "home-village-store",
+		
 		"x": 1,
 		"y": 1,
 		"min-x": -848,
@@ -225,6 +244,7 @@
 		"doors": [
 			{
 				"id": "home-village-store-to-home-village",
+				"type": "wood_square",
 				"x": -144,
 				"y": 416,
 				"connects": "home-village",
@@ -258,6 +278,7 @@
 		"doors": [
 			{
 				"id": "home-village-castle-to-home-village",
+				"type": "wood_square",
 				"x": 80,
 				"y": 432,
 				"connects": "home-village",
@@ -304,6 +325,7 @@
 		"doors": [
 			{
 				"id": "fields-west-to-home-village",
+				"type": "wood_square",
 				"x": 288,
 				"y": 224,
 				"connects": "home-village",
@@ -519,6 +541,7 @@
 		"doors": [
 			{
 				"id": "which-outside-to-whichhut",
+				"type": "rustic",
 				"x": 3808,
 				"y": 160,
 				"connects": "whichhut",
@@ -563,6 +586,7 @@
 		"doors": [
 			{
 				"id": "whichhut-to-which-outside",
+				"type": "rustic",
 				"x": 3728,
 				"y": -96,
 				"connects": "which-outside",

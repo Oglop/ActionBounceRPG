@@ -339,7 +339,7 @@
 			{
 				"id": "fields-west-to-fields-east",
 				"x": 1456,
-				"y": 160,
+				"y": 224,
 				"connects": "fields-east",
 				"connects-x": 1520,
 				"connects-y": 240,
@@ -405,20 +405,22 @@
 			{
 				"id": "fields-east-to-fields-west",
 				"x": 1488,
-				"y": 160,
+				"y": 224,
 				"connects": "fields-west",
 				"connects-x": 1440,
 				"connects-y": 240,
-				"horizontalCheck": false
+				"horizontalCheck": false,
+				"size": 2
 			},
 			{
 				"id": "fields-east-to-forest-west",
 				"x": 2656,
-				"y": 160,
+				"y": 224,
 				"connects": "forest-west",
 				"connects-x": 2704,
 				"connects-y": 224,
-				"horizontalCheck": false
+				"horizontalCheck": false,
+				"size": 1
 			}
 		],
 		"enemies": [
@@ -481,20 +483,22 @@
 			{
 				"id": "forest-west-to-fields-east",
 				"x": 2688,
-				"y": 160,
+				"y": 224,
 				"connects": "fields-east",
 				"connects-x": 2640,
 				"connects-y": 224,
-				"horizontalCheck": false
+				"horizontalCheck": false,
+				"size": 1
 			},
 			{
 				"id": "forest-west-to-which-outside",
 				"x": 3552,
-				"y": 160,
+				"y": 240,
 				"connects": "which-outside",
 				"connects-x": 3600,
 				"connects-y": 240,
-				"horizontalCheck": false
+				"horizontalCheck": false,
+				"size": 1
 			},
 			{
 				"id": "forest-west-to-tree-base",
@@ -565,7 +569,7 @@
 			{
 				"id": "which-outside-forest-west",
 				"x": 3584,
-				"y": 160,
+				"y": 240,
 				"connects": "forest-west",
 				"connects-x": 3536,
 				"connects-y": 240,
@@ -620,8 +624,21 @@
 		"max-y": 16,
 		"camera": "vert",
 		"background": "background-0003",
-		"doors": [],
-		"npcs": [],
+		"doors": [
+			{
+				"id": "treebase-treestart",
+				"type": "wood_round",
+				"x": 3408,
+				"y": -144,
+				"connects": "treestart",
+				"connects-x": 2384,
+				"connects-y": -128,
+				"locked": false
+			}
+		],
+		"npcs": [
+			
+		],
 		"platforms": [
 			{
 				"name": "stairs",
@@ -662,5 +679,653 @@
 			}
 		]
 		
+	},
+	"treestart": {
+		"id": "treestart",
+		"x": 1,
+		"y": 1,
+		"min-x": 2400,
+		"max-x": 2400,
+		"min-y": -736,
+		"max-y": -152,
+		"camera": "vert",
+		"background": "background-0003",
+		"area": "tree",
+		"doors": [
+			{
+				"id": "treestart-tree-base",
+				"type": "wood_round",
+				"x": 2384,
+				"y": -128,
+				"connects": "tree-base",
+				"connects-x": 3408,
+				"connects-y": -144,
+				"locked": false
+			}
+		],
+		"transitions": [
+			{
+				"id": "treestart-treelowerleft",
+				"x": 2240,
+				"y": -208,
+				"connects": "treelowerleft",
+				"connects-x": 2192,
+				"connects-y": -176,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treestart-treelowerright",
+				"x": 2544,
+				"y": -160,
+				"connects": "treelowerright",
+				"connects-x": 2592,
+				"connects-y": -112,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treestart-treelowerright2",
+				"x": 2544,
+				"y": -240,
+				"connects": "treelowerright",
+				"connects-x": 2592,
+				"connects-y": -192,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treestart-treeouter",
+				"x": 2240,
+				"y": -752,
+				"connects": "treeouter",
+				"connects-x": 2192,
+				"connects-y": -720,
+				"horizontalCheck": false
+			}
+		],
+		"platforms": [
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2528,
+				"start-y": -480
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2528,
+				"start-y": -544
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2336,
+				"start-y": -624
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2336,
+				"start-y": -688
+			},
+			{
+				"name": "elevator",
+				"type": "wood",
+				"start-x": 2416,
+				"start-y": -176,
+				"min-y": -304,
+				"max-y": -128,
+				"isActiveCondition":"treeswitch1"
+			},
+			{
+				"name": "elevator",
+				"type": "wood",
+				"start-x": 2336,
+				"start-y": -240,
+				"min-y": -464,
+				"max-y": -240,
+				"isActiveCondition":"treeswitch2"
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2416,
+				"start-y": -544
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2352,
+				"start-y": -656
+			}
+		]
+	},
+	"treelowerleft":{
+		"id": "treelowerleft",
+		"x": 1,
+		"y": 1,
+		"min-x": 1728,
+		"max-x": 2064,
+		"min-y": -152,
+		"max-y": -152,
+		"camera": "hori",
+		"background": "background-0003",
+		"area": "tree",
+		"transitions": [
+			{
+				"id": "treelowerleft-treestart",
+				"x": 2209,
+				"y": -208,
+				"connects": "treestart",
+				"connects-x": 2256,
+				"connects-y": -176,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treelowerleft-treebottomleft1",
+				"x": 1904,
+				"y": -80,
+				"connects": "treebottomleft",
+				"connects-x": 1936,
+				"connects-y": -32,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treelowerleft-treebottomleft2",
+				"x": 1648,
+				"y": -80,
+				"connects": "treebottomleft",
+				"connects-x": 1680,
+				"connects-y": -32,
+				"horizontalCheck": true
+			}
+		],
+		"platforms": [
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2048,
+				"start-y": -128
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2048,
+				"start-y": -160
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2192,
+				"start-y": -80
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 1920,
+				"start-y": -96
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 1936,
+				"start-y": -96
+			}
+		]
+	},
+	"treelowerright": {
+		"id": "treelowerright",
+		"x": 1,
+		"y": 1,
+		"min-x": 2736,
+		"max-x": 3072,
+		"min-y": -152,
+		"max-y": -152,
+		"camera": "hori",
+		"background": "background-0001",
+		"area": "tree",
+		"transitions": [
+			{
+				"id": "treelowerright2-treestart",
+				"x": 2576,
+				"y": -240,
+				"connects": "treestart",
+				"connects-x": 2528,
+				"connects-y": -192,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treelowerright-treestart",
+				"x": 2576,
+				"y": -160,
+				"connects": "treestart",
+				"connects-x": 2528,
+				"connects-y": -112,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treelowerright-treebottomright",
+				"x": 2992,
+				"y": -80,
+				"connects": "treebottomright",
+				"connects-x": 3024,
+				"connects-y": -48,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treelowerright-treebottomright2",
+				"x": 3152,
+				"y": -80,
+				"connects": "treebottomright",
+				"connects-x": 3168,
+				"connects-y": -48,
+				"horizontalCheck": true
+			}
+
+		],
+		"platforms": [
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2784,
+				"start-y": -176
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2800,
+				"start-y": -176
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2832,
+				"start-y": -176
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 3008,
+				"start-y": -96
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 3024,
+				"start-y": -96
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3104,
+				"start-y": -144
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3200,
+				"start-y": -80
+			}
+		]
+	},
+	"treebottomleft": {
+		"id": "treebottomleft",
+		"x": 1,
+		"y": 1,
+		"min-x": 1728,
+		"max-x": 2064,
+		"min-y": 24,
+		"max-y": 24,
+		"camera": "hori",
+		"background": "background-0001",
+		"area": "tree",
+		"platforms": [
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2192,
+				"start-y": -16
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1808,
+				"start-y": 64
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1808,
+				"start-y": 0
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1792,
+				"start-y": 32
+			}
+
+			,
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1712,
+				"start-y": 64
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1632,
+				"start-y": 64
+			}
+		],
+		"transitions": [
+			{
+				"id": "treebottomleft-treeswitchroom",
+				"x": 2208,
+				"y": 32,
+				"connects": "treeswitchroom",
+				"connects-x": 2256,
+				"connects-y": 80,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treebottomleft-treelowerleft",
+				"x": 2192,
+				"y": -48,
+				"connects": "treelowerleft",
+				"connects-x": 2192,
+				"connects-y": -96,
+				"horizontalCheck": true
+			}
+		]
+	},
+	"treebottomright": {
+		"id": "treebottomright",
+		"min-x": 2736,
+		"max-x": 3072,
+		"min-y": 32,
+		"max-y": 32,
+		"camera": "hori",
+		"background": "background-0001",
+		"area": "tree",
+		"transitions": [
+			{
+				"id": "treebottomright-treelowerright",
+				"x": 3200,
+				"y": -48,
+				"connects": "treelowerright",
+				"connects-x": 3200,
+				"connects-y": -102,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treebottomright-treeswitchroom",
+				"x": 2576,
+				"y": -16,
+				"connects": "treeswitchroom",
+				"connects-x": 2528,
+				"connects-y": 16,
+				"horizontalCheck": false
+			}
+		],
+		"platforms": [
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2784,
+				"start-y": -176
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3184,
+				"start-y": 48
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3200,
+				"start-y": 0
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 3200,
+				"start-y": -32
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 2720,
+				"start-y": 32
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 2736,
+				"start-y": 32
+			}
+		]
+	},
+
+	"treeswitchroom": {
+		"id": "treeswitchroom",
+		"x": 1,
+		"y": 1,
+		"min-x": 2400,
+		"max-x": 2400,
+		"min-y": 32,
+		"max-y": 32,
+		"camera": "hori",
+		"background": "background-0003",
+		"area": "tree",
+		"platforms": [],
+		"transitions": [
+			{
+				"id": "treeswitchroom-treebottomleft",
+				"x": 2240,
+				"y": 32,
+				"connects": "treebottomleft",
+				"connects-x": 2192,
+				"connects-y": 80,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treeswitchroom-treebottomright",
+				"x": 2544,
+				"y": -16,
+				"connects": "treebottomright",
+				"connects-x": 2592,
+				"connects-y": 16,
+				"horizontalCheck": false
+			}
+		],
+		"switches": [
+			{
+				"id": "treeswitch1",
+				"type": "wood",
+				"start-x": 2336,
+				"start-y": 48,
+				"default": false,
+				"flippable": true
+			},
+			{
+				"id": "treeswitch2",
+				"type": "wood",
+				"start-x": 2432,
+				"start-y": 48,
+				"default": false,
+				"flippable": true
+			}
+		]
+	},
+	"treeouter": {
+		"id": "treeouter",
+		"min-x": 2064,
+		"max-x": 2064,
+		"min-y": -952,
+		"max-y": -512,
+		"camera": "vert",
+		"background": "background-0001",
+		"area": "tree",
+		"platforms": [
+			{
+				"name": "elevator",
+				"type": "wood",
+				"start-x": 2064,
+				"start-y": -528,
+				"min-y": -592,
+				"max-y": -496,
+				"isActiveCondition":""
+			},
+			{
+				"name": "elevator",
+				"type": "wood",
+				"start-x": 2048,
+				"start-y": -720,
+				"min-y": -784,
+				"max-y": -688,
+				"isActiveCondition":""
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2128,
+				"start-y": -624
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2128,
+				"start-y": -688
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2080,
+				"start-y": -848
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2064,
+				"start-y": -880
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2096,
+				"start-y": -896
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 1968,
+				"start-y": -896
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 1984,
+				"start-y": -896
+			}
+		],
+		"transitions": [
+			{
+				"id": "treeouter-treestart",
+				"x": 2208,
+				"y": -752,
+				"connects": "treeouter",
+				"connects-x": 2256,
+				"connects-y": -720,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treeouter-treeleftupper",
+				"x": 2240,
+				"y": -416,
+				"connects": "treeouter",
+				"connects-x": 2200,
+				"connects-y": -384,
+				"horizontalCheck": false
+			}
+		]
+	},
+	"treeleftupper": {
+		"id": "treeleftupper",
+		"min-x": 1728,
+		"max-x": 2064,
+		"min-y": -324,
+		"max-y": -324,
+		"camera": "hori",
+		"background": "background-0001",
+		"area": "tree",
+		"platforms": [
+	
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2128,
+				"start-y": -624
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 2128,
+				"start-y": -688
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2080,
+				"start-y": -848
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2064,
+				"start-y": -880
+			},
+			{
+				"name": "breaking-floor",
+				"type": "wood",
+				"start-x": 2096,
+				"start-y": -896
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 1968,
+				"start-y": -896
+			},
+			{
+				"name": "wines-sappear",
+				"start-x": 1984,
+				"start-y": -896
+			}
+		],
+		"transitions": [
+			{
+				"id": "treeleftupper-treelowerleft1",
+				"x": 2080,
+				"y": -272,
+				"connects": "treelowerleft",
+				"connects-x": 2112,
+				"connects-y": -224,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treeleftupper-treelowerleft2",
+				"x": 1888,
+				"y": -272,
+				"connects": "treelowerleft",
+				"connects-x": 1904,
+				"connects-y": -224,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treeleftupper-treelowerleft2",
+				"x": 1648,
+				"y": -272,
+				"connects": "treelowerleft",
+				"connects-x": 1680,
+				"connects-y": -224,
+				"horizontalCheck": true
+			}
+		]
 	}
 }

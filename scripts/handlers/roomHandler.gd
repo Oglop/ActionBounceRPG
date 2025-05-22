@@ -135,32 +135,39 @@ func _on_roomLoadandMove(roomId:String) -> void:
 		
 		
 func _on_clearRoom(roomId:String) -> void:
-	for obj:Node2D in currentRoomDoors:
-		obj.queue_free()
+	for d in currentRoomDoors:
+		if is_instance_valid(d):
+			d.queue_free()
 	currentRoomDoors = []
 	
-	for obj:Node2D in currentRoomNPCs:
-		obj.queue_free()
+	for n in currentRoomNPCs:
+		if is_instance_valid(n):
+			n.queue_free()
 	currentRoomNPCs = []
 	
-	for obj:Node2D in currentRoomEnemies:
-		obj.queue_free()
+	for e in currentRoomEnemies:
+		if is_instance_valid(e):
+			e.queue_free()
 	currentRoomEnemies = []
 	
-	for obj:Node2D in currentRoomPlatforms:
-		obj.queue_free()
+	for p in currentRoomPlatforms:
+		if is_instance_valid(p):
+			p.queue_free()
 	currentRoomPlatforms = []
 	
-	for obj:Node2D in currentRoomTreasures:
-		obj.queue_free()
+	for t in currentRoomTreasures:
+		if is_instance_valid(t):
+			t.queue_free()
 	currentRoomTreasures = []
 	
-	for obj:Node2D in currentRoomSwitches:
-		obj.queue_free()
+	for s in currentRoomSwitches:
+		if is_instance_valid(s):
+			s.queue_free()
 	currentRoomSwitches = []
 	
-	for obj:Node2D in currentRoomTransitions:
-		obj.queue_free()
+	for tr in currentRoomTransitions:
+		if is_instance_valid(tr):
+			tr.queue_free()
 	currentRoomTransitions = []
 	
 	
@@ -192,7 +199,7 @@ func platformNameToSpawnType(name:String) -> Enums.spawnType:
 		Statics.PLATFORM_STAIRS: return Enums.spawnType.STAIRS
 		Statics.PLATFORM_SAVE_SPOT: return Enums.spawnType.SAVE_SPOT
 		Statics.PLATFORM_WINES_DISAPPEAR: return Enums.spawnType.WINES_DISAPPEAR
-		Statics.PLATFORM_APPEAR: return Enums.spawnType.WINES_APPEAR
+		Statics.PLATFORM_WINES_APPEAR: return Enums.spawnType.WINES_APPEAR
 		Statics.PLATFORM_BREAKING_FLOOR: return Enums.spawnType.BREAKING_FLOOR
 		Statics.PLATFORM_SPIKES: return Enums.spawnType.SPIKES
 		Statics.PLATFORM_ELEVATOR: return Enums.spawnType.ELEVATOR

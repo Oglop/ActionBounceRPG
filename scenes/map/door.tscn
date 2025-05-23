@@ -87,7 +87,7 @@ script = ExtResource("1_7mngb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_xhjs1")
-animation = &"rustic"
+animation = &"wood_round"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

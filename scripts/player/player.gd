@@ -147,17 +147,12 @@ func _applyPlayerBounce(collisionPosition:Vector2) -> void:
 		_bouncingRight = true
 	
 
-
 func _checkforCollisions():
 	var collider:Object
 	var collisionPosition:Vector2
 	if rightCheck.is_colliding() == true:
 		collisionPosition = rightCheck.get_collision_point()
 		_applyPlayerBounce(collisionPosition)
-		#if collisionPosition.x > global_position.x:
-		#	_bouncingLeft = true
-		#else:
-		#	_bouncingRight = true
 		collider = rightCheck.get_collider()
 		
 	#if downcheck.is_colliding():# && _downAttackBounce == 0:
@@ -271,6 +266,8 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 		return false
 		
 	if collider.has_method("applyDamage"):
+		if critical:
+			Events.CAMERA_SHAKE.emit(4, 0.3)
 		collider.applyDamage(_getAttack(critical))
 		Events.FX_SWORD_ATTACK.emit(combatMarker.global_position, direction, _attackNumber)
 		Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_BOUNCE)
@@ -316,8 +313,6 @@ func tailDamageBonus() -> int:
 			bonus += Data.elfArrowDamage()
 			Events.FX_ELF_ARROW.emit(_tailTypeToGlobalPosition(Enums.tailType.ELF), direction) 
 	return bonus
-
-
 
 
 func _getEnemyBounce(enemyToughness:int, critical:bool) -> int:

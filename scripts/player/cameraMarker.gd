@@ -25,15 +25,15 @@ func _physics_process(delta: float) -> void:
 			if player.global_position.y > minY && player.global_position.y < maxY:
 				global_position.y = player.global_position.y
 			
-		if cameraType != Enums.cameraType.STILL:
-			if minX != noBorder && global_position.x < minX:
-				global_position.x = minX
-			if maxX != noBorder && global_position.x > maxX:
-				global_position.x = maxX
-			if minY != noBorder && global_position.y < minY:
-				global_position.y = minY
-			if maxY != noBorder && global_position.y > maxY:
-				global_position.y = maxY
+		#if cameraType != Enums.cameraType.STILL:
+		if minX != noBorder && global_position.x < minX:
+			global_position.x = minX
+		if maxX != noBorder && global_position.x > maxX:
+			global_position.x = maxX
+		if minY != noBorder && global_position.y < minY:
+			global_position.y = minY
+		if maxY != noBorder && global_position.y > maxY:
+			global_position.y = maxY
 
 
 func _on_roomLoad(roomId:String) -> void:
@@ -63,6 +63,15 @@ func _on_roomLoad(roomId:String) -> void:
 		global_position.y = minY
 	if cameraType == Enums.cameraType.VERT && minX != noBorder:
 		global_position.x = minX
+
+	if minX != noBorder && global_position.x < minX:
+		global_position.x = minX
+	if maxX != noBorder && global_position.x > maxX:
+		global_position.x = maxX
+	if minY != noBorder && global_position.y < minY:
+		global_position.y = minY
+	if maxY != noBorder && global_position.y > maxY:
+		global_position.y = maxY
 
 
 func _on_playerMoveTo(position:Vector2) -> void:

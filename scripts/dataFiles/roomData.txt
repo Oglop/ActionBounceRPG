@@ -796,7 +796,14 @@
 				"start-x": 2352,
 				"start-y": -656
 			}
-		]
+		],
+		"treasures": [
+			{
+				"id": "feather",
+				"start-x": 2480,
+				"start-y": -720
+			}
+		],
 	},
 	"treelowerleft":{
 		"id": "treelowerleft",
@@ -1230,7 +1237,7 @@
 				"id": "treeouter-treestart",
 				"x": 2208,
 				"y": -752,
-				"connects": "treeouter",
+				"connects": "treestart",
 				"connects-x": 2256,
 				"connects-y": -720,
 				"horizontalCheck": false
@@ -1239,9 +1246,18 @@
 				"id": "treeouter-treeleftupper",
 				"x": 2240,
 				"y": -416,
-				"connects": "treeouter",
+				"connects": "treeleftupper",
 				"connects-x": 2200,
 				"connects-y": -384,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treeouter-elftowngate",
+				"x": 1904,
+				"y": -960,
+				"connects": "elftowngate",
+				"connects-x": 1856,
+				"connects-y": -912,
 				"horizontalCheck": false
 			}
 		]
@@ -1325,6 +1341,221 @@
 				"connects-x": 1680,
 				"connects-y": -224,
 				"horizontalCheck": true
+			}
+		]
+	},
+	"elftowngate": {
+		"id": "elftowngate",
+		"min-x": 1728,
+		"max-x": 1729,
+		"min-y": -976,
+		"max-y": -977,
+		"camera": "still",
+		"background": "background-0003",
+		"area": "elftown",
+		"transitions": [
+			{
+				"id": "elftowngate-treeouter",
+				"x": 1872,
+				"y": -960,
+				"connects": "treeouter",
+				"connects-x": 1920,
+				"connects-y": -912,
+				"horizontalCheck": false
+			}
+		],
+		"npcs": [
+			{
+				"id": "elfgate_elf_a",
+				"start-x": 1776,
+				"start-y": -944
+			}
+		],
+		"doors": [
+			{
+				"id": "elftowngate-elftown",
+				"type": "wood_round",
+				"x": 1620,
+				"y": -928,
+				"connects": "elftown",
+				"connects-x": 1840,
+				"connects-y": -496,
+				"locked": false
+			}
+		]
+	},
+	"elftown": {
+		"id": "elftown",
+		"min-x": 1728,
+		"max-x": 1728,
+		"min-y": -976,
+		"max-y": -512,
+		"camera": "vert",
+		"background": "background-0003",
+		"area": "elftown",
+		"transitions": [
+			{
+				"id": "elftowngate-treestart",
+				"x": 1872,
+				"y": -960,
+				"connects": "treestart",
+				"connects-x": 1920,
+				"connects-y": -912,
+				"horizontalCheck": false
+			}
+		],
+		"npcs": [
+			{
+				"id": "elfgate_elf_b",
+				"start-x": 1728,
+				"start-y": -944
+			}
+		],
+		"doors": [
+			{
+				"id": "elftown-elftowngate",
+				"type": "wood_round",
+				"x": 1840,
+				"y": -496,
+				"connects": "elftowngate",
+				"connects-x": 1620,
+				"connects-y": -928,
+				"locked": false
+			},
+			{
+				"id": "elftown-elftowninn",
+				"type": "wood_red",
+				"x": 1632,
+				"y": -576,
+				"connects": "elftowninn",
+				"connects-x": 1424,
+				"connects-y": -608,
+				"locked": false
+			},
+			{
+				"id": "elftown-elftownhall",
+				"type": "wood_red",
+				"x": 1824,
+				"y": -672,
+				"connects": "elftownhall",
+				"connects-x": 1360,
+				"connects-y": -800,
+				"locked": false
+			},
+			{
+				"id": "elftown-elftownelder",
+				"type": "wood_red",
+				"x": 1712,
+				"y": -784,
+				"connects": "elftownelder",
+				"connects-x": 1360,
+				"connects-y": -960,
+				"locked": false
+			}
+		],
+		"platforms": [
+			{
+				"name": "save-spot",
+				"start-x": 1760,
+				"start-y": -480
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1648,
+				"start-y": -688
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1616,
+				"start-y": -752
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1664,
+				"start-y": -768
+			}
+			
+		]
+	},
+	"elftowninn": {
+		"id": "elftowninn",
+		"min-x": 1392,
+		"max-x": 1392,
+		"min-y": -624,
+		"max-y": -624,
+		"camera": "still",
+		"background": "background-0002",
+		"area": "elftown",
+		"npcs": [
+			
+		],
+		"doors": [
+			{
+				"id": "elftowninn-elftown",
+				"type": "wood_red",
+				"x": 1424,
+				"y": -608,
+				"connects": "elftown",
+				"connects-x": 1632,
+				"connects-y": -576,
+				"locked": false
+			}
+		]
+	},
+	"elftownhall": {
+		"id": "elftownhall",
+		"min-x": 1392,
+		"max-x": 1392,
+		"min-y": -800,
+		"max-y": -800,
+		"camera": "still",
+		"background": "background-0002",
+		"area": "elftown",
+		"npcs": [
+			
+		],
+		"doors": [
+			{
+				"id": "elftownhall-elftown",
+				"type": "wood_red",
+				"x": 1360,
+				"y": -800,
+				"connects": "elftown",
+				"connects-x": 1824,
+				"connects-y": -672,
+				"locked": false
+			}
+		]
+	},
+	"elftownelder": {
+		"id": "elftownelder",
+		"min-x": 1392,
+		"max-x": 1392,
+		"min-y": -976,
+		"max-y": -976,
+		"camera": "still",
+		"background": "background-0002",
+		"area": "elftown",
+		"npcs": [
+			{
+				"id": "elf_elder",
+				"start-x": 1360,
+				"start-y": -608
+			}
+		],
+		"doors": [
+			{
+				"id": "elftownelder-elftown",
+				"type": "wood_red",
+				"x": 1360,
+				"y": -960,
+				"connects": "elftown",
+				"connects-x": 1712,
+				"connects-y": -784,
+				"locked": false
 			}
 		]
 	}

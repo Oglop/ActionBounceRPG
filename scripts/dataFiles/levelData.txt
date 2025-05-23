@@ -37,7 +37,7 @@
 	},
 	"5": {
 		"need": 1358,
-		"maxHp": 32,
+		"maxHp": 36,
 		"maxStamina": 18,
 		"strength": 10,
 		"toughness": 7,

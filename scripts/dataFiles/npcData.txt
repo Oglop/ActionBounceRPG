@@ -101,6 +101,33 @@
 				"type": "info",
 			}
 		]
+	},
+	"elfgate_elf_a": {
+		"animation": "elf_a",
+		"messages": [
+			{
+				"text": "Speak to our elder in the village up ahead.",
+				"type": "info",
+			}
+		]
+	},
+	"elfgate_elf_b": {
+		"animation": "elf_b",
+		"messages": [
+			{
+				"text": "Hello.",
+				"type": "info",
+			}
+		]
+	},
+	"elf_elder": {
+		"animation": "elf_elder",
+		"messages": [
+			{
+				"text": "elder quest.",
+				"type": "info",
+			}
+		]
 	}
 
 

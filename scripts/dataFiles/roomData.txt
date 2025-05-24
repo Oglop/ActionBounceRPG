@@ -1259,6 +1259,33 @@
 				"connects-x": 1856,
 				"connects-y": -912,
 				"horizontalCheck": false
+			},
+			{
+				"id": "treeouter-treelowerleft1",
+				"x": 1888,
+				"y": -448,
+				"connects": "treelowerleft",
+				"connects-x": 2112,
+				"connects-y": -224,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treeouter-treelowerleft2",
+				"x": 1952,
+				"y": -448,
+				"connects": "treelowerleft",
+				"connects-x": 2112,
+				"connects-y": -224,
+				"horizontalCheck": true
+			},
+			{
+				"id": "treeouter-treelowerleft3",
+				"x": 2016,
+				"y": -448,
+				"connects": "treelowerleft",
+				"connects-x": 2112,
+				"connects-y": -224,
+				"horizontalCheck": true
 			}
 		]
 	},
@@ -1348,8 +1375,8 @@
 		"id": "elftowngate",
 		"min-x": 1728,
 		"max-x": 1729,
-		"min-y": -976,
-		"max-y": -977,
+		"min-y": -964,
+		"max-y": -964,
 		"camera": "still",
 		"background": "background-0003",
 		"area": "elftown",
@@ -1375,7 +1402,7 @@
 			{
 				"id": "elftowngate-elftown",
 				"type": "wood_round",
-				"x": 1620,
+				"x": 1600,
 				"y": -928,
 				"connects": "elftown",
 				"connects-x": 1840,
@@ -1418,7 +1445,7 @@
 				"x": 1840,
 				"y": -496,
 				"connects": "elftowngate",
-				"connects-x": 1620,
+				"connects-x": 1600,
 				"connects-y": -928,
 				"locked": false
 			},
@@ -1490,7 +1517,11 @@
 		"background": "background-0002",
 		"area": "elftown",
 		"npcs": [
-			
+			{
+				"id": "party-changer",
+				"start-x": 1360,
+				"start-y": -608
+			}
 		],
 		"doors": [
 			{
@@ -1515,7 +1546,16 @@
 		"background": "background-0002",
 		"area": "elftown",
 		"npcs": [
-			
+			{
+				"id": "healer",
+				"start-x": 1408,
+				"start-y": -784
+			},
+			{
+				"id": "potion",
+				"start-x": 1456,
+				"start-y": -784
+			}
 		],
 		"doors": [
 			{
@@ -1542,8 +1582,12 @@
 		"npcs": [
 			{
 				"id": "elf_elder",
-				"start-x": 1360,
-				"start-y": -608
+				"condition": "elfs;-;3",
+				"quest": "elfs"
+				"questStep": 0,
+				"questNext": 1,
+				"start-x": 1424,
+				"start-y": -960
 			}
 		],
 		"doors": [

@@ -82,6 +82,9 @@ const SKILL_CLERIC_HEAL_COST:int = 3
 const SFX_PLAYER_BOUNCE:String = "player-bounce"
 const SFX_PLAYER_JUMP:String = "player-jump"
 const SFX_PLAYER_BLOCK_BULLET:String = "player-block-bullet"
+const SFX_PLAYER_SWITH:String = "player-switch"
+const SFX_PLAYER_PASS_DOOR:String = "player-pass-door"
+
 
 const ID_POWER_RING:String = "power-ring"
 const ID_THIEF_GLOVES:String = "thief-gloves"

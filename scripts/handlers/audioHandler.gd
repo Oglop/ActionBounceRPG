@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var playerJump = $player_jump
 @onready var playerBounce = $player_bounce
+@onready var playerHitSwitch = $player_switch
+@onready var playerPassThroughDoor = $player_pass_through_door
 @onready var blockBullet = $block_bullet
 
 var f:functions
@@ -26,3 +28,5 @@ func _on_playSoundEffect(id:String) -> void:
 		Statics.SFX_PLAYER_JUMP: playAtRandomPitch(playerJump)
 		Statics.SFX_PLAYER_BOUNCE: playAtRandomPitch(playerBounce)
 		Statics.SFX_PLAYER_BLOCK_BULLET: playAtPitch(blockBullet)
+		Statics.SFX_PLAYER_PASS_DOOR: playAtPitch(playerPassThroughDoor)
+		Statics.SFX_PLAYER_SWITH: playAtPitch(playerHitSwitch)

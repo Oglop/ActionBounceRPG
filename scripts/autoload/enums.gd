@@ -55,6 +55,7 @@ enum spawnType {
 	SWITCH,
 	SPIKES,
 	ELEVATOR,
+	BOSS_DOOR,
 }
 
 

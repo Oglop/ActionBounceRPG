@@ -11,12 +11,14 @@ const ROOM_DATA:String = "res://scripts/dataFiles/roomData.txt"
 const NPC_DATA:String = "res://scripts/dataFiles/npcData.txt"
 const TEXT_DATA:String = "res://scripts/dataFiles/textData.txt"
 const QUEST_DATA:String = "res://scripts/dataFiles/questData.txt"
-const LEVEL_MAX:int = 5
+const LEVEL_MAX:int = 6
 const TAIL_SIZE:int = 40
 const TAIL_POSITON_1:int = 1
 const TAIL_INDEX_1:int = 7
 const TAIL_POSITON_2:int = 2
 const TAIL_INDEX_2:int = 14
+
+const BOSS_TREE_CENTIPEDE := "centipede"
 
 const GRAVITY:int = 900
 const JUMP_GRAVITY:float = 900.0
@@ -55,6 +57,7 @@ const PLATFORM_WINES_APPEAR:String = "wines-sappear"
 const PLATFORM_BREAKING_FLOOR:String = "breaking-floor"
 const PLATFORM_SPIKES:String = "spikes"
 const PLATFORM_ELEVATOR:String = "elevator"
+const PLATFORM_BOSS_DOOR:String = "boss-door"
 
 const ROOM_BACKGROUND_SKY:String = "background-0001"
 const ROOM_BACKGROUND_BLACK:String = "background-0002"

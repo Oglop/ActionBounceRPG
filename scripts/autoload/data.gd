@@ -402,6 +402,8 @@ var shieldTier1Collected:bool = false
 var shieldTier2Collected:bool = false
 var shieldTier3Collected:bool = false
 
+var bossCentipedeDefeated:bool = false
+
 func _on_addXP(value:int) -> void:
 	xp += value
 	

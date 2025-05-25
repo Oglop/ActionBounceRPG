@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckuw7qqyvjofv"]
+
+[ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_t4obt"]
+[ext_resource type="Script" uid="uid://ytdh553qc2gq" path="res://scripts/platforms/bossDoor.gd" id="1_t7o1t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7o1t"]
+atlas = ExtResource("1_t4obt")
+region = Rect2(144, 320, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oet0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7o1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qvvt"]
+size = Vector2(16, 32)
+
+[node name="BossDoor" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_t7o1t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 16)
+sprite_frames = SubResource("SpriteFrames_oet0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_5qvvt")

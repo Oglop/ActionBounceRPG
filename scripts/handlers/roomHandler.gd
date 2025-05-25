@@ -113,8 +113,11 @@ func _on_roomLoadandMove(roomId:String) -> void:
 					if platform.has("isActiveCondition"):
 						condition = platform.isActiveCondition
 					obj.setProperties(platform.type, platform["max-y"], platform["min-y"], condition)
+				elif platformType == Enums.spawnType.BOSS_DOOR:
+					obj.setProperties(platform.bossid)
 				else: #type:String, maxY:int, minY:int, isActiveCondition:String = ""
 					obj.setProperties(platform.type)
+					
 			currentRoomPlatforms.append(obj)
 		
 	if currentRoom.has("treasures"):
@@ -203,5 +206,6 @@ func platformNameToSpawnType(name:String) -> Enums.spawnType:
 		Statics.PLATFORM_BREAKING_FLOOR: return Enums.spawnType.BREAKING_FLOOR
 		Statics.PLATFORM_SPIKES: return Enums.spawnType.SPIKES
 		Statics.PLATFORM_ELEVATOR: return Enums.spawnType.ELEVATOR
+		Statics.PLATFORM_BOSS_DOOR: return Enums.spawnType.BOSS_DOOR
 		_ : return Enums.spawnType.NONE
 		

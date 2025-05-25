@@ -739,6 +739,15 @@
 				"connects-x": 2192,
 				"connects-y": -720,
 				"horizontalCheck": false
+			},
+			{
+				"id": "treestart-treeboss",
+				"x": 2544,
+				"y": -736,
+				"connects": "treestart",
+				"connects-x": 2592,
+				"connects-y": -704,
+				"horizontalCheck": false
 			}
 		],
 		"platforms": [
@@ -1350,6 +1359,15 @@
 				"connects-x": 2112,
 				"connects-y": -224,
 				"horizontalCheck": true
+			},
+			{
+				"id": "treeouter-treecorridor",
+				"x": 2208,
+				"y": -1040,
+				"connects": "treecorridor",
+				"connects-x": 2256,
+				"connects-y": -1008,
+				"horizontalCheck": false
 			}
 		]
 	},
@@ -1665,6 +1683,90 @@
 				"connects-y": -784,
 				"locked": false
 			}
+		]
+	},
+	"treecorridor": {
+		"id": "treecorridor",
+		"min-x": 2240,
+		"max-x": 2928,
+		"min-y": -944,
+		"max-y": -944,
+		"camera": "hori",
+		"background": "background-0003",
+		"area": "tree",
+		"transitions": [
+			{
+				"id": "treecorridor-treeouter",
+				"x": 2240,
+				"y": -1040,
+				"connects": "treeouter",
+				"connects-x": 2192,
+				"connects-y": -1008,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treecorridor-treeboss",
+				"x": 2720,
+				"y": -864,
+				"connects": "treeboss",
+				"connects-x": 2736,
+				"connects-y": -816,
+				"horizontalCheck": true
+			}
+		],
+		"npcs": [
+
+		],
+		"doors": [
+			
+		]
+
+	},
+	"treeboss": {
+		"id": "treeboss",
+		"min-x": 2736,
+		"max-x": 2736,
+		"min-y": -740,
+		"max-y": -740,
+		"camera": "still",
+		"background": "background-0003",
+		"area": "tree",
+		"transitions": [
+			{
+				"id": "treeboss-treeforestpathupper",
+				"x": 2880,
+				"y": -736,
+				"connects": "treeouter",
+				"connects-x": 2928,
+				"connects-y": -704,
+				"horizontalCheck": false
+			},
+			{
+				"id": "treeboss-treestart",
+				"x": 2575,
+				"y": -736,
+				"connects": "treestart",
+				"connects-x": 2528,
+				"connects-y": -704,
+				"horizontalCheck": false
+			}
+		],
+		"platforms": [
+			{
+				"name": "boss-door",
+				"type": "boss-door",
+				"bossid": "centipede",
+				"start-x": 2576,
+				"start-y": -720
+			},
+			{
+				"name": "boss-door",
+				"type": "boss-door",
+				"bossid": "centipede",
+				"start-x": 2880,
+				"start-y": -720
+			}
+			
 		]
 	}
 }

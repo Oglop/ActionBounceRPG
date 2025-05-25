@@ -10,6 +10,7 @@ signal ADD_HP
 signal ADD_STAMINA
 signal SUB_STAMINA
 signal SHOW_ACCEPT_MENU
+signal BOSS_DEFEATED
 
 signal FX_WEAK_HIT
 signal FX_PLAYER_ATTACK

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1s01d7opi7q3"]
+
+[ext_resource type="Script" uid="uid://cj6hrh0m0uxl5" path="res://scripts/fx/damageNumber.gd" id="1_1852n"]
+[ext_resource type="FontFile" uid="uid://c3crl80aptf24" path="res://media/fonts/Minecraftchmc-dBlX.ttf" id="2_m6ea0"]
+
+[node name="DamageNumber" type="Node2D"]
+script = ExtResource("1_1852n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.921569, 0.129412, 0.027451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_m6ea0")
+text = "0"
+horizontal_alignment = 1

@@ -98,11 +98,12 @@ func _setGroundcheckPosition() -> void:
 	else:
 		groundCheck.position = Vector2i(-8,15)
 	
-func applyDamage(value:int) -> void:
+func applyDamage(value:int, critical:bool) -> void:
 	if !hurtBlocked:
-		
+		Events.FX_DAMAGE_NUMBER.emit(global_position, value, critical, false, false)
 		_hp = f.minusLimit(_hp, value, 0)
 		print_debug("applyDamage _hp" + str(_hp) + " value: " + str(value))
+		
 		if _hp <= 0:
 			_enemyState = Enums.enemyStates.DIE
 			

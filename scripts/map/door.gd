@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("btn_up"):
 		for b:Node in check.get_overlapping_bodies():
 			if b.is_in_group("player"):
+				Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_PASS_DOOR)
 				Events.ROOM_LOAD.emit(_connects)
 				Events.PLAYER_MOVE_TO.emit(_connectsPosition)
 			

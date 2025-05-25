@@ -1,6 +1,8 @@
 extends Node
 
 const ROOM_TEMPLATE:String = "res://scenes/game/rooms/templateRoom.tscn"
+const ROOM_GAME_START:String = "res://scenes/game/start.tscn"
+const ROOM_START_SCREEN:String = "res://scenes/game/rooms/startRoom.tscn"
 
 const LEVEL_DATA:String = "res://scripts/dataFiles/levelData.txt"
 const ENEMY_DATA:String = "res://scripts/dataFiles/enemyData.txt"

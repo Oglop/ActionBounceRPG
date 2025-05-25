@@ -67,5 +67,18 @@
 		"crowns": 1,
 		"hurt-block":0.3,
 		"default-state": "walk"
+	},
+	"beetle": {
+		"name": "Beetle",
+		"type": "beetle",
+		"hp": 16,
+		"toughness": 3,
+		"speed": 28,
+		"xp": 2,
+		"attack": 6,
+		"armor": 2,
+		"crowns": 1,
+		"hurt-block":0.2,
+		"default-state": "walk"
 	}
 }

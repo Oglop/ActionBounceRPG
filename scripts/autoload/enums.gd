@@ -38,6 +38,7 @@ enum spawnType {
 	FX_GROUND_HIT_DUST,
 	FX_EXPLOSION_SMALL,
 	FX_BLOCK_BREAKING,
+	FX_DAMAGE_NUMBER,
 	ENEMY_BULLET,
 	ENEMY_SMALL,
 	TAIL,
@@ -76,6 +77,7 @@ enum enemyType {
 	SCORP,
 	SQUID,
 	SPITTER,
+	BEETLE,
 }
 
 
@@ -103,6 +105,7 @@ func stringToEnemyType(type:String) -> enemyType:
 		"scorp": return enemyType.SCORP
 		"squid": return enemyType.SQUID
 		"spitter": return enemyType.SPITTER
+		"beetle": return enemyType.BEETLE
 		_ : return enemyType.NONE
 		
 		
@@ -111,6 +114,7 @@ func enemyTypeToString(type:enemyType) -> String:
 		enemyType.JELLY: return "jelly"
 		enemyType.SCORP: return "scorp"
 		enemyType.SQUID: return "squid"
+		enemyType.BEETLE: return "beetle"
 		enemyType.SPITTER: return "spitter"
 		_: return ""
 		

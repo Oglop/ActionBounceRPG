@@ -12,6 +12,14 @@ func _ready() -> void:
 	Events.connect("ENEMY_SHOOT", _on_enemyShoot)
 	Events.connect("FX_EXPLOSION_SMALL", _on_explosionSmall)
 	Events.connect("FX_BLOCK_BREAKING", _on_blockBreaking)
+	Events.connect("FX_DAMAGE_NUMBER", _on_damageNumber)
+	
+
+func _on_damageNumber(position:Vector2, value:int, crit:bool, receivingDamage:bool, heal:bool) -> void:
+	var fx = SceneLoader.getScene(Enums.spawnType.FX_DAMAGE_NUMBER)
+	fx.global_position = position
+	self.add_child(fx) 
+	fx.setProperties(value, crit, receivingDamage, heal)
 	
 
 func _on_blockBreaking(position:Vector2) -> void:

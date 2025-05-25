@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://ccevmagw8ahe7"]
+[gd_scene load_steps=3 format=3 uid="uid://ccevmagw8ahe7"]
+
+[ext_resource type="Script" uid="uid://c5cgejqtdo0q0" path="res://scripts/menus/deathMenu.gd" id="1_rpfta"]
+[ext_resource type="Theme" uid="uid://bpb8dcglwdlwj" path="res://media/themes/boxTheme.tres" id="1_ucoxb"]
 
 [node name="DeathMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_rpfta")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 208.0
+offset_bottom = 80.0
+theme = ExtResource("1_ucoxb")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 189.0
+offset_bottom = 70.0
+text = "You have died.
+
+Please press accept to continue."
+horizontal_alignment = 1

@@ -88,6 +88,10 @@ func _physics_process(delta: float) -> void:
 		if Data.staminaCurrent < Data.staminaMax:
 			Events.ADD_STAMINA.emit(1)
 			comboTimer.start(_staminaRegenerationInterval)
+			
+	if Data.hpCurrent <= 0:
+		Events.ROOM_SHOW_DEATH_MENU.emit()
+		
 		
 	
 func _setSwordAnimation() -> void:
@@ -268,7 +272,9 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 	if collider.has_method("applyDamage"):
 		if critical:
 			Events.CAMERA_SHAKE.emit(4, 0.3)
-		collider.applyDamage(_getAttack(critical))
+		var damageToDeal:int = _getAttack(critical)
+		collider.applyDamage(damageToDeal, critical)
+		
 		Events.FX_SWORD_ATTACK.emit(combatMarker.global_position, direction, _attackNumber)
 		Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_BOUNCE)
 		comboTimer.start(0.3)
@@ -277,7 +283,9 @@ func _handleCombat(collider:Node, collisionPoint:Vector2) -> bool:
 	var enemtDamageMultiplyer:float = f.getRandomFloatInRange(0.8, 1.2)
 	var damage = int(enemyAttack * enemtDamageMultiplyer)
 	if damage > 0:
+		Events.FX_DAMAGE_NUMBER.emit(global_position, damage, false, true, false)
 		Events.RECEIVE_DAMAGE.emit(damage)
+		
 	
 	if collider.has_method("applyBounce"):
 		var enemyBounceDirection:int = 1

@@ -43,5 +43,6 @@ func _physics_process(delta: float) -> void:
 					if _flippable || !_flippable && !_on:
 						_on = !_on
 					Events.ROOM_SWITCH_FLIPPED.emit(_id, _on)
+					Events.PLAY_SOUND_EFFECT.emit(Statics.SFX_PLAYER_SWITH)
 		
 	

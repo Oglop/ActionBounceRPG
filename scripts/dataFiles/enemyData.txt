@@ -71,11 +71,11 @@
 	"beetle": {
 		"name": "Beetle",
 		"type": "beetle",
-		"hp": 16,
+		"hp": 18,
 		"toughness": 3,
 		"speed": 28,
 		"xp": 2,
-		"attack": 6,
+		"attack": 10,
 		"armor": 2,
 		"crowns": 1,
 		"hurt-block":0.2,

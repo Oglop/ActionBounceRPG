@@ -106,7 +106,7 @@
 		"animation": "elf_a",
 		"messages": [
 			{
-				"text": "Speak to our elder. She is the house\nat the top of the\nvillage.",
+				"text": "Speak to our elder. She is the house at the top of the village.",
 				"type": "info",
 			}
 		]

@@ -1117,6 +1117,18 @@
 				"start-y": 80
 			}
 		],
+		"doors": [
+			{
+				"id": "treebottomleft-treeoutsidewest",
+				"type": "wood_round",
+				"x": 1584,
+				"y": 80,
+				"connects": "treeoutsidewest",
+				"connects-x": 1952,
+				"connects-y": 704,
+				"locked": false
+			}
+		]
 	},
 	"treebottomright": {
 		"id": "treebottomright",
@@ -1381,46 +1393,10 @@
 		"background": "background-0001",
 		"area": "tree",
 		"platforms": [
-	
-			{
-				"name": "stairs",
-				"type": "branch",
-				"start-x": 2128,
-				"start-y": -624
-			},
-			{
-				"name": "stairs",
-				"type": "branch",
-				"start-x": 2128,
-				"start-y": -688
-			},
-			{
-				"name": "breaking-floor",
-				"type": "wood",
-				"start-x": 2080,
-				"start-y": -848
-			},
-			{
-				"name": "breaking-floor",
-				"type": "wood",
-				"start-x": 2064,
-				"start-y": -880
-			},
-			{
-				"name": "breaking-floor",
-				"type": "wood",
-				"start-x": 2096,
-				"start-y": -896
-			},
 			{
 				"name": "wines-sappear",
-				"start-x": 1968,
-				"start-y": -896
-			},
-			{
-				"name": "wines-sappear",
-				"start-x": 1984,
-				"start-y": -896
+				"start-x": 1744,
+				"start-y": -326
 			}
 		],
 		"transitions": [
@@ -1450,6 +1426,18 @@
 				"connects-x": 1680,
 				"connects-y": -224,
 				"horizontalCheck": true
+			}
+		],
+		"doors": [
+			{
+				"id": "treeleftupper-treehidden",
+				"type": "wood_round",
+				"x": 1792,
+				"y": -384,
+				"connects": "treehidden",
+				"connects-x": 2752,
+				"connects-y": -336,
+				"locked": false
 			}
 		]
 	},
@@ -1687,7 +1675,7 @@
 	},
 	"treecorridor": {
 		"id": "treecorridor",
-		"min-x": 2240,
+		"min-x": 2400,
 		"max-x": 2928,
 		"min-y": -944,
 		"max-y": -944,
@@ -1768,5 +1756,108 @@
 			}
 			
 		]
+	},
+	"treeoutsidewest": {
+		"id": "treeoutsidewest",
+		"min-x": 1840,
+		"max-x": 1840,
+		"min-y": 624,
+		"max-y": 800,
+		"camera": "vert",
+		"background": "background-0001",
+		"area": "tree",
+		"platforms": [
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1936,
+				"start-y": 720
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1936,
+				"start-y": 752
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1952,
+				"start-y": 784
+			},
+			{
+				"name": "stairs",
+				"type": "branch",
+				"start-x": 1952,
+				"start-y": 816
+			},
+			{
+				"name": "stairs",
+				"type": "flat",
+				"start-x": 1696,
+				"start-y": 816
+			},
+			{
+				"name": "stairs",
+				"type": "flat",
+				"start-x": 1712,
+				"start-y": 816
+			}
+			,
+			{
+				"name": "stairs",
+				"type": "flat",
+				"start-x": 1696,
+				"start-y": 784
+			},
+			{
+				"name": "stairs",
+				"type": "flat",
+				"start-x": 1712,
+				"start-y": 784
+			}
+		],
+		"doors": [
+			{
+				"id": "treeoutsidewest-treebottomleft",
+				"type": "wood_round",
+				"x": 1952,
+				"y": 704,
+				"connects": "treebottomleft",
+				"connects-x": 1584,
+				"connects-y": 80,
+				"locked": false
+			}
+		]
+	},
+	"treehidden": {
+		"id": "treehidden",
+		"min-x": 2736,
+		"max-x": 2736,
+		"min-y": -348,
+		"max-y": -348,
+		"camera": "still",
+		"background": "background-0002",
+		"area": "tree",
+		"doors": [
+			{
+				"id": "treehidden-treeleftupper",
+				"type": "wood_round",
+				"x": 2752,
+				"y": -336,
+				"connects": "treeleftupper",
+				"connects-x": 1792,
+				"connects-y": -384,
+				"locked": false
+			}
+		],
+		"treasures": [
+			{
+				"id": "animal-icon",
+				"start-x": 2704,
+				"start-y": -336
+			}
+		]
+		
 	}
 }

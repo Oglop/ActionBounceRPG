@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bibu1tdc160s5"]
+[gd_scene load_steps=37 format=3 uid="uid://bibu1tdc160s5"]
 
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_7qrbg"]
 
@@ -73,6 +73,10 @@ region = Rect2(448, 208, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_af8gs"]
 atlas = ExtResource("1_7qrbg")
 region = Rect2(400, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cscpn"]
+atlas = ExtResource("1_7qrbg")
+region = Rect2(432, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1mjs"]
 atlas = ExtResource("1_7qrbg")
@@ -282,6 +286,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cscpn")
+}],
+"loop": true,
+"name": &"player_potion_half",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r1mjs")
 }],
 "loop": true,
@@ -403,5 +415,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_y1gg2")
-animation = &"player_potion_full"
+animation = &"player_potion_half"
 offset = Vector2(8, 8)

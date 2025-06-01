@@ -278,6 +278,7 @@ animation = &"player_feather"
 [node name="player_potion" parent="PanelMain" instance=ExtResource("3_dqprv")]
 z_index = 2
 position = Vector2(84, 80)
+animation = &"player_potion_empty"
 
 [node name="PanelDescription" type="Panel" parent="."]
 offset_left = 48.0

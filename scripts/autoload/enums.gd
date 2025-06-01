@@ -154,6 +154,7 @@ enum messageType {
 enum potionType {
 	NONE,
 	EMPTY,
+	HALF,
 	FULL,
 }
 
@@ -167,6 +168,7 @@ enum cameraType {
 func potionTypeToString(value:Enums.potionType) -> String:
 	match value:
 		potionType.EMPTY: return "EMPTY"
+		potionType.HALF: return "HALF"
 		potionType.FULL: return "FULL"
 		_: return "EMPTY"
 		
@@ -174,6 +176,7 @@ func potionTypeToString(value:Enums.potionType) -> String:
 func stringToPotionType(value:String) -> potionType:
 	match value:
 		"EMPTY": return potionType.EMPTY
+		"HALF": return potionType.HALF
 		"FULL": return potionType.FULL
 		_: return Enums.potionType.NONE
 

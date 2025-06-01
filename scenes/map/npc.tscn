@@ -1,7 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://ybbme0gsityr"]
+[gd_scene load_steps=37 format=3 uid="uid://ybbme0gsityr"]
 
 [ext_resource type="Script" uid="uid://bxqryui15xrd4" path="res://scripts/map/npc.gd" id="1_1w4f1"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="2_g3nlj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbp2v"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(288, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_415ja"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(304, 256, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chyvw"]
 atlas = ExtResource("2_g3nlj")
@@ -26,6 +34,14 @@ region = Rect2(336, 272, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbn57"]
 atlas = ExtResource("2_g3nlj")
 region = Rect2(352, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvs0u"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(320, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsfa2"]
+atlas = ExtResource("2_g3nlj")
+region = Rect2(336, 240, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3wee"]
 atlas = ExtResource("2_g3nlj")
@@ -118,6 +134,17 @@ region = Rect2(224, 256, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3yau"]
 animations = [{
 "frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_jbp2v")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_415ja")
+}],
+"loop": true,
+"name": &"bunny_a",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 20.0,
 "texture": SubResource("AtlasTexture_chyvw")
 }, {
@@ -148,6 +175,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"elf_elder",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 18.0,
+"texture": SubResource("AtlasTexture_wvs0u")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_wsfa2")
+}],
+"loop": true,
+"name": &"fox_a",
 "speed": 5.0
 }, {
 "frames": [{
@@ -282,7 +320,8 @@ script = ExtResource("1_1w4f1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_y3yau")
-animation = &"elf_a"
+animation = &"bunny_a"
+frame_progress = 0.435946
 
 [node name="Area2D" type="Area2D" parent="."]
 

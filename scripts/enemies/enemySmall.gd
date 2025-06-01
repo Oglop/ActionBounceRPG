@@ -35,6 +35,7 @@ var _bouncingRight:bool = false
 var _enemyState:Enums.enemyStates = Enums.enemyStates.IDLE
 var _lastKnownPlayerPosition:Vector2
 var _rangedAttack:int = 0
+var _flying:bool = false
 
 var direction:int = 0
 var flipBlocked:bool = false
@@ -66,6 +67,8 @@ func setProperties(name:String) -> void:
 	_crownsGain = props["crowns"]
 	_hurtBlock = props["hurt-block"]
 	_enemyState = Enums.stringToEnemyState(props["default-state"])
+	if props.has("flying"):
+		_flying = props["flying"]
 	if props.has("canShoot") && props.has("shootCooldown"):
 		_canShoot = props["canShoot"]
 		_shootCooldown = props["shootCooldown"]

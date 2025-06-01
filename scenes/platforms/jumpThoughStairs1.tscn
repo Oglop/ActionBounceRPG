@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7wovuhbqd4w"]
+[gd_scene load_steps=8 format=3 uid="uid://dp7wovuhbqd4w"]
 
 [ext_resource type="Script" uid="uid://w83dj4c0ep2d" path="res://scripts/platforms/jumpThoughPlatform.gd" id="1_3jjp6"]
 [ext_resource type="Texture2D" uid="uid://dbcsarf1f8ri8" path="res://media/images/Sprite-0001.png" id="1_56jbw"]
@@ -6,6 +6,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_56jbw"]
 atlas = ExtResource("1_56jbw")
 region = Rect2(560, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbhrs"]
+atlas = ExtResource("1_56jbw")
+region = Rect2(496, 320, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jjp6"]
 atlas = ExtResource("1_56jbw")
@@ -19,6 +23,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"branch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbhrs")
+}],
+"loop": true,
+"name": &"flat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -40,7 +52,7 @@ script = ExtResource("1_3jjp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cbhrs")
-animation = &"stairs_wood"
+animation = &"flat"
 offset = Vector2(8, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

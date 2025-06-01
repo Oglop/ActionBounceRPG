@@ -7,6 +7,7 @@ var _id:String
 var _on:bool
 var _flippable:bool
 var _type:String
+var s:= skills.new()
 
 func _ready() -> void:
 	_on = false	
@@ -33,6 +34,11 @@ func _play() -> void:
 			sprite.play("stone_on")
 		else:
 			sprite.play("stone_off")
+	elif _type == "torch":
+		if _on:
+			sprite.play("torch_on")
+		else:
+			sprite.play("torch_off")
 
 
 func _physics_process(delta: float) -> void:
@@ -40,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("btn_up"):
 		for b:Node in area.get_overlapping_bodies():
 				if b.is_in_group("player"):
+					if _type == "torch" && !s.canLightUpDarkness:
+						return
 					if _flippable || !_flippable && !_on:
 						_on = !_on
 					Events.ROOM_SWITCH_FLIPPED.emit(_id, _on)

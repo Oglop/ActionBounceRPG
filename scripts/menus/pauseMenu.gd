@@ -167,6 +167,8 @@ func _getPointerInput() -> void:
 				Data.armor = Enums.armors.IRON
 			elif row == 2 && Data.shieldTier2Collected:
 				Data.shield = Enums.shields.KNIGHT
+			elif row == 3 && Data.featherCollected:
+				pass
 			updateInterface = true
 		if col == 2:
 			if row == 0 && Data.weaponTier3Collected:
@@ -175,7 +177,12 @@ func _getPointerInput() -> void:
 				Data.armor = Enums.armors.LEGEND
 			elif row == 2 && Data.shieldTier3Collected:
 				Data.shield = Enums.shields.MAGIC
+			elif row == 3 && Data.potionCollected:
+				if Data.potion == Enums.potionType.FULL && Data.hpCurrent < Data.hpMax:
+					Data.potion = Enums.potionType.EMPTY
+					Events.ADD_HP.emit(999)
 			updateInterface = true
+			
 	
 	if updateInterface:
 		_updateEquipedPointers() 

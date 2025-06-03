@@ -242,4 +242,4 @@ animations = [{
 
 [node name="ItemIcons" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_b0lxn")
-animation = &"magic-shield"
+animation = &"ice-crystal"

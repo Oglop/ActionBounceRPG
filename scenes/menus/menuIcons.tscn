@@ -415,5 +415,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_y1gg2")
-animation = &"player_potion_half"
+animation = &"player_potion_empty"
 offset = Vector2(8, 8)

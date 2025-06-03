@@ -16,7 +16,7 @@ const TAIL_SIZE:int = 40
 const TAIL_POSITON_1:int = 1
 const TAIL_INDEX_1:int = 7
 const TAIL_POSITON_2:int = 2
-const TAIL_INDEX_2:int = 14
+const TAIL_INDEX_2:int = 15
 
 const BOSS_TREE_CENTIPEDE := "centipede"
 

@@ -178,9 +178,13 @@ func _getPointerInput() -> void:
 			elif row == 2 && Data.shieldTier3Collected:
 				Data.shield = Enums.shields.MAGIC
 			elif row == 3 && Data.potionCollected:
-				if Data.potion == Enums.potionType.FULL && Data.hpCurrent < Data.hpMax:
-					Data.potion = Enums.potionType.EMPTY
+				if (Data.potion == Enums.potionType.FULL || Data.potion == Enums.potionType.HALF) && Data.hpCurrent < Data.hpMax:
+					if Data.potion == Enums.potionType.FULL:
+						Data.potion == Enums.potionType.HALF
+					elif Data.potion == Enums.potionType.HALF:
+						Data.potion = Enums.potionType.EMPTY
 					Events.ADD_HP.emit(999)
+					_updatePlayerItemIcons()
 			updateInterface = true
 			
 	
@@ -355,6 +359,8 @@ func _updatePlayerItemIcons() -> void:
 	if Data.potionCollected:
 		if Data.potion == Enums.potionType.EMPTY:
 			player_potion.play("player_potion_empty")
+		elif Data.potion == Enums.potionType.HALF:
+			player_potion.play("player_potion_half")
 		elif Data.potion == Enums.potionType.FULL:
 			player_potion.play("player_potion_full")
 	else:
